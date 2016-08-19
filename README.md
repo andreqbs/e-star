@@ -17,17 +17,20 @@ Documentation → Contributos: Destinada para as documentações, cada membro da
 
 ## Siga os passos abaixo para iniciar ##
 
-#### Clone o repositório ####
+#### Clone o repositório: ####
 `git clone https://github.com/andreqbs/e-star.git`
 
-#### Adicionar e Confirmar Alterações na branch Master - Linux ####
+#### Adicionar e Confirmar Alterações na branch Master - Linux: ####
 `cd diretorio-do-projeto`
+
 `git init`
 
 * Verificar a Branch:
+
 `git branch`
 
 * Mudando de branch caso não esteja na desejada:
+
 `git checkout <nome da sua branch>`
 
 * Verificando diferenças no repositorio:
@@ -37,8 +40,11 @@ Documentation → Contributos: Destinada para as documentações, cada membro da
 * Depois disso será possivel atualizar sua branch com os arquivos da sua maquina:
 
 `git add *`
+
 `git commit -m "comentarios da alteração"`
+
 * Enviando a Alteração/Commit
+
 `git push origin < sua branch >`
 
 ## Responsável pelo projeto ##
