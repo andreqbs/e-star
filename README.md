@@ -5,11 +5,13 @@ Este repositório contém a plataforma E-Star. Foi criado um sistema para a orga
 Exemplo:
 
 Interface / Programação:
+
 App →  Templetes: Contem os arquivos finais das páginas, example: home.html.
 
 App →  Views → WELLTON: Pasta destinada para as aplicações de Wellton, exemplo: Wellton, está criando a páginas: Login.htm e Cadastro.html, enquanto as paginas não forem finalizadas Wellton continuara utilizando sua pasta padrão App →  Views → WELLTON, quando finalizado, os arquivos  Login.htm e Cadastro.html, serão transferidos para App →  Templetes. Isso serve para os demais que estão na equipe de interface.
 
 Documentação:
+
 Documentation → Contributos: Destinada para as documentações, cada membro da equipe terá sua pasta para indexar arquivos de Documentação, quando o arquivo estiver finalizado, moveremos para Documentation → Master.
 
 
