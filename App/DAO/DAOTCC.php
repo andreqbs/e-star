@@ -3,14 +3,14 @@
 namespace App\DAO;
 use Lib\Database\Connection as Connection;
 use App\Models\TCC as TCC;
-use App\Iface\IDAOTCC as IDAOTCC;
+use App\Iface\IDAO as IDAO;
 
 require_once dirname(__FILE__).'/../../Lib/Database/Connection.php';
 require_once dirname(__FILE__).'/../Model/TCC.php';
-require_once dirname(__FILE__).'/../Interfaces/IDAOTCC.php';
+require_once dirname(__FILE__).'/../Interfaces/IDAO.php';
 
 
-class DAOTCC implements IDAOTCC{
+class DAOTCC implements IDAO{
     
     public function create($Tcc){
     	$connection = new Connection();
