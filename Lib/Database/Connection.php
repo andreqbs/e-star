@@ -19,11 +19,11 @@ class Connection
      * Connection constructor.
      * @param $database
      */
-    public function __construct($database)
+    public function __construct()
     {
-        if (file_exists(dirname(__FILE__)."/../Core/database/{$database}.ini")) {
-            $this->ini = parse_ini_file(dirname(__FILE__)."/../Core/database/{$database}.ini");
-            $this->connection();
+        if (file_exists(dirname(__FILE__)."/../Core/database/sample.ini")) {
+            $this->ini = parse_ini_file(dirname(__FILE__)."/../Core/database/sample.ini");
+            $this->openConnection();
         } else {
             throw new Exception("Arquivo '$database' não encontrado");
         }
@@ -37,7 +37,7 @@ class Connection
     /**
      * @return PDO
      */
-    public function connection()
+    public function openConnection()
     {
         $user = isset($this->ini['user']) ? $this->ini['user'] : null;
         $pass = isset($this->ini['pass']) ? $this->ini['pass'] : null;
@@ -67,7 +67,7 @@ class Connection
             $stmt = $this->conn->query($sql);
             $this->data = $stmt->fetch();
             
-            if($verboseMode === TRUE)connection
+            if($verboseMode === TRUE)
                 echo "<script>alert('Returned Value: " . $this->data[0] . "');</script>";
         }
         catch(PDOException $e) {
