@@ -22,6 +22,7 @@ require_once dirname(__FILE__).'/../DAO/DAOTCC.php';
 //$meuDAOTCC = new DAOTCC();
 //$meuDAOTCC->delete("13");
 
-$meuTcc = new TCC("my game", "game massa", "2", "Fazer um game massa!!", "Pq eh foda!!!", "2", "1");
+//SELECT
 $meuDAOTCC = new DAOTCC();
-$meuDAOTCC->create($meuTcc);
+$e = $meuDAOTCC->find("12");
+print_r($e);

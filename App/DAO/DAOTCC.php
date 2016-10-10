@@ -78,6 +78,25 @@ class DAOTCC implements IDAO{
     }
     
     public function find($idTcc){
-    	echo "find";
+
+    	$connection = new Connection();
+    	$connection = $connection->openConnection();
+    	$sql = "SELECT * FROM TCC WHERE idTCC = $idTcc";
+    			
+		echo "<br>".$sql."<br>";
+
+    	try {
+
+            $stmt = $connection->query($sql);
+            $this->data = $stmt->fetch();
+            
+            
+        }
+        catch(PDOException $e) {
+            
+                echo "Error: " . $e->getMessage();
+        }
+
+        return $this->data;
     }
 }
