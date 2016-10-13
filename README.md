@@ -47,6 +47,10 @@ Documentation → Contributos: Destinada para as documentações, cada membro da
 
 `git push origin < sua branch >`
 
+* Instalação das dependências Front-End
+
+Navegue até a pasta "public" `cd public` `bower install admin-lte` `bower install components-font-awesome` `bower install ionicons`
+
 ## Responsável pelo projeto ##
 
 * André Quintiliano
