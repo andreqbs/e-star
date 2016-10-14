@@ -2,22 +2,20 @@
 
 namespace App\DAO;
 use Lib\Database\Connection as Connection;
-use App\Models\TCC as TCC;
+use App\Models\Componentes as Componentes;
 use App\Iface\IDAO as IDAO;
 
 require_once dirname(__FILE__).'/../../Lib/Database/Connection.php';
-require_once dirname(__FILE__).'/../Model/TCC.php';
+require_once dirname(__FILE__).'/../Model/Componentes.php';
 require_once dirname(__FILE__).'/../Interfaces/IDAO.php';
 
 
-class DAOTCC implements IDAO{
+class DAOComponentes implements IDAO{
     
-    public function create($Tcc){
+    public function create($Componentes){
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "INSERT INTO TCC (Titulo, Descricao, TCCStatus, Objetivos, Justificativas, TCCTipo, LinhaPesquisa_idLinhaPesquisa) 
-    			VALUES ('{$Tcc->getTitulo()}', '{$Tcc->getDescricao()}', '{$Tcc->getStatus()}', '{$Tcc->getObjetivos()}', 
-    			'{$Tcc->getJustificativas()}', '{$Tcc->getTCCTipo()}', '{$Tcc->getLinhaPesquisa()}'); ";
+    	$sql = "INSERT INTO Componentes (Titulo, Descricao, ComponentesStatus, Objetivos, Justificativas, ComponentesTipo, LinhaPesquisa_idLinhaPesquisa) VALUES ('{$Componentes->getTitulo()}', '{$Componentes->getDescricao()}', '{$Componentes->getStatus()}', '{$Componentes->getObjetivos()}', '{$Componentes->getJustificativas()}', '{$Componentes->getComponentesTipo()}', '{$Componentes->getLinhaPesquisa()}'); ";
 		echo "<br>".$sql."<br>";
 
 		try {
@@ -33,14 +31,11 @@ class DAOTCC implements IDAO{
     	//$conn->makeQuery($sql);
     }
 
-    public function update($Tcc, $idTcc)
+    public function update($Componentes, $idComponentes)
     {
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "UPDATE TCC SET Titulo = '{$Tcc->getTitulo()}', Descricao = '{$Tcc->getDescricao()}', 
-    			TCCStatus = '{$Tcc->getStatus()}', Objetivos = '{$Tcc->getObjetivos()}', 
-    			Justificativas = '{$Tcc->getJustificativas()}', TCCTipo = '{$Tcc->getTCCTipo()}', 
-    			LinhaPesquisa_idLinhaPesquisa = '{$Tcc->getLinhaPesquisa()}' WHERE idTCC = $idTcc";
+    	$sql = "UPDATE Componentes SET Titulo = '{$Componentes->getTitulo()}', Descricao = '{$Componentes->getDescricao()}', ComponentesStatus = '{$Componentes->getStatus()}', Objetivos = '{$Componentes->getObjetivos()}', Justificativas = '{$Componentes->getJustificativas()}', ComponentesTipo = '{$Componentes->getComponentesTipo()}', LinhaPesquisa_idLinhaPesquisa = '{$Componentes->getLinhaPesquisa()}' WHERE idComponentes = $idComponentes";
 
 		echo "<br>".$sql."<br>";
 
@@ -57,10 +52,10 @@ class DAOTCC implements IDAO{
     	//$conn->makeQuery($sql);
     }
     
-    public function delete($idTcc){
+    public function delete($idComponentes){
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "DELETE FROM TCC WHERE idTCC = $idTcc";
+    	$sql = "DELETE FROM Componentes WHERE idComponentes = $idComponentes";
     			
 		echo "<br>".$sql."<br>";
 
@@ -77,11 +72,12 @@ class DAOTCC implements IDAO{
     	//$conn->makeQuery($sql);
     }
     
-    public function find($idTcc){
+    public function find($idComponentes)
+    {
 
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "SELECT * FROM TCC WHERE idTCC = $idTcc";
+    	$sql = "SELECT * FROM Componentes WHERE idComponentes = $idComponentes";
     			
 		echo "<br>".$sql."<br>";
 
@@ -102,9 +98,10 @@ class DAOTCC implements IDAO{
 
     public function list()
     {
+
         $connection = new Connection();
         $connection = $connection->openConnection();
-        $sql = "SELECT * FROM TCC";
+        $sql = "SELECT * FROM Componentes";
                 
         echo "<br>".$sql."<br>";
 
@@ -120,6 +117,6 @@ class DAOTCC implements IDAO{
                 echo "Error: " . $e->getMessage();
         }
 
-        return $this->data;   
+        return $this->data;
     }
 }
