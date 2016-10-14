@@ -38,5 +38,5 @@ function buscarTCC($Tcc,idTcc)
 function listarTCC($Tcc,idTcc)
 {
 	$DAOTCC = new DAOTCC();
-	$DAOTCC->update($Tcc, $idTcc);	
+	$DAOTCC->list($Tcc, $idTcc);	
 }
