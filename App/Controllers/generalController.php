@@ -23,3 +23,20 @@ function alterarTCC($Tcc,idTcc)
 	$DAOTCC->update($Tcc, $idTcc);	
 }
 
+function apagarTCC($Tcc,idTcc)
+{
+	$DAOTCC = new DAOTCC();
+	$DAOTCC->delete($idTcc);	
+}
+
+function buscarTCC($Tcc,idTcc)
+{
+	$DAOTCC = new DAOTCC();
+	$DAOTCC->find($Tcc, $idTcc);	
+}
+
+function listarTCC($Tcc,idTcc)
+{
+	$DAOTCC = new DAOTCC();
+	$DAOTCC->update($Tcc, $idTcc);	
+}
