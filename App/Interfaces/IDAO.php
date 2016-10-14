@@ -11,4 +11,6 @@ interface IDAO{
     public function delete($idObject);
 
     public function find($idObject);
+
+	public function list();
 }
