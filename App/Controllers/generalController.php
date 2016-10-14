@@ -79,3 +79,4 @@ function listarComponentes($Componentes,idComponentes)
 	$DAOComponentes = new DAOComponentes();
 	$DAOComponentes->list($Componentes, $idComponentes);	
 }
+
