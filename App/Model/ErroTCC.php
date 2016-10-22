@@ -8,10 +8,6 @@ class ErroTCC {
 	private $TCCFK;
 
 	
-
-	
-
-	
 	function __construct($ErrosFK, $TCCFK, $ErrosFK) {
 		$this->ErrosFK = $ErrosFK;	
 		$this->TCCFK = $TCCFK;
