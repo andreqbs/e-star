@@ -10,7 +10,7 @@ require_once dirname(__FILE__).'/../DAO/DAOTCC.php';
 
 
 //CreateTCC
-function criarTCC($Tcc)
+function cadastrarTCC($Tcc)
 {
 	$DAOTCC = new DAOTCC();
 	$DAOTCC->create($Tcc);	
