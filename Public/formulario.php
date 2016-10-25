@@ -61,17 +61,17 @@
           <li class="dropdown messages-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-envelope-o"></i>
-              <span class="label label-success">4</span>
+              <span class="label label-success"></span>
             </a>
             <ul class="dropdown-menu">
-              <li class="header">You have 4 messages</li>
+              <li class="header">You have 0 messages</li>
               <li>
                 <!-- inner menu: contains the actual data -->
                 <ul class="menu">
                   <li><!-- start message -->
                     <a href="#">
                       <div class="pull-left">
-                        <img src="bower_components/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                        <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                       </div>
                       <h4>
                         Support Team
@@ -84,7 +84,7 @@
                   <li>
                     <a href="#">
                       <div class="pull-left">
-                        <img src="bower_components/AdminLTE/dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                        <img src="dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
                       </div>
                       <h4>
                         AdminLTE Design Team
@@ -96,7 +96,7 @@
                   <li>
                     <a href="#">
                       <div class="pull-left">
-                        <img src="bower_components/AdminLTE/dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                        <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
                       </div>
                       <h4>
                         Developers
@@ -108,7 +108,7 @@
                   <li>
                     <a href="#">
                       <div class="pull-left">
-                        <img src="bower_components/AdminLTE/dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                        <img src="dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
                       </div>
                       <h4>
                         Sales Department
@@ -120,7 +120,7 @@
                   <li>
                     <a href="#">
                       <div class="pull-left">
-                        <img src="bower_components/AdminLTE/dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                        <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
                       </div>
                       <h4>
                         Reviewers
@@ -138,10 +138,10 @@
           <li class="dropdown notifications-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-bell-o"></i>
-              <span class="label label-warning">10</span>
+              <span class="label label-warning"></span>
             </a>
             <ul class="dropdown-menu">
-              <li class="header">You have 10 notifications</li>
+              <li class="header">You have 0 notifications</li>
               <li>
                 <!-- inner menu: contains the actual data -->
                 <ul class="menu">
@@ -180,10 +180,10 @@
           <li class="dropdown tasks-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-flag-o"></i>
-              <span class="label label-danger">9</span>
+              <span class="label label-danger"></span>
             </a>
             <ul class="dropdown-menu">
-              <li class="header">You have 9 tasks</li>
+              <li class="header">You have 0 tasks</li>
               <li>
                 <!-- inner menu: contains the actual data -->
                 <ul class="menu">
@@ -253,13 +253,13 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="bower_components/image/Start.jpg" class="user-image" alt="User Image">
+              <img src="image/Start.jpg" class="user-image" alt="User Image">
               <span class="hidden-xs">Administrador</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="bower_components/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
                   Alexander Pierce - Web Developer
@@ -330,25 +330,26 @@
           </a>
           <ul class="treeview-menu">
             <li class="active"><a href="formulario.php"><i class="fa fa-file-o"></i> Proposta de Trabalho</a></li>
+            <li class="active"><a href="mudancaorientador.php"><i class="fa fa-file-o"></i> Mudança de Orientador</a></li>
 
           </ul>
-        </li>
+        </li>        
         <li>
-          <a href="bower_components/AdminLTE/pages/calendar.html">
+          <a href="pages/calendar.html">
             <i class="fa fa-calendar"></i> <span>CALENDARIO</span>
             <span class="pull-right-container">
-              <small class="label pull-right bg-red">3</small>
-              <small class="label pull-right bg-blue">17</small>
+              <small class="label pull-right bg-red"></small>
+              <small class="label pull-right bg-blue"></small>
             </span>
           </a>
         </li>
         <li>
-          <a href="bower_components/AdminLTE/pages/mailbox/mailbox.html">
+          <a href="pages/mailbox/mailbox.html">
             <i class="fa fa-envelope"></i> <span>EMAIL</span>
             <span class="pull-right-container">
-              <small class="label pull-right bg-yellow">12</small>
-              <small class="label pull-right bg-green">16</small>
-              <small class="label pull-right bg-red">5</small>
+              <small class="label pull-right bg-yellow"></small>
+              <small class="label pull-right bg-green"></small>
+              <small class="label pull-right bg-red"></small>
             </span>
           </a>
         </li>
@@ -359,7 +360,7 @@
             <i class="fa fa-files-o"></i>
             <span>OPÇÕES</span>
             <span class="pull-right-container">
-              <span class="label label-primary pull-right">4</span>
+              <span class="label label-primary pull-right"></span>
             </span>
           </a>
           <ul class="treeview-menu">
@@ -368,8 +369,8 @@
             <li><a href="#"><i class="fa fa-circle-o"></i> OPÇÃO 3</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> OPÇÃO 4</a></li>
           </ul>
-        </li>
-
+        </li>        
+        
         <li class="header">LABELS</li>
         <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
         <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
@@ -383,22 +384,22 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-
+     
       <h1>
-
+        
         Proposta de Trabalho
-
+        
       </h1>
       <br>
       <br>
 
         <form class="form-horizontal">
         <div class="container">
-
+          
           <div class="row"><!--Linha 01-->
 
-            <div class="col-xs-9 form-group">
-
+            <div class="col-xs-8 form-group">
+              
                 <label class="col-xs-1 control-label">Curso:</label>
 
               <div class="col-xs-11">
@@ -417,19 +418,19 @@
             <!-- /.col -->
             <div class="col-xs-3 form-group">
 
-              <label class="col-xs-2 control-label">Série:</label>
+              <label class="col-xs-4 control-label">Série:</label>
 
               <div class="col-xs-8">
                 <input type="text" class="form-control"  placeholder="Série">
               </div>
-
-            </div>
+  
+            </div> 
 
           </div><!--Fim Linha 01-->
 
-
+                
           <div class="row"> <!--Linha 02-->
-
+                
             <div class="col-xs-8 form-group">
 
               <label class="col-xs-1 control-label">Aluno(a):</label>
@@ -437,24 +438,24 @@
               <div class="col-xs-11">
                 <input type="text" class="form-control"  placeholder="Nome do Aluno(a)">
               </div>
-
+  
             </div>
 
-            <div class="col-xs-4 form-group">
+            <div class="col-xs-3 form-group">
 
-              <label class="col-xs-3 control-label">Matrícula:</label>
+              <label class="col-xs-4 control-label">Matrícula:</label>
 
-              <div class="col-xs-6">
+              <div class="col-xs-8">
                 <input type="text" class="form-control"  placeholder="Matrícula">
               </div>
+  
+            </div> 
 
-            </div>
-
-          </div><!--Fim Linha 02-->
+          </div><!--Fim Linha 02-->          
 
 
           <div class="row"><!--Linha 03-->
-
+                
             <div class="col-sm-8 form-group">
 
               <label class="col-sm-1 control-label">Aluno(a):</label>
@@ -462,24 +463,24 @@
               <div class="col-sm-11">
                 <input type="text" class="form-control"  placeholder="Nome do Aluno(a)">
               </div>
-
+  
             </div>
 
-            <div class="col-sm-4 form-group">
+            <div class="col-sm-3 form-group">
 
-              <label class="col-sm-3 control-label">Matrícula:</label>
+              <label class="col-sm-4 control-label">Matrícula:</label>
 
-              <div class="col-sm-6">
+              <div class="col-sm-8">
                 <input type="text" class="form-control"  placeholder="Matrícula">
               </div>
-
-            </div>
+  
+            </div> 
 
           </div><!--Fim Linha 03-->
 
 
           <div class="row"><!--Linha 04-->
-
+                
             <div class="col-xs-12 form-group">
 
               <label class="col-xs-1 control-label">Orientador(a):</label>
@@ -487,7 +488,7 @@
               <div class="col-xs-8">
                 <input type="text" class="form-control"  placeholder="Nome do Orientador(a)">
               </div>
-
+  
             </div>
 
 
@@ -496,7 +497,7 @@
           <div class="row"><!--Linha 05-->
 
             <div class="col-xs-12 form-group">
-
+              
                 <label class="col-xs-1 ">Linha de Pesquisa:</label>
 
               <div class="col-xs-8">
@@ -514,30 +515,29 @@
               </div>
               <!-- /.form-group -->
             </div>
-
           </div><!--Fim Linha 05-->
 
           <div class="row"><!--Linha 06-->
-
+                
             <div class="col-sm-12 form-group">
 
               <label class="col-sm-1 ">Título do Trabalho:</label>
 
-              <div class="col-sm-9">
+              <div class="col-sm-8">
                 <input type="text" class="form-control"  placeholder="Título do Trabalho">
               </div>
-
+  
             </div>
 
 
           </div><!--Fim Linha 06-->
 
           <div class="row"><!--Linha 07-->
+            
+            <div class="col-xs-12 form-group">
 
-            <div class="col-xs-11 form-group">
-
-              <label class="col-xs-2 ">Resumo da Proposta:</label>
-
+              <label class="col-xs-1 ">Resumo da Proposta:</label>
+              
               <div class="col-xs-8">
                 <textarea class="form-control" rows="2" placeholder="Escreva um resumo da proposta:"></textarea>
               </div>
@@ -547,13 +547,13 @@
           </div><!--Fim Linha 07-->
 
 
-
+          
           <div class="row"><!--Linha 08-->
-
+            
             <div class="col-xs-6 form-group">
 
               <label class="col-xs-1 ">Objetivos:</label>
-
+              
               <div class="col-xs-12">
                 <textarea class="form-control"  placeholder="Escreva os objetivos do trabalho"></textarea>
               </div>
@@ -563,7 +563,7 @@
             <div class="col-xs-6 form-group">
 
               <label class="col-xs-1 ">Justificativas:</label>
-
+              
               <div class="col-xs-12">
                 <textarea class="form-control"  placeholder="Escreva as justificativas"></textarea>
               </div>
@@ -573,9 +573,9 @@
 
           </div><!--Fim Linha 08-->
 
-
+        
         </div>
-        </form>
+        </form> 
 
 
     </section>

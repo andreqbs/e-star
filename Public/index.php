@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-Br">
 <head>
+
 	<meta charset="UTF-8">
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<title>E-Start</title>
+	
+	<link rel="stylesheet" href="estart/css/style.css">
 
-	<link rel="stylesheet" href="bower_components/estart/css/style.css">
-
-	<link rel="stylesheet" href="bower_components/AdminLTE/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="bower_components/AdminLTE/bootstrap/css/bootstrap.css">    
 
 
   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -22,11 +23,11 @@
 </head>
 
 <body class="hold-transition skin-blue layout-top-nav">
-
+	
 
 	<header>
 		<video id="videobg" autoplay="true" loop="true" >
-    		<source src="bower_components/estart/BGVideo/video.mp4" type="video/mp4">
+    		<source src="estart/img/video.mp4" type="video/mp4">
 		</video>
 	</header>
 
@@ -39,20 +40,20 @@
 
 	      <div class="container ">
 
-	        <div class="col-md-2 ">
-
-	              <img id="logo" src="bower_components/image/Start.jpg" width="70" class="img-responsive img-rounded" alt="Responsive image">
+	        <div class="col-md-2 ">            
+	              
+	              <img id="logo" src="image/Start.jpg" width="70" class="img-responsive img-rounded" alt="Responsive image">
 	              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
 	                <i class="fa fa-bars"></i>
 	              </button>
-
+	           
 	        </div>
 
 
 	        <div class="col-md-5 col-md-push-7 collapse navbar-collapse pull-left" id="navbar-collapse">
-
+				    
 				<ul class="posicao-menu" >
-
+	                                    
 	                <!--<li><a href="cadastro.php"><button type="button"  class="btn btn-warning  btn-lg">Cadastre-se</button></a>
 	                </li>-->
 	                <li class="active" data-toggle="modal" data-target="#myModalCad"><a href="#"><button type="button"  class="btn btn-warning  btn-lg">Cadastre-se</button></a>
@@ -62,7 +63,7 @@
 	                </li>
 
 
-
+	                  
 	            </ul>
 
 	        </div>
@@ -88,7 +89,7 @@
               </div>
 
               <div class="container-fluid">
-
+                
 	            <!-- Inicio do Login-->
 	            <div  class="col-sm-6 col-md-10 col-md-push-1 " >
 
@@ -107,7 +108,7 @@
 	                      <span class="glyphicon glyphicon-lock form-control-feedback"></span>
 	                    </div>
 	                    <div class="row">
-
+	                      
 
 		                    <div class="col-xs-8">
 		                        <div class="checkbox icheck">
@@ -120,24 +121,24 @@
 		                    <div class="col-xs-4">
 		                        <button type="submit" class="btn btn-primary btn-block btn-flat">Login</button>
 		                    </div>
-
+	                      
 	                    </div>
 
 	                  </form>
 
 	                  <a href="#" class="cor-branca">Esqueci minha senha</a><br>
-
+	                  
 	                </div>
 
 	              </div>
 
-	            </div><!--Fim do Login-->
-
-              </div>
+	            </div><!--Fim do Login-->  
+              
+              </div>     
 
             </div>
 
-
+                     
         </div><!--Fim da modal Login -->
 
 
@@ -152,7 +153,7 @@
               </div>
 
               <div class="container-fluid">
-
+                
 	            <!-- Inicio do Cadastro-->
 	            <div  class="col-sm-6 col-md-10 col-md-push-1 " >
 
@@ -160,12 +161,12 @@
 	                  <p class="fonte-centro">Faça se cadastro para começar a utilizar o serviço</p>
 
 	                  <form action="#" method="post">
-
+	                    
 						<div class="form-group has-feedback">
 					        <input type="text" class="form-control" placeholder="Nome">
 					        <span class="glyphicon glyphicon-user form-control-feedback"></span>
 					      </div>
-
+					    
 					      <div class="form-group has-feedback">
 					        <input type="email" class="form-control" placeholder="Email">
 					        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -174,12 +175,12 @@
 					      <div class="form-group has-feedback">
 					        <input type="text" class="form-control" placeholder="Matricula">
 					        <span class="glyphicon glyphicon-user form-control-feedback"></span>
-					      </div>
+					      </div>   
 
 					      <div class="form-group has-feedback">
 					        <input type="text" class="form-control" placeholder="Curso">
 					        <span class="glyphicon glyphicon-user form-control-feedback"></span>
-					      </div>
+					      </div> 
 
 					      <div class="form-group has-feedback">
 					        <input type="password" class="form-control" placeholder="Senha">
@@ -189,28 +190,28 @@
 	                    <div class="row">
 
 	                      <div class="col-xs-4 col-xs-push-4">
-
+	                        
 							<button type="button" class="btn btn-primary " data-toggle="modal" data-target="#myModalTermo">
 					            Cadastrar
 					        </button>
 
 	                      </div>
-
+	                      
 	                    </div>
 	                  </form>
 
-
+	                  
 	                </div>
 
 	              </div>
 
-	            </div><!--Fim do Cadastro-->
-
-              </div>
+	            </div><!--Fim do Cadastro-->  
+              
+              </div>     
 
             </div>
 
-
+                     
         </div><!--Fim da modal Cadastro -->
 
 
@@ -223,7 +224,7 @@
                   <h4 class="modal-title" id="myModalLabel">Termos de Uso</h4>
                 </div>
                 <div class="modal-body">
-
+                  
                 <p>O que é Lorem Ipsum?
 
                 Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.
