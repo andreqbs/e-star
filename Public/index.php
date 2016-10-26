@@ -6,7 +6,7 @@
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<title>E-Start</title>
 	
-	<link rel="stylesheet" href="estart/css/style.css">
+	<link rel="stylesheet" href="../CSS/style.css">
 
 	<link rel="stylesheet" href="bower_components/AdminLTE/bootstrap/css/bootstrap.css">    
 
@@ -22,14 +22,9 @@
 
 </head>
 
-<body class="hold-transition skin-blue layout-top-nav">
+<body class="fundobg">
 	
 
-	<header>
-		<video id="videobg" autoplay="true" loop="true" >
-    		<source src="estart/img/video.mp4" type="video/mp4">
-		</video>
-	</header>
 
 <!--Inicio do Container-->
 <div class="container-fluid">
@@ -42,7 +37,7 @@
 
 	        <div class="col-md-2 ">            
 	              
-	              <img id="logo" src="image/Start.jpg" width="70" class="img-responsive img-rounded" alt="Responsive image">
+	              <img id="logo" src="../Imagens/Start.jpg" width="70" class="img-responsive img-rounded" alt="Responsive image">
 	              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
 	                <i class="fa fa-bars"></i>
 	              </button>
