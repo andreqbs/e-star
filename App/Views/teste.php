@@ -10,6 +10,8 @@ require_once dirname(__FILE__).'/../DAO/DAOTCC.php';
 
 //INSERT
 $meuTcc = new TCC("TalkingHand", "Luva Foda", "1", "Fazer uma luva foda!!", "Pq eh massa!!!", "1", "1");
+
+
 $meuDAOTCC = new DAOTCC();
 $meuDAOTCC->create($meuTcc);
 
