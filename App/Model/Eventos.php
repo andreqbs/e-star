@@ -16,8 +16,7 @@ class Eventos {
 	private $CursoFK;
 
 	
-	function __construct($idEventos, $NomeEvento, $DataEvento, $LocalEvento, $ProfessorFK, $CursoFK) {
-		$this->idEventos = $idEventos;	
+	function __construct($NomeEvento, $DataEvento, $LocalEvento, $ProfessorFK, $CursoFK) {
 		$this->NomeEvento = $NomeEvento;
 		$this->DataEvento = $DataEvento;
 		$this->LocalEvento = $LocalEvento;

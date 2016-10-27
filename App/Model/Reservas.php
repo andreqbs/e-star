@@ -14,8 +14,7 @@ class Reservas {
 	
 
 	
-	function __construct($idReserva, $DataHora, $ProfessorFK, $SalaFK) {
-		$this->idReserva = $idReserva;	
+	function __construct($DataHora, $ProfessorFK, $SalaFK) {
 		$this->DataHora = $DataHora;
 		$this->ProfessorFK = $ProfessorFK;
 		$this->SalaFK = $SalaFK;
