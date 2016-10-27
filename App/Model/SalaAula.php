@@ -16,8 +16,7 @@ class SalaAula {
 
 
 	
-	function __construct($idSalaAula, $NomeSala, $Setor, $Capacidade, $Unidade) {
-		$this->idSalaAula = $idSalaAula;	
+	function __construct($NomeSala, $Setor, $Capacidade, $Unidade) {
 		$this->NomeSala = $NomeSala;
 		$this->Setor = $Setor;
 		$this->Capacidade = $Capacidade;

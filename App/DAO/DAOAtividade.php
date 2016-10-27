@@ -2,21 +2,21 @@
 
 namespace App\DAO;
 use Lib\Database\Connection as Connection;
-use App\Models\Arquivos as Arquivos;
+use App\Models\Atividade as Atividade;
 use App\Iface\IDAO as IDAO;
 
 require_once dirname(__FILE__).'/../../Lib/Database/Connection.php';
-require_once dirname(__FILE__).'/../Model/Arquivos.php';
+require_once dirname(__FILE__).'/../Model/Atividade.php';
 require_once dirname(__FILE__).'/../Interfaces/IDAO.php';
 
 
-class DAOArquivos implements IDAO{
+class DAOAtividade implements IDAO{
     
-    public function create($Arquivos){
+    public function create($Atividade){
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "INSERT INTO Arquivos (Link, idTCCFK) 
-    			VALUES ('{$Arquivos->getLink()}', '{$Arquivos->getidTCCFK()}'); ";
+    	$sql = "INSERT INTO Atividade (NomeAtividade, MesAtividade, DescricaoAtividade, idTCCFK) 
+    			VALUES ('{$Atividade->getNomeAtividade()}', '{$Atividade->getMesAtividade()}', '{$Atividade->getDescricaoAtividade()}', '{$Atividade->getidTCCFK()}'); ";
 		echo "<br>".$sql."<br>";
 
 		try {
@@ -32,11 +32,12 @@ class DAOArquivos implements IDAO{
     	//$conn->makeQuery($sql);
     }
 
-    public function update($Arquivos, $idArquivos)
+    public function update($Atividade, $idAtividade)
     {
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "UPDATE Arquivos SET Link = '{$Arquivos->getLink()}', idTCCFK = '{$Arquivos->getidTCCFK()}' WHERE idArquivos = $idArquivos";
+    	$sql = "UPDATE Atividade SET NomeAtividade = '{$Atividade->getNomeAtividade()}', MesAtividade = '{$Atividade->getMesAtividade()}', 
+    			DescricaoAtividade = '{$Atividade->getDescricaoAtividade()}', idTCCFK = '{$Atividade->getidTCCFK()}' WHERE idAtividade = $idAtividade";
 
 		echo "<br>".$sql."<br>";
 
@@ -53,10 +54,10 @@ class DAOArquivos implements IDAO{
     	//$conn->makeQuery($sql);
     }
     
-    public function delete($idArquivos){
+    public function delete($idAtividade){
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "DELETE FROM Arquivos WHERE idArquivos = $idArquivos";
+    	$sql = "DELETE FROM Atividade WHERE idAtividade = $idAtividade";
     			
 		echo "<br>".$sql."<br>";
 
@@ -73,11 +74,11 @@ class DAOArquivos implements IDAO{
     	//$conn->makeQuery($sql);
     }
     
-    public function find($idArquivos){
+    public function find($idAtividade){
 
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "SELECT * FROM Arquivos WHERE idArquivos = $idArquivos";
+    	$sql = "SELECT * FROM Atividade WHERE idAtividade = $idAtividade";
     			
 		echo "<br>".$sql."<br>";
 
@@ -100,7 +101,7 @@ class DAOArquivos implements IDAO{
     {
         $connection = new Connection();
         $connection = $connection->openConnection();
-        $sql = "SELECT * FROM Arquivos";
+        $sql = "SELECT * FROM Atividade";
                 
         echo "<br>".$sql."<br>";
 

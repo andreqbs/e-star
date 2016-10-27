@@ -7,15 +7,14 @@ class Arquivo {
 
 	private $Link;
 
-	private $TCCFK;
+	private $idTCCFK;
 
 	
 
 	
-	function __construct($idArquivo, $Link, $TCCFK) {
-		$this->idArquivo = $idArquivo;	
+	function __construct($Link, $idTCCFK) {
 		$this->Link = $Link;
-		$this->TCCFK = $TCCFK;
+		$this->idTCCFK = $idTCCFK;
 		
 	}
 
@@ -29,9 +28,9 @@ class Arquivo {
 			return $this->Link;
 		}
 		
-		function getTCCFK () 
+		function getidTCCFK () 
 		{
-			return $this->TCCFK;
+			return $this->idTCCFK;
 		}
 		
 				
@@ -40,9 +39,9 @@ class Arquivo {
 			$this->Link = $Link;
 		}
 		
-		function setTCCFK ($TCCFK) 
+		function setidTCCFK ($idTCCFK) 
 		{
-			$this->TCCFK = $TCCFK;
+			$this->idTCCFK = $idTCCFK;
 		}
 		
 		

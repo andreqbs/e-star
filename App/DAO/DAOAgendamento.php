@@ -2,21 +2,22 @@
 
 namespace App\DAO;
 use Lib\Database\Connection as Connection;
-use App\Models\Arquivos as Arquivos;
+use App\Models\Agendamento as Agendamento;
 use App\Iface\IDAO as IDAO;
 
 require_once dirname(__FILE__).'/../../Lib/Database/Connection.php';
-require_once dirname(__FILE__).'/../Model/Arquivos.php';
+require_once dirname(__FILE__).'/../Model/Agendamento.php';
 require_once dirname(__FILE__).'/../Interfaces/IDAO.php';
 
 
-class DAOArquivos implements IDAO{
+class DAOAgendamento implements IDAO{
     
-    public function create($Arquivos){
+    public function create($Agendamento){
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "INSERT INTO Arquivos (Link, idTCCFK) 
-    			VALUES ('{$Arquivos->getLink()}', '{$Arquivos->getidTCCFK()}'); ";
+    	$sql = "INSERT INTO Agendamento (DataHora, Motivo, idAlunoFK, idProfessorFK, idCursoFK) 
+    			VALUES ('{$Agendamento->getDataHora()}', '{$Agendamento->getMotivo()}', '{$Agendamento->getidAlunoFK()}', '{$Agendamento->getidProfessorFK()}', 
+    			'{$Agendamento->getidCursoFK()}'); ";
 		echo "<br>".$sql."<br>";
 
 		try {
@@ -32,11 +33,13 @@ class DAOArquivos implements IDAO{
     	//$conn->makeQuery($sql);
     }
 
-    public function update($Arquivos, $idArquivos)
+    public function update($Agendamento, $idAgenda)
     {
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "UPDATE Arquivos SET Link = '{$Arquivos->getLink()}', idTCCFK = '{$Arquivos->getidTCCFK()}' WHERE idArquivos = $idArquivos";
+    	$sql = "UPDATE Agendamento SET DataHora = '{$Agendamento->getDataHora()}', Motivo = '{$Agendamento->getMotivo()}', 
+    			idAlunoFK = '{$Agendamento->getidAlunoFK()}', idProfessorFK = '{$Agendamento->getidProfessorFK()}', 
+    			idCursoFK = '{$Agendamento->getidCursoFK()}' WHERE idAgenda = $idAgenda";
 
 		echo "<br>".$sql."<br>";
 
@@ -53,10 +56,10 @@ class DAOArquivos implements IDAO{
     	//$conn->makeQuery($sql);
     }
     
-    public function delete($idArquivos){
+    public function delete($idAgenda){
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "DELETE FROM Arquivos WHERE idArquivos = $idArquivos";
+    	$sql = "DELETE FROM Agendamento WHERE idAgenda = $idAgenda";
     			
 		echo "<br>".$sql."<br>";
 
@@ -73,11 +76,11 @@ class DAOArquivos implements IDAO{
     	//$conn->makeQuery($sql);
     }
     
-    public function find($idArquivos){
+    public function find($idAgenda){
 
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "SELECT * FROM Arquivos WHERE idArquivos = $idArquivos";
+    	$sql = "SELECT * FROM Agendamento WHERE idAgenda = $idAgenda";
     			
 		echo "<br>".$sql."<br>";
 
@@ -100,7 +103,7 @@ class DAOArquivos implements IDAO{
     {
         $connection = new Connection();
         $connection = $connection->openConnection();
-        $sql = "SELECT * FROM Arquivos";
+        $sql = "SELECT * FROM Agendamento";
                 
         echo "<br>".$sql."<br>";
 

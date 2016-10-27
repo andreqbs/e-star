@@ -15,9 +15,8 @@ class Componentes {
 
 	
 
-	function __construct($idComponentes, $idAluno1FK, $idAluno2FK, $idTCCFK, $idProfessorFK) 
+	function __construct($idAluno1FK, $idAluno2FK, $idTCCFK, $idProfessorFK) 
 	{
-		$this->idComponentes = $idComponentes;	
 		$this->idAluno1FK = $idAluno1FK;
 		$this->idAluno2FK = $idAluno2FK;
 		$this->idTCCFK = $idTCCFK;
@@ -50,13 +49,7 @@ class Componentes {
 		}
 
 	
-
-
-		function setidComponentes($idComponentes) 
-		{
-   			$this->idComponentes = $idComponentes;
-  		}
-
+		
 		function setidAluno1FK ($idAluno1FK) 
 		{
 			$this->idAluno1FK = $idAluno1FK;
