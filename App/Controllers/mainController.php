@@ -295,6 +295,222 @@ function listarSalaAula($SalaAula,idSalaAula)
 	$DAOSalaAula->list($SalaAula, $idSalaAula);	
 }
 
+//CreateAluno
+function cadastrarAluno($Aluno)
+{
+	$DAOAluno = new DAOAluno();
+	$DAOAluno->create($Aluno);	
+}
+
+//UpdateAluno
+function alterarAluno($Aluno,idAluno)
+{
+	$DAOAluno = new DAOAluno();
+	$DAOAluno->update($Aluno, $idAluno);	
+}
+
+//DeleteAluno
+function apagarAluno(idAluno)
+{
+	$DAOAluno = new DAOAluno();
+	$DAOAluno->delete($idAluno);	
+}
+
+//FindAluno
+function buscarAluno($Aluno,idAluno)
+{
+	$DAOAluno = new DAOAluno();
+	$DAOAluno->find($Aluno, $idAluno);	
+}
+
+//ListAluno
+function listarAluno($Aluno,idAluno)
+{
+	$DAOAluno = new DAOTCC();
+	$DAOAluno->list($Aluno, $idAluno);	
+}
+
+//CreateAtividade
+function cadastrarAtividade($Atividade)
+{
+	$DAOAtividade = new DAOAtividade();
+	$DAOAtividade->create($Atividade);	
+}
+
+//UpdateAtividade
+function alterarAtividade($Atividade,idAtividade)
+{
+	$DAOAtividade = new DAOAtividade();
+	$DAOAtividade->update($Atividade, $idAtividade);	
+}
+
+//DeleteAtividade
+function apagarAtividade(idAtividade)
+{
+	$DAOAtividade = new DAOAtividade();
+	$DAOAtividade->delete($idAtividade);	
+}
+
+//FindAtividade
+function buscarAtividade($Atividade,idAtividade)
+{
+	$DAOAtividade = new DAOAtividade();
+	$DAOAtividade->find($Atividade, $idAtividade);	
+}
+
+//ListAtividade
+function listarAtividade($Atividade,idAtividade)
+{
+	$DAOAtividade = new DAOTCC();
+	$DAOAtividade->list($Atividade, $idAtividade);	
+}
+
+//CreateCurso
+function cadastrarCurso($Curso)
+{
+	$DAOCurso = new DAOCurso();
+	$DAOCurso->create($Curso);	
+}
+
+//UpdateCurso
+function alterarCurso($Curso,idCurso)
+{
+	$DAOCurso = new DAOCurso();
+	$DAOCurso->update($Curso, $idCurso);	
+}
+
+//DeleteCurso
+function apagarCurso(idCurso)
+{
+	$DAOCurso = new DAOCurso();
+	$DAOCurso->delete($idCurso);	
+}
+
+//FindCurso
+function buscarCurso($Curso,idCurso)
+{
+	$DAOCurso = new DAOCurso();
+	$DAOCurso->find($Curso, $idCurso);	
+}
+
+//ListCurso
+function listarCurso($Curso,idCurso)
+{
+	$DAOCurso = new DAOTCC();
+	$DAOCurso->list($Curso, $idCurso);	
+}
+
+
+//CreateLinhaPesquisa
+function cadastrarLinhaPesquisa($LinhaPesquisa)
+{
+	$DAOLinhaPesquisa = new DAOLinhaPesquisa();
+	$DAOLinhaPesquisa->create($LinhaPesquisa);	
+}
+
+//UpdateLinhaPesquisa
+function alterarLinhaPesquisa($LinhaPesquisa,idLinhaPesquisa)
+{
+	$DAOLinhaPesquisa = new DAOLinhaPesquisa();
+	$DAOLinhaPesquisa->update($LinhaPesquisa, $idLinhaPesquisa);	
+}
+
+//DeleteLinhaPesquisa
+function apagarLinhaPesquisa(idLinhaPesquisa)
+{
+	$DAOLinhaPesquisa = new DAOLinhaPesquisa();
+	$DAOLinhaPesquisa->delete($idLinhaPesquisa);	
+}
+
+//FindLinhaPesquisa
+function buscarLinhaPesquisa($LinhaPesquisa,idLinhaPesquisa)
+{
+	$DAOLinhaPesquisa = new DAOLinhaPesquisa();
+	$DAOLinhaPesquisa->find($LinhaPesquisa, $idLinhaPesquisa);	
+}
+
+//ListLinhaPesquisa
+function listarLinhaPesquisa($LinhaPesquisa,idLinhaPesquisa)
+{
+	$DAOLinhaPesquisa = new DAOTCC();
+	$DAOLinhaPesquisa->list($LinhaPesquisa, $idLinhaPesquisa);	
+}
+
+	
+
+//CreateRelatorioTCC
+function cadastrarRelatorioTCC($RelatorioTCC)
+{
+	$DAORelatorioTCC = new DAORelatorioTCC();
+	$DAORelatorioTCC->create($RelatorioTCC);	
+}
+
+//UpdateRelatorioTCC
+function alterarRelatorioTCC($RelatorioTCC,idRelatorioTCC)
+{
+	$DAORelatorioTCC = new DAORelatorioTCC();
+	$DAORelatorioTCC->update($RelatorioTCC, $idRelatorioTCC);	
+}
+
+//DeleteRelatorioTCC
+function apagarRelatorioTCC(idRelatorioTCC)
+{
+	$DAORelatorioTCC = new DAORelatorioTCC();
+	$DAORelatorioTCC->delete($idRelatorioTCC);	
+}
+
+//FindRelatorioTCC
+function buscarRelatorioTCC($RelatorioTCC,idRelatorioTCC)
+{
+	$DAORelatorioTCC = new DAORelatorioTCC();
+	$DAORelatorioTCC->find($RelatorioTCC, $idRelatorioTCC);	
+}
+
+//ListRelatorioTCC
+function listarRelatorioTCC($RelatorioTCC,idRelatorioTCC)
+{
+	$DAORelatorioTCC = new DAOTCC();
+	$DAORelatorioTCC->list($RelatorioTCC, $idRelatorioTCC);	
+}
+
+
+//CreateAgendamento
+function cadastrarAgendamento($Agendamento)
+{
+	$DAOAgendamento = new DAOAgendamento();
+	$DAOAgendamento->create($Agendamento);	
+}
+
+//UpdateAgendamento
+function alterarAgendamento($Agendamento,idAgendamento)
+{
+	$DAOAgendamento = new DAOAgendamento();
+	$DAOAgendamento->update($Agendamento, $idAgendamento);	
+}
+
+//DeleteAgendamento
+function apagarAgendamento(idAgendamento)
+{
+	$DAOAgendamento = new DAOAgendamento();
+	$DAOAgendamento->delete($idAgendamento);	
+}
+
+//FindAgendamento
+function buscarAgendamento($Agendamento,idAgendamento)
+{
+	$DAOAgendamento = new DAOAgendamento();
+	$DAOAgendamento->find($Agendamento, $idAgendamento);	
+}
+
+//ListAgendamento
+function listarAgendamento($Agendamento,idAgendamento)
+{
+	$DAOAgendamento = new DAOTCC();
+	$DAOAgendamento->list($Agendamento, $idAgendamento);	
+}
+
+
+
 
  
 
