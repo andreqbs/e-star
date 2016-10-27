@@ -99,4 +99,27 @@ class DAOTCC implements IDAO{
 
         return $this->data;
     }
+
+    public function list()
+    {
+        $connection = new Connection();
+        $connection = $connection->openConnection();
+        $sql = "SELECT * FROM TCC";
+                
+        echo "<br>".$sql."<br>";
+
+        try {
+
+            $stmt = $connection->query($sql);
+            $this->data = $stmt->fetch();
+            
+            
+        }
+        catch(PDOException $e) {
+            
+                echo "Error: " . $e->getMessage();
+        }
+
+        return $this->data;   
+    }
 }

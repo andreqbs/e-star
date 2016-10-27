@@ -9,9 +9,9 @@ require_once dirname(__FILE__).'/../Model/TCC.php';
 require_once dirname(__FILE__).'/../DAO/DAOTCC.php';
 
 //INSERT
-//$meuTcc = new TCC("TalkingHand", "Luva Foda", "1", "Fazer uma luva foda!!", "Pq eh massa!!!", "1", "1");
-//$meuDAOTCC = new DAOTCC();
-//$meuDAOTCC->create($meuTcc);
+$meuTcc = new TCC("TalkingHand", "Luva Foda", "1", "Fazer uma luva foda!!", "Pq eh massa!!!", "1", "1");
+$meuDAOTCC = new DAOTCC();
+$meuDAOTCC->create($meuTcc);
 
 //UPDATE
 //$meuTcc = new TCC("fuckingdrone", "Drone loko", "2", "Fazer um drone loko!!", "Pq eh show!!!", "2", "1");
@@ -23,6 +23,6 @@ require_once dirname(__FILE__).'/../DAO/DAOTCC.php';
 //$meuDAOTCC->delete("13");
 
 //SELECT
-$meuDAOTCC = new DAOTCC();
-$e = $meuDAOTCC->find("12");
-print_r($e);
+//$meuDAOTCC = new DAOTCC();
+//$e = $meuDAOTCC->find("12");
+//print_r($e);
