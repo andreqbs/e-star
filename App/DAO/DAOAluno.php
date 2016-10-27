@@ -16,7 +16,7 @@ class DAOAluno implements IDAO{
     	$connection = new Connection();
     	$connection = $connection->openConnection();
     	$sql = "INSERT INTO Aluno (NomeAluno, MatriculaAluno, EmailAluno, LoginAluno, SenhaAluno, idCursoFK) 
-    			VALUES ('{$Aluno->getNomeAluno()}', '{$Aluno->getMatriculaAluno()}', '{$Aluno->getStatus()}', '{$Aluno->getLoginAluno()}', 
+    			VALUES ('{$Aluno->getNomeAluno()}', '{$Aluno->getMatriculaAluno()}', '{$Aluno->getEmailAluno()}', '{$Aluno->getLoginAluno()}', 
     			'{$Aluno->getSenhaAluno()}', '{$Aluno->getidCursoFK()}'); ";
 		echo "<br>".$sql."<br>";
 
@@ -38,7 +38,7 @@ class DAOAluno implements IDAO{
     	$connection = new Connection();
     	$connection = $connection->openConnection();
     	$sql = "UPDATE Aluno SET NomeAluno = '{$Aluno->getNomeAluno()}', MatriculaAluno = '{$Aluno->getMatriculaAluno()}', 
-    			EmailAluno = '{$Aluno->getStatus()}', LoginAluno = '{$Aluno->getLoginAluno()}', 
+    			EmailAluno = '{$Aluno->getEmailAluno()}', LoginAluno = '{$Aluno->getLoginAluno()}', 
     			SenhaAluno = '{$Aluno->getSenhaAluno()}', idCursoFK = '{$Aluno->getidCursoFK()}' WHERE idAluno = $idAluno";
 
 		echo "<br>".$sql."<br>";

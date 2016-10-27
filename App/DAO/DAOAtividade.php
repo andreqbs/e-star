@@ -16,7 +16,7 @@ class DAOAtividade implements IDAO{
     	$connection = new Connection();
     	$connection = $connection->openConnection();
     	$sql = "INSERT INTO Atividade (NomeAtividade, MesAtividade, DescricaoAtividade, idTCCFK) 
-    			VALUES ('{$Atividade->getNomeAtividade()}', '{$Atividade->getMesAtividade()}', '{$Atividade->getStatus()}', '{$Atividade->getidTCCFK()}'); ";
+    			VALUES ('{$Atividade->getNomeAtividade()}', '{$Atividade->getMesAtividade()}', '{$Atividade->getDescricaoAtividade()}', '{$Atividade->getidTCCFK()}'); ";
 		echo "<br>".$sql."<br>";
 
 		try {
@@ -37,7 +37,7 @@ class DAOAtividade implements IDAO{
     	$connection = new Connection();
     	$connection = $connection->openConnection();
     	$sql = "UPDATE Atividade SET NomeAtividade = '{$Atividade->getNomeAtividade()}', MesAtividade = '{$Atividade->getMesAtividade()}', 
-    			DescricaoAtividade = '{$Atividade->getStatus()}', idTCCFK = '{$Atividade->getidTCCFK()}' WHERE idAtividade = $idAtividade";
+    			DescricaoAtividade = '{$Atividade->getDescricaoAtividade()}', idTCCFK = '{$Atividade->getidTCCFK()}' WHERE idAtividade = $idAtividade";
 
 		echo "<br>".$sql."<br>";
 

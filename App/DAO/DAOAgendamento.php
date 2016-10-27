@@ -16,7 +16,7 @@ class DAOAgendamento implements IDAO{
     	$connection = new Connection();
     	$connection = $connection->openConnection();
     	$sql = "INSERT INTO Agendamento (DataHora, Motivo, idAlunoFK, idProfessorFK, idCursoFK) 
-    			VALUES ('{$Agendamento->getDataHora()}', '{$Agendamento->getMotivo()}', '{$Agendamento->getStatus()}', '{$Agendamento->getidProfessorFK()}', 
+    			VALUES ('{$Agendamento->getDataHora()}', '{$Agendamento->getMotivo()}', '{$Agendamento->getidAlunoFK()}', '{$Agendamento->getidProfessorFK()}', 
     			'{$Agendamento->getidCursoFK()}'); ";
 		echo "<br>".$sql."<br>";
 
@@ -38,7 +38,7 @@ class DAOAgendamento implements IDAO{
     	$connection = new Connection();
     	$connection = $connection->openConnection();
     	$sql = "UPDATE Agendamento SET DataHora = '{$Agendamento->getDataHora()}', Motivo = '{$Agendamento->getMotivo()}', 
-    			idAlunoFK = '{$Agendamento->getStatus()}', idProfessorFK = '{$Agendamento->getidProfessorFK()}', 
+    			idAlunoFK = '{$Agendamento->getidAlunoFK()}', idProfessorFK = '{$Agendamento->getidProfessorFK()}', 
     			idCursoFK = '{$Agendamento->getidCursoFK()}' WHERE idAgenda = $idAgenda";
 
 		echo "<br>".$sql."<br>";
