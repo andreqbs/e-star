@@ -15,8 +15,8 @@ class DAOArquivos implements IDAO{
     public function create($Arquivos){
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "INSERT INTO Arquivos (Link, TCCFK) 
-    			VALUES ('{$Arquivos->getLink()}', '{$Arquivos->getTCCFK()}'); ";
+    	$sql = "INSERT INTO Arquivos (Link, idTCCFK) 
+    			VALUES ('{$Arquivos->getLink()}', '{$Arquivos->getidTCCFK()}'); ";
 		echo "<br>".$sql."<br>";
 
 		try {
@@ -36,7 +36,7 @@ class DAOArquivos implements IDAO{
     {
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "UPDATE Arquivos SET Link = '{$Arquivos->getLink()}', TCCFK = '{$Arquivos->getTCCFK()}' WHERE idArquivos = $idArquivos";
+    	$sql = "UPDATE Arquivos SET Link = '{$Arquivos->getLink()}', idTCCFK = '{$Arquivos->getidTCCFK()}' WHERE idArquivos = $idArquivos";
 
 		echo "<br>".$sql."<br>";
 

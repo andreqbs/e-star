@@ -2,21 +2,21 @@
 
 namespace App\DAO;
 use Lib\Database\Connection as Connection;
-use App\Models\ErroTCC as ErroTCC;
+use App\Models\Atividade as Atividade;
 use App\Iface\IDAO as IDAO;
 
 require_once dirname(__FILE__).'/../../Lib/Database/Connection.php';
-require_once dirname(__FILE__).'/../Model/ErroTCC.php';
+require_once dirname(__FILE__).'/../Model/Atividade.php';
 require_once dirname(__FILE__).'/../Interfaces/IDAO.php';
 
 
-class DAOErroTCC implements IDAO{
+class DAOAtividade implements IDAO{
     
-    public function create($ErroTCC){
+    public function create($Atividade){
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "INSERT INTO ErroTCC (ErrosFK, TCCFK) 
-    			VALUES ('{$ErroTCC->getErrosFK()}', '{$ErroTCC->getTCCFK()}'); ";
+    	$sql = "INSERT INTO Atividade (NomeAtividade, MesAtividade, DescricaoAtividade, idTCCFK) 
+    			VALUES ('{$Atividade->getNomeAtividade()}', '{$Atividade->getMesAtividade()}', '{$Atividade->getDescricaoAtividade()}', '{$Atividade->getidTCCFK()}'); ";
 		echo "<br>".$sql."<br>";
 
 		try {
@@ -32,11 +32,12 @@ class DAOErroTCC implements IDAO{
     	//$conn->makeQuery($sql);
     }
 
-    public function update($ErroTCC, $idErroTCC)
+    public function update($Atividade, $idAtividade)
     {
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "UPDATE ErroTCC SET ErrosFK = '{$ErroTCC->getErrosFK()}', TCCFK = '{$ErroTCC->getTCCFK()}' WHERE idErroTCC = $idErroTCC";
+    	$sql = "UPDATE Atividade SET NomeAtividade = '{$Atividade->getNomeAtividade()}', MesAtividade = '{$Atividade->getMesAtividade()}', 
+    			DescricaoAtividade = '{$Atividade->getDescricaoAtividade()}', idTCCFK = '{$Atividade->getidTCCFK()}' WHERE idAtividade = $idAtividade";
 
 		echo "<br>".$sql."<br>";
 
@@ -53,10 +54,10 @@ class DAOErroTCC implements IDAO{
     	//$conn->makeQuery($sql);
     }
     
-    public function delete($idErroTCC){
+    public function delete($idAtividade){
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "DELETE FROM ErroTCC WHERE idErroTCC = $idErroTCC";
+    	$sql = "DELETE FROM Atividade WHERE idAtividade = $idAtividade";
     			
 		echo "<br>".$sql."<br>";
 
@@ -73,11 +74,11 @@ class DAOErroTCC implements IDAO{
     	//$conn->makeQuery($sql);
     }
     
-    public function find($idErroTCC){
+    public function find($idAtividade){
 
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "SELECT * FROM ErroTCC WHERE idErroTCC = $idErroTCC";
+    	$sql = "SELECT * FROM Atividade WHERE idAtividade = $idAtividade";
     			
 		echo "<br>".$sql."<br>";
 
@@ -100,7 +101,7 @@ class DAOErroTCC implements IDAO{
     {
         $connection = new Connection();
         $connection = $connection->openConnection();
-        $sql = "SELECT * FROM ErroTCC";
+        $sql = "SELECT * FROM Atividade";
                 
         echo "<br>".$sql."<br>";
 

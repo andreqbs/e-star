@@ -1,28 +1,27 @@
-<?php  
+<?php
 
 namespace App\DAO;
 use Lib\Database\Connection as Connection;
-use App\Models\ErroTCC as ErroTCC;
+use App\Models\Componentes as Defesa;
 use App\Iface\IDAO as IDAO;
 
 require_once dirname(__FILE__).'/../../Lib/Database/Connection.php';
-require_once dirname(__FILE__).'/../Model/ErroTCC.php';
+require_once dirname(__FILE__).'/../Model/Defesa.php';
 require_once dirname(__FILE__).'/../Interfaces/IDAO.php';
 
 
-class DAOErroTCC implements IDAO{
-    
-    public function create($ErroTCC){
+class DAODefesa implements IDAO{
+
+    public function create($Defesa){
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "INSERT INTO ErroTCC (ErrosFK, TCCFK) 
-    			VALUES ('{$ErroTCC->getErrosFK()}', '{$ErroTCC->getTCCFK()}'); ";
+    	$sql = "INSERT INTO Defesa (PosturaPesoal, FluenciaComunicativa, Clareza, Dominio, NotaTotal, PosturaComentario, FluenciaComentario, ClarezaComentario, DominioComentario, DataBanca, idTCCFK, idReservasFK) VALUES ('{$Defesa->getPosturaPesoal()}', '{$Defesa->getFluenciaComunicativa()}', '{$Defesa->getClareza()}', '{$Defesa->getDominio()}', '{$Defesa->getNotaTotal()}', '{$Defesa->getPosturaComentario()}', '{$Defesa->getFluenciaComentario()}', '{$Defesa->getClarezaComentario()}', '{$Defesa->getDominioComentario()}', '{$Defesa->getDataBanca()}', '{$Defesa->getidTCCFK()}', '{$Defesa->getidReservasFK()}'); ";
 		echo "<br>".$sql."<br>";
 
 		try {
             $stmt = $connection->prepare($sql);
-            $stmt->execute();   
-            
+            $stmt->execute();
+
             return TRUE;
         }
         catch(PDOException $e) {
@@ -32,18 +31,18 @@ class DAOErroTCC implements IDAO{
     	//$conn->makeQuery($sql);
     }
 
-    public function update($ErroTCC, $idErroTCC)
+    public function update($Defesa, $idDefesa)
     {
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "UPDATE ErroTCC SET ErrosFK = '{$ErroTCC->getErrosFK()}', TCCFK = '{$ErroTCC->getTCCFK()}' WHERE idErroTCC = $idErroTCC";
+    	$sql = "UPDATE Defesa SET PosturaPesoal = '{$Defesa->getPosturaPesoal()}', FluenciaComunicativa = '{$Defesa->getFluenciaComunicativa()}', Clareza = '{$Defesa->getClareza()}', Dominio = '{$Defesa->getDominio()}', NotaTotal = '{$Defesa->getNotaTotal()}', PosturaComentario = '{$Defesa->getPosturaComentario()}', FluenciaComentario = '{$Defesa->getFluenciaComentario()}', ClarezaComentario = '{$Defesa->getClarezaComentario()}', DominioComentario = '{$Defesa->getDominioComentario()}', idTCCFK = '{$Defesa->getidTCCFK()}', idReservasFK = '{$Defesa->getidReservasFK()}' WHERE idDefesa = $idDefesa";
 
 		echo "<br>".$sql."<br>";
 
 		try {
             $stmt = $connection->prepare($sql);
-            $stmt->execute();   
-            
+            $stmt->execute();
+
             return TRUE;
         }
         catch(PDOException $e) {
@@ -52,18 +51,18 @@ class DAOErroTCC implements IDAO{
         }
     	//$conn->makeQuery($sql);
     }
-    
-    public function delete($idErroTCC){
+
+    public function delete($idDefesa){
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "DELETE FROM ErroTCC WHERE idErroTCC = $idErroTCC";
-    			
+    	$sql = "DELETE FROM Defesa WHERE idDefesa = $idDefesa";
+
 		echo "<br>".$sql."<br>";
 
 		try {
             $stmt = $connection->prepare($sql);
-            $stmt->execute();   
-            
+            $stmt->execute();
+
             return TRUE;
         }
         catch(PDOException $e) {
@@ -72,24 +71,25 @@ class DAOErroTCC implements IDAO{
         }
     	//$conn->makeQuery($sql);
     }
-    
-    public function find($idErroTCC){
+
+    public function find($idDefesa)
+    {
 
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "SELECT * FROM ErroTCC WHERE idErroTCC = $idErroTCC";
-    			
+    	$sql = "SELECT * FROM Defesa WHERE idDefesa = $idDefesa";
+
 		echo "<br>".$sql."<br>";
 
     	try {
 
             $stmt = $connection->query($sql);
             $this->data = $stmt->fetch();
-            
-            
+
+
         }
         catch(PDOException $e) {
-            
+
                 echo "Error: " . $e->getMessage();
         }
 
@@ -98,24 +98,25 @@ class DAOErroTCC implements IDAO{
 
     public function list()
     {
+
         $connection = new Connection();
         $connection = $connection->openConnection();
-        $sql = "SELECT * FROM ErroTCC";
-                
+        $sql = "SELECT * FROM Defesa";
+
         echo "<br>".$sql."<br>";
 
         try {
 
             $stmt = $connection->query($sql);
             $this->data = $stmt->fetch();
-            
-            
+
+
         }
         catch(PDOException $e) {
-            
+
                 echo "Error: " . $e->getMessage();
         }
 
-        return $this->data;   
+        return $this->data;
     }
 }

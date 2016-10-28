@@ -16,7 +16,7 @@ class DAOTCC implements IDAO{
     	$connection = new Connection();
     	$connection = $connection->openConnection();
     	$sql = "INSERT INTO TCC (Titulo, Descricao, TCCStatus, Objetivos, Justificativas, TCCTipo, LinhaPesquisa_idLinhaPesquisa) 
-    			VALUES ('{$Tcc->getTitulo()}', '{$Tcc->getDescricao()}', '{$Tcc->getStatus()}', '{$Tcc->getObjetivos()}', 
+    			VALUES ('{$Tcc->getTitulo()}', '{$Tcc->getDescricao()}', '{$Tcc->getTCCStatus()}', '{$Tcc->getObjetivos()}', 
     			'{$Tcc->getJustificativas()}', '{$Tcc->getTCCTipo()}', '{$Tcc->getLinhaPesquisa()}'); ";
 		echo "<br>".$sql."<br>";
 
@@ -38,7 +38,7 @@ class DAOTCC implements IDAO{
     	$connection = new Connection();
     	$connection = $connection->openConnection();
     	$sql = "UPDATE TCC SET Titulo = '{$Tcc->getTitulo()}', Descricao = '{$Tcc->getDescricao()}', 
-    			TCCStatus = '{$Tcc->getStatus()}', Objetivos = '{$Tcc->getObjetivos()}', 
+    			TCCStatus = '{$Tcc->getTCCStatus()}', Objetivos = '{$Tcc->getObjetivos()}', 
     			Justificativas = '{$Tcc->getJustificativas()}', TCCTipo = '{$Tcc->getTCCTipo()}', 
     			LinhaPesquisa_idLinhaPesquisa = '{$Tcc->getLinhaPesquisa()}' WHERE idTCC = $idTcc";
 
