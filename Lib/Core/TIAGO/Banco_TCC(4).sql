@@ -1,5 +1,5 @@
-CREATE DATABASE e_star;
-USE e_star;
+CREATE DATABASE TCC;
+USE TCC;
 
 CREATE TABLE IF NOT EXISTS Curso(
 idCurso INT NOT NULL AUTO_INCREMENT,
@@ -124,7 +124,7 @@ CONSTRAINT FKTCC4 FOREIGN KEY (idTCCFK) REFERENCES TCC (idTCC)
 
 CREATE TABLE IF NOT EXISTS Erros(
 idErros INT NOT NULL AUTO_INCREMENT,
-Nome VARCHAR (50) NOT NULL,
+NomeErros VARCHAR (50) NOT NULL,
 Categoria VARCHAR (100) NOT NULL,
 CONSTRAINT ErrosPK PRIMARY KEY (idErros)
 );
@@ -135,14 +135,15 @@ idTCCFK INT,
 idErrosFK INT,
 CONSTRAINT ErrosTCC PRIMARY KEY (idErrosTCC),
 CONSTRAINT FKTCC6 FOREIGN KEY (idTCCFK) REFERENCES TCC (idTCC),
-CONSTRAINT FKErros1 FOREIGN KEY (idErrosFK) REFERENCES Erros (idErros)
+CONSTRAINT FKErros1 FOREIGN KEY (idERROS) REFERENCES Erros (idERROS)
 );
 
 CREATE TABLE IF NOT EXISTS SalaAula(
 idSalaAula INT NOT NULL AUTO_INCREMENT,
-Setor VARCHAR (50) NOT NULL,
-Capacidade VARCHAR (20) NOT NULL,
-Unidade VARCHAR (50) NOT NULL,
+NomeSalaAula VARCHAR(45) NOT NULL,
+Setor VARCHAR (45) NOT NULL,
+Capacidade INT,
+Unidade VARCHAR (45) NOT NULL,
 CONSTRAINT SalaAulaPK PRIMARY KEY (idSalaAula)
 );
 
@@ -196,7 +197,6 @@ CONSTRAINT FKCronograma FOREIGN KEY (idCronogramaFK) REFERENCES Cronograma (idCr
 CONSTRAINT FKTCC7 FOREIGN KEY (idTCCFK) REFERENCES TCC (idTCC)
 );
 
-
 -----------------------------PROCEDURES--------------------------------
 -----------------------------------------------------------------------
 
@@ -208,6 +208,7 @@ CREATE PROCEDURE SP_ACCESS ( USUARIO VARCHAR (50), PASS VARCHAR(20) )
   END;
 
 CALL SP_ACCESS ('SPENCER', '12345')
+
 ------------------------------------------------------------------------
 ------------------------------------------------------------------------
 
@@ -294,7 +295,7 @@ CREATE PROCEDURE sp_SELECT_PROFESSOR (MATRICULA_SP INTEGER(10) )
   END;
 
 --------------------------------------------------------------------------
--------------------------------CURSO-------------------------------------------
+-------------------------------CURSO--------------------------------------
 CREATE PROCEDURE INSERIR_CURSO(CURSO_SP VARCHAR(45)) 
   BEGIN
 
@@ -327,10 +328,9 @@ CREATE PROCEDURE SELECT_CURSO (IDCURSO_SP INTEGER)
   END;
 
 --------------------------------------------------------------------------
------------------------------------TCC---------------------------------------
+-----------------------------------TCC------------------------------------
 
-
-CREATE PROCEDURE sp_INSERIR_TCC (TITULO_SP VARCHAR(100), DESCRICAO_SP VARCHAR(300), STATUS_SP INTEGER(1), OBJETIVOS_SP VARCHR(300), JUSTIFICATIVA_SP VARCHAR(300), TCC_SP_TIPO BOOLEAN, LINHAPESQUISA_SP VARCHAR(45),NOMEPROFESSOR_SP VARCHAR(100), NOMEALUNO1_SP VARCHAR(100), NOMEALUNO2_SP VARCHAR(100), /*TITULOTCC_SP VARCHAR(100),*/ NOMEPROFESSOR_SP VARCHAR(100)) 
+CREATE PROCEDURE sp_INSERIR_TCC (TITULO_SP VARCHAR(100), DESCRICAO_SP VARCHAR(300), STATUS_SP* INTEGER(1), OBJETIVOS_SP VARCHR(300), JUSTIFICATIVA_SP VARCHAR(300), TCC_SP_TIPO BOOLEAN, LINHAPESQUISA_SP VARCHAR(45), NOMEALUNO1_SP VARCHAR(100), NOMEALUNO2_SP VARCHAR(100), /*TITULOTCC_SP VARCHAR(100),*/ NOMEPROFESSOR_SP VARCHAR(100)) 
   BEGIN 
   
   DECLARE IDLINHAPESQUISA_FK INT;
@@ -399,7 +399,7 @@ CREATE PROCEDURE SELECT_TCC (IDTCC INTEGER)
   
   END;
 --------------------------------------------------------------------------
------------------------------------RELATORIOTCC---------------------------------------
+-----------------------------------RELATORIOTCC---------------------------
 
 CREATE PROCEDURE INSERIR_RELATORIOTCC (APRESENTACAO_SP FLOAT(4), FUNDAMENTACAO_SP FLOAT(4), DESENVOLVIMENTO_SP FLOAT(4), MODELORESULTADO_SP FLOAT(4), NOTATOTAL_SP FLOAT(4), TIPORELATORIO_SP INTEGER(1), APRES_COMENT_SP VARCHAR(45), FUND_COMENT_SP VARCHAR(45), DESENV_COMENT_SP VARCHAR(45), MOD_RESUL_COMENT_SP VARCHAR(45), TITULO_SP VARCHAR(100)) 
   BEGIN 
@@ -441,7 +441,7 @@ CREATE PROCEDURE SELECT_RELATORIOTCC (IDRELATORIOTCC_SP INTEGER)
   END;
 
   -----------------------------------------------------------------------------
---------------------------------------LINHAPESQUISA---------------------------------------
+-----------------------------------LINHAPESQUISA-------------------------------
 CREATE PROCEDURE INSERIR_LINHAPESQUISA(LINHAPESQUISA_SP VARCHAR(45), NOMECURSO_SP VARCHAR (45)) 
   BEGIN
 
@@ -484,7 +484,7 @@ CREATE PROCEDURE SELECT_LINHAPESQUISA (IDLINHAPESQUISA_SP INTEGER)
 
 
 -----------------------------------------------------------------------------
-------------------------------------ATIVIDADE-----------------------------------------***************
+------------------------------------ATIVIDADE--------------------------------***************
 CREATE PROCEDURE sp_INSERIR_ATIVIDADE(NOMEATIVIDADE_SP VARCHAR(45), MES_ATIVIDADE_SP VARCHAR (45),DESCRICAO_ATIVIDADE_SP VARCHAR (45), TITULO_TCC_SP VARCHAR(100)) 
   BEGIN
 
@@ -525,7 +525,7 @@ CREATE PROCEDURE sp_SELECT_ATIVIDADE (IDATIVIDADE_SP INTEGER)
   
   END;
 --------------------------------------------------------------------------
--------------------------------------------AGENDAMENTO-------------------------------**********alterar**********
+---------------------------------AGENDAMENTO-------------------------------**********alterar**********
 CREATE PROCEDURE sp_INSERIR_AGENDAMENTO (MOTIVO_SP VARCHAR(45), NOMEALUNO_SP VARCHAR(100), NOMEPROFESSOR_SP VARCHAR(100))
   BEGIN
   
@@ -568,7 +568,7 @@ CREATE PROCEDURE sp_SELECT_AGENDAMENTO (IDAGENDA_SP INTEGER)
   END; 
  
  -----------------------------------------------------------------------------
- ---------------------------ARQUIVO------------------------------------------
+ -------------------------------ARQUIVO---------------------------------------
 
 CREATE PROCEDURE sp_INSERIR_ARQUIVOS (LINK_SP VARCHAR(100), STATUSARQUIVO_SP BOOLEAN, TITULO_TCC_SP VARCHAR(100))
   BEGIN
@@ -656,7 +656,7 @@ CREATE PROCEDURE sp_INSERIR_ATIVIDADE_CRONOGRAMA (NOMEATIVIDADE_C_SP VARCHAR(45)
 CREATE PROCEDURE sp_ELIMINAR_ATIVIDADE_CRONOGRAMA (IDATIVIDADECRONOGRAMA_SP INTEGER)
   BEGIN
   
-    DELETE FROM AtividadeCronograma AS Ac WHERE Ac.idAtividadeCronograma = IDATIVIDADECRONOGRAMA_SP ;
+    DELETE * FROM AtividadeCronograma AS Ac WHERE Ac.idAtividadeCronograma = IDATIVIDADECRONOGRAMA_SP;
   
   END;
 --------------------------------------------------------------------------
@@ -675,39 +675,52 @@ CREATE PROCEDURE sp_UPDATE_ATIVIDADE_CRONOGRAMA (IDATIVIDADECRONOGRAMA_SP INTEGE
 CREATE PROCEDURE sp_SELECT_ATIVIDADE_CRONOGRAMA (IDAGENDA_SP INTEGER)
   BEGIN
   
-    DELETE * FROM AtividadeCronograma AS Ac WHERE Ac.idAtividadeCronograma = IDATIVIDADECRONOGRAMA_SP;
+    SELECT * FROM AtividadeCronograma AS Ac WHERE Ac.idAtividadeCronograma = IDATIVIDADECRONOGRAMA_SP;
   
   END; 
 --------------------------------------------------------------------------
---------------------------------------ERRO------------------------------------
+----------------------------------ERRO_TCC--------------------------------
 
-CREATE PROCEDURE sp_INSERIR_ERRO_TCC(IDTCC_FK INTEGER, IDERRO_FK INTEGER)
+CREATE PROCEDURE sp_INSERIR_ERRO_TCC (IDTCC_FK INTEGER, IDERRO_FK INTEGER)
   BEGIN
 
-      INSERT INTO ErroTCC (idTCCFK, idErroSFK)
-      VALUES  (IDTCC_FK, IDERRO_FK)
+    DECLARE IDERROS_FK INTEGER;
+    DECLARE IDTCC_FK INTEGER;
+
+    SELECT idErros INTO IDERROS_FK FROM Erros AS Er WHERE Er.NomeErros = NOMEERROS_FK;
+    SELECT idTCC INTO IDTCC_FK FROM Curso AS T WHERE T.idTCC = IDTCC_FK;
+
+
+      INSERT INTO ErroTCC (idErrosFK, idTCCFK)
+      VALUES  (IDERRO_FK, IDTCC_FK)
 
 
   END;
 --------------------------------------------------------------------------
-CREATE PROCEDURE sp_ELIMINAR_ERRO_TCC()
+CREATE PROCEDURE sp_ELIMINAR_ERRO_TCC(IDERROTCC_SP INTEGER)
   BEGIN
 
-
+    DELETE * FROM ErroTCC AS Et WHERE Et.idErroTCC = IDERROTCC_SP ;
 
   END;
 --------------------------------------------------------------------------
-CREATE PROCEDURE sp_UPDATE_ERRO_TCC()
+CREATE PROCEDURE sp_UPDATE_ERRO_TCC (IDERRO_SP INTEGER, IDTCC_FK INTEGER, IDERRO_FK INTEGER)
   BEGIN
 
+    DECLARE IDERROS_FK INTEGER;
+    DECLARE IDTCC_FK INTEGER;
 
-  
+    SELECT idErros INTO IDERROS_FK FROM Erros AS Er WHERE Er.idErros = IDERROS_FK;
+    SELECT idTCC INTO IDTCC_FK FROM Curso AS T WHERE T.idTCC = IDTCC_FK;
+
+      UPDATE ErroTCC AS Et SET Et.idErrosFK = IDERROS_FK, Et.idTCCFK = IDTCC_FK WHERE Et.idErro = IDERRO_SP;
+
   END; 
 --------------------------------------------------------------------------
 CREATE PROCEDURE sp_SELECT_ERRO_TCC()
   BEGIN 
 
-
+    SELECT * FROM ErroTCC AS Et WHERE Et.idErroTCC= IDERRO_SP;
 
   END; 
 
@@ -757,28 +770,28 @@ CREATE PROCEDURE sp_SELECT_EVENTOS(IDEVENTOS_SP INTEGER)
   END;
 
    --------------------------------------------------------------------------
-  ------------------------------------DEFESA-------------------------------
+  ------------------------------------DEFESA---------------------------------
 
-  CREATE PROCEDURE sp_INSERIR_DEFESA(POSTURA_PESSOAL_SP FLOAT(4), FLUENCIA_COMUN_SP FLOAT(4), CLAREZA_SP FLOAT(4), DOMINIO_SP FLOAT(4), NOTATOTAL_SP FLOAT(4), POSTURA_COMENT_SP VARCHAR(45), FLUENCIA_COMENT_SP VARCHAR(45), CLAREZA_COMENT_SP VARCHAR(45), DOMINO_COMENT_SP VARCHAR(45), DATA_BANCA_SP DATE, TITULOTCC_SP VARCHAR(100))
+  CREATE PROCEDURE sp_INSERIR_DEFESA (POSTURA_PESSOAL_SP FLOAT(4), FLUENCIA_COMUN_SP FLOAT(4), CLAREZA_SP FLOAT(4), DOMINIO_SP FLOAT(4), NOTATOTAL_SP FLOAT(4), POSTURA_COMENT_SP VARCHAR(45), FLUENCIA_COMENT_SP VARCHAR(45), CLAREZA_COMENT_SP VARCHAR(45), DOMINO_COMENT_SP VARCHAR(45), DATA_BANCA_SP DATE, TITULOTCC_SP VARCHAR(100))
   BEGIN
 
       DECLARE IDTCC_FK INTEGER
 
       SELECT idTCC INTO IDTCC_FK FROM TCC AS T WHERE T.Titulo = TITULOTCC_SP;
 
-      INSERT INTO (PosturaPessoal, FluenciaComunicativa, Clareza, Dominio, NotaTotal, PosturaComentario, FluenciaComentario, ClarezaComentario, DominoComentario,DataBanca, idTCCFK)
+      INSERT INTO Defesa (PosturaPessoal, FluenciaComunicativa, Clareza, Dominio, NotaTotal, PosturaComentario, FluenciaComentario, ClarezaComentario, DominoComentario,DataBanca, idTCCFK)
       VALUES (POSTURA_PESSOAL_SP, FLUENCIA_COMUN_SP, CLAREZA_SP, DOMINIO_SP, NOTATOTAL_SP, POSTURA_COMENT_SP, FLUENCIA_COMENT_SP, CLAREZA_COMENT_SP, DOMINO_COMENT_SP, DATA_BANCA_SP, IDTCC_FK)
 
   END;
 --------------------------------------------------------------------------
-CREATE PROCEDURE sp_ELIMINAR_DEFESA(IDDEFESA_SP INTEGER)
+CREATE PROCEDURE sp_ELIMINAR_DEFESA (IDDEFESA_SP INTEGER)
   BEGIN
 
     DELETE FROM Defesa AS D WHERE D.idDefesa = IDDEFESA_SP;
 
   END;
 --------------------------------------------------------------------------
-CREATE PROCEDURE sp_UPDATE_DEFESA(IDDEFESA_SP INTEGER, POSTURA_PESSOAL_SP FLOAT(4), FLUENCIA_COMUN_SP FLOAT(4), CLAREZA_SP FLOAT(4), DOMINIO_SP FLOAT(4), NOTATOTAL_SP FLOAT(4), POSTURA_COMENT_SP VARCHAR(45), FLUENCIA_COMENT_SP VARCHAR(45), CLAREZA_COMENT_SP VARCHAR(45), DOMINO_COMENT_SP VARCHAR(45), DATA_BANCA_SP DATE, TITULOTCC_SP VARCHAR(100), IDRESERVA_SP INTEGER)
+CREATE PROCEDURE sp_UPDATE_DEFESA (IDDEFESA_SP INTEGER, POSTURA_PESSOAL_SP FLOAT(4), FLUENCIA_COMUN_SP FLOAT(4), CLAREZA_SP FLOAT(4), DOMINIO_SP FLOAT(4), NOTATOTAL_SP FLOAT(4), POSTURA_COMENT_SP VARCHAR(45), FLUENCIA_COMENT_SP VARCHAR(45), CLAREZA_COMENT_SP VARCHAR(45), DOMINO_COMENT_SP VARCHAR(45), DATA_BANCA_SP DATE, TITULOTCC_SP VARCHAR(100), IDRESERVA_SP INTEGER)
   BEGIN
 
       DECLARE IDTCC_FK INTEGER
@@ -788,42 +801,115 @@ CREATE PROCEDURE sp_UPDATE_DEFESA(IDDEFESA_SP INTEGER, POSTURA_PESSOAL_SP FLOAT(
       UPDATE Defesa AS D SET D.PosturaPessoal = POSTURA_PESSOAL_SP, D.FluenciaComunicativa = LUENCIA_COMUN_SP, D.Clareza = CLAREZA_SP, D.Dominio = DOMINIO_SP, D.NotaTotal = NOTATOTAL_SP, D.PosturaComentario = POSTURA_COMENT_SP, D.FluenciaComentario = FLUENCIA_COMENT_SP, D.ClarezaComentario = CLAREZA_COMENT_SP, D.DominoComentario = DOMINO_COMENT_SP, D.DataBanca = DATA_BANCA_SP, D.idTCCFK = IDTCC_FK, D.idReservaFK = IDRESERVA_SP WHERE D.idDefesa = IDDEFESA_SP;
   
   END; 
---------------------------------------------------------------------------
-CREATE PROCEDURE sp_SELECT_DEFESA(IDDEFESA_SP INTEGER)
+----------------------------------------------------------------------------
+CREATE PROCEDURE sp_SELECT_DEFESA (IDDEFESA_SP INTEGER)
   BEGIN 
 
     SELECT * FROM Defesa AS D WHERE D.idDefesa = IDDEFESA_SP;
 
+  END;
+----------------------------------------------------------------------------
+-----------------------------------ERROS-------------------------------------
+CREATE PROCEDURE sp_INSERIR_ERROS (NOMEERROS_SP VARCHAR(45), CATEGORIA_SP VARCHAR(45))
+  BEGIN 
+      
+    INSERT INTO Erros (NomeErros, Categoria)
+      VALUES (NOMEERROS_SP, CATEGORIA_SP);
+   
+  END;
+-----------------------------------------------------------------------------
+CREATE PROCEDURE sp_ELIMINAR_ERROS (IDERROS_SP INTEGER)
+  BEGIN
+
+    DELETE FROM Erros AS Er WHERE Er.idErros = IDERROS_SP;
 
   END;
+------------------------------------------------------------------------------
+CREATE PROCEDURE sp_UPDATE_ERROS (NOMEERROS_SP VARCHAR(45), CATEGORIA_SP VARCHAR(45))
+  BEGIN
 
-  ---------------------------------------------------------------------------
-  ---------------------------------ERROS-------------------------------------
-     CREATE PROCEDURE sp_INSERIR_ERROS(NOME_SP VARCHAR(45),TEGORIA_SP VARCHAR(45);
-      BEGIN 
-      DECLARE IDERRO_FKNTEGER
+      UPDATE Erros AS Er SET Er.NomeErros = NOMEERROS_SP, Er.Categoria = CATEGORIA_SP WHERE Er.idErros = IDERROS_SP;
+  
+  END;
+---------------------------------------------------------------------------------
+CREATE PROCEDURE sp_SELECT_ERROS (IDERROS_SP INTEGER)
+  BEGIN
 
-      
+    SELECT * FROM Erros AS Er WHERE Er.idErros = IDERROS_SP;
 
-    
- ---------------------------RESERVA-----------------------------------------------
+  END;           
+---------------------------------------------------------------------------------
+----------------------------------RESERVA----------------------------------------
 
-    CREATE PROCEDURE sp_INSERIR_RESERVA(DATAHORA_SP VARCHAR(45), DIA VARCHAR(45);
-    BEGIN
+CREATE PROCEDURE sp_INSERIR_RESERVAS (DATAHORA_SP VARCHAR(45), DIA VARCHAR(45))
+BEGIN
        
-    DECLARE IDPROFESSOR_FK INTEGER;
-    DECLARE SALADEAULA_FK INTEGER;
+  DECLARE IDPROFESSOR_FK INTEGER;
+  DECLARE SALADEAULA_FK INTEGER;
 
       SELECT idProfessor INTO IDPROFESSOR_FK FROM Professor AS P WHERE P.NomeProfessor = NOMEPROFESSOR_SP;
       SELECT idsaladeaula INTO  SALADEAULA_FK FROM SALADEAULA AS S  WHERE S.saladeaula = SALADEAULA_SP;
 
-      INSERT INTO SALADEAULA(datahora,dia,idProfessorFK,idsaladeaulaFK)
-      VALUES (DATAHORA_SP,  DIA_SP, IDPROFESSOR_FK, IDSALADEAULA_FK);
+      INSERT INTO SALADEAULA(datahora, dia, idProfessorFK, idsaladeaulaFK)
+      VALUES (DATAHORA_SP, DIA_SP, IDPROFESSOR_FK, IDSALADEAULA_FK);
 
   END;
+----------------------------------------------------------------------------------
+CREATE PROCEDURE sp_ELIMINAR_RESERVAS (IDRESERVA_SP INTEGER)
+  BEGIN
 
-----------------------------------------SALA_DE_AULA----------------------------------------
+     DELETE FROM RESERVAS AS R WHERE R.idReserva = IDRESERVA_SP;
 
+  END;
+----------------------------------------------------------------------------------
+CREATE PROCEDURE sp_UPDATE_RESERVAS (DATAHORA_SP VARCHAR(45), DIA VARCHAR(45))    
+  BEGIN
 
+  DECLARE IDPROFESSOR_FK INTEGER;
+  DECLARE SALADEAULA_FK INTEGER;
+
+      SELECT idProfessor INTO IDPROFESSOR_FK FROM Professor AS P WHERE P.NomeProfessor = NOMEPROFESSOR_SP;
+      SELECT idsaladeaula INTO  SALADEAULA_FK FROM SALADEAULA AS S  WHERE S.saladeaula = SALADEAULA_SP;
+
+      UPDATE Reservas AS R SET R.DataHora = DATAHORA_SP, R.Dia = DIA_SP, R.idProfessorFK = IDPROFESSOR_FK, R.idSalaAula WHERE R.idReservas = IDRESERVA_SP;
+
+  END;
+----------------------------------------------------------------------------------
+CREATE PROCEDURE sp_SELECT_RESERVAS (IDRESERVA_SP INTEGER)
+  BEGIN
+
+    SELECT * FROM Defesa AS D WHERE D.idDefesa = IDDEFESA_SP;
+
+  END;    
+
+----------------------------------------------------------------------------------
+----------------------------------------SALA_DE_AULA------------------------------
+CREATE PROCEDURE sp_INSERIR_SALA_AULA (NOMESALAAULA_SP VARCHAR(45), SETOR_SP VARCHAR(45), CAPACIDADE_SP INTEGER, UNIDADE_SP VARCHAR(45));
+BEGIN
+       
+      INSERT INTO SalaAula (NomeSalaAula, Setor, Capacidade, Unidade)
+      VALUES (NOMESALAAULA_SP, SETOR_SP, CAPACIDADE_SP, UNIDADE_SP);
+
+  END;
+----------------------------------------------------------------------------------
+CREATE PROCEDURE sp_ELIMINAR_SALA_AULA (IDSALAAULA INTEGER)
+BEGIN
+
+  DELETE FROM SalaAula AS S WHERE S.idSalaAula = IDSALAAULA_SP;
+
+END;
+----------------------------------------------------------------------------------
+CREATE PROCEDURE sp_UPDATE_AGENDAMENTO (NOMESALAAULA_SP VARCHAR(45), SETOR_SP VARCHAR(45), CAPACIDADE_SP INTEGER, UNIDADE_SP VARCHAR(45))
+  BEGIN
+
+    UPDATE SalaAula AS S SET S.NomeSalaAula = NOMESALAAULA_SP, S.Setor = SETOR_SP, S.Capacidade = CAPACIDADE_SP, S.Unidade = UNIDADE_SP WHERE S.idSalaAula = IDSALAAULA_SP;
+  
+  END;
+----------------------------------------------------------------------------------
+CREATE PROCEDURE sp_SELECT_SALA_AULA (IDSALAAULA INTEGER)
+  BEGIN
+
+    SELECT * FROM SalaAula AS S WHERE S.idSalaAula = IDSALAAULA_SP;
+----------------------------------------------------------------------------------
 //RELATORIOTCC(DERIK), DEFESA(DERIK), EVENTOS(DERIK), ERROS(JOAO), RESERVA(JOAO), SALADEAULA(JOAO),
  ATIVIDADES(MATHEUS), CRONOGRAMA(MATHEUS), EROOTCC(MATHEUS), AGENDAMENTO(TIAGO), ATIVIDADE(TIAGO), ARQUIVOS(TIAGO)//
