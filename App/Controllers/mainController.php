@@ -482,28 +482,28 @@ function cadastrarAgendamento($Agendamento)
 }
 
 //UpdateAgendamento
-function alterarAgendamento($Agendamento,idAgendamento)
+function alterarAgendamento($Agendamento,$idAgendamento)
 {
 	$DAOAgendamento = new DAOAgendamento();
 	$DAOAgendamento->update($Agendamento, $idAgendamento);
 }
 
 //DeleteAgendamento
-function apagarAgendamento(idAgendamento)
+function apagarAgendamento($idAgendamento)
 {
 	$DAOAgendamento = new DAOAgendamento();
 	$DAOAgendamento->delete($idAgendamento);
 }
 
 //FindAgendamento
-function buscarAgendamento($Agendamento,idAgendamento)
+function buscarAgendamento($Agendamento,$idAgendamento)
 {
 	$DAOAgendamento = new DAOAgendamento();
 	$DAOAgendamento->find($Agendamento, $idAgendamento);
 }
 
 //ListAgendamento
-function listarAgendamento($Agendamento,idAgendamento)
+function listarAgendamento($Agendamento,$idAgendamento)
 {
 	$DAOAgendamento = new DAOTCC();
 	$DAOAgendamento->list($Agendamento, $idAgendamento);
@@ -583,5 +583,38 @@ function listarDefesa($Agendamento,idDefesa)
 }
 
 
+//CreateCronograma
+function cadastrarCronograma($Cronograma)
+{
+	$DAOCronograma = new DAOCronograma();
+	$DAOACronograma->create($Cronograma);
+}
 
+//UpdateCronograma
+function alterarCronograma($Cronograma,$idCronograma)
+{
+	$DAOCronograma = new DAOCronograma();
+	$DAOCronograma->update($Cronograma, $idCronograma);
+}
+
+//DeleteCronograma
+function apagarCronograma($idCronograma)
+{
+	$DAOCronograma = new DAOCronograma();
+	$DAOCronograma->delete($idCronograma);
+}
+
+//FindCronograma
+function buscarCronograma($Cronograma,$idCronograma)
+{
+	$DAOCronograma = new DAOCronograma();
+	$DAOCronograma->find($Cronograma, $idCronograma);
+}
+
+//ListCronograma
+function listarAgendamento($Cronograma,$idCronograma)
+{
+	$DAOCronograma = new DAOCronograma();
+	$DAOCronograma->list($Cronograma, $idCronograma);
+}
 }
