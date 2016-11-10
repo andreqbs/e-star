@@ -1,0 +1,45 @@
+<?php 
+
+namespace App\Models;
+
+
+
+class AtividadeCronograma {
+
+private $idAtividadeCronograma;
+private $NomeAtividade;
+private $idCronogramaFK;
+private $idTCCFK;
+
+ function __construct($NomeAtividade, $idCronogramaFK, $idTCCFK){
+ 	$this->NomeAtividade  = $NomeAtividade;
+ 	$this->idCronogramaFK = $idCronogramaFK;
+ 	$this->idTCCFK        = $idTCCFK;
+
+ }
+
+ 	function getidAtividadeCronograma()
+ 	{
+ 		return $this->idAtividadeCronograma;
+ 	}		
+ 	function getNomeAtividade()
+ 	{
+ 		return $this->NomeAtividade;
+ 	}
+ 	function getidCronogramaFK()
+ 	{
+ 		return $this->idCronogramaFK;
+ 	}
+ 	function getidTCCFK()
+ 	{
+ 		return $this->idTCCFK;
+ 	}
+
+
+
+ 	function setNomeAtividade()
+ 	{
+ 		return $this->idAtividadeCronograma;
+ 	}
+
+}
