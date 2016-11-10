@@ -12,8 +12,7 @@ class Erros {
 	
 
 	
-	function __construct($idErros, $NomeErro, $CategoriaErro) {
-		$this->idErros = $idErros;	
+	function __construct($NomeErro, $CategoriaErro) {
 		$this->NomeErro = $NomeErro;
 		$this->CategoriaErro = $CategoriaErro;
 		
