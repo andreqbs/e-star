@@ -83,9 +83,11 @@
                   <tr>
                     <th>ID</th>
                     <th>Título</th>
+                    <th>Curso</th>
                     <th>Professor</th>
                     <th>Local</th>
                     <th>Data</th>
+                    <th>Horario</th>
 
                     <th style="text-align:center">Ação</th>
 
@@ -96,9 +98,11 @@
                   <tr>
                     <td>1</td>
                     <td>WorkShop</td>
+                    <td>Engenharia de Computação</td>
                     <td>AndreQBS </td>
                     <td>UnP-Nascimento de Castro</td>
-                    <td>10/12/2016</td>           
+                    <td>10/12/2016</td>   
+                    <td>19:00</td>        
                     <td>
                      <a href="#" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModalTCC"> Visualizar </a></button>
                      <a href="#" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModalTCC"> Editar </a></button>
@@ -109,8 +113,10 @@
                    <td>1</td>
                     <td>WorkShop</td>
                     <td>AndreQBS </td>
+                    <td>Engenharia de Computação</td>
                     <td>UnP-Nascimento de Castro</td>
-                    <td>10/12/2016</td>  
+                    <td>10/12/2016</td> 
+                    <td>19:00</td>   
                    <td>
                      <a href="#" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModalTCC"> Visualizar </a></button>
                      <a href="#" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModalTCC"> Editar </a></button>
@@ -120,9 +126,11 @@
                   <tr>
                     <td>1</td>
                     <td>WorkShop</td>
+                    <td>Engenharia de Computação</td>
                     <td>AndreQBS </td>
                     <td>UnP-Nascimento de Castro</td>
                     <td>10/12/2016</td>
+                    <td>19:00</td>  
                     
                 
                     <td>
@@ -134,9 +142,11 @@
                   <tr>
                     <td>1</td>
                     <td>WorkShop</td>
+                    <td>Engenharia de Computação</td>
                     <td>AndreQBS </td>
                     <td>UnP-Nascimento de Castro</td>
-                    <td>10/12/2016</td>   
+                    <td>10/12/2016</td>
+                    <td>19:00</td>     
                    <td>
                      <a href="#" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModalTCC"> Visualizar </a></button>
                      <a href="#" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModalTCC"> Editar </a></button>
@@ -216,6 +226,21 @@
                                             <input class="form-control" type="text" disabled="" placeholder="10/12/2016">
                                 
                                           </div> 
+                                            
+
+                                          <div class="col-xs-8 form-group">
+
+                                            <label class="col-xs-4 control-label">Curso:</label>
+                                            <input class="form-control" type="text" disabled="" placeholder="Engenharia de computação">
+                                
+                                          </div> 
+
+<div class="col-xs-3 form-group">
+
+                                            <label class="col-xs-4 control-label">Horario:</label>
+                                            <input class="form-control" type="text" disabled="" placeholder="19:00">
+                                
+                                          </div> 
 
                                         </div><!--Fim Linha 01-->
 
@@ -229,7 +254,9 @@
                                             <input class="form-control" type="text" disabled="" placeholder="Andre Quitiliano">
                                 
                                           </div>                                 
-                                                                          
+                                          
+                                            
+
                                           <div class="col-xs-8 form-group">
 
                                             <label class="col-xs-1 control-label">Local:</label>
