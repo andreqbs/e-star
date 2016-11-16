@@ -3,9 +3,9 @@
 <?php 
 
 require_once dirname(__FILE__).'/../../Lib/Core/Loader.php';
+use Andre\Codigo\Html\PHP\code\zmr567jehrtue093457328fjdhdfvckolhdhdhru934fgtqw\Zvhjfljhhvhjgjhghjgkhjmknrknr as Z;
 
 
-use Andre\Codigo\Html\PHP\Scripts\Scripts as Scripts;
 
  ?>
 
@@ -141,8 +141,8 @@ use Andre\Codigo\Html\PHP\Scripts\Scripts as Scripts;
       <h1 class="box-title">
         TCC 
          <?php 
-            $c = new Scripts();
-            $c->c();
+            $C = new Z();
+            $C->C();
 
            ?>
       </h1><!-- Fim do cabeçalho -->
