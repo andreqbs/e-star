@@ -10,13 +10,13 @@
 
   <link rel="stylesheet" href="estart/css/style.css">
   <!-- Bootstrap 3.3.6 -->
-  <link rel="stylesheet" href="bower_components/AdminLTE/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../Public/bower_components/AdminLTE/bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 
-  <link rel="stylesheet" href="bower_components/AdminLTE/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="../../../Public/bower_components/AdminLTE/dist/css/AdminLTE.min.css">
 
-  <link rel="stylesheet" href="bower_components/AdminLTE/dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="../../../Public/bower_components/AdminLTE/dist/css/skins/_all-skins.min.css">
 
 </head>
 
@@ -164,10 +164,10 @@
 
             <tr><!-- LinhaTitulo  -->
               <th style="width: 20px">#</th>
-              <th style="width: 400px">Header</th><!-- Coluna  -->
+              <th style="width: 100px">Header</th><!-- Coluna  -->
               <th style="width: 40px">Header</th>
               <th style="width: 40px">Header</th>
-              <th style="width: 150px">Ações</th>              
+              <th style="width: 100px">Ações</th>              
             </tr>
          
             <tr><!-- Linha01  -->     
@@ -402,11 +402,11 @@
 
 
 
-<script src="bower_components/AdminLTE/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="../../../Public/bower_components/AdminLTE/plugins/jQuery/jquery-2.2.3.min.js"></script>
 
-<script src="bower_components/AdminLTE/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../../Public/bower_components/AdminLTE/bootstrap/js/bootstrap.min.js"></script>
 
-<script src="bower_components/AdminLTE/dist/js/app.min.js"></script>
+<script src="../../../Public/bower_components/AdminLTE/dist/js/app.min.js"></script>
 
 
 
