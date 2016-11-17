@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<!DOCtype html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>BuscaAluno</title>
+  <title>BuscaProf</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
@@ -32,7 +32,7 @@
      <div class="box"><!-- Inicio do conteudo da tabela de notificações  -->
      <div class="box-header "><!-- Inicio cabeçalho -->
       <h1 class="box-title">
-        Aluno
+        Professor 
       </h1><!-- Fim do cabeçalho -->
       
       <div class="box-tools pull-right">
@@ -43,8 +43,8 @@
 
         </div><!-- Fim do cabeçalho -->
         
-      <br><!-- Pulando Linha (Espaço) -->
-      <br><!-- Pulando Linha (Espaço) -->
+      <br>
+      <br>
 
       
 
@@ -62,15 +62,15 @@
                                 </button> 
 
                                 <ul id="type" class=dropdown-menu> 
-                                  <li><a href="#">Aluno</a></li> 
-                                  <li><a href="#">Curso</a></li>
-                                  <li><a href="#">Período</a></li>
-                                  <li><a href="#">Orientador</a></li>
+                                  <li><a href="#">Professor</a></li> 
+                                  <li><a href="#">Arientados Ativos</a></li>
+                                  <li><a href="#">Orientados Totais</a></li>
+                                  <li><a href="#">Linha De Pesquisa</a></li>
                                 </ul>
 
                             </div> 
 
-                           <input id="search-field" class=form-control aria-label="Text input with segmented button dropdown">
+                           <input id="Search-field" class=form-control aria-label="Text input with segmented button dropdown">
 
                         </div> 
                       </div>
@@ -96,34 +96,34 @@
 
           <thead>
             <tr><!-- LinhaTitulo  -->
-              <th style="width: 80px">Aluno</th><!-- Coluna  -->
-              <th style="width: 60px">Curso</th><!-- Coluna  -->
-              <th style="width: 40px">Período</th><!-- Coluna  -->
-              <th style="width: 60px">Orientador</th><!-- Coluna  -->
+              <th style="width: 80px">Professor</th><!-- Coluna  -->
+              <th style="width: 40px">Quantidade de orientandos ativos</th><!-- Coluna  -->
+              <th style="width: 40px">Quantidade de orientandos totais</th><!-- Coluna  -->
+              <th style="width: 40px">Linha de Pesquisa</th><!-- Coluna  -->
               <th style="width: 100px">Ações</th><!-- Coluna  -->          
             </tr>
           </thead>
 
             <tr><!-- Linha01  -->     
-              <td>José Antônio do Cascimento Filho</td>       
-              <td>Engenharia de Computação</td>
-              <td>6º Período</td>
-              <td>Astrogilde</td>
+              <td>Ipsum Ipsum Ipsum Ipsum</td>       
+              <td>Lorem Ipsum</td>
+              <td>André Lorem Ipsum Lorem Ipsum</td>
+              <td>Ipsum</td>
               <td>
                   <a href="#" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModalTCC"> Visualizar </a>
                   <a href="#" class="btn btn-warning btn-xs"><i class="label label-warning"></i> Editar </a>
 
                   <a href="#" class="btn btn-danger btn-xs" > Excluir </a>
               </td>
-            </tr><!-- Fim da Linha01  -->
+            </tr>
 
             
 
             <tr><!-- Linha02  --> 
-             <td>Marieta da Silva Saulo Cunha Braga</td>       
-              <td>Engenharia de Produção</td>
-              <td>8º Período</td>
+             <td>Ipsum</td>       
+              <td>Lorem Ipsum</td>
               <td>André</td>
+              <td>Ipsum</td>
               <td>
                   <a href="#" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModalTCC"> Visualizar </a>
                   <a href="#" class="btn btn-warning btn-xs"><i class="label label-warning"></i> Editar </a>
@@ -131,7 +131,7 @@
                   <a href="#" class="btn btn-danger btn-xs" > Excluir </a>
                   
               </td>
-            </tr><!-- Fim da Linha02  -->
+            </tr>
 
           </table>
 
@@ -168,6 +168,7 @@
 
 
 
+
 <script src="../../../Public/bower_components/AdminLTE/plugins/jQuery/jquery-2.2.3.min.js"></script>
 
 <script src="../../../Public/bower_components/AdminLTE/bootstrap/js/bootstrap.min.js"></script>
@@ -177,24 +178,26 @@
 <script>
 var type;
 $(".dropdown-menu li a").click(function(e){
-     type = $(this).text();
-    
+    type = $(this).text();
+
     $(this).parents('.input-group').find('.dropdown-toggle').html(type+' <span class="caret"></span>');       
 });
 
   $('#search-form').on('submit', function(){
-                    var searchfield = document.getElementById('search-field').value;
+                    var Searchfield = document.getElementById('Search-field').value;
 
                     var dataString = $("#search-form").serialize();
-                    dataString += '&searchfield='+searchfield+'&type='+type;
+                    dataString += '&Searchfield='+Searchfield+'&type='+type;
                     alert(dataString);
 
                     //ajaxPostRedirect(dataString,"createquiz.php","questionadmin.php");
         
+
         return false;
-    });
+    }); 
 
 </script>
+
 
 </body>
 </html>
