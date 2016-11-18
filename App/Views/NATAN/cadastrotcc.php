@@ -186,16 +186,17 @@
                             <!-- Botão  -->
                             <a href="#myModal" class="btn btn-default" data-toggle="modal">Nova atividade</a>
                            <!-- Conteúdo da Modal  -->
-                            <div id="myModal" class="modal fade">
+                            <div id="myModal" class="modal modal-success">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header"> <!-- Cabeçalho -->
                                             <div class="col-md-3"></div><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                            <h3 class="modal-title">Agendamento de atividades</h3>
+                                            <h4 class="modal-title">Agendamento de atividades</h4>
                                         </div>
-                                        <div class="modal-body"> <!-- Conteúdo -->
+                                        <br><br>
+                                        <div class="body"> <!-- Conteúdo -->
                                             <div class="form-group">
-                                            <label class="col-md-2 col-sm-1 col-xs-2 control-label">Mês:</label>
+                                            <label class="col-md-2 control-label">Mês:</label>
                                                       <div class="col-md-7">
                                                     <select class="form-control select1">
                                                       <option selected>Selecione o mês referente a atividade</option>
@@ -212,11 +213,13 @@
                                                 <div class="col-md-7 col-sm-7 col-xs-6">
                                                   <input type="text" class="form-control" placeholder="Nome da atividade">
                                                 </div>
-                                              </div><!-- form group-->          
+                                              </div><!-- form group-->  
+                                              <br>        
                                         </div>
+                                       
                                         <div class="modal-footer"> <!-- Area dos botões -->
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                                            <button type="button" class="btn btn-primary">Salvar</button>
+                                          <button class="btn btn-default">Cancelar</button>
+                                          <button class="btn btn-outline"><i class="fa fa-save"></i>&nbsp;&nbsp;Salvar</button>
                                         </div>
                                     </div>
                                 </div>
