@@ -116,9 +116,12 @@
               <td>22/12/2011</td>
               <td>
                   <a href="#" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModalBuscaRepTCC"> Visualizar </a>
-                  <a href="#" class="btn btn-warning btn-xs"><i class="label label-warning"></i> Editar </a>
+                  <a href="#" class="btn btn-warning btn-xs"> Editar </a>
 
                   <a href="#" class="btn btn-danger btn-xs" > Excluir </a>
+
+                  <a href="#" class="btn btn-info btn-xs" > Ver TCC </a>
+
               </td>
             </tr>
 
@@ -133,9 +136,11 @@
               <td>15/12/2018</td>
               <td>
                   <a href="#" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModalBuscaRepTCC"> Visualizar </a>
-                  <a href="#" class="btn btn-warning btn-xs"><i class="label label-warning"></i> Editar </a>
+                  <a href="#" class="btn btn-warning btn-xs"> Editar </a>
 
                   <a href="#" class="btn btn-danger btn-xs" > Excluir </a>
+
+                  <a href="#" class="btn btn-info btn-xs" > Ver TCC </a>
                   
               </td>
             </tr>
@@ -232,7 +237,7 @@
 
 <script src="../../../Public/bower_components/AdminLTE/dist/js/app.min.js"></script>
 
-<!-- <script>
+<script>
 var type;
 $(".dropdown-menu li a").click(function(e){
     type = $(this).text();
@@ -253,7 +258,7 @@ $(".dropdown-menu li a").click(function(e){
         return false;
     }); 
 
-</script> -->
+</script> 
 
 
 </body>
