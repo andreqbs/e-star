@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCtype html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -50,28 +50,28 @@
       
 
               <div class="container"> <!-- Inicio da busca -->
-                <form class="form-horizontal">  
+                <form class="form-horizontal" id="search-form" >  
                             
                       <div class=col-md-10> 
                         <div class=input-group> 
                             <div class=input-group-btn> 
-                              <button type=button class="btn btn-default">Título</button> 
+                              
 
                                 <button type=button class="btn btn-default dropdown-toggle" data-toggle=dropdown aria-haspopup=true aria-expanded=false> 
-                                  <span class=caret></span> 
+                                  Tipo <span class=caret></span> 
                                     <span class=sr-only>Toggle Dropdown</span> 
                                 </button> 
 
-                                <ul class=dropdown-menu> 
-                                  <li><a href="#">Professor</a></li>
-                                  <li><a href="#">orientandos ativos</a></li> 
-                                  <li><a href="#">orientandos totais</a></li> 
-                                  <li><a href="#">Linha de Pesquisa</a></li>
+                                <ul id="type" class=dropdown-menu> 
+                                  <li><a href="#">Professor</a></li> 
+                                  <li><a href="#">Arientados Ativos</a></li>
+                                  <li><a href="#">Orientados Totais</a></li>
+                                  <li><a href="#">Linha De Pesquisa</a></li>
                                 </ul>
 
                             </div> 
 
-                           <input class=form-control aria-label="Text input with segmented button dropdown">
+                           <input id="Search-field" class=form-control aria-label="Text input with segmented button dropdown">
 
                         </div> 
                       </div>
@@ -111,7 +111,7 @@
               <td>André Lorem Ipsum Lorem Ipsum</td>
               <td>Ipsum</td>
               <td>
-                  <a href="#" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModalBuscaProf"> Visualizar </a>
+                  <a href="#" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModalTCC"> Visualizar </a>
                   <a href="#" class="btn btn-warning btn-xs"><i class="label label-warning"></i> Editar </a>
 
                   <a href="#" class="btn btn-danger btn-xs" > Excluir </a>
@@ -126,7 +126,7 @@
               <td>André</td>
               <td>Ipsum</td>
               <td>
-                  <a href="#" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModalBuscaProf"> Visualizar </a>
+                  <a href="#" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModalTCC"> Visualizar </a>
                   <a href="#" class="btn btn-warning btn-xs"><i class="label label-warning"></i> Editar </a>
 
                   <a href="#" class="btn btn-danger btn-xs" > Excluir </a>
@@ -152,59 +152,20 @@
 
 
     <!-- Modal Vizualisar TCC-->
-    <div class="modal modal-success" id="myModalBuscaProf" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-      <div class="modal-dialog modal-md" role="document">
+    <div class="modal fade" id="myModalTCC" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal-header" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">PROFESSOR</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">TCC</h4>
           </div>
-           <div class="box box-body">
-                                   
-                                       
-                                                                           
-                                          <div class="col-xs-12 form-group">
-
-                                            <label class="col-xs control-label">PROFESSOR:</label>
-
-                                            <input class="form-control" type="text" disabled="" placeholder="Andre Quitiliano">
-                                
-                                          </div>
-
-                                            <div class="col-xs-6 form-group">
-
-                                            <label class="col-xs control-label">ORIENTANDOS ATIVOS:</label>
-
-                                            <input class="form-control" type="text" disabled="" placeholder="666 orientandos">
-                                
-                                          </div>  
-
-                                          <div class="col-xs-6 form-group">
-
-                                            <label class="col-xs control-label"> ORIENTANDOS TOTAIS:</label>
-
-                                            <input class="form-control" type="text" disabled="" placeholder="66666 orientandos">
-                                
-                                          </div>                                   
-                                         
-                                            <div class="col-xs-12 form-group">
-
-                                            <label class="col-xs control-label">LINHA DE PESQUISA:</label>
-
-                                            <input class="form-control" type="text" disabled="" placeholder="Andre Quitiliano">
-                                
-                                          </div>
-
-                                          <div class="col-xs-12 form-group">
-
-                                            <label class="col-xs control-label">ÀREA DE CONCENTRAÇÃO:</label>
-
-                                            <input class="form-control" type="text" disabled="" placeholder="Andre Quitiliano">
-                                
-                                          </div>
-                                           </div> <div class="modal-footer">
-                                          
-                                        </div> <!--Fim da Modal Vizualisar TCC-->
+          <div class="modal-body">
+            ...
+          </div>
+          
+        </div>
+      </div>
+    </div> <!--Fim da Modal Vizualisar TCC-->
 
 
 
@@ -215,6 +176,28 @@
 
 <script src="../../../Public/bower_components/AdminLTE/dist/js/app.min.js"></script>
 
+<script>
+var type;
+$(".dropdown-menu li a").click(function(e){
+    type = $(this).text();
+
+    $(this).parents('.input-group').find('.dropdown-toggle').html(type+' <span class="caret"></span>');       
+});
+
+  $('#search-form').on('submit', function(){
+                    var Searchfield = document.getElementById('Search-field').value;
+
+                    var dataString = $("#search-form").serialize();
+                    dataString += '&Searchfield='+Searchfield+'&type='+type;
+                    alert(dataString);
+
+                    //ajaxPostRedirect(dataString,"createquiz.php","questionadmin.php");
+        
+
+        return false;
+    }); 
+
+</script>
 
 
 </body>
