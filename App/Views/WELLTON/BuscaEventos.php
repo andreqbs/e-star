@@ -116,7 +116,7 @@
               <td>Engenharia de Computação</td>
               <td>André</td>
               <td>
-                  <a href="#" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModalTCC"> Visualizar </a>
+                  <a href="#" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModalBuscaEventos"> Visualizar </a>
                   <a href="#" class="btn btn-warning btn-xs"><i class="label label-warning"></i> Editar </a>
 
                   <a href="#" class="btn btn-danger btn-xs" > Excluir </a>
@@ -133,7 +133,7 @@
               <td>C&T</td>
               <td>André</td>
               <td>
-                  <a href="#" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModalTCC"> Visualizar </a>
+                  <a href="#" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModalBuscaEventos"> Visualizar </a>
                   <a href="#" class="btn btn-warning btn-xs"><i class="label label-warning"></i> Editar </a>
 
                   <a href="#" class="btn btn-danger btn-xs" > Excluir </a>
@@ -159,20 +159,71 @@
 
 
     <!-- Modal Vizualisar TCC-->
-    <div class="modal fade" id="myModalTCC" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
+    <div class="modal modal-success" id="myModalBuscaEventos" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+      <div class="modal-dialog modal-md " role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">TCC</h4>
+            <button type="button" class="close" data-dismiss="modal-header" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">EVENTO</h4>
           </div>
-          <div class="modal-body">
-            ...
-          </div>
-          
-        </div>
-      </div>
-    </div> <!--Fim da Modal Vizualisar TCC-->
+
+          <div class="box box-body">
+         
+                                   <!--Linha 01-->
+
+                                                                           
+                                          <div class="col-xs-12 form-group">
+
+                                            <label class="col-xs control-label">EVENTO:</label>
+
+                                            <input class="form-control" type="text" disabled="" placeholder="Encontro com fátima">
+                                
+                                         </div>
+
+
+                                              <div class="col-xs-12 form-group">
+
+                                            <label class="col-xs control-label">LOCAL:</label>
+
+                                            <input class="form-control" type="text" disabled="" placeholder="UnP - Nascimento de castro nº 666, ">
+                                
+                                          </div>  
+
+
+                                          <div class="col-xs-7 form-group">
+
+                                            <label class="col-xs control-label">RESPONSÁVEL:</label>
+
+                                            <input class="form-control" type="text" disabled="" placeholder="Andre Quitiliano">
+                                
+                                          </div>                                   
+                                          
+
+                                           <div class="col-xs-3 form-group">
+
+                                            <label class="col-xs control-label">DATA:</label>
+
+                                            <input class="form-control" type="text" disabled="" placeholder="66-66-6666">
+                                
+                                          </div>    
+
+                                         
+
+                                          
+                                           <div class="col-xs-2 form-group">
+
+                                            <label class="col-xs control-label">HORÁRIO:</label>
+
+                                            <input class="form-control" type="text" disabled="" placeholder="66-66">
+                                
+                                          </div>   
+                                        
+
+                                          </div>
+                                        <div class="modal-footer">
+                                          
+                                        </div>
+                                        <!--Fim da Modal Vizualisar TCC-->
 
 
 
