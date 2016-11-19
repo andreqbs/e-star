@@ -249,9 +249,8 @@ $(".dropdown-menu li a").click(function(e){
                     dataString += '&Searchfield='+Searchfield+'&type='+type;
                     alert(dataString);
 
-                    //ajaxPostRedirect(dataString,"createquiz.php","questionadmin.php");
+                    ajaxPostRedirect(dataString,"BuscaEventosAPI.php");
         
-
         return false;
     }); 
 
