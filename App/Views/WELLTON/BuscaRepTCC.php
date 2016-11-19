@@ -233,7 +233,7 @@
 
 <script src="../../../Public/bower_components/AdminLTE/dist/js/app.min.js"></script>
 
-<!-- <script>
+<script>
 var type;
 $(".dropdown-menu li a").click(function(e){
     type = $(this).text();
@@ -248,13 +248,12 @@ $(".dropdown-menu li a").click(function(e){
                     dataString += '&Searchfield='+Searchfield+'&type='+type;
                     alert(dataString);
 
-                    //ajaxPostRedirect(dataString,"createquiz.php","questionadmin.php");
+                    ajaxPostRedirect(dataString,"BuscaRepTCCAPI.php");
         
-
         return false;
     }); 
 
-</script> -->
+</script> 
 
 
 </body>
