@@ -15,7 +15,7 @@ class DAOComponentes implements IDAO{
     public function create($Componentes){
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "INSERT INTO Componentes (idProfessorFK, idAlunoFK1, idAlunoFK2, idTCCFK) VALUES ('{$Componentes->getidProfessorFK()}', '{$Componentes->getidAlunoFK1()}', '{$Componentes->getidAlunoFK2()}', '{$Componentes->getidTCCFK()}'); ";
+    	$sql = "INSERT INTO Componentes (Titulo, Descricao, ComponentesStatus, Objetivos, Justificativas, ComponentesTipo, LinhaPesquisa_idLinhaPesquisa) VALUES ('{$Componentes->getTitulo()}', '{$Componentes->getDescricao()}', '{$Componentes->getComponentesStatus()}', '{$Componentes->getObjetivos()}', '{$Componentes->getJustificativas()}', '{$Componentes->getComponentesTipo()}', '{$Componentes->getLinhaPesquisa()}'); ";
 		echo "<br>".$sql."<br>";
 
 		try {
@@ -35,7 +35,7 @@ class DAOComponentes implements IDAO{
     {
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "UPDATE Componentes SET idProfessorFK = '{$Componentes->getidProfessorFK()}', idAlunoFK1 = '{$Componentes->getidAlunoFK1()}', idAlunoFK2 = '{$Componentes->getidAlunoFK2()}', idTCCFK = '{$Componentes->getidTCCFK()}' WHERE idComponentes = $idComponentes";
+    	$sql = "UPDATE Componentes SET Titulo = '{$Componentes->getTitulo()}', Descricao = '{$Componentes->getDescricao()}', ComponentesStatus = '{$Componentes->getComponentesStatus()}', Objetivos = '{$Componentes->getObjetivos()}', Justificativas = '{$Componentes->getJustificativas()}', ComponentesTipo = '{$Componentes->getComponentesTipo()}', LinhaPesquisa_idLinhaPesquisa = '{$Componentes->getLinhaPesquisa()}' WHERE idComponentes = $idComponentes";
 
 		echo "<br>".$sql."<br>";
 

@@ -55,7 +55,16 @@ class DAOCronograma implements IDAO{
         }
     	//$conn->makeQuery($sql);
     }
-    	 
+    
+    /*
+private $idCronograma;
+private $PorQue;
+private $Onde;
+private $Quando;
+private $Quem;
+private $Como;
+private $Quanto;
+*/
     public function delete($idCronograma){
     	$connection = new Connection();
     	$connection = $connection->openConnection();

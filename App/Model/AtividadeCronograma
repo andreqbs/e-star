@@ -3,6 +3,7 @@
 namespace App\Models;
 
 
+
 class AtividadeCronograma {
 
 private $idAtividadeCronograma;
