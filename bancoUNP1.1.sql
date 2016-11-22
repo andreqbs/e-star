@@ -8,22 +8,22 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema estartho_bdunp
+-- Schema e-star
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `estartho_bdunp` ;
+DROP SCHEMA IF EXISTS `e-star` ;
 
 -- -----------------------------------------------------
--- Schema estartho_bdunp
+-- Schema e-star
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `estartho_bdunp` DEFAULT CHARACTER SET latin1 ;
-
+CREATE SCHEMA IF NOT EXISTS `e-star` DEFAULT CHARACTER SET latin1 ;
+USE `e-star` ;
 
 -- -----------------------------------------------------
--- Table `Curso`
+-- Table `e-star`.`Curso`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Curso` ;
+DROP TABLE IF EXISTS `e-star`.`Curso` ;
 
-CREATE TABLE IF NOT EXISTS `Curso` (
+CREATE TABLE IF NOT EXISTS `e-star`.`Curso` (
   `idCurso` INT(11) NOT NULL AUTO_INCREMENT,
   `nomeCurso` VARCHAR(45) CHARACTER SET 'latin1' NOT NULL,
   PRIMARY KEY (`idCurso`))
@@ -32,17 +32,17 @@ AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = latin1
 COLLATE = latin1_general_ci;
 
-CREATE UNIQUE INDEX `nomeCurso_UNIQUE` ON `Curso` (`nomeCurso` ASC);
+CREATE UNIQUE INDEX `nomeCurso_UNIQUE` ON `e-star`.`Curso` (`nomeCurso` ASC);
 
-CREATE UNIQUE INDEX `idCurso_UNIQUE` ON `Curso` (`idCurso` ASC);
+CREATE UNIQUE INDEX `idCurso_UNIQUE` ON `e-star`.`Curso` (`idCurso` ASC);
 
 
 -- -----------------------------------------------------
--- Table `Aluno`
+-- Table `e-star`.`Aluno`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Aluno` ;
+DROP TABLE IF EXISTS `e-star`.`Aluno` ;
 
-CREATE TABLE IF NOT EXISTS `Aluno` (
+CREATE TABLE IF NOT EXISTS `e-star`.`Aluno` (
   `idAluno` INT(11) NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(100) CHARACTER SET 'latin1' NOT NULL,
   `matricula` CHAR(9) CHARACTER SET 'latin1' NOT NULL,
@@ -53,29 +53,29 @@ CREATE TABLE IF NOT EXISTS `Aluno` (
   PRIMARY KEY (`idAluno`),
   CONSTRAINT `FKCurso_Aluno`
     FOREIGN KEY (`idCursoFK`)
-    REFERENCES `Curso` (`idCurso`))
+    REFERENCES `e-star`.`Curso` (`idCurso`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = latin1
 COLLATE = latin1_general_ci;
 
-CREATE INDEX `FKCurso_Aluno` ON `Aluno` (`idCursoFK` ASC);
+CREATE INDEX `FKCurso_Aluno` ON `e-star`.`Aluno` (`idCursoFK` ASC);
 
-CREATE UNIQUE INDEX `idAluno_UNIQUE` ON `Aluno` (`idAluno` ASC);
+CREATE UNIQUE INDEX `idAluno_UNIQUE` ON `e-star`.`Aluno` (`idAluno` ASC);
 
-CREATE UNIQUE INDEX `matricula_UNIQUE` ON `Aluno` (`matricula` ASC);
+CREATE UNIQUE INDEX `matricula_UNIQUE` ON `e-star`.`Aluno` (`matricula` ASC);
 
-CREATE UNIQUE INDEX `email_UNIQUE` ON `Aluno` (`email` ASC);
+CREATE UNIQUE INDEX `email_UNIQUE` ON `e-star`.`Aluno` (`email` ASC);
 
-CREATE UNIQUE INDEX `login_UNIQUE` ON `Aluno` (`login` ASC);
+CREATE UNIQUE INDEX `login_UNIQUE` ON `e-star`.`Aluno` (`login` ASC);
 
 
 -- -----------------------------------------------------
--- Table `Professor`
+-- Table `e-star`.`Professor`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Professor` ;
+DROP TABLE IF EXISTS `e-star`.`Professor` ;
 
-CREATE TABLE IF NOT EXISTS `Professor` (
+CREATE TABLE IF NOT EXISTS `e-star`.`Professor` (
   `idProfessor` INT(11) NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(100) CHARACTER SET 'latin1' NOT NULL,
   `matricula` VARCHAR(6) CHARACTER SET 'latin1' NOT NULL,
@@ -88,21 +88,21 @@ AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = latin1
 COLLATE = latin1_general_ci;
 
-CREATE UNIQUE INDEX `idProfessor_UNIQUE` ON `Professor` (`idProfessor` ASC);
+CREATE UNIQUE INDEX `idProfessor_UNIQUE` ON `e-star`.`Professor` (`idProfessor` ASC);
 
-CREATE UNIQUE INDEX `matricula_UNIQUE` ON `Professor` (`matricula` ASC);
+CREATE UNIQUE INDEX `matricula_UNIQUE` ON `e-star`.`Professor` (`matricula` ASC);
 
-CREATE UNIQUE INDEX `login_UNIQUE` ON `Professor` (`login` ASC);
+CREATE UNIQUE INDEX `login_UNIQUE` ON `e-star`.`Professor` (`login` ASC);
 
-CREATE UNIQUE INDEX `email_UNIQUE` ON `Professor` (`email` ASC);
+CREATE UNIQUE INDEX `email_UNIQUE` ON `e-star`.`Professor` (`email` ASC);
 
 
 -- -----------------------------------------------------
--- Table `Agendamento`
+-- Table `e-star`.`Agendamento`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Agendamento` ;
+DROP TABLE IF EXISTS `e-star`.`Agendamento` ;
 
-CREATE TABLE IF NOT EXISTS `Agendamento` (
+CREATE TABLE IF NOT EXISTS `e-star`.`Agendamento` (
   `idAgendamento` INT(11) NOT NULL AUTO_INCREMENT,
   `motivo` VARCHAR(100) CHARACTER SET 'latin1' NOT NULL,
   `dataHora` DATETIME NOT NULL,
@@ -111,52 +111,52 @@ CREATE TABLE IF NOT EXISTS `Agendamento` (
   PRIMARY KEY (`idAgendamento`),
   CONSTRAINT `FKAluno_Agendamento`
     FOREIGN KEY (`idAlunoFK`)
-    REFERENCES `Aluno` (`idAluno`),
+    REFERENCES `e-star`.`Aluno` (`idAluno`),
   CONSTRAINT `FKProfessor_Agendamento`
     FOREIGN KEY (`idProfessorFK`)
-    REFERENCES `Professor` (`idProfessor`))
+    REFERENCES `e-star`.`Professor` (`idProfessor`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1
 COLLATE = latin1_general_ci;
 
-CREATE INDEX `FKProfessor_Agendamento` ON `Agendamento` (`idProfessorFK` ASC);
+CREATE INDEX `FKProfessor_Agendamento` ON `e-star`.`Agendamento` (`idProfessorFK` ASC);
 
-CREATE INDEX `FKAluno_Agendamento` ON `Agendamento` (`idAlunoFK` ASC);
+CREATE INDEX `FKAluno_Agendamento` ON `e-star`.`Agendamento` (`idAlunoFK` ASC);
 
-CREATE UNIQUE INDEX `idAgendamento_UNIQUE` ON `Agendamento` (`idAgendamento` ASC);
+CREATE UNIQUE INDEX `idAgendamento_UNIQUE` ON `e-star`.`Agendamento` (`idAgendamento` ASC);
 
 
 -- -----------------------------------------------------
--- Table `LinhaPesquisa`
+-- Table `e-star`.`LinhaPesquisa`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `LinhaPesquisa` ;
+DROP TABLE IF EXISTS `e-star`.`LinhaPesquisa` ;
 
-CREATE TABLE IF NOT EXISTS `LinhaPesquisa` (
+CREATE TABLE IF NOT EXISTS `e-star`.`LinhaPesquisa` (
   `idLinhaPesquisa` INT(11) NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(250) CHARACTER SET 'latin1' NOT NULL,
   `idCursoFK` INT(11) NOT NULL,
   PRIMARY KEY (`idLinhaPesquisa`),
   CONSTRAINT `FKCurso_LinhaPesquisa`
     FOREIGN KEY (`idCursoFK`)
-    REFERENCES `Curso` (`idCurso`))
+    REFERENCES `e-star`.`Curso` (`idCurso`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = latin1
 COLLATE = latin1_general_ci;
 
-CREATE INDEX `FKCurso_LinhaPesquisa` ON `LinhaPesquisa` (`idCursoFK` ASC);
+CREATE INDEX `FKCurso_LinhaPesquisa` ON `e-star`.`LinhaPesquisa` (`idCursoFK` ASC);
 
-CREATE UNIQUE INDEX `idLinhaPesquisa_UNIQUE` ON `LinhaPesquisa` (`idLinhaPesquisa` ASC);
+CREATE UNIQUE INDEX `idLinhaPesquisa_UNIQUE` ON `e-star`.`LinhaPesquisa` (`idLinhaPesquisa` ASC);
 
-CREATE UNIQUE INDEX `LinhaPesquisa_UNIQUE` ON `LinhaPesquisa` (`nome` ASC);
+CREATE UNIQUE INDEX `LinhaPesquisa_UNIQUE` ON `e-star`.`LinhaPesquisa` (`nome` ASC);
 
 
 -- -----------------------------------------------------
--- Table `TCC`
+-- Table `e-star`.`TCC`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `TCC` ;
+DROP TABLE IF EXISTS `e-star`.`TCC` ;
 
-CREATE TABLE IF NOT EXISTS `TCC` (
+CREATE TABLE IF NOT EXISTS `e-star`.`TCC` (
   `idTCC` INT(11) NOT NULL AUTO_INCREMENT,
   `titulo` VARCHAR(100) CHARACTER SET 'latin1' NOT NULL,
   `resumo` VARCHAR(250) CHARACTER SET 'latin1' NOT NULL,
@@ -168,24 +168,24 @@ CREATE TABLE IF NOT EXISTS `TCC` (
   PRIMARY KEY (`idTCC`),
   CONSTRAINT `FKLinhaPesquisa_TCC`
     FOREIGN KEY (`idLinhaPesquisaFK`)
-    REFERENCES `LinhaPesquisa` (`idLinhaPesquisa`))
+    REFERENCES `e-star`.`LinhaPesquisa` (`idLinhaPesquisa`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1
 COLLATE = latin1_general_ci;
 
-CREATE INDEX `FKLinhaPesquisa_TCC` ON `TCC` (`idLinhaPesquisaFK` ASC);
+CREATE INDEX `FKLinhaPesquisa_TCC` ON `e-star`.`TCC` (`idLinhaPesquisaFK` ASC);
 
-CREATE UNIQUE INDEX `idTCC_UNIQUE` ON `TCC` (`idTCC` ASC);
+CREATE UNIQUE INDEX `idTCC_UNIQUE` ON `e-star`.`TCC` (`idTCC` ASC);
 
-CREATE UNIQUE INDEX `titulo_UNIQUE` ON `TCC` (`titulo` ASC);
+CREATE UNIQUE INDEX `titulo_UNIQUE` ON `e-star`.`TCC` (`titulo` ASC);
 
 
 -- -----------------------------------------------------
--- Table `Arquivo`
+-- Table `e-star`.`Arquivo`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Arquivo` ;
+DROP TABLE IF EXISTS `e-star`.`Arquivo` ;
 
-CREATE TABLE IF NOT EXISTS `Arquivo` (
+CREATE TABLE IF NOT EXISTS `e-star`.`Arquivo` (
   `idArquivo` INT(11) NOT NULL AUTO_INCREMENT,
   `link` VARCHAR(250) CHARACTER SET 'latin1' NOT NULL,
   `idTCCFK` INT(11) NOT NULL,
@@ -193,22 +193,22 @@ CREATE TABLE IF NOT EXISTS `Arquivo` (
   PRIMARY KEY (`idArquivo`),
   CONSTRAINT `FKTCC_Arquivo`
     FOREIGN KEY (`idTCCFK`)
-    REFERENCES `TCC` (`idTCC`))
+    REFERENCES `e-star`.`TCC` (`idTCC`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1
 COLLATE = latin1_general_ci;
 
-CREATE INDEX `FKTCC_Arquivo` ON `Arquivo` (`idTCCFK` ASC);
+CREATE INDEX `FKTCC_Arquivo` ON `e-star`.`Arquivo` (`idTCCFK` ASC);
 
-CREATE UNIQUE INDEX `idArquivo_UNIQUE` ON `Arquivo` (`idArquivo` ASC);
+CREATE UNIQUE INDEX `idArquivo_UNIQUE` ON `e-star`.`Arquivo` (`idArquivo` ASC);
 
 
 -- -----------------------------------------------------
--- Table `Atividade`
+-- Table `e-star`.`Atividade`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Atividade` ;
+DROP TABLE IF EXISTS `e-star`.`Atividade` ;
 
-CREATE TABLE IF NOT EXISTS `Atividade` (
+CREATE TABLE IF NOT EXISTS `e-star`.`Atividade` (
   `idAtividade` INT(11) NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(50) CHARACTER SET 'latin1' NOT NULL,
   `mes` DATE NOT NULL,
@@ -217,22 +217,22 @@ CREATE TABLE IF NOT EXISTS `Atividade` (
   PRIMARY KEY (`idAtividade`),
   CONSTRAINT `FKTCC_Atividade`
     FOREIGN KEY (`idTCCFK`)
-    REFERENCES `TCC` (`idTCC`))
+    REFERENCES `e-star`.`TCC` (`idTCC`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1
 COLLATE = latin1_general_ci;
 
-CREATE INDEX `FKTCC_Atividade` ON `Atividade` (`idTCCFK` ASC);
+CREATE INDEX `FKTCC_Atividade` ON `e-star`.`Atividade` (`idTCCFK` ASC);
 
-CREATE UNIQUE INDEX `idAtividade_UNIQUE` ON `Atividade` (`idAtividade` ASC);
+CREATE UNIQUE INDEX `idAtividade_UNIQUE` ON `e-star`.`Atividade` (`idAtividade` ASC);
 
 
 -- -----------------------------------------------------
--- Table `Cronograma`
+-- Table `e-star`.`Cronograma`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Cronograma` ;
+DROP TABLE IF EXISTS `e-star`.`Cronograma` ;
 
-CREATE TABLE IF NOT EXISTS `Cronograma` (
+CREATE TABLE IF NOT EXISTS `e-star`.`Cronograma` (
   `idCronograma` INT(11) NOT NULL AUTO_INCREMENT,
   `oque` VARCHAR(100) CHARACTER SET 'latin1' NOT NULL,
   `porque` VARCHAR(100) CHARACTER SET 'latin1' NOT NULL,
@@ -246,15 +246,15 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1
 COLLATE = latin1_general_ci;
 
-CREATE UNIQUE INDEX `idCronograma_UNIQUE` ON `Cronograma` (`idCronograma` ASC);
+CREATE UNIQUE INDEX `idCronograma_UNIQUE` ON `e-star`.`Cronograma` (`idCronograma` ASC);
 
 
 -- -----------------------------------------------------
--- Table `AtividadesCronograma`
+-- Table `e-star`.`AtividadesCronograma`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `AtividadesCronograma` ;
+DROP TABLE IF EXISTS `e-star`.`AtividadesCronograma` ;
 
-CREATE TABLE IF NOT EXISTS `AtividadesCronograma` (
+CREATE TABLE IF NOT EXISTS `e-star`.`AtividadesCronograma` (
   `idAtividadesCronograma` INT(11) NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(100) CHARACTER SET 'latin1' NOT NULL,
   `idCronogramaFK` INT(11) NOT NULL,
@@ -262,76 +262,76 @@ CREATE TABLE IF NOT EXISTS `AtividadesCronograma` (
   PRIMARY KEY (`idAtividadesCronograma`),
   CONSTRAINT `FKCronograma_AtividadesCronograma`
     FOREIGN KEY (`idCronogramaFK`)
-    REFERENCES `Cronograma` (`idCronograma`),
+    REFERENCES `e-star`.`Cronograma` (`idCronograma`),
   CONSTRAINT `FKTCC_AtividadesCronograma`
     FOREIGN KEY (`idTCCFK`)
-    REFERENCES `TCC` (`idTCC`))
+    REFERENCES `e-star`.`TCC` (`idTCC`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1
 COLLATE = latin1_general_ci;
 
-CREATE INDEX `FKCronograma_AtividadesCronograma` ON `AtividadesCronograma` (`idCronogramaFK` ASC);
+CREATE INDEX `FKCronograma_AtividadesCronograma` ON `e-star`.`AtividadesCronograma` (`idCronogramaFK` ASC);
 
-CREATE INDEX `FKTCC_AtividadesCronograma` ON `AtividadesCronograma` (`idTCCFK` ASC);
+CREATE INDEX `FKTCC_AtividadesCronograma` ON `e-star`.`AtividadesCronograma` (`idTCCFK` ASC);
 
-CREATE UNIQUE INDEX `idAtividadesCronograma_UNIQUE` ON `AtividadesCronograma` (`idAtividadesCronograma` ASC);
+CREATE UNIQUE INDEX `idAtividadesCronograma_UNIQUE` ON `e-star`.`AtividadesCronograma` (`idAtividadesCronograma` ASC);
 
 
 -- -----------------------------------------------------
--- Table `Componentes`
+-- Table `e-star`.`Componentes`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Componentes` ;
+DROP TABLE IF EXISTS `e-star`.`Componentes` ;
 
-CREATE TABLE IF NOT EXISTS `Componentes` (
+CREATE TABLE IF NOT EXISTS `e-star`.`Componentes` (
   `idProfessorFK` INT(11) NOT NULL,
   `idAlunoFK1` INT(11) NOT NULL,
   `idAlunoFK2` INT(11) NULL DEFAULT NULL,
   `idTCCFK` INT(11) NOT NULL,
   CONSTRAINT `FKAluno_Componente`
     FOREIGN KEY (`idAlunoFK1`)
-    REFERENCES `Aluno` (`idAluno`),
+    REFERENCES `e-star`.`Aluno` (`idAluno`),
   CONSTRAINT `FKAluno_Componente_2`
     FOREIGN KEY (`idAlunoFK2`)
-    REFERENCES `Aluno` (`idAluno`),
+    REFERENCES `e-star`.`Aluno` (`idAluno`),
   CONSTRAINT `FKProfessor_Componente`
     FOREIGN KEY (`idProfessorFK`)
-    REFERENCES `Professor` (`idProfessor`),
+    REFERENCES `e-star`.`Professor` (`idProfessor`),
   CONSTRAINT `FKTCC_Componente`
     FOREIGN KEY (`idTCCFK`)
-    REFERENCES `TCC` (`idTCC`))
+    REFERENCES `e-star`.`TCC` (`idTCC`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1
 COLLATE = latin1_general_ci;
 
-CREATE INDEX `FKProfessor_Componente` ON `Componentes` (`idProfessorFK` ASC);
+CREATE INDEX `FKProfessor_Componente` ON `e-star`.`Componentes` (`idProfessorFK` ASC);
 
-CREATE INDEX `FKAluno_Componente` ON `Componentes` (`idAlunoFK1` ASC);
+CREATE INDEX `FKAluno_Componente` ON `e-star`.`Componentes` (`idAlunoFK1` ASC);
 
-CREATE INDEX `FKAluno_Componente_2` ON `Componentes` (`idAlunoFK2` ASC);
+CREATE INDEX `FKAluno_Componente_2` ON `e-star`.`Componentes` (`idAlunoFK2` ASC);
 
-CREATE INDEX `FKTCC_Componente` ON `Componentes` (`idTCCFK` ASC);
+CREATE INDEX `FKTCC_Componente` ON `e-star`.`Componentes` (`idTCCFK` ASC);
 
 
 -- -----------------------------------------------------
--- Table `Unidade`
+-- Table `e-star`.`Unidade`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Unidade` ;
+DROP TABLE IF EXISTS `e-star`.`Unidade` ;
 
-CREATE TABLE IF NOT EXISTS `Unidade` (
+CREATE TABLE IF NOT EXISTS `e-star`.`Unidade` (
   `idUnidade` INT(11) NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idUnidade`))
 ENGINE = InnoDB;
 
-CREATE UNIQUE INDEX `idUnidade_UNIQUE` ON `Unidade` (`idUnidade` ASC);
+CREATE UNIQUE INDEX `idUnidade_UNIQUE` ON `e-star`.`Unidade` (`idUnidade` ASC);
 
 
 -- -----------------------------------------------------
--- Table `Sala`
+-- Table `e-star`.`Sala`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Sala` ;
+DROP TABLE IF EXISTS `e-star`.`Sala` ;
 
-CREATE TABLE IF NOT EXISTS `Sala` (
+CREATE TABLE IF NOT EXISTS `e-star`.`Sala` (
   `idSala` INT(11) NOT NULL AUTO_INCREMENT,
   `setor` VARCHAR(10) CHARACTER SET 'latin1' NOT NULL,
   `nome` VARCHAR (20) NOT NULL,
@@ -340,24 +340,24 @@ CREATE TABLE IF NOT EXISTS `Sala` (
   PRIMARY KEY (`idSala`),
   CONSTRAINT `fk_Sala_Unidade`
     FOREIGN KEY (`idUnidadeFK`)
-    REFERENCES `Unidade` (`idUnidade`)
+    REFERENCES `e-star`.`Unidade` (`idUnidade`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1
 COLLATE = latin1_general_ci;
 
-CREATE INDEX `fk_Sala_Unidade1_idx` ON `Sala` (`idUnidadeFK` ASC);
+CREATE INDEX `fk_Sala_Unidade1_idx` ON `e-star`.`Sala` (`idUnidadeFK` ASC);
 
-CREATE UNIQUE INDEX `idSala_UNIQUE` ON `Sala` (`idSala` ASC);
+CREATE UNIQUE INDEX `idSala_UNIQUE` ON `e-star`.`Sala` (`idSala` ASC);
 
 
 -- -----------------------------------------------------
--- Table `Reserva`
+-- Table `e-star`.`Reserva`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Reserva` ;
+DROP TABLE IF EXISTS `e-star`.`Reserva` ;
 
-CREATE TABLE IF NOT EXISTS `Reserva` (
+CREATE TABLE IF NOT EXISTS `e-star`.`Reserva` (
   `idReserva` INT(11) NOT NULL AUTO_INCREMENT,
   `dataHora` DATETIME NOT NULL,
   `idProfessorFK` INT(11) NOT NULL,
@@ -365,27 +365,27 @@ CREATE TABLE IF NOT EXISTS `Reserva` (
   PRIMARY KEY (`idReserva`),
   CONSTRAINT `FKProfessor_Reserva`
     FOREIGN KEY (`idProfessorFK`)
-    REFERENCES `Professor` (`idProfessor`),
+    REFERENCES `e-star`.`Professor` (`idProfessor`),
   CONSTRAINT `FKSalaAula_Reserva`
     FOREIGN KEY (`idSalaFK`)
-    REFERENCES `Sala` (`idSala`))
+    REFERENCES `e-star`.`Sala` (`idSala`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1
 COLLATE = latin1_general_ci;
 
-CREATE INDEX `FKProfessor_Reserva` ON `Reserva` (`idProfessorFK` ASC);
+CREATE INDEX `FKProfessor_Reserva` ON `e-star`.`Reserva` (`idProfessorFK` ASC);
 
-CREATE INDEX `FKSalaAula_Reserva` ON `Reserva` (`idSalaFK` ASC);
+CREATE INDEX `FKSalaAula_Reserva` ON `e-star`.`Reserva` (`idSalaFK` ASC);
 
-CREATE UNIQUE INDEX `idReserva_UNIQUE` ON `Reserva` (`idReserva` ASC);
+CREATE UNIQUE INDEX `idReserva_UNIQUE` ON `e-star`.`Reserva` (`idReserva` ASC);
 
 
 -- -----------------------------------------------------
--- Table `Defesa`
+-- Table `e-star`.`Defesa`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Defesa` ;
+DROP TABLE IF EXISTS `e-star`.`Defesa` ;
 
-CREATE TABLE IF NOT EXISTS `Defesa` (
+CREATE TABLE IF NOT EXISTS `e-star`.`Defesa` (
   `idDefesa` INT(11) NOT NULL AUTO_INCREMENT,
   `data` DATETIME NOT NULL,
   `idTCCFK` INT(11) NOT NULL,
@@ -393,27 +393,27 @@ CREATE TABLE IF NOT EXISTS `Defesa` (
   PRIMARY KEY (`idDefesa`),
   CONSTRAINT `FKReserva_Defesa`
     FOREIGN KEY (`idReservaFK`)
-    REFERENCES `Reserva` (`idReserva`),
+    REFERENCES `e-star`.`Reserva` (`idReserva`),
   CONSTRAINT `FKTCC_Defesa`
     FOREIGN KEY (`idTCCFK`)
-    REFERENCES `TCC` (`idTCC`))
+    REFERENCES `e-star`.`TCC` (`idTCC`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1
 COLLATE = latin1_general_ci;
 
-CREATE INDEX `FKTCC_Defesa` ON `Defesa` (`idTCCFK` ASC);
+CREATE INDEX `FKTCC_Defesa` ON `e-star`.`Defesa` (`idTCCFK` ASC);
 
-CREATE INDEX `FKReserva_Defesa` ON `Defesa` (`idReservaFK` ASC);
+CREATE INDEX `FKReserva_Defesa` ON `e-star`.`Defesa` (`idReservaFK` ASC);
 
-CREATE UNIQUE INDEX `idDefesa_UNIQUE` ON `Defesa` (`idDefesa` ASC);
+CREATE UNIQUE INDEX `idDefesa_UNIQUE` ON `e-star`.`Defesa` (`idDefesa` ASC);
 
 
 -- -----------------------------------------------------
--- Table `Erros`
+-- Table `e-star`.`Erros`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Erros` ;
+DROP TABLE IF EXISTS `e-star`.`Erros` ;
 
-CREATE TABLE IF NOT EXISTS `Erros` (
+CREATE TABLE IF NOT EXISTS `e-star`.`Erros` (
   `idErros` INT(11) NOT NULL AUTO_INCREMENT,
   `nomeErro` VARCHAR(50) CHARACTER SET 'latin1' NOT NULL,
   `categoria` VARCHAR(100) CHARACTER SET 'latin1' NOT NULL,
@@ -422,42 +422,42 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1
 COLLATE = latin1_general_ci;
 
-CREATE UNIQUE INDEX `idErros_UNIQUE` ON `Erros` (`idErros` ASC);
+CREATE UNIQUE INDEX `idErros_UNIQUE` ON `e-star`.`Erros` (`idErros` ASC);
 
 
 -- -----------------------------------------------------
--- Table `ErrosTCC`
+-- Table `e-star`.`ErrosTCC`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `ErrosTCC` ;
+DROP TABLE IF EXISTS `e-star`.`ErrosTCC` ;
 
-CREATE TABLE IF NOT EXISTS `ErrosTCC` (
+CREATE TABLE IF NOT EXISTS `e-star`.`ErrosTCC` (
   `idErrosTCC` INT(11) NOT NULL AUTO_INCREMENT,
   `idTCCFK` INT(11) NOT NULL,
   `idErrosFK` INT(11) NOT NULL,
   PRIMARY KEY (`idErrosTCC`),
   CONSTRAINT `FKErros_ErrosTCC`
     FOREIGN KEY (`idErrosFK`)
-    REFERENCES `Erros` (`idErros`),
+    REFERENCES `e-star`.`Erros` (`idErros`),
   CONSTRAINT `FKTCC_ErrosTCC`
     FOREIGN KEY (`idTCCFK`)
-    REFERENCES `TCC` (`idTCC`))
+    REFERENCES `e-star`.`TCC` (`idTCC`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1
 COLLATE = latin1_general_ci;
 
-CREATE INDEX `FKTCC_ErrosTCC` ON `ErrosTCC` (`idTCCFK` ASC);
+CREATE INDEX `FKTCC_ErrosTCC` ON `e-star`.`ErrosTCC` (`idTCCFK` ASC);
 
-CREATE INDEX `FKErros_ErrosTCC` ON `ErrosTCC` (`idErrosFK` ASC);
+CREATE INDEX `FKErros_ErrosTCC` ON `e-star`.`ErrosTCC` (`idErrosFK` ASC);
 
-CREATE UNIQUE INDEX `idErrosTCC_UNIQUE` ON `ErrosTCC` (`idErrosTCC` ASC);
+CREATE UNIQUE INDEX `idErrosTCC_UNIQUE` ON `e-star`.`ErrosTCC` (`idErrosTCC` ASC);
 
 
 -- -----------------------------------------------------
--- Table `Evento`
+-- Table `e-star`.`Evento`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Evento` ;
+DROP TABLE IF EXISTS `e-star`.`Evento` ;
 
-CREATE TABLE IF NOT EXISTS `Evento` (
+CREATE TABLE IF NOT EXISTS `e-star`.`Evento` (
   `idEvento` INT(11) NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(50) CHARACTER SET 'latin1' NOT NULL,
   `dataHora` DATETIME NOT NULL,
@@ -467,29 +467,29 @@ CREATE TABLE IF NOT EXISTS `Evento` (
   PRIMARY KEY (`idEvento`),
   CONSTRAINT `FKCurso_Evento`
     FOREIGN KEY (`idCursoFK`)
-    REFERENCES `Curso` (`idCurso`),
+    REFERENCES `e-star`.`Curso` (`idCurso`),
   CONSTRAINT `FKProfessor_Evento`
     FOREIGN KEY (`idProfessorFK`)
-    REFERENCES `Professor` (`idProfessor`))
+    REFERENCES `e-star`.`Professor` (`idProfessor`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1
 COLLATE = latin1_general_ci;
 
-CREATE INDEX `FKProfessor_Evento` ON `Evento` (`idProfessorFK` ASC);
+CREATE INDEX `FKProfessor_Evento` ON `e-star`.`Evento` (`idProfessorFK` ASC);
 
-CREATE INDEX `FKCurso_Evento` ON `Evento` (`idCursoFK` ASC);
+CREATE INDEX `FKCurso_Evento` ON `e-star`.`Evento` (`idCursoFK` ASC);
 
-CREATE UNIQUE INDEX `idEvento_UNIQUE` ON `Evento` (`idEvento` ASC);
+CREATE UNIQUE INDEX `idEvento_UNIQUE` ON `e-star`.`Evento` (`idEvento` ASC);
 
-CREATE UNIQUE INDEX `nome_UNIQUE` ON `Evento` (`nome` ASC);
+CREATE UNIQUE INDEX `nome_UNIQUE` ON `e-star`.`Evento` (`nome` ASC);
 
 
 -- -----------------------------------------------------
--- Table `Relatorio`
+-- Table `e-star`.`Relatorio`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Relatorio` ;
+DROP TABLE IF EXISTS `e-star`.`Relatorio` ;
 
-CREATE TABLE IF NOT EXISTS `Relatorio` (
+CREATE TABLE IF NOT EXISTS `e-star`.`Relatorio` (
   `idRelatorio` INT(11) NOT NULL AUTO_INCREMENT,
   `data` DATETIME NOT NULL, 
   `apresentacaoNota` FLOAT NOT NULL,
@@ -506,22 +506,22 @@ CREATE TABLE IF NOT EXISTS `Relatorio` (
   PRIMARY KEY (`idRelatorio`),
   CONSTRAINT `FKTCC_Relatorio`
     FOREIGN KEY (`idTCCFK`)
-    REFERENCES `TCC` (`idTCC`))
+    REFERENCES `e-star`.`TCC` (`idTCC`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1
 COLLATE = latin1_general_ci;
 
-CREATE INDEX `FKTCC_Relatorio` ON `Relatorio` (`idTCCFK` ASC);
+CREATE INDEX `FKTCC_Relatorio` ON `e-star`.`Relatorio` (`idTCCFK` ASC);
 
-CREATE UNIQUE INDEX `idRelatorio_UNIQUE` ON `Relatorio` (`idRelatorio` ASC);
+CREATE UNIQUE INDEX `idRelatorio_UNIQUE` ON `e-star`.`Relatorio` (`idRelatorio` ASC);
 
 
 -- -----------------------------------------------------
--- Table `AlunoDefesa`
+-- Table `e-star`.`AlunoDefesa`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `AlunoDefesa` ;
+DROP TABLE IF EXISTS `e-star`.`AlunoDefesa` ;
 
-CREATE TABLE IF NOT EXISTS `AlunoDefesa` (
+CREATE TABLE IF NOT EXISTS `e-star`.`AlunoDefesa` (
   `notaPostura` FLOAT NOT NULL,
   `notaComunicacao` FLOAT NOT NULL,
   `notaClareza` FLOAT NOT NULL,
@@ -535,21 +535,21 @@ CREATE TABLE IF NOT EXISTS `AlunoDefesa` (
   `idDefesa` INT(11) NOT NULL,
   CONSTRAINT `fk_AlunoDefesa_Aluno`
     FOREIGN KEY (`idAluno`)
-    REFERENCES `Aluno` (`idAluno`)
+    REFERENCES `e-star`.`Aluno` (`idAluno`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_AlunoDefesa_Defesa`
     FOREIGN KEY (`idDefesa`)
-    REFERENCES `Defesa` (`idDefesa`)
+    REFERENCES `e-star`.`Defesa` (`idDefesa`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE INDEX `fk_AlunoDefesa_Aluno1_idx` ON `AlunoDefesa` (`idAluno` ASC);
+CREATE INDEX `fk_AlunoDefesa_Aluno1_idx` ON `e-star`.`AlunoDefesa` (`idAluno` ASC);
 
-CREATE INDEX `fk_AlunoDefesa_Defesa1_idx` ON `AlunoDefesa` (`idDefesa` ASC);
+CREATE INDEX `fk_AlunoDefesa_Defesa1_idx` ON `e-star`.`AlunoDefesa` (`idDefesa` ASC);
 
-
+USE `e-star` ;
 
 
 
@@ -561,14 +561,13 @@ CREATE INDEX `fk_AlunoDefesa_Defesa1_idx` ON `AlunoDefesa` (`idDefesa` ASC);
 -- procedure sp_inserirAluno
 -- -----------------------------------------------------
 
-
-DROP procedure IF EXISTS `sp_inserirAluno`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_inserirAluno`;
 
 DELIMITER $$
-
 CREATE PROCEDURE `sp_inserirAluno`(nome varchar(100), matricula char(9), email varchar(50), login varchar(50), senha varchar(20), idCursoFK integer(11))
 BEGIN
-	INSERT INTO `Aluno`
+  INSERT INTO `e-star`.`Aluno`
 (`nome`,
 `matricula`,
 `email`,
@@ -585,14 +584,13 @@ DELIMITER ;
 -- procedure sp_alterarAluno
 -- -----------------------------------------------------
 
-
-DROP procedure IF EXISTS `sp_alterarAluno`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_alterarAluno`;
 
 DELIMITER $$
-
 CREATE PROCEDURE `sp_alterarAluno`(idAluno integer(11) ,nome varchar(100), matricula char(9), email varchar(50), login varchar(50), senha varchar(20), idCursoFK integer(11))
 BEGIN
-  UPDATE `Aluno`
+  UPDATE `e-star`.`Aluno`
 SET
 `nome` =nome,
 `matricula` = matricula,
@@ -600,7 +598,7 @@ SET
 `login` = login,
 `senha` = senha,
 `idCursoFK` = idCursoFK
-WHERE `Aluno`.`idAluno` = idAluno;
+WHERE `e-star`.`Aluno`.`idAluno` = idAluno;
 END$$
 
 DELIMITER ;
@@ -609,15 +607,14 @@ DELIMITER ;
 -- procedure sp_deletarAluno
 -- -----------------------------------------------------
 
-
-DROP procedure IF EXISTS `sp_deletarAluno`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_deletarAluno`;
 
 DELIMITER $$
-
 CREATE PROCEDURE `sp_deletarAluno`(idAluno integer(11))
 BEGIN
-DELETE FROM 
-WHERE `Aluno`.`idAluno` = idAluno;
+DELETE FROM `e-star`.`Aluno`
+WHERE `e-star`.`Aluno`.`idAluno` = idAluno;
 END$$
 
 DELIMITER ;
@@ -626,14 +623,13 @@ DELIMITER ;
 -- procedure sp_listarAluno
 -- -----------------------------------------------------
 
-
-DROP procedure IF EXISTS `sp_listarAluno`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_listarAluno`;
 
 DELIMITER $$
-
 CREATE PROCEDURE `sp_listarAluno`()
 BEGIN
-SELECT * FROMAluno;
+SELECT * FROM `e-star`.`Aluno`;
 END$$
 
 DELIMITER ;
@@ -642,14 +638,13 @@ DELIMITER ;
 -- procedure sp_buscarAlunoID
 -- -----------------------------------------------------
 
-
-DROP procedure IF EXISTS `sp_buscarAlunoID`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_buscarAlunoID`;
 
 DELIMITER $$
-
 CREATE PROCEDURE `sp_buscarAlunoID`(idAluno integer(11))
 BEGIN
-SELECT * FROMAluno as A where A.idAluno = idAluno;
+SELECT * FROM `e-star`.`Aluno` where `e-star`.`Aluno`.`idAluno` = idAluno;
 END$$
 
 DELIMITER ;
@@ -658,14 +653,13 @@ DELIMITER ;
 -- procedure sp_buscarAlunoMatricula
 -- -----------------------------------------------------
 
-
-DROP procedure IF EXISTS `sp_buscarAlunoMatricula`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_buscarAlunoMatricula`;
 
 DELIMITER $$
-
 CREATE PROCEDURE `sp_buscarAlunoMatricula`(matricula char(9))
 BEGIN
-SELECT * FROMAluno where matricula = matricula;
+SELECT A.`idAluno`, A.`nome`, A.`matricula`, C.`nomeCurso`, A.`email`, A.`login`, A.`senha` FROM `e-star`.`Aluno` as A INNER JOIN `e-star`.`Curso` as C On A.`idCursoFK` = C.`idCurso` where A.`matricula` = matricula;
 END$$
 
 DELIMITER ;
@@ -673,14 +667,13 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_inserirProfessor
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_inserirProfessor`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_inserirProfessor`;
 
 DELIMITER $$
-
-CREATE PROCEDURE `sp_inserirProfessor`(nome varchar(100), matricula char(6), email varchar(50), login varchar(50), senha varchar(20),)
+CREATE PROCEDURE `sp_inserirProfessor`(nome varchar(100), matricula char(6), email varchar(50), login varchar(50), senha varchar(20))
 BEGIN
-  INSERT INTO `Professor`
+  INSERT INTO `e-star`.`Professor`
 (`nome`,
 `matricula`,
 `email`,
@@ -697,21 +690,21 @@ DELIMITER ;
 -- procedure sp_alterarprofessor
 -- ------------------------------------------------------
 
-
-DROP procedure IF EXISTS `sp_alterarProfessor`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_alterarProfessor`;
 
 DELIMITER $$
 
 CREATE PROCEDURE `sp_alterarProfessor` (idProfessor integer(11), nome varchar(100), matricula integer(6), email varchar(50), login varchar(50), senha varchar(20))
 BEGIN
-  UPDATE `Professor`
+  UPDATE `e-star`.`Professor`
     SET 
 `nome`= nome,
 `matricula`= matricula,
 `email`= email,
 `login`=login,
 `senha`= senha 
-WHERE `Professor`.`idProfessor`=idProfessor;
+WHERE `e-star`.`Professor`.`idProfessor`=idProfessor;
 END$$
 
 DELIMITER ; 
@@ -720,15 +713,15 @@ DELIMITER ;
 -- procedure sp_deletarProfessor
 -- ------------------------------------------------------
 
-
-DROP procedure IF EXISTS `sp_deletarProfessor`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_deletarProfessor`;
 
 DELIMITER $$
 
 CREATE PROCEDURE `sp_deletarProfessor`(idProfessor integer(11))
 BEGIN
-DELETE FROM `Professor`
-WHERE `Professor`.`idProfessor` = idProfessor;
+DELETE FROM `e-star`.`Professor`
+WHERE `e-star`.`Professor`.`idProfessor` = idProfessor;
 END$$
 
 DELIMITER ;
@@ -737,15 +730,14 @@ DELIMITER ;
 -- procedure sp_listarprofessor
 -- ------------------------------------------------------
 
-
-DROP procedure IF EXISTS `sp_listarProfessor`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_listarProfessor`;
 
 DELIMITER $$
 
-
 CREATE PROCEDURE `sp_listarProfessor`()
 BEGIN
-SELECT * FROM`Professor`;
+SELECT * FROM`e-star`.`Professor`;
 END$$
 
 DELIMITER ;
@@ -753,14 +745,14 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_inserirCurso
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_inserirCurso`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_inserirCurso`;
 
 DELIMITER $$
 
 CREATE PROCEDURE `sp_inserirCurso`(nomeCurso varchar(45))
 BEGIN
-  INSERT INTO `Curso`
+  INSERT INTO `e-star`.`Curso`
 (`nomeCurso`)
 VALUES
 (nomeCurso);
@@ -771,17 +763,17 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_aletrarCurso
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_alterarCurso`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_alterarCurso`;
 
 DELIMITER $$
 
 CREATE PROCEDURE `sp_alterarCurso` (idCurso varchar(11), nomeCurso varchar(45))
 BEGIN
-  UPDATE `Curso`
+  UPDATE `e-star`.`Curso`
     SET 
 `nomeCurso`= nomeCurso 
-WHERE `Curso`.`idCurso`=idCurso;
+WHERE `e-star`.`Curso`.`idCurso`=idCurso;
 END$$
 
 DELIMITER ; 
@@ -790,15 +782,15 @@ DELIMITER ;
 -- procedure sp_deletarCurso
 -- ------------------------------------------------------
 
-
-DROP procedure IF EXISTS `sp_deletarCurso`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_deletarCurso`;
 
 DELIMITER $$
 
 CREATE PROCEDURE `sp_deletarCurso`(idCurso integer(11))
 BEGIN
-DELETE FROM `Curso`
-WHERE `Curso`.`idCurso` = idCurso;
+DELETE FROM `e-star`.`Curso`
+WHERE `e-star`.`Curso`.`idCurso` = idCurso;
 END$$
 
 DELIMITER ;
@@ -806,15 +798,14 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_listarCurso
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_listarCurso`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_listarCurso`;
 
 DELIMITER $$
 
-
 CREATE PROCEDURE `sp_listarCurso`()
 BEGIN
-SELECT * FROM`Curso`;
+SELECT * FROM `e-star`.`Curso`;
 END$$
 
 DELIMITER ;
@@ -822,14 +813,14 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_inserirAgendamento
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_inserirAgendamento`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_inserirAgendamento`;
 
 DELIMITER $$
 
 CREATE PROCEDURE `sp_inserirAgendamento`(motivo varchar(100), dataHora DATETIME, idProfessorFK integer(11), idAlunoFK integer(11))
 BEGIN
-  INSERT INTO `Agendamento`
+  INSERT INTO `e-star`.`Agendamento`
 (`motivo`,
 `dataHora`,
 `idProfessorFK`,
@@ -844,21 +835,21 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_alterarAgendamento
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_alterarAgendamento`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_alterarAgendamento`;
 
 DELIMITER $$
 
 CREATE PROCEDURE `sp_alterarAgendamento` (idAgendamento integer(11), motivo varchar(100), dataHora DATETIME, idProfessorFK integer(11), idAlunoFK integer(11))
 BEGIN
-  UPDATE `Agendamento`
+  UPDATE `e-star`.`Agendamento`
     SET 
 `motivo`= motivo, 
 `dataHora`= dataHora,
 `idProfessorFK`= idProfessorFK,
 `idAlunoFK`= idAlunoFK
 
-WHERE `Agendamento`.`idAgendamento`=idAgendamento;
+WHERE `e-star`.`Agendamento`.`idAgendamento`=idAgendamento;
 END$$
 
 DELIMITER ; 
@@ -866,15 +857,15 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_deletarAgendamento
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_deletarAgendamento`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_deletarAgendamento`;
 
 DELIMITER $$
 
 CREATE PROCEDURE `sp_deletarAgendamento`(idAgendamento integer(11))
 BEGIN
-DELETE FROM `Agendamento`
-WHERE `Agendamento`.`idAgendamento` = idAgendamento;
+DELETE FROM `e-star`.`Agendamento`
+WHERE `e-star`.`Agendamento`.`idAgendamento` = idAgendamento;
 END$$
 
 DELIMITER ;
@@ -882,15 +873,15 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_listarAgendamento
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_listarAgendamento`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_listarAgendamento`;
 
 DELIMITER $$
-
+USE `e-star`$$
 
 CREATE PROCEDURE `sp_listarAgendamento`()
 BEGIN
-SELECT * FROM`Agendamento`;
+SELECT * FROM`e-star`.`Agendamento`;
 END$$
 
 DELIMITER ;
@@ -899,14 +890,14 @@ DELIMITER ;
 -- procedure sp_inserirLinhaPesquisa
 -- ------------------------------------------------------
 
-
-DROP procedure IF EXISTS `sp_inserirLinhaPesquisa`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_inserirLinhaPesquisa`;
 
 DELIMITER $$
-
+USE `e-star`$$
 CREATE PROCEDURE `sp_inserirLinhaPesquisa`(nome varchar(250), idCursoFK integer(11))
 BEGIN
-  INSERT INTO `LinhaPesquisa`
+  INSERT INTO `e-star`.`LinhaPesquisa`
 (`nome`,
 `idCursoFK`
 )
@@ -919,19 +910,19 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_alterarLinhaPesquisa
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_alterarLinhaPesquisa`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_alterarLinhaPesquisa`;
 
 DELIMITER $$
 
 CREATE PROCEDURE `sp_alterarLinhaPesquisa` (idLinhaPesquisa integer(11), nome varchar(250), idCursoFK integer(11))
 BEGIN
-  UPDATE `LinhaPesquisa`
+  UPDATE `e-star`.`LinhaPesquisa`
     SET 
 `nome`= nome,
 `idCursoFK`= idCursoFK
 
-WHERE `LinhaPesquisa`.`idLinhaPesquisa`= idLinhaPesquisa;
+WHERE `e-star`.`LinhaPesquisa`.`idLinhaPesquisa`= idLinhaPesquisa;
 END$$
 
 DELIMITER ; 
@@ -940,15 +931,15 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_deletarLinhaPesquisa
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_deletarLinhaPesquisa`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_deletarLinhaPesquisa`;
 
 DELIMITER $$
 
 CREATE PROCEDURE `sp_deletarLinhaPesquisa`(idLinhaPesquisa integer(11))
 BEGIN
-DELETE FROM `LinhaPesquisa`
-WHERE `LinhaPesquisa`.`idLinhaPesquisa` = idLinhaPesquisa;
+DELETE FROM `e-star`.`LinhaPesquisa`
+WHERE `e-star`.`LinhaPesquisa`.`idLinhaPesquisa` = idLinhaPesquisa;
 END$$
 
 DELIMITER ;
@@ -956,15 +947,14 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_listarLinhaPesquisa
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_listarLinhaPesquisa`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_listarLinhaPesquisa`;
 
 DELIMITER $$
 
-
 CREATE PROCEDURE `sp_listarLinhaPesquisa`()
 BEGIN
-SELECT * FROM`LinhaPesquisa` ORDER BY nome ASC;
+SELECT LA.`idLinhaPesquisa`, LA.`nome`, C.`nomeCurso` FROM `e-star`.`LinhaPesquisa` AS LA INNER JOIN `e-star`.`Curso` AS C on LA.`idCursoFK` = C.`idCurso` ORDER BY LA.`nome` ASC;
 END$$
 
 DELIMITER ;
@@ -972,14 +962,14 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_inserirTCC
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_inserirTCC`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_inserirTCC`;
 
 DELIMITER $$
 
-CREATE PROCEDURE `sp_inserirTCC`(titulo varchar(100), resumo varchar(250), statusTCC tinyint(1), objetivo varchar(100), justificativa varchar(100), TCCTipo tinyint(1), idLinhaPesquisaFK integer(11))
+CREATE PROCEDURE `sp_inserirTCC`(titulo varchar(100), resumo varchar(250), statusTCC tinyint(1), objetivo varchar(100), justificativa varchar(100), TCCTipo tinyint(1), idLinhaPesquisaFK integer(11), idProfessorFK INTEGER (11), idAlunoFK1 INTEGER (11), idAlunoFK2 INTEGER (11))
 BEGIN
-  INSERT INTO `TCC`
+  INSERT INTO `e-star`.`TCC`
 (`titulo`,
 `resumo`,
 `statusTCC`,
@@ -990,6 +980,17 @@ BEGIN
 )
 VALUES
 (titulo, resumo, statusTCC, objetivo, justificativa, TCCTipo, idLinhaPesquisaFK);
+
+ INSERT INTO `e-star`.`Componentes`
+(`idTCCFK`,
+ `idProfessorFK`,
+ `idAlunoFK1`, 
+ `idAlunoFK2` 
+)
+
+VALUES
+(LAST_INSERT_ID(), idProfessorFK, idAlunoFK1, idAlunoFK2);
+
 END$$
 
 DELIMITER ;
@@ -997,14 +998,14 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_alterarTCC
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_alterarTCC`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_alterarTCC`;
 
 DELIMITER $$
 
-CREATE PROCEDURE `sp_alterarTCC` (idTCC integer(11), titulo varchar(100), resumo varchar(250), statusTCC tinyint(1), objetivo varchar(100), justificativa varchar(100), TCCTipo tinyint(1), idLinhaPesquisaFK integer(11)) 
+CREATE PROCEDURE `sp_alterarTCC`(idTCC integer(11), titulo varchar(100), resumo varchar(250), statusTCC tinyint(1), objetivo varchar(100), justificativa varchar(100), TCCTipo tinyint(1), idLinhaPesquisaFK integer(11), idProfessorFK INTEGER (11), idAlunoFK1 INTEGER (11), idAlunoFK2 INTEGER (11))
 BEGIN
-  UPDATE `TCC`
+  UPDATE `e-star`.`TCC`
     SET 
 `titulo` = titulo,
 `resumo`= resumo,
@@ -1013,23 +1014,27 @@ BEGIN
 `justificativa`= justificativa, 
 `TCCTipo`= TCCTipo,
 `idLinhaPesquisaFK`= idLinhaPesquisaFK
-WHERE `TCC`.`idTCC`=idTCC;
-END$$
+WHERE `e-star`.`TCC`.`idTCC`=idTCC;
 
+ UPDATE `e-star`.`Componentes`
+    SET
+`idProfessorFK` = idProfessorFK , `idAlunoFK1` = idAlunoFK1, `idAlunoFK2` = idAlunoFK2 
+WHERE `e-star`.`Componentes`.`idTCCFK`= idTCC;
+END $$
 DELIMITER ; 
 
 -- ------------------------------------------------------
 -- procedure sp_deletarTCC
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_deletarTCC`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_deletarTCC`;
 
 DELIMITER $$
 
 CREATE PROCEDURE `sp_deletarTCC`(idTCC integer(11))
 BEGIN
-DELETE FROM `TCC`
-WHERE `TCC`.`idTCC` = idTCC;
+DELETE FROM `e-star`.`TCC`
+WHERE `e-star`.`TCC`.`idTCC` = idTCC;
 END$$
 
 DELIMITER ;
@@ -1037,15 +1042,20 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_listarTCC
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_listarTCC`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_listarTCC`;
 
 DELIMITER $$
 
-
 CREATE PROCEDURE `sp_listarTCC`()
 BEGIN
-SELECT * FROM `TCC` ORDER BY  titulo ASC;
+SELECT T.`idTCC`, T.`titulo`, T.`resumo`, T.`statusTCC`, T.`objetivo`, T.`justificativa`, T.`TCCTipo`, LP.`nome` AS `LinhaPesquisa`, P.`nome` AS `Professor`, A.`nome` AS `Aluno1`, A1.`nome` AS `Aluno2` FROM `e-star`.`TCC` AS T 
+INNER JOIN `e-star`.`LinhaPesquisa` AS LP ON LP.`idLinhaPesquisa`= T.`idLinhaPesquisaFK` 
+INNER JOIN `e-star`.`Componentes` AS C ON T.`idTCC` = C.`idTCCFK` 
+INNER JOIN `e-star`.`Professor` AS P ON P.`idProfessor` = C.`idProfessorFK` 
+INNER JOIN `e-star`.`Aluno` AS A ON  A.`idAluno` = C.`idAlunoFK1`
+INNER JOIN `e-star`.`Aluno` AS A1 ON  A1.`idAluno` = C.`idAlunoFK2`
+ORDER BY T.`titulo` ASC;
 END$$
 
 DELIMITER ;
@@ -1053,14 +1063,14 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_inserirArquivo
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_inserirArquivo`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_inserirArquivo`;
 
 DELIMITER $$
 
 CREATE PROCEDURE `sp_inserirArquivo`(link varchar(250), idTCCFK integer(11), versao varchar(45))
 BEGIN
-  INSERT INTO `Arquivo`
+  INSERT INTO `e-star`.`Arquivo`
 (`link`,
 `idTCCFK`,
 `versao`
@@ -1074,19 +1084,19 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_alterarArquivo
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_alterarArquivo`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_alterarArquivo`;
 
 DELIMITER $$
 
 CREATE PROCEDURE `sp_alterarArquivo` (idArquivo integer(11), link varchar(250), idTCCFK integer(11), versao varchar(45))
 BEGIN
-  UPDATE `Arquivo`
+  UPDATE `e-star`.`Arquivo`
     SET 
 `link`= link,
 `idTCCFK`= idTCCFK,
 `versao`= versao
-WHERE `Arquivo`.`idArquivo`=idArquivo;
+WHERE `e-star`.`Arquivo`.`idArquivo`=idArquivo;
 END$$
 
 DELIMITER ; 
@@ -1094,15 +1104,15 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_deletarArquivo
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_deletarArquivo`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_deletarArquivo`;
 
 DELIMITER $$
 
 CREATE PROCEDURE `sp_deletarArquivo`(idArquivo integer(11))
 BEGIN
-DELETE FROM `Arquivo`
-WHERE `Arquivo`.`idArquivo` = idArquivo;
+DELETE FROM `e-star`.`Arquivo`
+WHERE `e-star`.`Arquivo`.`idArquivo` = idArquivo;
 END$$
 
 DELIMITER ;
@@ -1110,15 +1120,14 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_listarArquivo
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_listarArquivo`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_listarArquivo`;
 
 DELIMITER $$
 
-
 CREATE PROCEDURE `sp_listarArquivo`()
 BEGIN
-SELECT `link`,DISTINCT (`idTCCFK`) ,`versao` FROM `Arquivo` ORDER BY DESC;
+SELECT  A.`link`, T.`titulo` AS `TCC`, A.`versao` FROM `e-star`.`Arquivo` AS A INNER JOIN `e-star`.`TCC` AS T ON A.`idTCCFK` = T.`idTCC` WHERE A.`versao` = 'Final';
 END$$
 
 DELIMITER ;
@@ -1126,14 +1135,14 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_inserirAtividade
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_inserirAtividade`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_inserirAtividade`;
 
 DELIMITER $$
 
 CREATE PROCEDURE `sp_inserirAtividade` (nome varchar(50), mes date, descricao varchar(250), idTCCFK integer(11))
 BEGIN
-  INSERT INTO `Atividade`
+  INSERT INTO `e-star`.`Atividade`
 (`nome`,
 `mes`,
 `descricao`,
@@ -1148,20 +1157,20 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_alterarAtividade
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_alterarAtividade`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_alterarAtividade`;
 
 DELIMITER $$
 
 CREATE PROCEDURE `sp_alterarAtividade` (idAtividade integer(11), nome varchar(50), mes date, descricao varchar(250), idTCCFK integer(11))
 BEGIN
-  UPDATE `Atividade`
+  UPDATE `e-star`.`Atividade`
     SET 
 `nome`= nome,
 `mes`= mes,
 `descricao`= descricao,
 `idTCCFK`= idTCCFK 
-WHERE `Atividade`.`idAtividade`=idAtividade;
+WHERE `e-star`.`Atividade`.`idAtividade`=idAtividade;
 END$$
 
 DELIMITER ; 
@@ -1169,15 +1178,15 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_deletarAtividade
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_deletarAtividade`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_deletarAtividade`;
 
 DELIMITER $$
 
 CREATE PROCEDURE `sp_deletarAtividade`(idAtividade integer(11))
 BEGIN
-DELETE FROM `Atividade`
-WHERE `Atividade`.`idAtividade` = idAtividade;
+DELETE FROM `e-star`.`Atividade`
+WHERE `e-star`.`Atividade`.`idAtividade` = idAtividade;
 END$$
 
 DELIMITER ;
@@ -1185,30 +1194,31 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_listarAtividade
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_listarAtividade`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_listarAtividade`;
 
 DELIMITER $$
 
-
 CREATE PROCEDURE `sp_listarAtividade`()
 BEGIN
-SELECT * FROM `Atividade` ORDER BY MES DESC;
+SELECT A.`nome`, A.`mes`, A.`descricao`, T.`titulo` AS `TCC` FROM `e-star`.`Atividade` AS A INNER JOIN `e-star`.`TCC` AS T ON A.`idTCCFK` = T.`idTCC` ORDER BY A.`MES` DESC;
 END$$
 
 DELIMITER ;
 
+
+
 -- ------------------------------------------------------
 -- procedure sp_inserirCronograma
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_inserirCronograma`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_inserirCronograma`;
 
 DELIMITER $$
 
 CREATE PROCEDURE `sp_inserirCronograma`(oque varchar(100), porque varchar(100), onde varchar(100), quando varchar(100), quem varchar(100), como varchar(100), quanto varchar(45))
 BEGIN
-  INSERT INTO `Cronograma`
+  INSERT INTO `e-star`.`Cronograma`
 (`oque`,
 `porque`,
 `onde`,
@@ -1226,14 +1236,14 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_alterarCronograma
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_alterarCronograma`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_alterarCronograma`;
 
 DELIMITER $$
 
 CREATE PROCEDURE `sp_alterarCronograma` (idCronograma integer(11), oque varchar(100), porque varchar(100), onde varchar(100), quando varchar(100), quem varchar(100), como varchar(100), quanto varchar(45))
 BEGIN
-  UPDATE `Cronograma`
+  UPDATE `e-star`.`Cronograma`
     SET 
 `oque`= oque,
 `porque`= porque,
@@ -1242,7 +1252,7 @@ BEGIN
 `quem`= quem,
 `como`= como,
 `quanto`= quanto
-WHERE `Cronograma`.`idCronograma`=idCronograma;
+WHERE `e-star`.`Cronograma`.`idCronograma`=idCronograma;
 END$$
 
 DELIMITER ; 
@@ -1250,46 +1260,46 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_deletarCronograma
 -- ------------------------------------------------------
+-- USE `e-star`;
+-- DROP procedure IF EXISTS `e-star`.`sp_deletarCronograma`;
 --
---DROP procedure IF EXISTS `sp_deletarCronograma`;
+-- DELIMITER $$
+-- USE `e-star`$$
+-- CREATE PROCEDURE `sp_deletarCronograma`(idCronograma integer(11))
+-- BEGIN
+-- DELETE FROM `e-star`.`Cronograma`
+-- WHERE `e-star`.`Cronograma`.`idCronograma` = idCronograma;
+-- END$$
 --
---DELIMITER $$
---
---CREATE PROCEDURE `sp_deletarCronograma`(idCronograma integer(11))
---BEGIN
---DELETE FROM `Cronograma`
---WHERE `Cronograma`.`idCronograma` = idCronograma;
---END$$
---
---ELIMITER ;
+-- ELIMITER ;
 
 -- ------------------------------------------------------
 -- procedure sp_listarCronograma
 -- ------------------------------------------------------
---
---DROP procedure IF EXISTS `sp_listarCronograma`;
+-- USE `e-star`;
+-- DROP procedure IF EXISTS `e-star`.`sp_listarCronograma`;
 
---DELIMITER $$
---
+-- DELIMITER $$
+-- USE `e-star`$$
 
---CREATE PROCEDURE `sp_listarCronograma`()
---BEGIN
---SELECT * FROM `Cronograma`;
---END$$
+-- CREATE PROCEDURE `sp_listarCronograma`()
+-- BEGIN
+-- SELECT * FROM `e-star`.`Cronograma`;
+-- END$$
 
---DELIMITER ;
+-- DELIMITER ;
 
 -- ------------------------------------------------------
 -- procedure sp_inserirAtividadesCronograma
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_inserirAtividadesCronograma`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_inserirAtividadesCronograma`;
 
 DELIMITER $$
 
 CREATE PROCEDURE `sp_inserirAtividadesCronograma`(nome varchar(100), idCronogramaFK integer(11), idTCCFK integer(11))
 BEGIN
-  INSERT INTO `AtividadesCronograma`
+  INSERT INTO `e-star`.`AtividadesCronograma`
 (`nome`,
 `idCronogramaFK`,
 `idTCCFK`
@@ -1303,19 +1313,19 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_alterarAtividadesCronograma
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_alterarAtividadesCronograma`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_alterarAtividadesCronograma`;
 
 DELIMITER $$
-
+USE `e-star`$$
 CREATE PROCEDURE `sp_alterarAtividadesCronograma` (idAtividadesCronograma integer(11), nome varchar(100), idCronogramaFK integer(11), idTCCFK integer(11))
 BEGIN
-  UPDATE `AtividadesCronograma`
+  UPDATE `e-star`.`AtividadesCronograma`
     SET 
 `nome`= nome,
 `idCronogramaFK`= idCronogramaFK,
 `idTCCFK`= idTCCFK
-WHERE `AtividadesCronograma`.`idAtividadesCronograma`=idAtividadesCronograma;
+WHERE `e-star`.`AtividadesCronograma`.`idAtividadesCronograma`=idAtividadesCronograma;
 END$$
 
 DELIMITER ; 
@@ -1323,15 +1333,15 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_deletarAtividadesCronograma
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_deletarAtividadesCronograma`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_deletarAtividadesCronograma`;
 
 DELIMITER $$
 
 CREATE PROCEDURE `sp_deletarAtividadesCronograma`(idAtividadesCronograma integer(11))
 BEGIN
-DELETE FROM `Professor`
-WHERE `AtividadesCronograma`.`idAtividadesCronograma` = idAtividadesCronograma;
+DELETE FROM `e-star`.`AtividadesCronograma`
+WHERE `e-star`.`AtividadesCronograma`.`idAtividadesCronograma` = idAtividadesCronograma;
 END$$
 
 DELIMITER ;
@@ -1339,30 +1349,33 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_listarAtividadesCronograma
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_listarAtividadesCronograma`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_listarAtividadesCronograma`;
 
 DELIMITER $$
-
+USE `e-star`$$
 
 CREATE PROCEDURE `sp_listarAtividadesCronograma`()
 BEGIN
-SELECT * FROM `AtividadesCronograma`;
+SELECT * FROM `e-star`.`AtividadesCronograma`;
 END$$
 
 DELIMITER ;
 
--- ------------------------------------------------------
+
+
+
+/*-- ------------------------------------------------------
 -- procedure sp_inserirComponentes
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_inserirComponentes`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_inserirComponentes`;
 
 DELIMITER $$
-
+USE `e-star`$$
 CREATE PROCEDURE `sp_inserirComponentes`(idProfessorFK integer(11), idAlunoFK1 integer(11), idAlunoFK2 integer(11), idTCCFK integer(11))
 BEGIN
-  INSERT INTO `Componentes`
+  INSERT INTO `e-star`.`Componentes`
 (`idProfessorFK`,
 `idAlunoFK1`,
 `idAlunoFK2`,
@@ -1377,20 +1390,20 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_alterarComponentes
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_alterarComponentes`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_alterarComponentes`;
 
 DELIMITER $$
-
+USE `e-star`$$
 CREATE PROCEDURE `sp_alterarComponentes` (idTCCFK integer(11), idProfessorFK integer(11), idAlunoFK1 integer(11), idAlunoFK2 integer(11))
 BEGIN
-  UPDATE `Componentes`
+  UPDATE `e-star`.`Componentes`
     SET 
 `idProfessorFK` = idProfessorFK,
 `idAlunoFK1`= idAlunoFK1,
 `idAlunoFK2`= idAlunoFK2,
 `idTCCFK` = idTCCFK
-WHERE `Componentes`.`idTCCFK`=idTCCFK;
+WHERE `e-star`.`Componentes`.`idTCCFK`=idTCCFK;
 END$$
 
 DELIMITER ; 
@@ -1398,15 +1411,15 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_deletarComponentes 
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_deletarComponentes`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_deletarComponentes`;
 
 DELIMITER $$
-
+USE `e-star`$$
 CREATE PROCEDURE `sp_deletarComponentes`(idTCCFK integer(11))
 BEGIN
-DELETE FROM `Componentes`
-WHERE `Componentes`.`idTCCFK` = idTCCFK ;
+DELETE FROM `e-star`.`Componentes`
+WHERE `e-star`.`Componentes`.`idTCCFK` = idTCCFK ;
 END$$
 
 DELIMITER ;
@@ -1416,34 +1429,34 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_listarComponentes
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_listarComponentes`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_listarComponentes`;
 
 DELIMITER $$
-
+USE `e-star`$$
 
 CREATE PROCEDURE `sp_listarComponentes`()
 BEGIN
-SELECT * FROM `Componentes`
+SELECT * FROM `e-star`.`Componentes`
 END$$
 
 DELIMITER ;
 
 -- obs: FAZER INNER JOIN COM PROFESSOR E ALUNO --------------
--- obs: FAZER INNER JOIN COM TCC  ---------------------------
+-- obs: FAZER INNER JOIN COM TCC  ---------------------------*/
 
 -- ------------------------------------------------------
 -- procedure sp_inserirUnidade
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_inserirUnidade`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_inserirUnidade`;
 
 DELIMITER $$
 
 CREATE PROCEDURE `sp_inserirUnidade`(nome varchar(45))
 BEGIN
-  INSERT INTO `Unidade`
-(`nome`,
+  INSERT INTO `e-star`.`Unidade`
+(`nome`
 )
 VALUES
 (nome);
@@ -1454,17 +1467,17 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_alterarUnidade
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_alterarUnidade`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_alterarUnidade`;
 
 DELIMITER $$
 
 CREATE PROCEDURE `sp_alterarUnidade` (idUnidade integer(11), nome varchar(45))
 BEGIN
-  UPDATE `Unidade`
+  UPDATE `e-star`.`Unidade`
     SET 
 `nome`= nome
-WHERE `Unidade`.`idUnidade`=idUnidade;
+WHERE `e-star`.`Unidade`.`idUnidade`=idUnidade;
 END$$
 
 DELIMITER ; 
@@ -1472,15 +1485,15 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_deletarUnidade
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_deletarUnidade`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_deletarUnidade`;
 
 DELIMITER $$
 
 CREATE PROCEDURE `sp_deletarUnidade`(idUnidade integer(11))
 BEGIN
-DELETE FROM `Unidade`
-WHERE `Unidade`.`idUnidade` = idUnidade;
+DELETE FROM `e-star`.`Unidade`
+WHERE `e-star`.`Unidade`.`idUnidade` = idUnidade;
 END$$
 
 DELIMITER ;
@@ -1488,15 +1501,14 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_listarUnidade
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_listarUnidade`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_listarUnidade`;
 
 DELIMITER $$
 
-
 CREATE PROCEDURE `sp_listarUnidade`()
 BEGIN
-SELECT * FROM `Unidade` ORDER BY nome ASC;
+SELECT * FROM `e-star`.`Unidade` ORDER BY nome ASC;
 END$$
 
 DELIMITER ;
@@ -1504,14 +1516,14 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_inserirSala
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_inserirSala`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_inserirSala`;
 
 DELIMITER $$
-
+USE `e-star`$$
 CREATE PROCEDURE `sp_inserirSala`(setor varchar(10), nome varchar (20), capacidade integer, idUnidadeFK integer)
 BEGIN
-  INSERT INTO `Sala`
+  INSERT INTO `e-star`.`Sala`
 (`setor`,
 `nome`,
 `capacidade`,
@@ -1527,20 +1539,20 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_alterarSala
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_alterarSala`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_alterarSala`;
 
 DELIMITER $$
-
+USE `e-star`$$
 CREATE PROCEDURE `sp_alterarSala` (idSala integer(11), setor varchar(10), nome varchar (20), capacidade integer, idUnidadeFK integer)
 BEGIN
-  UPDATE `Sala`
+  UPDATE `e-star`.`Sala`
     SET 
 `setor`= setor,
 `nome` = nome,
 `capacidade`= capacidade,
 `idUnidadeFK`= idUnidadeFK
-WHERE `Sala`.`idSala`=idSala;
+WHERE `e-star`.`Sala`.`idSala`=idSala;
 END$$
 
 DELIMITER ; 
@@ -1548,15 +1560,15 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_deletarSala
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_deletarSala`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_deletarSala`;
 
 DELIMITER $$
 
 CREATE PROCEDURE `sp_deletarSala`(idSala integer(11))
 BEGIN
-DELETE FROM `Sala`
-WHERE `Sala`.`idSala` = idSala;
+DELETE FROM `e-star`.`Sala`
+WHERE `e-star`.`Sala`.`idSala` = idSala;
 END$$
 
 DELIMITER ;
@@ -1564,30 +1576,29 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_listarSala
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_listarSala`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_listarSala`;
 
 DELIMITER $$
 
-
 CREATE PROCEDURE `sp_listarSala`()
 BEGIN
-SELECT * FROM `Sala` AS S INNER JOIN `Unidade` AS U ON S.`idUnidadeFK` = U.`idUnidade` ORDER BY U.`nome` ASC, S.`nome` ASC;
+SELECT U.`nome` AS `Unidade`, S.`setor` AS Setor, S.`nome` AS Sala, S.`capacidade`AS Capacidade , S.`idSala` AS ID FROM `e-star`.`Sala` AS S
+ INNER JOIN `e-star`.`Unidade` AS U ON S.`idUnidadeFK` = U.`idUnidade` ORDER BY U.`nome` ASC, S.`nome` ASC;
 END$$
 
 DELIMITER ;
-
 -- ------------------------------------------------------
 -- procedure sp_inserirReserva
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_inserirReserva`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_inserirReserva`;
 
 DELIMITER $$
 
 CREATE PROCEDURE `sp_inserirReserva`(dataHora DATETIME, idProfessorFK integer(11), idSalaFK integer(11))
 BEGIN
-  INSERT INTO `Reserva`
+  INSERT INTO `e-star`.`Reserva`
 (`dataHora`,
 `idProfessorFK`,
 `idSalaFK`
@@ -1601,19 +1612,19 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_alterarReserva
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_alterarReserva`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_alterarReserva`;
 
 DELIMITER $$
 
 CREATE PROCEDURE `sp_alterarReserva` (idReserva integer(11), dataHora DATETIME, idProfessorFK integer(11), idSalaFK integer(11))
 BEGIN
-  UPDATE `Reserva`
+  UPDATE `e-star`.`Reserva`
     SET 
 `dataHora`= dataHora,
 `idProfessorFK`= idProfessorFK,
 `idSalaFK`= idSalaFK
-WHERE `Reserva`.`idReserva`=idReserva;
+WHERE `e-star`.`Reserva`.`idReserva`=idReserva;
 END$$
 
 DELIMITER ; 
@@ -1621,15 +1632,15 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_deletarReserva
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_deletarReserva`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_deletarReserva`;
 
 DELIMITER $$
 
 CREATE PROCEDURE `sp_deletarReserva`(idReserva integer(11))
 BEGIN
-DELETE FROM `Reserva`
-WHERE `Reserva`.`idReserva` = idReserva;
+DELETE FROM `e-star`.`Reserva`
+WHERE `e-star`.`Reserva`.`idReserva` = idReserva;
 END$$
 
 DELIMITER ;
@@ -1637,14 +1648,17 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_listarReserva
 -- ------------------------------------------------------
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_listarReserva`;
 
-DROP procedure IF EXISTS `sp_listarReserva`;
-ELIMITER $$JH
-
+DELIMITER $$
 
 CREATE PROCEDURE `sp_listarReserva`()
 BEGIN
-SELECT * FROM `Reserva` ORDER BY dataHora DESC;
+SELECT R.`dataHora` AS `Data`, P.`nome` AS Professor, S.`nome` AS Sala, S.`setor` AS Setor, R.`idReserva` AS ID FROM `e-star`.`Reserva` AS R
+INNER JOIN `e-star`.`Professor` AS P ON P.`idProfessor` = R.`idProfessorFK`
+INNER JOIN `e-star`.`Sala` AS S ON S.`idSala` = R.`idSalaFK`
+ORDER BY dataHora DESC;
 END$$
 
 DELIMITER ;
@@ -1652,20 +1666,20 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_inserirDefesa
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_inserirDefesa`;
+USE `e-star`;
+DROP PROCEDURE IF EXISTS `e-star`.`sp_inserirDefesa`;
 
 DELIMITER $$
 
-CREATE PROCEDURE `sp_inserirDefesa`(data DATETIME, idTCCFK integer(11), idReservaFK INT(11))
+CREATE PROCEDURE `sp_inserirDefesa`(DataDef DATETIME, idTCCFK integer(11), idReservaFK INT(11))
 BEGIN
-  INSERT INTO `Defesa`
+  INSERT INTO `e-star`.`Defesa`
 (`data`,
 `idTCCFK`,
 `idReservaFK`
 )
 VALUES
-(data, idTCCFK, idReservaFK);
+(DataDef, idTCCFK, idReservaFK);
 END$$
 
 DELIMITER ;
@@ -1673,19 +1687,19 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_alterarDefesa
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_alterarDefesa`;
+USE `e-star`;
+DROP PROCEDURE IF EXISTS `e-star`.`sp_alterarDefesa`;
 
 DELIMITER $$
-
-CREATE PROCEDURE `sp_alterarDefesa` (idDefesa integer(11), data DATETIME, idTCCFK integer(11), idReservaFK INT(11))
+USE `e-star`$$
+CREATE PROCEDURE `sp_alterarDefesa` (idDefesa integer(11), DataDef DATETIME, idTCCFK integer(11), idReservaFK INT(11))
 BEGIN
-  UPDATE `Defesa`
+  UPDATE `e-star`.`Defesa`
     SET 
-`data`= data,
+`data`= DataDef,
 `idTCCFK`= idTCCFK,
 `idReservaFK`= idReservaFK
-WHERE `Defesa`.`idDefesa`=idDefesa;
+WHERE `e-star`.`Defesa`.`idDefesa`=idDefesa;
 END$$
 
 DELIMITER ; 
@@ -1693,15 +1707,15 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_deletarDefesa
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_deletarDefesa`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_deletarDefesa`;
 
 DELIMITER $$
-
+USE `e-star`$$
 CREATE PROCEDURE `sp_deletarDefesa`(idDefesa integer(11))
 BEGIN
-DELETE FROM `Defesa`
-WHERE `Defesa`.`idDefesa` = idDefesa;
+DELETE FROM `e-star`.`Defesa`
+WHERE `e-star`.`Defesa`.`idDefesa` = idDefesa;
 END$$
 
 DELIMITER ;
@@ -1709,30 +1723,29 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_listarDefesa
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_listarDefesa`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_listarDefesa`;
 
 DELIMITER $$
-
 
 CREATE PROCEDURE `sp_listarDefesa`()
 BEGIN
-SELECT * FROM `Defesa`;
+SELECT D.`idDefesa`,D.`data`,T.`titulo` AS TCC, D.`idReservaFK` FROM `e-star`.`Defesa` as D
+INNER JOIN `e-star`.`TCC` as T on T.`idTCC` = D.`idTCCFK`;
 END$$
 
 DELIMITER ;
-
 -- ------------------------------------------------------
 -- procedure sp_inserirErros
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_inserirErros`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_inserirErros`;
 
 DELIMITER $$
-
+USE `e-star`$$
 CREATE PROCEDURE `sp_inserirErros`(nomeErro varchar(50), categoria varchar(100))
 BEGIN
-  INSERT INTO `Erros`
+  INSERT INTO `e-star`.`Erros`
 (`nomeErro`,
 `categoria`
 )
@@ -1745,18 +1758,18 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_alterarErros
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_alterarErros`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_alterarErros`;
 
 DELIMITER $$
 
-CREATE PROCEDURE `sp_alterarErros` (idErros integer(11),nomeErro varchar(50), categoria varchar(100))
+CREATE PROCEDURE `sp_alterarErros` (idErros integer(11), nomeErro varchar(50), categoria varchar(100))
 BEGIN
-  UPDATE `Erros`
+  UPDATE `e-star`.`Erros`
     SET 
 `nomeErro`= nomeErro,
 `categoria`= categoria
-WHERE `Erros`.`idErros`=idErros;
+WHERE `e-star`.`Erros`.`idErros`=idErros;
 END$$
 
 DELIMITER ; 
@@ -1764,15 +1777,15 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_deletarErros
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_deletarErros`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_deletarErros`;
 
 DELIMITER $$
-
+USE `e-star`$$
 CREATE PROCEDURE `sp_deletarErros`(idErros integer(11))
 BEGIN
-DELETE FROM `Erros`
-WHERE `Erros`.`idErros` = idErros;
+DELETE FROM `e-star`.`Erros`
+WHERE `e-star`.`Erros`.`idErros` = idErros;
 END$$
 
 DELIMITER ;
@@ -1780,30 +1793,29 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_listarErros
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_listarErros`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_listarErros`;
 
 DELIMITER $$
-
+USE `e-star`$$
 
 CREATE PROCEDURE `sp_listarErros`()
 BEGIN
-SELECT * FROM `Erros` ORDER BY nomeErro ASC;
+SELECT E.`idErros` AS ID, E.`nomeErro` AS `Nome do Erro`, E.`categoria` AS `Categoria do Erro` FROM `e-star`.`Erros` AS E ORDER BY nomeErro ASC;
 END$$
 
 DELIMITER ;
-
 -- ------------------------------------------------------
 -- procedure sp_inserirErrosTCC
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_inserirErrosTCC`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_inserirErrosTCC`;
 
 DELIMITER $$
-
+USE `e-star`$$
 CREATE PROCEDURE `sp_inserirErrosTCC`(idTCCFK integer(11), idErrosFK integer(11))
 BEGIN
-  INSERT INTO `ErrosTCC`
+  INSERT INTO `e-star`.`ErrosTCC`
 (`idTCCFK`,
 `idErrosFK`
 )
@@ -1816,18 +1828,18 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_alterarErrosTCC
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_alterarErrosTCC`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_alterarErrosTCC`;
 
 DELIMITER $$
 
 CREATE PROCEDURE `sp_alterarErrosTCC` (idErrosTCC integer(11), idTCCFK integer(11), idErrosFK integer(11))
 BEGIN
-  UPDATE `ErrosTCC`
+  UPDATE `e-star`.`ErrosTCC`
     SET 
 `idTCCFK`= idTCCFK,
 `idErrosFK`= idErrosFK
-WHERE `ErrosTCC`.`idErrosTCC`=idErrosTCC;
+WHERE `e-star`.`ErrosTCC`.`idErrosTCC`=idErrosTCC;
 END$$
 
 DELIMITER ; 
@@ -1835,15 +1847,15 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_deletarErrosTCC
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_deletarErrosTCC`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_deletarErrosTCC`;
 
 DELIMITER $$
 
 CREATE PROCEDURE `sp_deletarErrosTCC`(idErrosTCC integer(11))
 BEGIN
-DELETE FROM `ErrosTCC`
-WHERE `ErrosTCC`.`idErrosTCC` = idErrosTCC;
+DELETE FROM `e-star`.`ErrosTCC`
+WHERE `e-star`.`ErrosTCC`.`idErrosTCC` = idErrosTCC;
 END$$
 
 DELIMITER ;
@@ -1851,15 +1863,14 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_listarErrosTCC
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_listarErrosTCC`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_listarErrosTCC`;
 
 DELIMITER $$
 
-
 CREATE PROCEDURE `sp_listarErrosTCC`()
 BEGIN
-SELECT * FROM `ErrosTCC`;
+SELECT * FROM `e-star`.`ErrosTCC`;
 END$$
 
 DELIMITER ;
@@ -1867,14 +1878,14 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_inserirEvento
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_inserirEvento`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_inserirEvento`;
 
 DELIMITER $$
 
-CREATE PROCEDURE `sp_inserirEvento`(nome varchar(50), dataHora datetime, local varchar(100), idProfessorFK integer(11), idCursoFK integer(11))
+CREATE PROCEDURE `sp_inserirEvento`(nome varchar(50), dataHora datetime, Localizacao varchar(100), idProfessorFK integer(11), idCursoFK integer(11))
 BEGIN
-  INSERT INTO `Evento`
+  INSERT INTO `e-star`.`Evento`
 (`nome`,
 `dataHora`,
 `local`,
@@ -1882,7 +1893,7 @@ BEGIN
 `idCursoFK`
 )
 VALUES
-(nome, dataHora, local, idProfessorFK, idCursoFK);
+(nome, dataHora, Localizacao, idProfessorFK, idCursoFK);
 END$$
 
 DELIMITER ;
@@ -1890,21 +1901,21 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_alterarEvento
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_alterarEvento`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_alterarEvento`;
 
 DELIMITER $$
 
-CREATE PROCEDURE `sp_alterarEvento` (idEvento integer(11), nome varchar(50), dataHora datetime, local varchar(100), idProfessorFK integer(11), idCursoFK integer(11))
+CREATE PROCEDURE `sp_alterarEvento` (idEvento integer(11), nome varchar(50), dataHora datetime, Localizacao varchar(100), idProfessorFK integer(11), idCursoFK integer(11))
 BEGIN
-  UPDATE `Evento`
+  UPDATE `e-star`.`Evento`
     SET 
 `nome`= nome,
 `dataHora`= dataHora,
-`local`= local,
+`local`= Localizacao,
 `idProfessorFK`= idProfessorFK,
 `idCursoFK`= idCursoFK 
-WHERE `Evento`.`idEvento`=idEvento;
+WHERE `e-star`.`Evento`.`idEvento`=idEvento;
 END$$
 
 DELIMITER ; 
@@ -1912,15 +1923,15 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_deletarEvento
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_deletarEvento`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_deletarEvento`;
 
 DELIMITER $$
 
 CREATE PROCEDURE `sp_deletarEvento`(idEvento integer(11))
 BEGIN
-DELETE FROM `Evento`
-WHERE `Evento`.`idEvento` = idEvento;
+DELETE FROM `e-star`.`Evento`
+WHERE `e-star`.`Evento`.`idEvento` = idEvento;
 END$$
 
 DELIMITER ;
@@ -1928,15 +1939,17 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_listarEvento
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_listarEvento`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_listarEvento`;
 
 DELIMITER $$
 
-
 CREATE PROCEDURE `sp_listarEvento`()
 BEGIN
-SELECT * FROM `Evento`;
+SELECT E.`idEvento` AS ID, E.`nome` AS `Nome do Evento`, E.`dataHora` AS `Data e Hora`, E.`local` AS Localizaçao, P.`nome` AS Professor, C.`nomeCurso` AS Curso FROM `e-star`.`Evento` AS E
+INNER JOIN `e-star`.`Professor` AS P ON P.`idProfessor` = E.`idProfessorFK`
+INNER JOIN `e-star`.`Curso` AS C ON C.`idCurso` = E.`idCursoFK`
+ORDER BY E.`dataHora` DESC;
 END$$
 
 DELIMITER ;
@@ -1944,16 +1957,16 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_inserirRelatorio
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_inserirRelatorio`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_inserirRelatorio`;
 
 DELIMITER $$
 
-CREATE PROCEDURE `sp_inserirRelatorio`(apresentacaoNota FLOAT, data DATETIME, fundamentacaoNota FLOAT, desenvolvimentoNota FLOAT, resultadosNota FLOAT, notaFinal FLOAT, 
+CREATE PROCEDURE `sp_inserirRelatorio`(apresentacaoNota FLOAT, dataH DATETIME, fundamentacaoNota FLOAT, desenvolvimentoNota FLOAT, resultadosNota FLOAT, notaFinal FLOAT, 
   TipoRelatorio varchar(50), apresentacaoComentario varchar(250), fundamentacaoComentario varchar(250), desenvolvimentoComentario varchar(250), 
   resultadosComentario varchar(250), idTCCFK integer(11))
 BEGIN
-  INSERT INTO `Relatorio`
+  INSERT INTO `e-star`.`Relatorio`
 (`apresentacaoNota`,
 `data`,
 `fundamentacaoNota`,
@@ -1968,7 +1981,7 @@ BEGIN
 `idTCCFK`
 )
 VALUES
-(apresentacaoNota, data, fundamentacaoNota, desenvolvimentoNota, resultadosNota, notaFinal, TipoRelatorio, apresentacaoComentario, fundamentacaoComentario, desenvolvimentoComentario, resultadosComentario, idTCCFK);
+(apresentacaoNota, dataH, fundamentacaoNota, desenvolvimentoNota, resultadosNota, notaFinal, TipoRelatorio, apresentacaoComentario, fundamentacaoComentario, desenvolvimentoComentario, resultadosComentario, idTCCFK);
 END$$
 
 DELIMITER ;
@@ -1976,19 +1989,19 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_alterarRelatorio
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_alterarRelatorio`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_alterarRelatorio`;
 
 DELIMITER $$
 
-CREATE PROCEDURE `sp_alterarRelatorio` (idRelatorio integer(11), data DATETIME, apresentacaoNota FLOAT, fundamentacaoNota FLOAT, desenvolvimentoNota FLOAT, resultadosNota FLOAT, notaFinal FLOAT, 
+CREATE PROCEDURE `sp_alterarRelatorio` (idRelatorio integer(11), dataH DATETIME, apresentacaoNota FLOAT, fundamentacaoNota FLOAT, desenvolvimentoNota FLOAT, resultadosNota FLOAT, notaFinal FLOAT, 
   TipoRelatorio varchar(50), apresentacaoComentario varchar(250), fundamentacaoComentario varchar(250), desenvolvimentoComentario varchar(250), 
   resultadosComentario varchar(250), idTCCFK integer(11))
 BEGIN
-  UPDATE `Relatorio`
+  UPDATE `e-star`.`Relatorio`
     SET 
 `apresentacaoNota`= apresentacaoNota,
-`data`= data,
+`data`= dataH,
 `fundamentacaoNota`= fundamentacaoNota,
 `desenvolvimentoNota`= desenvolvimentoNota,
 `resultadosNota`= resultadosNota,
@@ -1999,7 +2012,7 @@ BEGIN
 `desenvolvimentoComentario`= desenvolvimentoComentario,
 `resultadosComentario`= resultadosComentario,
 `idTCCFK`= idTCCFK
-WHERE `Relatorio`.`idRelatorio`=idRelatorio;
+WHERE `e-star`.`Relatorio`.`idRelatorio`=idRelatorio;
 END$$
 
 DELIMITER ; 
@@ -2007,15 +2020,15 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_deletarRelatorio
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_deletarRelatorio`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_deletarRelatorio`;
 
 DELIMITER $$
 
 CREATE PROCEDURE `sp_deletarRelatorio`(idRelatorio integer(11))
 BEGIN
-DELETE FROM `Relatorio`
-WHERE `Relatorio`.`idRelatorio` = idRelatorio;
+DELETE FROM `e-star`.`Relatorio`
+WHERE `e-star`.`Relatorio`.`idRelatorio` = idRelatorio;
 END$$
 
 DELIMITER ;
@@ -2023,17 +2036,15 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_listarRelatorio
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_listarRelatorio`;
-
 DELIMITER $$
-
 
 CREATE PROCEDURE `sp_listarRelatorio`()
 BEGIN
-SELECT T.`titulo`, R.`data`, R.`apresentacaoNota`, R.`fundamentacaoNota`, R.`desenvolvimentoNota`, R.`resultadosNota`, R.`notaFinal`, 
-R.`TipoRelatorio`, R.`apresentacaoComentario`, R.`fundamentacaoComentario`, R.`desenvolvimentoComentario`, R.`resultadosComentario`
- FROM `Relatorio` AS R INNER JOIN `TCC` AS T ON R.`idTCCFK` = T.`idTCC` ORDER BY R.`data` ASC, T.`titulo` ASC;
+SELECT T.`titulo` AS TCC , R.`data` AS `Data e Hora`, R.`apresentacaoNota` AS `Nota da Apresentacao`, R.`fundamentacaoNota` AS `Nota da Fundamentacao`, R.`desenvolvimentoNota` AS `Nota da Desenvolvimento`, R.`resultadosNota` AS `Resultados da Nota`, R.`notaFinal` AS `Nota Final`, 
+R.`TipoRelatorio` AS `Tipo de Relatorio`, R.`apresentacaoComentario` AS `Comentario da Apresentacao`, R.`fundamentacaoComentario` AS `Comentario da Fundamentaçao`, R.`desenvolvimentoComentario` AS `Comentario da Desenvolvimento`, R.`resultadosComentario` AS `Comentario dos Resultados`
+ FROM `e-star`.`Relatorio` AS R
+ INNER JOIN `e-star`.`TCC` AS T ON T.`idTCC` = R.`idTCCFK` 
+ ORDER BY R.`data` ASC, T.`titulo` ASC;
 END$$
 
 DELIMITER ;
@@ -2041,15 +2052,15 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_inserirAlunoDefesa
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_inserirAlunoDefesa`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_inserirAlunoDefesa`;
 
 DELIMITER $$
 
 CREATE PROCEDURE `sp_inserirAlunoDefesa`(notaPostura FLOAT, notaComunicacao FLOAT, notaClareza FLOAT, notaDominio FLOAT, idAluno integer(11), notaFinal FLOAT, 
  posturaComentario varchar(200), comunicacaoComentario varchar(45), clarezaComentario varchar(45), dominioComentario varchar(45), idDefesa integer(11))
 BEGIN
-  INSERT INTO `AlunoDefesa`
+  INSERT INTO `e-star`.`AlunoDefesa`
 (`notaPostura`,
 `notaComunicacao`,
 `notaClareza`,
@@ -2071,8 +2082,8 @@ DELIMITER ;
 -- ------------------------------------------------------
 -- procedure sp_alterarAlunoDefesa
 -- ------------------------------------------------------
-
-DROP procedure IF EXISTS `sp_alterarAlunoDefesa`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_alterarAlunoDefesa`;
 
 DELIMITER $$
 
@@ -2080,7 +2091,7 @@ CREATE PROCEDURE `sp_alterarAlunoDefesa` (notaPostura FLOAT, notaComunicacao FLO
  posturaComentario varchar(200), comunicacaoComentario varchar(45), clarezaComentario varchar(45), dominioComentario varchar(45), idDefesa integer(11))
 
 BEGIN
-  UPDATE `AlunoDefesa`
+  UPDATE `e-star`.`AlunoDefesa`
     SET 
 `notaPostura`= notaPostura,
 `notaComunicacao`= notaComunicacao,
@@ -2093,7 +2104,7 @@ BEGIN
 `clarezaComentario`= clarezaComentario,
 `dominioComentario`= dominioComentario,
 `idDefesa`= idDefesa
-WHERE `AlunoDefesa`.`idTCC`=idTCC;
+WHERE `e-star`.`AlunoDefesa`.`idTCC`=idTCC;
 END$$
 
 DELIMITER ; 
@@ -2103,15 +2114,15 @@ DELIMITER ;
 -- procedure sp_listarAlunoDefesa_idAluno
 -- ------------------------------------------------------
 
-
-DROP procedure IF EXISTS `sp_listarAlunoDefesa_idAluno`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_listarAlunoDefesa_idAluno`;
 
 DELIMITER $$
 
-
 CREATE PROCEDURE `sp_listarAlunoDefesa_idAluno`()
 BEGIN
-SELECT * FROM `AlunoDefesa`order by idAluno ASC;
+SELECT * FROM `e-star`.`AlunoDefesa`
+order by idAluno ASC;
 END$$
 
 DELIMITER ;
@@ -2120,26 +2131,25 @@ DELIMITER ;
 -- procedure sp_listarAlunoDefesa_Geral
 -- ------------------------------------------------------
 
-
-DROP procedure IF EXISTS `sp_listarAlunoDefesa_Geral`;
+USE `e-star`;
+DROP procedure IF EXISTS `e-star`.`sp_listarAlunoDefesa_Geral`;
 
 DELIMITER $$
 
-
 CREATE PROCEDURE `sp_listarAlunoDefesa_Geral`()
 BEGIN
-SELECT A.`nome`, AD.`notaPostura`, AD.`notaComunicacao`, AD.`notaClareza`, AD.`notaDominio`, AD.`notaFinal`, AD.`posturaComentario`, 
-AD.`comunicacaoComentario`, AD.`clarezaComentario`, AD.`dominioComentario`, AD.`idDefesa`
- FROM `AlunoDefesa` AS AD INNER JOIN `Aluno` AS A ON AD.`idAluno`= A.`idAluno` order by A.`nome` ASC;
+SELECT A.`nome` AS Aluno, AD.`notaPostura` AS `Nota Da Postura`, AD.`notaComunicacao` AS `Nota da Comunicacao`, AD.`notaClareza` AS `Nota da Clareza`, AD.`notaDominio` AS `Nota do Dominio`, AD.`notaFinal` AS `Nota Final`, AD.`posturaComentario` AS `Comentario da Postura`, 
+AD.`comunicacaoComentario` AS `Comentario da Comunicaçao`, AD.`clarezaComentario` AS `Comentario da Clareza`, AD.`dominioComentario` AS `Comentario do Dominio`, AD.`idDefesa` AS ID
+ FROM `e-star`.`AlunoDefesa` AS AD 
+ INNER JOIN `e-star`.`Aluno` AS A ON A.`idAluno` = AD.`idAluno` 
+ order by A.`nome` ASC;
 END$$
 
 DELIMITER ;
 
------------------------------------
 
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
 
 -- Teste de Procedures
 
