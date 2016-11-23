@@ -64,11 +64,11 @@
                                 <ul class=dropdown-menu> 
                                   <li><a href="#">Título</a></li>
                                   <li><a href="#">Linha de Pesquisa</a></li>
-                                  <li><a href="#">Aluno1</a></li>
-                                  <li><a href="#">Aluno2</a></li>
+                                  <li><a href="#">Aluno</a></li>
                                   <li><a href="#">Professor</a></li>
                                   <li><a href="#">Data</a></li>
-                                  <li><a href="#">Local</a></li>
+                                  <li><a href="#">Unidade</a></li>
+                                  <li><a href="#">Sala</a></li>
                                 </ul>
 
                             </div> 
@@ -101,11 +101,12 @@
             <tr><!-- LinhaTitulo  -->
               <th style="width: 80px">Título</th><!-- Coluna  -->
               <th style="width: 40px">Linha de Pesquisa</th><!-- Coluna  -->
-              <th style="width: 50px">Aluno1</th><!-- Coluna  -->
-              <th style="width: 50px">Aluno2</th><!-- Coluna  -->
+              <th style="width: 50px">Aluno</th><!-- Coluna  -->
+              <th style="width: 50px">Aluno</th><!-- Coluna  -->
               <th style="width: 40px">Professor</th><!-- Coluna  -->
               <th style="width: 10px">Data</th><!-- Coluna  -->
-              <th style="width: 10px">Local</th><!-- Coluna  -->
+              <th style="width: 10px">Unidade</th><!-- Coluna  -->
+              <th style="width: 10px">Sala</th><!-- Coluna  -->
               <th style="width: 100px">Ações</th><!-- Coluna  -->          
             </tr>
           </thead>
@@ -117,7 +118,8 @@
               <td>Ipsum</td>
               <td>André</td>
               <td>10/10/2013</td>
-              <td>UnP</td>
+              <td>Nascimento de Castro</td>
+              <td>B202</td>
               <td>
                   <a href="#" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModalBuscaDefTCC"> Visualizar </a>
                   <a href="#" class="btn btn-warning btn-xs"><i class="label label-warning"></i> Editar </a>
@@ -135,7 +137,8 @@
               <td>Ipsum</td>
               <td>André</td>
               <td>12/09/2019</td>
-              <td>UFRN</td>
+              <td>Roberto Freire</td>
+              <td>C102</td>
               <td>
                   <a href="#" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModalBuscaDefTCC"> Visualizar </a>
                   <a href="#" class="btn btn-warning btn-xs"><i class="label label-warning"></i> Editar </a>

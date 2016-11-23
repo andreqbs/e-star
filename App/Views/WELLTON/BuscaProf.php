@@ -63,8 +63,8 @@
 
                                 <ul id="type" class=dropdown-menu> 
                                   <li><a href="#">Professor</a></li> 
-                                  <li><a href="#">Arientados Ativos</a></li>
-                                  <li><a href="#">Orientados Totais</a></li>
+                                  <li><a href="#">Orientandos Ativos</a></li>
+                                  <li><a href="#">Orientandos Totais</a></li>
                                   <li><a href="#">Linha De Pesquisa</a></li>
                                 </ul>
 

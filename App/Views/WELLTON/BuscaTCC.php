@@ -48,27 +48,23 @@
     
 
             <div class="container"> <!-- Inicio da busca -->
-              <form class="form-horizontal">  
-                          
-                    <div class=col-md-10> 
-                      <div class=input-group> 
-                          <div class=input-group-btn> 
-                            <button type=button class="btn btn-default">Título</button> 
-
-                              <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
-                                <span class="caret"></span> 
-                                  <span class=sr-only>Toggle Dropdown</span> 
-                              </button> 
-
+                <form class="form-horizontal" id="search-form" >  
+                            
+                      <div class=col-md-10> 
+                        <div class=input-group> 
+                            <div class=input-group-btn> 
                               
 
+                                <button type=button class="btn btn-default dropdown-toggle" data-toggle=dropdown aria-haspopup=true aria-expanded=false> 
+                                  Tipo <span class=caret></span> 
+                                    <span class=sr-only>Toggle Dropdown</span> 
+                                </button> 
                               
                               <ul class=dropdown-menu>
                                 <li><a href="#">Título</a></li>
                                 <li><a href="#">Status do TCC</a></li> 
                                 <li><a href="#">Orientador</a></li> 
-                                <li><a href="#">Aluno1</a></li> 
-                                <li><a href="#">Aluno2</a></li> 
+                                <li><a href="#">Aluno</a></li>
                                 <li><a href="#">Linha de Pesquisa</a></li> 
                                 <li><a href="#">Data</a></li>
                               </ul>
@@ -106,8 +102,8 @@
             <th style="width: 80px">Título</th>
             <th style="width: 40px">Status do TCC</th><!-- Coluna  -->
             <th style="width: 40px">Orientador</th>
-            <th style="width: 40px">Aluno1</th>
-            <th style="width: 40px">Aluno2</th>    
+            <th style="width: 40px">Aluno</th>
+            <th style="width: 40px">Aluno</th>    
             <th style="width: 40px">Linha de Pesquisa</th>  
             <th style="width: 20px">Data</th>
             <th style="width: 100px">Ações</th>              
@@ -315,14 +311,11 @@
            </div><!-- /.box-body -->
          </form>
                               
-                                        </div>  
+    </div>  
 
-                                        
-
-
-                                      </div>   <div class="modal-footer">
-                                        
-                                      </div>
+    </div>   
+    <div class="modal-footer">
+    </div>
 
                                                                           
 
@@ -337,6 +330,29 @@
   <script src="../../../Public/bower_components/AdminLTE/bootstrap/js/bootstrap.min.js"></script>
 
   <script src="../../../Public/bower_components/AdminLTE/dist/js/app.min.js"></script>
+
+  <script>
+        var type;
+        $(".dropdown-menu li a").click(function(e){
+            type = $(this).text();
+
+            $(this).parents('.input-group').find('.dropdown-toggle').html(type+' <span class="caret"></span>');       
+        });
+
+          $('#search-form').on('submit', function(){
+                            var Searchfield = document.getElementById('Search-field').value;
+
+                            var dataString = $("#search-form").serialize();
+                            dataString += '&Searchfield='+Searchfield+'&type='+type;
+                            alert(dataString);
+
+                            //ajaxPostRedirect(dataString,"createquiz.php","questionadmin.php");
+                
+
+                return false;
+            }); 
+
+  </script> 
 
 
 

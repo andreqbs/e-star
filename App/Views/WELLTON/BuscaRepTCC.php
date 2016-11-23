@@ -64,8 +64,7 @@
                                 <ul class=dropdown-menu> 
                                   <li><a href="#">Título</a></li>
                                   <li><a href="#">Linha de Pesquisa</a></li>
-                                  <li><a href="#">Aluno1</a></li>
-                                  <li><a href="#">Aluno2</a></li>
+                                  <li><a href="#">Aluno</a></li>
                                   <li><a href="#">Professor</a></li>
                                   <li><a href="#">Data</a></li>                                  
                                 </ul>
@@ -99,8 +98,8 @@
             <tr><!-- LinhaTitulo  -->
               <th style="width: 80px">Título</th><!-- Coluna  -->
               <th style="width: 40px">Linha de Pesquisa</th><!-- Coluna  -->
-              <th style="width: 40px">Aluno1</th><!-- Coluna  -->
-              <th style="width: 40px">Aluno2</th><!-- Coluna  -->
+              <th style="width: 40px">Aluno</th><!-- Coluna  -->
+              <th style="width: 40px">Aluno</th><!-- Coluna  -->
               <th style="width: 40px">Professor</th><!-- Coluna  -->
               <th style="width: 10px">Data</th><!-- Coluna  -->
               <th style="width: 100px">Ações</th><!-- Coluna  -->          

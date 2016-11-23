@@ -61,10 +61,9 @@
                                 </button> 
 
                                 <ul class=dropdown-menu> 
-                                  <li><a href="#">Título do TCC</a></li>
+                                  <li><a href="#">Título</a></li>
                                   <li><a href="#">Tipo de Relatório</a></li>
-                                  <li><a href="#">Aluno1</a></li>
-                                  <li><a href="#">Aluno2</a></li>
+                                  <li><a href="#">Aluno</a></li>
                                   <li><a href="#">Professor</a></li>
                                   <li><a href="#">Data</a></li>
                                 </ul>
@@ -96,10 +95,10 @@
 
           <thead>
             <tr><!-- LinhaTitulo  -->
-              <th style="width: 80px">Título do TCC</th><!-- Coluna  -->
+              <th style="width: 80px">Título</th><!-- Coluna  -->
               <th style="width: 20px">Tipo de Relatório</th><!-- Coluna  -->
-              <th style="width: 40px">Aluno1</th><!-- Coluna  -->
-              <th style="width: 40px">Aluno2</th><!-- Coluna  -->
+              <th style="width: 40px">Aluno</th><!-- Coluna  -->
+              <th style="width: 40px">Aluno</th><!-- Coluna  -->
               <th style="width: 40px">Professor</th><!-- Coluna  -->
               <th style="width: 10px">Data</th><!-- Coluna  -->
               <th style="width: 100px">Ações</th><!-- Coluna  -->          
