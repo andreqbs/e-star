@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+
   <title>BuscaEventos</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -248,9 +249,8 @@ $(".dropdown-menu li a").click(function(e){
                     dataString += '&Searchfield='+Searchfield+'&type='+type;
                     alert(dataString);
 
-                    //ajaxPostRedirect(dataString,"createquiz.php","questionadmin.php");
+                    ajaxPostRedirect(dataString,"BuscaEventosAPI.php");
         
-
         return false;
     }); 
 

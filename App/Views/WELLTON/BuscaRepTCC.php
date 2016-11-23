@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+
   <title>BuscaRepTCC</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -232,7 +233,7 @@
 
 <script src="../../../Public/bower_components/AdminLTE/dist/js/app.min.js"></script>
 
-<!-- <script>
+<script>
 var type;
 $(".dropdown-menu li a").click(function(e){
     type = $(this).text();
@@ -247,13 +248,12 @@ $(".dropdown-menu li a").click(function(e){
                     dataString += '&Searchfield='+Searchfield+'&type='+type;
                     alert(dataString);
 
-                    //ajaxPostRedirect(dataString,"createquiz.php","questionadmin.php");
+                    ajaxPostRedirect(dataString,"BuscaRepTCCAPI.php");
         
-
         return false;
     }); 
 
-</script> -->
+</script> 
 
 
 </body>

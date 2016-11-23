@@ -46,18 +46,16 @@
       <br><!-- Pulando Linha (Espaço) -->
       <br><!-- Pulando Linha (Espaço) -->
 
-      
-
               <div class="container"> <!-- Inicio da busca -->
-                <form class="form-horizontal">  
+                <form class="form-horizontal" id="search-form" >  
                             
                       <div class=col-md-10> 
                         <div class=input-group> 
                             <div class=input-group-btn> 
-                              <button type=button class="btn btn-default">Título</button> 
+                              
 
                                 <button type=button class="btn btn-default dropdown-toggle" data-toggle=dropdown aria-haspopup=true aria-expanded=false> 
-                                  <span class=caret></span> 
+                                  Tipo <span class=caret></span> 
                                     <span class=sr-only>Toggle Dropdown</span> 
                                 </button> 
 
@@ -70,7 +68,7 @@
 
                             </div> 
 
-                           <input class=form-control aria-label="Text input with segmented button dropdown">
+                           <input id="Search-field" class=form-control aria-label="Text input with segmented button dropdown">
 
                         </div> 
                       </div>
@@ -81,7 +79,6 @@
                         
                 </form>
               </div><!-- Fim da busca -->
-
 
 
 
@@ -234,7 +231,27 @@
 
 <script src="../../../Public/bower_components/AdminLTE/dist/js/app.min.js"></script>
 
+<script>
+var type;
+$(".dropdown-menu li a").click(function(e){
+    type = $(this).text();
 
+    $(this).parents('.input-group').find('.dropdown-toggle').html(type+' <span class="caret"></span>');       
+});
+
+  $('#search-form').on('submit', function(){
+                    var Searchfield = document.getElementById('Search-field').value;
+
+                    var dataString = $("#search-form").serialize();
+                    dataString += '&Searchfield='+Searchfield+'&type='+type;
+                    alert(dataString);
+
+                    ajaxPostRedirect(dataString,"BuscaAlunoAPI.php");
+        
+        return false;
+    }); 
+
+</script>
 
 </body>
 </html>
