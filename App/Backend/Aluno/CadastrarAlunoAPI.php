@@ -27,10 +27,14 @@ $SenhaAlunoConfirmacao;
 $idCursoFK;
 
 
-$meuAluno = new Aluno($NomeAluno, $MatriculaAluno, $EmailAluno, $LoginAluno, $SenhaAluno;, $idCursoFK);
+$Aluno = new Aluno($NomeAluno, $MatriculaAluno, $EmailAluno, $LoginAluno, $SenhaAluno;, $idCursoFK);
 
-$meuDAOAluno = new DAOAluno();
-$Result =$meuDAOAluno->listBy($type, $searchfield);
+$Controller = new mainController();
+$Result = $Controller->cadastrarAluno($Aluno);
+
+if (!$Result){
+	echo '<script>alert("Usuario não cadastrado")</script>';
+}
 
 
 
