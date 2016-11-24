@@ -16,8 +16,6 @@ class DAOTCC implements IDAO{
     	$connection = new Connection();
     	$connection = $connection->openConnection();
         $sql = "call sp_inserirTCC({$Tcc->getTitulo()}, {$Tcc->getResumo()}, {$Tcc->getTCCStatus()}, {$Tcc->getObjetivos()}, {$Tcc->getJustificativas()}, {$Tcc->getTCCTipo()}, {$Tcc->getLinhaPesquisa()})"
-    	
-
 		try {
             $stmt = $connection->prepare($sql);
             $stmt->execute();   

@@ -63,7 +63,7 @@
                                 <li><a href="#">Status do TCC</a></li> 
                                 <li><a href="#">Orientador</a></li> 
                                 <li><a href="#">Aluno1</a></li> 
-                                <li><a href="#">Aluno2</a></li> 
+                                <li><a href="#">Aluno2 </a></li> 
                                 <li><a href="#">Linha de Pesquisa</a></li> 
                                 <li><a href="#">Data</a></li>
                               </ul>
