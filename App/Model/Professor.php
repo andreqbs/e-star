@@ -61,7 +61,7 @@ class Professor {
 		function setidProfessor($idProfessor)
 		{
    			$this->idProfessor = $idProfessor;
-  	}
+  		}
 
 		function setNomeProfessor ($NomeProfessor)
 		{
