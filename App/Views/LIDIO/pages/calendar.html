@@ -108,7 +108,7 @@
                 <td>16:00HS AS 17:00HS</td>       
                 <td>DISPONÍVEL</td>        
                 <td>
-                    <a href="#" class="btn btn-success btn-lg" > RESERVAR </a>
+                    <a href="#" class="btn btn-success btn" > RESERVAR </a>
                               </td>
               </tr>
               <tr><!-- Linha01  -->     
@@ -392,8 +392,13 @@
           console.log(date);
           console.log(jsEvent);
           console.log(view);
-
-          $("#reservas").show();
+          var display = document.getElementById("reservas").style.display;
+          if(display=='none'){
+            $("#reservas").show();  
+          } else {
+            document.getElementById("reservas").style.display='none';
+          }
+          
           // r$ 10,00
         },
         header: {
