@@ -1,6 +1,8 @@
 <?php
-
 namespace App\DAO;
+ini_set('display_errors', 'On');
+error_reporting(E_ALL);
+
 use Lib\Database\Connection as Connection;
 use App\Models\Professor as Professor;
 use App\Iface\IDAO as IDAO;
@@ -16,7 +18,7 @@ class DAOProfessor implements IDAO{
     	$connection = new Connection();
     	$connection = $connection->openConnection();
 
-    	$sql = "call sp_inserirProfessor({$Professor->setNomeProfessor()},{$Professor->setMatriculaProfessor()},{$Professor->setEmailProfessor()},{$Professor->setLoginProfessor()},{$Professor->setSenhaProfessor()} )";
+    	$sql = "call sp_inserirProfessor({$Professor->getNomeProfessor()},{$Professor->getMatriculaProfessor()},{$Professor->getEmailProfessor()},{$Professor->getLoginProfessor()},{$Professor->getSenhaProfessor()} )";
 
         // `sp_inserirProfessor`(nome varchar(100), matricula char(6), email varchar(50), login varchar(50), senha varchar(20))
 		echo "<br>".$sql."<br>";
@@ -39,9 +41,8 @@ class DAOProfessor implements IDAO{
     	$connection = new Connection();
     	$connection = $connection->openConnection();
     	
-        $sql "call sp_inserirProfessor({$idProfessor->setidProfessor()},{$Professor->setNomeProfessor()},{$Professor->setMatriculaProfessor()},{$Professor->setEmailProfessor()},{$Professor->setLoginProfessor()},{$Professor->setSenhaProfessor()})"
+        $sql = "call sp_inserirProfessor({$idProfessor->getidProfessor()},{$Professor->getNomeProfessor()},{$Professor->getMatriculaProfessor()},{$Professor->getEmailProfessor()},{$Professor->getLoginProfessor()},{$Professor->getSenhaProfessor()})";
         
-        // `sp_alterarProfessor` (idProfessor integer(11), nome varchar(100), matricula integer(6), email varchar(50), login varchar(50), senha varchar(20))
 		echo "<br>".$sql."<br>";
 
 		try {
@@ -112,8 +113,6 @@ class DAOProfessor implements IDAO{
 
             $stmt = $connection->query($sql);
             $this->data = $stmt->fetch();
-
-
         }
         catch(PDOException $e) {
 
@@ -122,6 +121,8 @@ class DAOProfessor implements IDAO{
 
         return $this->data;
     }
+
+
         public function listBy($type, $value)
     {
         $connection = new Connection();
