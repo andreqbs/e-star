@@ -5,8 +5,13 @@ error_reporting(E_ALL);
 
 use App\Models\Aluno as Aluno;
 use App\DAO\DAOAluno as DAOAluno;
+
 require_once dirname(__FILE__).'/../Model/Aluno.php';
 require_once dirname(__FILE__).'/../DAO/DAOAluno.php';
+
+require_once dirname(__FILE__).'/../../Lib/Core/Loader.php';
+
+
 
 
 class mainController
