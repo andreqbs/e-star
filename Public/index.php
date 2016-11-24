@@ -89,7 +89,7 @@
 	            <div  class="col-sm-6 col-md-10 col-md-push-1 " >
 
 	                <div >
-	                  <p class="fonte-centro">Faça login para começar a sua sessão</p>
+	                  <p class="fonte-centro">Faça login para começar sua sessão</p>
 
 	                  <form action="#" method="post">
 
@@ -108,7 +108,7 @@
 		                    <div class="col-xs-8">
 		                        <div class="checkbox icheck">
 		                          <label>
-		                            <input type="checkbox"> Lembre-me
+		                            <input type="checkbox"> Lembrar-me
 		                          </label>
 		                        </div>
 		                    </div>
@@ -153,7 +153,7 @@
 	            <div  class="col-sm-6 col-md-10 col-md-push-1 " >
 
 	                <div >
-	                  <p class="fonte-centro">Faça se cadastro para começar a utilizar o serviço</p>
+	                  <p class="fonte-centro">Efetue seu cadastro para começar a utilizar o serviço</p>
 
 	                  <form action="#" method="post">
 	                    
@@ -163,12 +163,12 @@
 					      </div>
 					    
 					      <div class="form-group has-feedback">
-					        <input type="email" class="form-control" placeholder="Email">
+					        <input type="email" class="form-control" placeholder="E-mail">
 					        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 					      </div>
 
 					      <div class="form-group has-feedback">
-					        <input type="text" class="form-control" placeholder="Matricula">
+					        <input type="number" class="form-control" placeholder="Matrícula">
 					        <span class="glyphicon glyphicon-user form-control-feedback"></span>
 					      </div>   
 
