@@ -15,10 +15,8 @@ class DAOTCC implements IDAO{
     public function create($Tcc){
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "INSERT INTO TCC (Titulo, Descricao, TCCStatus, Objetivos, Justificativas, TCCTipo, LinhaPesquisa_idLinhaPesquisa) 
-    			VALUES ('{$Tcc->getTitulo()}', '{$Tcc->getDescricao()}', '{$Tcc->getTCCStatus()}', '{$Tcc->getObjetivos()}', 
-    			'{$Tcc->getJustificativas()}', '{$Tcc->getTCCTipo()}', '{$Tcc->getLinhaPesquisa()}'); ";
-		echo "<br>".$sql."<br>";
+        $sql = "call sp_inserirTCC({$Tcc->getTitulo()}, {$Tcc->getResumo()}, {$Tcc->getTCCStatus()}, {$Tcc->getObjetivos()}, {$Tcc->getJustificativas()}, {$Tcc->getTCCTipo()}, {$Tcc->getLinhaPesquisa()})"
+    	
 
 		try {
             $stmt = $connection->prepare($sql);
@@ -37,7 +35,7 @@ class DAOTCC implements IDAO{
     {
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "UPDATE TCC SET Titulo = '{$Tcc->getTitulo()}', Descricao = '{$Tcc->getDescricao()}', 
+    	$sql = "UPDATE TCC SET Titulo = '{$Tcc->getTitulo()}', Resumo = '{$Tcc->getResumo()}', 
     			TCCStatus = '{$Tcc->getTCCStatus()}', Objetivos = '{$Tcc->getObjetivos()}', 
     			Justificativas = '{$Tcc->getJustificativas()}', TCCTipo = '{$Tcc->getTCCTipo()}', 
     			LinhaPesquisa_idLinhaPesquisa = '{$Tcc->getLinhaPesquisa()}' WHERE idTCC = $idTcc";
@@ -105,6 +103,28 @@ class DAOTCC implements IDAO{
         $connection = new Connection();
         $connection = $connection->openConnection();
         $sql = "SELECT * FROM TCC";
+                
+        echo "<br>".$sql."<br>";
+
+        try {
+
+            $stmt = $connection->query($sql);
+            $this->data = $stmt->fetch();
+            
+            
+        }
+        catch(PDOException $e) {
+            
+                echo "Error: " . $e->getMessage();
+        }
+
+        return $this->data;   
+    }
+        public function listBy($type, $value)
+    {
+        $connection = new Connection();
+        $connection = $connection->openConnection();
+        $sql = "SELECT * FROM Aluno WHERE ".$type." = ".$value;
                 
         echo "<br>".$sql."<br>";
 

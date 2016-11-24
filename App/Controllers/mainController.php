@@ -49,6 +49,15 @@ function listarTCC($Tcc,idTcc)
 	$DAOTCC->list($Tcc, $idTcc);
 }
 
+//ListTCC
+function listarTCCPor($Tcc,idTcc)
+{
+	$DAOTCC = new DAOTCC();
+	$DAOTCC->list($Tcc, $idTcc);
+}
+
+
+
 
 //CreateComponentes
 function inserirComponentes($Componentes)

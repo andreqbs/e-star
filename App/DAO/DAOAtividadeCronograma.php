@@ -9,12 +9,7 @@ require_once dirname(__FILE__).'/../../Lib/Database/Connection.php';
 require_once dirname(__FILE__).'/../Model/AtividadeCronograma.php';
 require_once dirname(__FILE__).'/../Interfaces/IDAO.php';
 
-/*
-private $idAtividadeCronograma;
-private $NomeAtividade;
-private $idCronogramaFK;
-private $idTCCFK;
-*/
+
 class DAOAtividadeCronograma implements IDAO{
 
 
@@ -124,4 +119,3 @@ class DAOAtividadeCronograma implements IDAO{
         return $this->data;   
     }
 }
-?>
