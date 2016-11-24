@@ -3,10 +3,10 @@
 ini_set('display_errors', true);
 error_reporting(E_ALL);
 
-use App\Models\TCC as TCC;
-use App\DAO\DAOTCC as DAOTCC;
-require_once dirname(__FILE__).'/../Model/TCC.php';
-require_once dirname(__FILE__).'/../DAO/DAOTCC.php';
+use App\Models\Aluno as Aluno;
+use App\DAO\DAOAluno as DAOAluno;
+require_once dirname(__FILE__).'/../Model/Aluno.php';
+require_once dirname(__FILE__).'/../DAO/DAOAluno.php';
 
 
 class mainController
@@ -22,35 +22,35 @@ function cadastrarTCC($Tcc)
 }
 
 //UpdateTcc
-function alterarTCC($Tcc,idTcc)
+function alterarTCC($Tcc,$idTcc)
 {
 	$DAOTCC = new DAOTCC();
 	$DAOTCC->update($Tcc, $idTcc);
 }
 
 //DeleteTCC
-function apagarTCC(idTcc)
+function apagarTCC($idTcc)
 {
 	$DAOTCC = new DAOTCC();
 	$DAOTCC->delete($idTcc);
 }
 
 //FindTCC
-function buscarTCC($Tcc,idTcc)
+function buscarTCC($Tcc,$idTcc)
 {
 	$DAOTCC = new DAOTCC();
 	$DAOTCC->find($Tcc, $idTcc);
 }
 
 //ListTCC
-function listarTCC($Tcc,idTcc)
+function listarTCC($Tcc,$idTcc)
 {
 	$DAOTCC = new DAOTCC();
 	$DAOTCC->list($Tcc, $idTcc);
 }
 
 //ListTCC
-function listarTCCPor($Tcc,idTcc)
+function listarTCCPor($Tcc,$idTcc)
 {
 	$DAOTCC = new DAOTCC();
 	$DAOTCC->list($Tcc, $idTcc);
@@ -67,28 +67,28 @@ function inserirComponentes($Componentes)
 }
 
 //UpdateComponentes
-function alterarComponentes($Componentes,idComponentes)
+function alterarComponentes($Componentes,$idComponentes)
 {
 	$DAOComponentes = new DAOComponentes();
 	$DAOComponentes->update($Componentes, $idComponentes);
 }
 
 //DeleteComponentes
-function apagarComponentes(idComponentes)
+function apagarComponentes($idComponentes)
 {
 	$DAOComponentes = new DAOComponentes();
 	$DAOComponentes->delete($idComponentes);
 }
 
 //FindComponentes
-function buscarComponentes($Componentes,idComponentes)
+function buscarComponentes($Componentes,$idComponentes)
 {
 	$DAOComponentes = new DAOComponentes();
 	$DAOComponentes->find($Componentes, $idComponentes);
 }
 
 //ListComponentes
-function listarComponentes($Componentes,idComponentes)
+function listarComponentes($Componentes,$idComponentes)
 {
 	$DAOComponentes = new DAOComponentes();
 	$DAOComponentes->list($Componentes, $idComponentes);
@@ -102,28 +102,28 @@ function inserirArquivo($Arquivo)
 }
 
 //UpdateArquivo
-function alterarArquivo($Arquivo,idArquivo)
+function alterarArquivo($Arquivo,$idArquivo)
 {
 	$DAOArquivo = new DAOArquivo();
 	$DAOArquivo->update($Arquivo, $idArquivo);
 }
 
 //DeleteArquivo
-function apagarArquivo(idArquivo)
+function apagarArquivo($idArquivo)
 {
 	$DAOArquivo = new DAOArquivo();
 	$DAOArquivo->delete($idArquivo);
 }
 
 //FindArquivo
-function buscarArquivo($Arquivo,idArquivo)
+function buscarArquivo($Arquivo,$idArquivo)
 {
 	$DAOArquivo = new DAOArquivo();
 	$DAOArquivo->find($Arquivo, $idArquivo);
 }
 
 //ListArquivo
-function listarArquivo($Arquivo,idArquivo)
+function listarArquivo($Arquivo,$idArquivo)
 {
 	$DAOArquivo = new DAOArquivo();
 	$DAOArquivo->list($Arquivo, $idArquivo);
@@ -137,28 +137,28 @@ function inserirErro($Erro)
 }
 
 //UpdateErro
-function alterarErro($Erro,idErro)
+function alterarErro($Erro,$idErro)
 {
 	$DAOErro = new DAOErro();
 	$DAOErro->update($Erro, $idErro);
 }
 
 //DeleteErro
-function apagarErro(idErro)
+function apagarErro($idErro)
 {
 	$DAOErro = new DAOErro();
 	$DAOErro->delete($idErro);
 }
 
 //FindErro
-function buscarErro($Erro,idErro)
+function buscarErro($Erro,$idErro)
 {
 	$DAOErro = new DAOErro();
 	$DAOErro->find($Erro, $idErro);
 }
 
 //ListErro
-function listarErro($Erro,idErro)
+function listarErro($Erro,$idErro)
 {
 	$DAOErro = new DAOErro();
 	$DAOErro->list($Erro, $idErro);
@@ -172,28 +172,28 @@ function inserirErroTCC($ErroTCC)
 }
 
 //UpdateErroTCC
-function alterarErroTCC($ErroTCC,idErroTCC)
+function alterarErroTCC($ErroTCC,$idErroTCC)
 {
 	$DAOErroTCC = new DAOErroTCC();
 	$DAOErroTCC->update($ErroTCC, $idErroTCC);
 }
 
 //DeleteErroTCC
-function apagarErroTCC(idErroTCC)
+function apagarErroTCC($idErroTCC)
 {
 	$DAOErroTCC = new DAOErroTCC();
 	$DAOErroTCC->delete($idErroTCC);
 }
 
 //FindErroTCC
-function buscarErroTCC($ErroTCC,idErroTCC)
+function buscarErroTCC($ErroTCC,$idErroTCC)
 {
 	$DAOErroTCC = new DAOErroTCC();
 	$DAOErroTCC->find($ErroTCC, $idErroTCC);
 }
 
 //ListErroTCC
-function listarErroTCC($ErroTCC,idErroTCC)
+function listarErroTCC($ErroTCC,$idErroTCC)
 {
 	$DAOErroTCC = new DAOErroTCC();
 	$DAOErroTCC->list($ErroTCC, $idErroTCC);
@@ -207,28 +207,28 @@ function inserirEvento($Evento)
 }
 
 //UpdateEvento
-function alterarEvento($Evento,idEvento)
+function alterarEvento($Evento,$idEvento)
 {
 	$DAOEvento = new DAOEvento();
 	$DAOEvento->update($Evento, $idEvento);
 }
 
 //DeleteEvento
-function apagarEvento(idEvento)
+function apagarEvento($idEvento)
 {
 	$DAOEvento = new DAOEvento();
 	$DAOEvento->delete($idEvento);
 }
 
 //FindEvento
-function buscarEvento($Evento,idEvento)
+function buscarEvento($Evento,$idEvento)
 {
 	$DAOEvento = new DAOEvento();
 	$DAOEvento->find($Evento, $idEvento);
 }
 
 //ListEvento
-function listarEvento($Evento,idEvento)
+function listarEvento($Evento,$idEvento)
 {
 	$DAOEvento = new DAOEvento();
 	$DAOEvento->list($Evento, $idEvento);
@@ -242,28 +242,28 @@ function inserirReservas($Reservas)
 }
 
 //UpdateReservas
-function alterarReservas($Reservas,idReservas)
+function alterarReservas($Reservas,$idReservas)
 {
 	$DAOReservas = new DAOReservas();
 	$DAOReservas->update($Reservas, $idReservas);
 }
 
 //DeleteReservas
-function apagarReservas(idReservas)
+function apagarReservas($idReservas)
 {
 	$DAOReservas = new DAOReservas();
 	$DAOReservas->delete($idReservas);
 }
 
 //FindReservas
-function buscarReservas($Reservas,idReservas)
+function buscarReservas($Reservas,$idReservas)
 {
 	$DAOReservas = new DAOReservas();
 	$DAOReservas->find($Reservas, $idReservas);
 }
 
 //ListReservas
-function listarReservas($Reservas,idReservas)
+function listarReservas($Reservas,$idReservas)
 {
 	$DAOReservas = new DAOReservas();
 	$DAOReservas->list($Reservas, $idReservas);
@@ -277,28 +277,28 @@ function inserirSalaAula($SalaAula)
 }
 
 //UpdateSalaAula
-function alterarSalaAula($SalaAula,idSalaAula)
+function alterarSalaAula($SalaAula,$idSalaAula)
 {
 	$DAOSalaAula = new DAOSalaAula();
 	$DAOSalaAula->update($SalaAula, $idSalaAula);
 }
 
 //DeleteSalaAula
-function apagarSalaAula(idSalaAula)
+function apagarSalaAula($idSalaAula)
 {
 	$DAOSalaAula = new DAOSalaAula();
 	$DAOSalaAula->delete($idSalaAula);
 }
 
 //FindSalaAula
-function buscarSalaAula($SalaAula,idSalaAula)
+function buscarSalaAula($SalaAula,$idSalaAula)
 {
 	$DAOSalaAula = new DAOSalaAula();
 	$DAOSalaAula->find($SalaAula, $idSalaAula);
 }
 
 //ListSalaAula
-function listarSalaAula($SalaAula,idSalaAula)
+function listarSalaAula($SalaAula,$idSalaAula)
 {
 	$DAOSalaAula = new DAOSalaAula();
 	$DAOSalaAula->list($SalaAula, $idSalaAula);
@@ -308,32 +308,32 @@ function listarSalaAula($SalaAula,idSalaAula)
 function cadastrarAluno($Aluno)
 {
 	$DAOAluno = new DAOAluno();
-	$DAOAluno->create($Aluno);
+	return $DAOAluno->create($Aluno);
 }
 
 //UpdateAluno
-function alterarAluno($Aluno,idAluno)
+function alterarAluno($Aluno,$idAluno)
 {
 	$DAOAluno = new DAOAluno();
 	$DAOAluno->update($Aluno, $idAluno);
 }
 
 //DeleteAluno
-function apagarAluno(idAluno)
+function apagarAluno($idAluno)
 {
 	$DAOAluno = new DAOAluno();
 	$DAOAluno->delete($idAluno);
 }
 
 //FindAluno
-function buscarAluno($Aluno,idAluno)
+function buscarAluno($Aluno,$idAluno)
 {
 	$DAOAluno = new DAOAluno();
 	$DAOAluno->find($Aluno, $idAluno);
 }
 
 //ListAluno
-function listarAluno($Aluno,idAluno)
+function listarAluno($Aluno,$idAluno)
 {
 	$DAOAluno = new DAOTCC();
 	$DAOAluno->list($Aluno, $idAluno);
@@ -347,28 +347,28 @@ function cadastrarAtividade($Atividade)
 }
 
 //UpdateAtividade
-function alterarAtividade($Atividade,idAtividade)
+function alterarAtividade($Atividade,$idAtividade)
 {
 	$DAOAtividade = new DAOAtividade();
 	$DAOAtividade->update($Atividade, $idAtividade);
 }
 
 //DeleteAtividade
-function apagarAtividade(idAtividade)
+function apagarAtividade($idAtividade)
 {
 	$DAOAtividade = new DAOAtividade();
 	$DAOAtividade->delete($idAtividade);
 }
 
 //FindAtividade
-function buscarAtividade($Atividade,idAtividade)
+function buscarAtividade($Atividade,$idAtividade)
 {
 	$DAOAtividade = new DAOAtividade();
 	$DAOAtividade->find($Atividade, $idAtividade);
 }
 
 //ListAtividade
-function listarAtividade($Atividade,idAtividade)
+function listarAtividade($Atividade,$idAtividade)
 {
 	$DAOAtividade = new DAOTCC();
 	$DAOAtividade->list($Atividade, $idAtividade);
@@ -382,28 +382,28 @@ function cadastrarCurso($Curso)
 }
 
 //UpdateCurso
-function alterarCurso($Curso,idCurso)
+function alterarCurso($Curso,$idCurso)
 {
 	$DAOCurso = new DAOCurso();
 	$DAOCurso->update($Curso, $idCurso);
 }
 
 //DeleteCurso
-function apagarCurso(idCurso)
+function apagarCurso($idCurso)
 {
 	$DAOCurso = new DAOCurso();
 	$DAOCurso->delete($idCurso);
 }
 
 //FindCurso
-function buscarCurso($Curso,idCurso)
+function buscarCurso($Curso,$idCurso)
 {
 	$DAOCurso = new DAOCurso();
 	$DAOCurso->find($Curso, $idCurso);
 }
 
 //ListCurso
-function listarCurso($Curso,idCurso)
+function listarCurso($Curso,$idCurso)
 {
 	$DAOCurso = new DAOTCC();
 	$DAOCurso->list($Curso, $idCurso);
@@ -418,28 +418,28 @@ function cadastrarLinhaPesquisa($LinhaPesquisa)
 }
 
 //UpdateLinhaPesquisa
-function alterarLinhaPesquisa($LinhaPesquisa,idLinhaPesquisa)
+function alterarLinhaPesquisa($LinhaPesquisa,$idLinhaPesquisa)
 {
 	$DAOLinhaPesquisa = new DAOLinhaPesquisa();
 	$DAOLinhaPesquisa->update($LinhaPesquisa, $idLinhaPesquisa);
 }
 
 //DeleteLinhaPesquisa
-function apagarLinhaPesquisa(idLinhaPesquisa)
+function apagarLinhaPesquisa($idLinhaPesquisa)
 {
 	$DAOLinhaPesquisa = new DAOLinhaPesquisa();
 	$DAOLinhaPesquisa->delete($idLinhaPesquisa);
 }
 
 //FindLinhaPesquisa
-function buscarLinhaPesquisa($LinhaPesquisa,idLinhaPesquisa)
+function buscarLinhaPesquisa($LinhaPesquisa,$idLinhaPesquisa)
 {
 	$DAOLinhaPesquisa = new DAOLinhaPesquisa();
 	$DAOLinhaPesquisa->find($LinhaPesquisa, $idLinhaPesquisa);
 }
 
 //ListLinhaPesquisa
-function listarLinhaPesquisa($LinhaPesquisa,idLinhaPesquisa)
+function listarLinhaPesquisa($LinhaPesquisa,$idLinhaPesquisa)
 {
 	$DAOLinhaPesquisa = new DAOTCC();
 	$DAOLinhaPesquisa->list($LinhaPesquisa, $idLinhaPesquisa);
@@ -455,28 +455,28 @@ function cadastrarRelatorioTCC($RelatorioTCC)
 }
 
 //UpdateRelatorioTCC
-function alterarRelatorioTCC($RelatorioTCC,idRelatorioTCC)
+function alterarRelatorioTCC($RelatorioTCC,$idRelatorioTCC)
 {
 	$DAORelatorioTCC = new DAORelatorioTCC();
 	$DAORelatorioTCC->update($RelatorioTCC, $idRelatorioTCC);
 }
 
 //DeleteRelatorioTCC
-function apagarRelatorioTCC(idRelatorioTCC)
+function apagarRelatorioTCC($idRelatorioTCC)
 {
 	$DAORelatorioTCC = new DAORelatorioTCC();
 	$DAORelatorioTCC->delete($idRelatorioTCC);
 }
 
 //FindRelatorioTCC
-function buscarRelatorioTCC($RelatorioTCC,idRelatorioTCC)
+function buscarRelatorioTCC($RelatorioTCC,$idRelatorioTCC)
 {
 	$DAORelatorioTCC = new DAORelatorioTCC();
 	$DAORelatorioTCC->find($RelatorioTCC, $idRelatorioTCC);
 }
 
 //ListRelatorioTCC
-function listarRelatorioTCC($RelatorioTCC,idRelatorioTCC)
+function listarRelatorioTCC($RelatorioTCC,$idRelatorioTCC)
 {
 	$DAORelatorioTCC = new DAOTCC();
 	$DAORelatorioTCC->list($RelatorioTCC, $idRelatorioTCC);
@@ -528,28 +528,28 @@ function cadastrarProfessor($Professor)
 }
 
 //UpdateProfessor
-function alterarProfessor($Professor,idProfessor)
+function alterarProfessor($Professor,$idProfessor)
 {
 	$DAOProfessor = new DAOProfessor();
 	$DAOProfessor->update($Professor, $idProfessor);
 }
 
 //DeleteProfessor
-function apagarProfessor(idProfessor)
+function apagarProfessor($idProfessor)
 {
 	$DAOProfessor = new DAOProfessor();
 	$DAOProfessor->delete($idAgendamento);
 }
 
 //FindAProfessor
-function buscarProfessor($Professor,idProfessor)
+function buscarProfessor($Professor,$idProfessor)
 {
 	$DAOProfessor = new DAOProfessor();
 	$DAOProfessor->find($Professor, $idProfessor);
 }
 
 //ListProfessor
-function listarProfessor($Agendamento,idProfessor)
+function listarProfessor($Agendamento,$idProfessor)
 {
 	$DAOProfessor = new Professor();
 	$DAOProfessor->list($Professor, $idProfessor);
@@ -564,28 +564,28 @@ function cadastrarDefesa($Defesa)
 }
 
 //UpdateDefesa
-function alterarDefesa($Defesa,idDefesa)
+function alterarDefesa($Defesa,$idDefesa)
 {
 	$DAODefesa = new DAODefesa();
 	$DAODefesa->update($Defesa, $idDefesa);
 }
 
 //DeleteDefesa
-function apagarDefesa(idDefesa)
+function apagarDefesa($idDefesa)
 {
 	$DAODefesa = new DAODefesa();
 	$DAODefesa->delete($idAgendamento);
 }
 
 //FindADefesa
-function buscarDefesa($Defesa,idDefesa)
+function buscarDefesa($Defesa,$idDefesa)
 {
 	$DAODefesa = new DAODefesa();
 	$DAODefesa->find($Defesa, $idAgendamento);
 }
 
 //ListDefesa
-function listarDefesa($Agendamento,idDefesa)
+function listarDefesa($Agendamento,$idDefesa)
 {
 	$DAODefesa = new Defesa();
 	$DAODefesa->list($Defesa, $idDefesa);
@@ -621,9 +621,10 @@ function buscarCronograma($Cronograma,$idCronograma)
 }
 
 //ListCronograma
-function listarAgendamento($Cronograma,$idCronograma)
+function listarCronograma($Cronograma,$idCronograma)
 {
 	$DAOCronograma = new DAOCronograma();
 	$DAOCronograma->list($Cronograma, $idCronograma);
 }
+
 }
