@@ -36,7 +36,7 @@
 
             </div>
             <!-- /.box-header -->
-            <div class="box-body table-responsive no-padding" role="document">
+            <div class="box-body table-responsive no-padding" >
 
               <table class="table table-condensed">
                 
