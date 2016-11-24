@@ -10,12 +10,24 @@ use App\DAO\DAOAluno as DAOAluno;
 require_once dirname(__FILE__).'/../Model/Aluno.php';
 require_once dirname(__FILE__).'/../DAO/DAOAluno.php';
 
-//INSERT
-//$meuAluno = new Aluno("TalkingHand", "Luva Foda", "1", "Fazer uma luva foda!!", "Pq eh massa!!!", "1", "1");
 
 
-$searchfield = $_POST['searchfield'];
-$type = $_POST['type'];
+$NomeAluno = $_POST['nomealuno'];;
+
+$MatriculaAluno;
+
+$EmailAluno;
+
+$LoginAluno;
+
+$SenhaAluno;
+
+$SenhaAlunoConfirmacao;
+
+$idCursoFK;
+
+
+$meuAluno = new Aluno($NomeAluno, $MatriculaAluno, $EmailAluno, $LoginAluno, $SenhaAluno;, $idCursoFK);
 
 $meuDAOAluno = new DAOAluno();
 $Result =$meuDAOAluno->listBy($type, $searchfield);
