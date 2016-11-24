@@ -7,10 +7,8 @@ session_start();
 
 use App\Models\Aluno as Aluno;
 use App\DAO\DAOAluno as DAOAluno;
-
-require_once dirname(__FILE__).'/../../Model/Aluno.php';
-require_once dirname(__FILE__).'/../../DAO/DAOAluno.php';
-require_once dirname(__FILE__).'/../../Controllers/mainController.php';
+require_once dirname(__FILE__).'/../Model/Aluno.php';
+require_once dirname(__FILE__).'/../DAO/DAOAluno.php';
 
 
 
@@ -29,16 +27,13 @@ $SenhaAlunoConfirmacao;
 $idCursoFK;
 
 
-//$Aluno = new Aluno($NomeAluno, $MatriculaAluno, $EmailAluno, $LoginAluno, $SenhaAluno;, $idCursoFK);
-$Aluno = new Aluno("eu", "123456", "eu@tu.com", "eu", "123", "2");
+$Aluno = new Aluno($NomeAluno, $MatriculaAluno, $EmailAluno, $LoginAluno, $SenhaAluno;, $idCursoFK);
 
 $Controller = new mainController();
 $Result = $Controller->cadastrarAluno($Aluno);
 
-echo($Result);
-
-if ($Result){
-	echo '<script>alert("Usuario Criado")</script>';
+if (!$Result){
+	echo '<script>alert("Usuario não cadastrado ")</script>';
 }
 
 
