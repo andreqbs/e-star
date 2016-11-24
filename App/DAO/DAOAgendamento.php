@@ -104,7 +104,7 @@ class DAOAgendamento implements IDAO{
     {
         $connection = new Connection();
         $connection = $connection->openConnection();
-        $sql = "SELECT * FROM Agendamento";
+        $sql = "call sp_listarAgendamento()";
 
         echo "<br>".$sql."<br>";
 
