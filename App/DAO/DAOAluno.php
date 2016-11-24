@@ -16,11 +16,11 @@ class DAOAluno implements IDAO{
     	$connection = new Connection();
     	$connection = $connection->openConnection();
 
-        $sql = " call sp_inserirAluno({$Aluno->getNomeAluno()},{$Aluno->getMatriculaAluno()},{$Aluno->getEmailAluno(),{$Aluno->getLoginAluno()},{$Aluno->getSenhaAluno()})"        
+        $sql = "call sp_inserirAluno('{$Aluno->getNomeAluno()}', '{$Aluno->getMatriculaAluno()}', '{$Aluno->getEmailAluno()}','{$Aluno->getLoginAluno()}','{$Aluno->getSenhaAluno()}','{$Aluno->getidCursoFK()}')";
 		
         // `sp_inserirAluno`(nome varchar(100), matricula char(9), email varchar(50), login varchar(50), senha varchar(20), idCursoFK integer(11))
 
-        echo "<br>".$sql."<br>";
+        
 
 		try {
             $stmt = $connection->prepare($sql);
@@ -29,7 +29,7 @@ class DAOAluno implements IDAO{
             return TRUE;
         }
         catch(PDOException $e) {
-                echo "Error: " . $e->getMessage() ;
+                echo "Error: " . $e->getMessage();
             return FALSE;
         }
     	//$conn->makeQuery($sql);
@@ -39,7 +39,7 @@ class DAOAluno implements IDAO{
     {
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-        $sql = " call sp_alterarAluno({$idAluno->setidAluno()},{$Aluno->getNomeAluno},{$Aluno_>getMatriculaAluno()},{$Aluno->getEmailAluno()},{$Aluno->getLoginAluno()},{$senha->getSenhaAluno()},{$Aluno->getidCursoFK()})"        
+        $sql = " call sp_alterarAluno({$idAluno->setidAluno()},{$Aluno->getNomeAluno},{$Aluno->getMatriculaAluno()},{$Aluno->getEmailAluno()},{$Aluno->getLoginAluno()},{$senha->getSenhaAluno()},{$Aluno->getidCursoFK()})";
 
         // `sp_alterarAluno`(idAluno integer(11) ,nome varchar(100), matricula char(9), email varchar(50), login varchar(50), senha varchar(20), idCursoFK integer(11))
 
@@ -62,7 +62,7 @@ class DAOAluno implements IDAO{
     	$connection = new Connection();
     	$connection = $connection->openConnection();    	
         
-        $sql = "sp_deletarAluno({$Aluno->getidAluno()})"
+        $sql = "sp_deletarAluno({$Aluno->getidAluno()})";
         // `sp_deletarAluno`(idAluno integer(11))		
 		echo "<br>".$sql."<br>";
 
@@ -83,7 +83,7 @@ class DAOAluno implements IDAO{
 
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-        $sql = "call  sp_listarProfessor({$idAluno->getidAluno()})"
+        $sql = "call  sp_listarProfessor({$idAluno->getidAluno()})";
     			
 		echo "<br>".$sql."<br>";
 
