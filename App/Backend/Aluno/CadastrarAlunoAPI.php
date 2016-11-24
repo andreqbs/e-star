@@ -33,12 +33,9 @@ $Controller = new mainController();
 $Result = $Controller->cadastrarAluno($Aluno);
 
 if (!$Result){
-<<<<<<< 07e3ac038ea81e1bd3a82883d90d6fa3ae064c46
 	echo '<script>alert("Usuario não cadastrado ")</script>';
-=======
-	echo '<script>alert("Usuario não cadastrado")</script>';
 
->>>>>>> teste1
+
 }
 
 
