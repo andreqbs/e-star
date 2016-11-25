@@ -3,6 +3,7 @@
 namespace App\Models;
 
 private $idCronograma;
+private $nomeCronograma;
 private $PorQue;
 private $Onde;
 private $Quando;
@@ -12,13 +13,14 @@ private $Quanto;
 
 class Cronograma {
 
- function __construct($PorQue,$Onde,$Quando,$Quem,$Como,$Quando){
- 	$this->PorQue  = $PorQue;
- 	$this->Onde    = $Onde;
- 	$this->Quando  = $Quando;
- 	$this->Quem    = $Quem;
- 	$this->Como    = $Como;
- 	$this->Quando  = $Quando;
+ function __construct($nomeCronograma,$PorQue,$Onde,$Quando,$Quem,$Como,$Quando){
+ 	$this->nomeCronograma = $nomeCronograma
+ 	$this->PorQue  		  = $PorQue;
+ 	$this->Onde           = $Onde;
+ 	$this->Quando         = $Quando;
+ 	$this->Quem           = $Quem;
+ 	$this->Como           = $Como;
+ 	$this->Quando         = $Quando;
 
  }
 
@@ -26,6 +28,10 @@ function getidCronograma()
  	{
  		return $this->idCronograma;
  	}
+function getnomeCronograma()
+ 	{
+ 		return $this->nomeCronograma;
+ 	} 	
 function getPorQue()
  	{
  		return $this->PorQue;
@@ -51,7 +57,10 @@ function getQuando()
  		return $this->Quando;
  	}
 
-
+function setnomeCronograma()
+ 	{
+ 		return $this->nomeCronograma;
+ 	} 
 function setPorQue()
  	{
  		return $this->PorQue;
