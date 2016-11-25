@@ -99,7 +99,7 @@
                 </div>    <!-- Box body -->
                </form>
               </div>  
-           <br>           
+                    
                     <div class="form-group">      
                             <div class="col-md-offset-10">
                               <button class="btn btn-default">Cancelar</button>

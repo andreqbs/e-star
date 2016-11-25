@@ -42,8 +42,7 @@
               <div class="box-body">
               <div class="row">
                 <div class="col-md-12">
-                <div class="form-group">
-                    
+                <div class="form-group">  
                       <div class="col-md-12 col-md-offset-2">
                         <label class="col-md-1 control-label">Título:</label>
                         <div class="col-md-7">
