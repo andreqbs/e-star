@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Models;
+ini_set('display_errors', 'On');
+error_reporting(E_ALL);
 
 class Professor {
 
-  private $idProfessor;
+    private $idProfessor;
 
 	private $NomeProfessor;
 
@@ -17,8 +19,8 @@ class Professor {
 	private $SenhaProfessor;
 
 
-	function __construct($idProfessor, $NomeProfessor, $MatriculaProfessor, $EmailProfessor, $LoginProfessor, $SenhaProfessor) {
-		$this->idProfessor = $idProfessor;
+	function __construct($NomeProfessor, $MatriculaProfessor, $EmailProfessor, $LoginProfessor, $SenhaProfessor) {
+	    // $this->idProfessor   = $idProfessor;
 		$this->NomeProfessor = $NomeProfessor;
 		$this->MatriculaProfessor = $MatriculaProfessor;
 		$this->EmailProfessor = $EmailProfessor;
