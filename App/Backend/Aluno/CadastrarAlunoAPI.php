@@ -34,14 +34,13 @@ $Aluno = new Aluno("eu", "123456", "eu@tu.com", "eu", "123", "2");
 $Controller = new mainController();
 $Result = $Controller->cadastrarAluno($Aluno);
 
-echo($Result);
+//echo($Result);
 
 if ($Result){
 	echo '<script>alert("Usuario Criado")</script>';
 }
 else 
 	echo '<script> alert(" Não Cadastrado ") </script>  ';
-
 
 
 
