@@ -4,7 +4,7 @@ ini_set('display_errors', 'On');
 error_reporting(E_ALL);
 
 use Lib\Database\Connection as Connection;
-use App\Models\Professor as Professor;
+use App\Model\Professor as Professor;
 use App\Iface\IDAO as IDAO;
 
 require_once dirname(__FILE__).'/../../Lib/Database/Connection.php';

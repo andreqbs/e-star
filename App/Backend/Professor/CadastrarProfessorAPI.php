@@ -5,12 +5,11 @@ error_reporting(E_ALL);
 session_start();
 
 
-use App\Models\Professor as Professor;
+use App\Model\Professor as Professor;
 use App\DAO\DAOProfessor as DAOProfessor;
+use App\Controllers\mainController as mainController;
 
-require_once dirname(__FILE__).'/../../Model/Professor.php';
-require_once dirname(__FILE__).'/../../DAO/DAOProfessor.php';
-require_once dirname(__FILE__).'/../../Controllers/mainController.php';
+require_once dirname(__FILE__).'/../../../Lib/Core/Loader.php';
 
 //INSERT
 $meuProfessor = new Professor("andre", "123456", "teste@teste.com.br", "foda", "Pq eh massa!!!");
