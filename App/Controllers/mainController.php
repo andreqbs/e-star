@@ -5,19 +5,20 @@ error_reporting(E_ALL);
 
 use App\Models\Aluno as Aluno;
 use App\DAO\DAOAluno as DAOAluno;
+use App\Models\Professor as Professor;
+use App\DAO\DAOProfessor as DAOProfessor;
 
 require_once dirname(__FILE__).'/../Model/Aluno.php';
 require_once dirname(__FILE__).'/../DAO/DAOAluno.php';
-
-require_once dirname(__FILE__).'/../../Lib/Core/Loader.php';
+require_once dirname(__FILE__).'/../Model/Professor.php';
+require_once dirname(__FILE__).'/../DAO/DAOProfessor.php';
+// require_once dirname(__FILE__).'/../../Lib/Core/Loader.php';
 
 
 
 
 class mainController
 {
-
-
 
 //CreateTCC
 function cadastrarTCC($Tcc)
@@ -529,7 +530,7 @@ function listarAgendamento($Agendamento,$idAgendamento)
 function cadastrarProfessor($Professor)
 {
 	$DAOProfessor = new DAOProfessor();
-	$DAOProfessor->create($Professor);
+	return $DAOProfessor->create($Professor);
 }
 
 //UpdateProfessor
@@ -550,7 +551,7 @@ function apagarProfessor($idProfessor)
 function buscarProfessor($Professor,$idProfessor)
 {
 	$DAOProfessor = new DAOProfessor();
-	$DAOProfessor->find($Professor, $idProfessor);
+	return $DAOProfessor->find($Professor, $idProfessor);
 }
 
 //ListProfessor

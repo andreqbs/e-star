@@ -7,19 +7,30 @@ session_start();
 
 use App\Models\Professor as Professor;
 use App\DAO\DAOProfessor as DAOProfessor;
+
 require_once dirname(__FILE__).'/../Model/Professor.php';
 require_once dirname(__FILE__).'/../DAO/DAOProfessor.php';
+require_once dirname(__FILE__).'/../Controllers/mainController.php';
 
 //INSERT
-//$meuProfessor = new Professor("TalkingHand", "Luva Foda", "1", "Fazer uma luva foda!!", "Pq eh massa!!!", "1", "1");
 
 
 $searchfield = $_POST['searchfield'];
 $type = $_POST['type'];
 
-$meuDAOProfessor = new DAOProfessor();
-$Result =$meuDAOProfessor->listBy($type, $searchfield);
 
+$buscarProfessor = new Professor($type, $searchfield);
+// não tem PROCEDURE
+
+
+$ProfessorControl = new mainController();
+$Result =$ProfessorControl->buscarProfessor($buscarProfessor);
+
+if ($Result){
+		echo '<script> alert("Procurado com sucesso") </script>  ';
+}	
+else 
+	echo '<script> alert("Não Procurado Com Sucesso") </script>  ';
 
 
 
