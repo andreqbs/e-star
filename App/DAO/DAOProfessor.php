@@ -18,7 +18,7 @@ class DAOProfessor implements IDAO{
     	$connection = new Connection();
     	$connection = $connection->openConnection();
 
-    	$sql = "call sp_inserirProfessor({$Professor->getNomeProfessor()},{$Professor->getMatriculaProfessor()},{$Professor->getEmailProfessor()},{$Professor->getLoginProfessor()},{$Professor->getSenhaProfessor()} )";
+    	$sql = "call sp_inserirProfessor('{$Professor->getNomeProfessor()}','{$Professor->getMatriculaProfessor()}','{$Professor->getEmailProfessor()}','{$Professor->getLoginProfessor()}','{$Professor->getSenhaProfessor()}')";
 
         // `sp_inserirProfessor`(nome varchar(100), matricula char(6), email varchar(50), login varchar(50), senha varchar(20))
 		echo "<br>".$sql."<br>";

@@ -1,5 +1,8 @@
 <?php
 namespace App\DAO;
+ini_set('display_errors', 'On');
+error_reporting(E_ALL);
+
 use Lib\Database\Connection as Connection;
 use App\Models\Aluno as Aluno;
 use App\Iface\IDAO as IDAO;
@@ -11,7 +14,7 @@ class DAOAluno implements IDAO{
     public function create($Aluno){
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-        $sql = "call sp_inserirAluno('{$Aluno->getNomeAluno()}', '{$Aluno->getMatriculaAluno()}', '{$Aluno->getEmailAluno()}','{$Aluno->getLoginAluno()}','{$Aluno->getSenhaAluno()}','{$Aluno->getidCursoFK()}')";
+        $sql = "call sp_inserirAluno( '{$Aluno->getNomeAluno()}', '{$Aluno->getMatriculaAluno()}', '{$Aluno->getEmailAluno()}', '{$Aluno->getLoginAluno()}', '{$Aluno->getSenhaAluno()}', '{$Aluno->getidCursoFK()}')";
 
         // `sp_inserirAluno`(nome varchar(100), matricula char(9), email varchar(50), login varchar(50), senha varchar(20), idCursoFK integer(11))
 
