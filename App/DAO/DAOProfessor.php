@@ -61,7 +61,7 @@ class DAOProfessor implements IDAO{
     public function delete($idProfessor){
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "call sp_deletarProfessor({$idProfessor->setidProfessor()})";
+    	$sql = "call sp_deletarProfessor('{$idProfessor}')";
 
         // `sp_deletarProfessor`(idProfessor integer(11))
 		echo "<br>".$sql."<br>";

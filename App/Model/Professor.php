@@ -20,7 +20,7 @@ class Professor {
 
 
 	function __construct($NomeProfessor, $MatriculaProfessor, $EmailProfessor, $LoginProfessor, $SenhaProfessor) {
-		// $this->idProfessor = $idProfessor;
+	    // $this->idProfessor   = $idProfessor;
 		$this->NomeProfessor = $NomeProfessor;
 		$this->MatriculaProfessor = $MatriculaProfessor;
 		$this->EmailProfessor = $EmailProfessor;
