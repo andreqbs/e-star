@@ -8,7 +8,7 @@ use App\Models\Professor as Professor;
 use App\DAO\DAOProfessor as DAOProfessor;
 use App\Controllers\mainController as mainController;
 
-require_once dirname(__FILE__).'/../../Lib/Core/Loader.php';
+require_once dirname(__FILE__).'/../../../Lib/Core/Loader.php';
 
 //INSERT
 
@@ -18,12 +18,9 @@ $type = $_POST['type'];
 
 
  $buscarByProfessor = new Professor($type, $searchfield);
-// não tem PROCEDURE
-
-
 
 $ProfessorControl = new mainController();
-$Result =$ProfessorControl->buscarProfessor($buscarByProfessor);
+$Result =$ProfessorControl->listarProfessor($buscarByProfessor);
 
 if ($Result){
 		echo '<script> alert("Procurado com sucesso") </script>  ';
