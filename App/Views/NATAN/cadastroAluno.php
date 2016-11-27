@@ -25,8 +25,6 @@
 
     
     <section class="content-header"><!-- cabeçalho de conteúdo (cabeçalho da página) -->
-      <br>
-      <br>
           <div class="box box-pessoais">
             <div class="box-header with-border">
               <div class="col-md-5"></div><h3 class="box-title">Cadastro de Aluno</h3>
@@ -41,7 +39,8 @@
             <form class="form-horizontal">
               <div class="box-body">
               <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12"> <!-- Linha principal -->
+
                       <div class="col-md-1"></div>
                       <div class="row"> <!-- Inicio Linha 01 -->
                         <div class="form-group">
@@ -51,10 +50,11 @@
                           </div>
                           <label class="col-md-1 control-label">Matrícula:</label>
                           <div class="col-md-2">
-                            <input type="text" class="form-control" placeholder="Digite sua matrícula">
+                            <input type="text" id="matricula" class="form-control" placeholder="Digite sua matrícula">
                           </div>
                         </div><!-- form group-->
                       </div> <!-- Fim Linha 01 -->
+
                       <div class="col-md-1"></div>
                       <div class="row"> <!-- Inicio Linha 02 -->
                         <div class="form-group">
@@ -64,6 +64,7 @@
                           </div>
                         </div>
                       </div> <!--Fim Linha 02 -->
+
                       <div class="col-md-1"></div>
                       <div class="row"> <!-- Inicio Linha 03 -->
                         <div class="form-group">
@@ -77,6 +78,7 @@
                           </div>
                         </div>
                       </div> <!--Fim Linha 03 -->
+
                       <div class="col-md-1"></div>
                       <div class="row"> <!-- Inicio Linha 04 -->
                         <div class="form-group">
@@ -123,7 +125,7 @@
 <script src="../../../Public/bower_components/jQuery-Mask-Plugin/dist/jquery.mask.js"></script> 
 <!-- Função para campo de entrada da data -->
 <script>$(document).ready(function(){
-    $('#telefone').mask('00/00/0000');   
+    $('#matricula').mask('000000000');   
 });
 </script>
 </body>

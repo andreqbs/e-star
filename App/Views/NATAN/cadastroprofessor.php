@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="../../../Public/bower_components/AdminLTE/dist/css/skins/_all-skins.min.css">
 
 </head>
-<body class="">
+<body>
 
 <div class="container-fluid"><!--Conteudo-->  
 <div class="content"><!-- Contém o conteúdo da página -->
@@ -35,13 +35,12 @@
             </button>
             
           </div>
-            </div>
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form class="form-horizontal">
+            </div><!-- /.box-header -->           
+            <form class="form-horizontal"><!-- form start -->
               <div class="box-body">
               <div class="row">
                 <div class="col-md-12">
+
                       <div class="col-md-1"></div>
                       <div class="row"> <!-- Inicio Linha 01 -->
                         <div class="form-group">
@@ -51,10 +50,11 @@
                           </div>
                           <label class="col-md-1 control-label">Matrícula:</label>
                           <div class="col-md-2">
-                            <input type="text" class="form-control" placeholder="Digite sua matrícula">
+                            <input type="text" id="matricula" class="form-control" placeholder="Digite sua matrícula">
                           </div>
                         </div><!-- form group-->
                       </div> <!-- Fim Linha 01 -->
+
                       <div class="col-md-1"></div>
                       <div class="row"> <!-- Inicio Linha 02 -->
                         <div class="form-group">
@@ -64,6 +64,7 @@
                           </div>
                         </div>
                       </div> <!--Fim Linha 02 -->
+
                       <div class="col-md-1"></div>
                       <div class="row"> <!-- Inicio Linha 03 -->
                         <div class="form-group">
@@ -82,14 +83,14 @@
                   </div>   <!-- Linha principal -->      
                 </div>    <!-- Box body -->
                </form>
-              </div>  
+              </div>  <!-- Box pessoais -->
            <br>           
-                    <div class="form-group">      
-                            <div class="col-md-offset-10">
-                              <button class="btn btn-default">Cancelar</button>
-                              <button class="btn btn-primary">Salvar</button>
-                            </div>
-                    </div><!-- form group  button-->
+              <div class="form-group">      
+                <div class="col-md-offset-10">
+                  <button class="btn btn-default">Cancelar</button>
+                  <button class="btn btn-primary">Salvar</button>
+                </div>
+              </div><!-- form group  button-->
         
     </section><!-- Fim da seção -->
     
@@ -107,7 +108,7 @@
 <script src="../../../Public/bower_components/jQuery-Mask-Plugin/dist/jquery.mask.js"></script> 
 <!-- Função para campo de entrada da data -->
 <script>$(document).ready(function(){
-    $('#telefone').mask('00/00/0000');   
+    $('#matricula').mask('000000000');   
 });
 </script>
 </body>

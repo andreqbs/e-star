@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Cadastrar Dúvidas</title>
+  <title>Cadastrar Dúvidas - Coordenador</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
@@ -28,71 +28,57 @@
 
     
     <section class="content-header"><!-- cabeçalho de conteúdo (cabeçalho da página) -->
-      <br>
-      <br>
-          <div class="box box-pessoais">
+          <div class="box box-pessoais"> 
             <div class="box-header with-border">
               <div class="col-md-5"></div><h3 class="box-title">Agendamento de dúvidas</h3>
               <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
             </button>
+              </div>
+            </div> <!-- /.box-header -->
             
-          </div>
-            </div>
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form class="form-horizontal">
+            <form class="form-horizontal"> <!-- form start -->
               <div class="box-body">
-              <div class="col-md-3"></div>
-                <div class="row"> <!-- Inicio Linha 01 -->
-                  <div class="form-group">
-                    <label class="col-md-1 control-label">Motivo:</label>
-                    <div class="col-md-3">
-                      <textarea class="form-control" style="resize: none" placeholder="Escreva o motivo do agendamento"></textarea>
+
+                <div class="col-md-3"></div> <!-- Inicio Linha 02 -->
+                  <div class="row"> <!-- Inicio Linha 02 -->
+                    <div class="form-group">
+                      <label class="col-md-1 control-label">Atendimento:</label>
+                      <div class="col-md-3">
+                        <select class="form-control">
+                          <option selected>Selecione o tipo atendimento</option> 
+                          <option>Professor orientador</option> <!-- Vai listar os orientadores cadastrados -->
+                          <option>Equipe pedagógica</option>  
+                        </select>
+                      </div>
                     </div>
-                  </div><!-- form group-->
-                </div> <!-- Fim Linha 01 -->
-                <div class="col-md-3"></div>
-                  <div class="row">
+                  </div>  <!-- Fim Linha 02 -->
+
+                <div class="col-md-3"></div> <!-- Inicio Linha 03 -->
+                  <div class="row"> 
                     <div class="form-group">
                       <label class="col-md-1 control-label">Data:</label>
                       <div class="col-md-3">
-                        <input type="date" class="form-control" placeholder="Data e hora do agendamento">
+                        <input type="text" id="data" class="form-control" placeholder="dd/mm/aaaa">
                       </div>
                     </div>
-                  </div>
-                  <div class="col-md-3"></div>
+                  </div> <!-- Fim Linha 03 -->
+
+                <div class="col-md-3"></div> <!-- Inicio Linha 04 -->
                   <div class="row">
                     <div class="form-group">
                       <label class="col-md-1 control-label">Horário:</label>
                       <div class="col-md-3">
-                        <input type="time" class="form-control" placeholder="Horário do agendamento">
+                        <input type="text" id="hora" class="form-control" placeholder="--:--">
                       </div>
                     </div>
-                  </div>
-                  <div class="col-md-3"></div>
-                  <div class="row">
-                    <div class="form-group">
-                      <label class="col-md-1 control-label">Professor:</label>
-                      <div class="col-md-3">
-                        <input type="text" class="form-control" placeholder="Professor(a) responsável">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-3"></div>
-                  <div class="row">
-                    <div class="form-group">
-                      <label class="col-md-1 control-label">Aluno:</label>
-                      <div class="col-md-3">
-                        <input type="text" class="form-control" placeholder="Nome do Aluno(a)">
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  </div> <!-- Fim Linha 04 -->
+
+                </div> <!-- Fim Box body -->
               </form>
-            </div>  
+            </div> <!-- Fim Box pessoais -->
+             
            <br/>           
-          </div>
           <div class="form-group">      
                   <div class="col-md-offset-10">
                     <button class="btn btn-default">Cancelar</button>
@@ -115,6 +101,14 @@
 <script src="../../../Public/bower_components/AdminLTE/bootstrap/js/bootstrap.min.js"></script>
 
 <script src="../../../Public/bower_components/AdminLTE/dist/js/app.min.js"></script>
+
+<script src="../../../Public/bower_components/jQuery-Mask-Plugin/dist/jquery.mask.js"></script> 
+<!-- Função para campo de entrada da data -->
+<script>$(document).ready(function(){
+    $('#data').mask('00/00/0000');
+    $('#hora').mask('00:00');   
+});
+</script>
 
 
 </body>

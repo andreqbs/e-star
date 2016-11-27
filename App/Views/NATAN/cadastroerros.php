@@ -28,24 +28,16 @@
 
     
     <section class="content-header"><!-- cabeçalho de conteúdo (cabeçalho da página) -->
-      <h1>
-        Cadastro dos erros
-      </h1>
-      <br>
-      <br>
           <div class="box box-pessoais">
             <div class="box-header with-border">
               <div class="col-md-5"></div><h3 class="box-title">ERROS</h3>
               <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-            </button>
-            
-          </div>
-            </div>
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form class="form-horizontal">
-              <div class="box-body">
+               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+              </div>
+            </div> <!-- /.box-header -->
+
+          <form class="form-horizontal"><!-- form start -->
+            <div class="box-body">
               <div class="col-md-3"></div>
                 <div class="row"> <!-- Inicio Linha 01 -->
                   <div class="form-group">
@@ -55,20 +47,21 @@
                     </div>
                   </div><!-- form group-->
                 </div> <!-- Fim Linha 01 -->
+
                 <div class="col-md-3"></div>
-                  <div class="row">
+                  <div class="row"> <!-- Inicio Linha 02 -->
                     <div class="form-group">
                       <label class="col-md-1 control-label">Categoria:</label>
                       <div class="col-md-3">
                         <input type="text" class="form-control" placeholder="Categoria do Erro">
                       </div>
                     </div>
-                  </div>
-                </div>
+                  </div><!-- Fim Linha 02 -->
+
+                </div> <!-- Box body -->
               </form>
-            </div>  
+            </div> <!-- Box pessoais -->
            <br/>           
-          </div>
           <div class="form-group">      
                   <div class="col-md-offset-10">
                     <button class="btn btn-default">Cancelar</button>
@@ -79,9 +72,6 @@
     </section><!-- Fim da seção -->
     
   </div><!-- Fim do conteúdo da página -->
-  
-
-
 </div><!--Fim do Conteudo-->
 
 

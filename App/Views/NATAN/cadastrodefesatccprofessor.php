@@ -25,8 +25,7 @@
 
     
     <section class="content-header"><!-- cabeçalho de conteúdo (cabeçalho da página) -->
-      <br>
-      <br>
+      
           <div class="box box-pessoais">
             <div class="box-header with-border">
               <div class="col-md-5"></div><h3 class="box-title">Defesa do TCC</h3>
@@ -41,7 +40,8 @@
             <form class="form-horizontal">
               <div class="box-body">
               <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12"> <!-- Linha principal -->
+
                 <div class="form-group">  
                       <div class="col-md-12 col-md-offset-2">
                         <label class="col-md-1 control-label">Título:</label>
@@ -50,6 +50,7 @@
                         </div>
                       </div>
                 </div>
+
                 <div class="form-group">               
                       <div class="col-md-12 col-md-offset-2">                
                         <label class="col-md-1 control-label">Aluno(a):</label>
@@ -58,6 +59,7 @@
                         </div>
                       </div>
                 </div>
+
                 <div class="form-group">               
                       <div class="col-md-12 col-md-offset-2">
                         <label class="col-md-1 control-label">ALuno(a):</label>
@@ -66,6 +68,7 @@
                         </div>
                       </div>
                 </div>      
+
                 <div class="form-group">              
                       <div class="col-md-12 col-md-offset-2">
                         <label class="col-md-1 control-label">Orientador:</label>
@@ -74,6 +77,7 @@
                         </div>
                       </div>
                 </div>
+
                 <div class="form-group">              
                       <div class="col-md-12 col-md-offset-2">
                         <label class="col-md-1 control-label">Professor:</label>
@@ -82,6 +86,7 @@
                         </div>
                       </div>
                 </div>
+
                 <div class="form-group">
                       <div class="col-md-12 col-md-offset-2">
                         <label class="col-md-1 control-label">Professor:</label>
@@ -89,16 +94,17 @@
                           <input type="text" class="form-control" placeholder="Professor avaliador 2">
                         </div>
                       </div>
-                </div>      
+                </div>    
+
                 <div class="form-group">                   
                       <div class="col-md-12 col-md-offset-2">
                         <label class="col-md-1 control-label">Data:</label>
                         <div class="col-md-2">
-                        <input type="text" id="telefone" class="form-control" placeholder="dd/mm/aaaa">
+                        <input type="text" id="data" class="form-control" placeholder="dd/mm/aaaa">
                         </div>
                         <label class="col-md-1 control-label">Horário:</label>
                         <div class="col-md-1">
-                        <input type="time" class="form-control" style="padding-right: 0px; padding-left: 7px;">
+                        <input type="text" id="hora" class="form-control" placeholder="--:--">
                         </div>
                         <label class="col-md-1 control-label">Sala:</label>
                         <div class="col-md-2">
@@ -106,14 +112,13 @@
                         </div>
                       </div>
                     </div> 
-                   </div>
-                  </div>         
-                </div>
-              </div>
-             </form>
-            </div>  
-           <br/>           
-          </div>
+
+                   </div> <!--Fim colunas linha principal -->
+                  </div> <!-- Fim linha principal -->       
+                </div> <!-- Box body -->
+              </form>
+             </div> <!-- Box pessoais -->  
+           <br/>
           <div class="form-group">      
                   <div class="col-md-offset-10">
                     <button class="btn btn-default">Cancelar</button>
@@ -140,7 +145,8 @@
 <script src="../../../Public/bower_components/jQuery-Mask-Plugin/dist/jquery.mask.js"></script> 
 <!-- Função para campo de entrada da data -->
 <script>$(document).ready(function(){
-    $('#telefone').mask('00/00/0000');   
+    $('#data').mask('00/00/0000');
+    $('#hora').mask('00:00');   
 });
 </script>
 </body>

@@ -58,7 +58,7 @@
                                         </div>
                                         <div class="col-md-2">
                                         <label>Matrícula: </label>
-                                        <input type="number" class="form-control">
+                                        <input type="text" id="matricula" class="form-control">
                                         </div>
                           </div>
                           <div class="row">
@@ -68,7 +68,7 @@
                                         </div>
                                         <div class="col-md-2">
                                         <label>Nota da postura: </label>
-                                        <input type="number" class="form-control">
+                                        <input type="number" max="10" min="0" class="form-control">
                                         </div>
                          </div>
                           <div class="row"> 
@@ -78,7 +78,7 @@
                                         </div>
                                         <div class="col-md-2">
                                         <label>Nota da comunicação: </label>
-                                        <input type="number" class="form-control">
+                                        <input type="number" max="10" min="0" class="form-control">
                                         </div>
                           </div>
                           <div class="row"> 
@@ -88,7 +88,7 @@
                                         </div>
                                         <div class="col-md-2">
                                         <label>Nota da clareza: </label>
-                                        <input type="number" class="form-control">
+                                        <input type="number" max="10" min="0" class="form-control">
                                         </div>
                           </div>
                           <div class="row"> 
@@ -98,7 +98,7 @@
                                         </div>
                                         <div class="col-md-2">
                                         <label>Nota do domínio: </label>
-                                        <input type="number" class="form-control">
+                                        <input type="number" max="10" min="0" class="form-control">
                                         </div>
                           </div>
                           <div class="row"> 
@@ -129,8 +129,10 @@
 <script src="../../../Public/bower_components/AdminLTE/bootstrap/js/bootstrap.min.js"></script>
 
 <script src="../../../Public/bower_components/AdminLTE/dist/js/app.min.js"></script>
-<!-- bootstrap datepicker -->
-<script src="../../../Public/bower_components/AdminLTE/plugins/datepicker/bootstrap-datepicker.js"></script>
-
+<script src="../../../Public/bower_components/jQuery-Mask-Plugin/dist/jquery.mask.js"></script> 
+<!-- Função para campo de entrada da data -->
+<script>$(document).ready(function(){
+    $('#matricula').mask('000000000');
+</script>
 </body>
 </html>
