@@ -15,8 +15,7 @@ class DAOCurso implements IDAO{
     public function create($Curso){
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "INSERT INTO Curso (Curso) 
-    			VALUES ('{$Curso->getCurso()}'); ";
+    	$sql = "call sp_inserirCurso('{$Curso->getCurso()}')";
 		echo "<br>".$sql."<br>";
 
 		try {
@@ -36,7 +35,7 @@ class DAOCurso implements IDAO{
     {
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "UPDATE Curso SET Curso = '{$Curso->getCurso()}' WHERE idCurso = $idCurso";
+    	$sql = "call sp_alterarCurso('{$idCurso}','{$Curso->getCurso()}'";
 
 		echo "<br>".$sql."<br>";
 
@@ -56,7 +55,7 @@ class DAOCurso implements IDAO{
     public function delete($idCurso){
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "DELETE FROM Curso WHERE idCurso = $idCurso";
+    	$sql = "call sp_deletarCurso('{$idCurso}'')";
     			
 		echo "<br>".$sql."<br>";
 
@@ -100,7 +99,7 @@ class DAOCurso implements IDAO{
     {
         $connection = new Connection();
         $connection = $connection->openConnection();
-        $sql = "SELECT * FROM Curso";
+        $sql = "call sp_listarCurso()";
                 
         echo "<br>".$sql."<br>";
 

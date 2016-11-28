@@ -19,10 +19,10 @@ $type = $_POST['type'];
 //ele tera que buscar o professor primeiro  para poder listar 
 
 
-$buscarByProfessor = new Professor($type, $searchfield);
+$ListarProfessor = new Professor($type, $searchfield);
 
 $ProfessorControl = new mainController();
-$Result =$ProfessorControl->listarProfessor($buscarByProfessor);
+$Result =$ProfessorControl->listarProfessor($ListarProfessor);
 
 if ($Result){
 		echo '<script> alert("Procurado com sucesso") </script>  ';
