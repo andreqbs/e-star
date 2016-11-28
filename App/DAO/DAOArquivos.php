@@ -1,8 +1,12 @@
 <?php  
 
+ini_set('display_errors', 'On');
+error_reporting(E_ALL);
+session_start();
+
 namespace App\DAO;
 use Lib\Database\Connection as Connection;
-use App\Models\Arquivos as Arquivos;
+use App\Model\Arquivos as Arquivos;
 use App\Iface\IDAO as IDAO;
 
 require_once dirname(__FILE__).'/../../Lib/Database/Connection.php';
@@ -15,9 +19,11 @@ class DAOArquivos implements IDAO{
     public function create($Arquivos){
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "INSERT INTO Arquivos (Link, idTCCFK) 
-    			VALUES ('{$Arquivos->getLink()}', '{$Arquivos->getidTCCFK()}'); ";
+    	
+        $sql = "call sp_inserirArquivo('{$Arquivos->getLink()}','{$Arquivos->getidTCCFK()}','{$Arquivos->getVersao()}}')"
 		echo "<br>".$sql."<br>";
+
+    //  CREATE PROCEDURE `sp_inserirArquivo`(link varchar(250), idTCCFK integer(11), versao varchar(45))
 
 		try {
             $stmt = $connection->prepare($sql);
@@ -36,9 +42,10 @@ class DAOArquivos implements IDAO{
     {
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "UPDATE Arquivos SET Link = '{$Arquivos->getLink()}', idTCCFK = '{$Arquivos->getidTCCFK()}' WHERE idArquivos = $idArquivos";
+    	$sql = "call sp_alterarArquivo('{$idArquivos}','{$Arquivos->getLink()}','{$Arquivos->getidTCCFK}','{$Arquivos->getVersao()}')"
 
 		echo "<br>".$sql."<br>";
+    // CREATE PROCEDURE `sp_alterarArquivo` (idArquivo integer(11), link varchar(250), idTCCFK integer(11), versao varchar(45))
 
 		try {
             $stmt = $connection->prepare($sql);
@@ -56,10 +63,10 @@ class DAOArquivos implements IDAO{
     public function delete($idArquivos){
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "DELETE FROM Arquivos WHERE idArquivos = $idArquivos";
+    	$sql = "call sp_deletarArquivo('{$idArquivos}')";
     			
 		echo "<br>".$sql."<br>";
-
+    //  CREATE PROCEDURE `sp_deletarArquivo`(idArquivo integer(11))
 		try {
             $stmt = $connection->prepare($sql);
             $stmt->execute();   
@@ -100,10 +107,9 @@ class DAOArquivos implements IDAO{
     {
         $connection = new Connection();
         $connection = $connection->openConnection();
-        $sql = "SELECT * FROM Arquivos";
+        $sql = "call `sp_listarArquivo`()";
                 
         echo "<br>".$sql."<br>";
-
         try {
 
             $stmt = $connection->query($sql);

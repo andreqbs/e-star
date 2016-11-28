@@ -11,8 +11,20 @@ use App\Controllers\mainController as mainController;
 
 require_once dirname(__FILE__).'/../../../Lib/Core/Loader.php';
 
-//INSERT
-$meuProfessor = new Professor("andre", "123456", "teste@teste.com.br", "foda", "Pq eh massa!!!");
+ $NomeProfessor = "andre "; //$_POST['']
+
+ $MatriculaProfessor = "123356";
+
+ $EmailProfessor = "teste@test.com";
+
+ $LoginProfessor = "andree";
+
+ $SenhaProfessor = "1234";
+
+ $SenhaProfessorConfirmacao = "egy321gg";
+
+
+$meuProfessor = new Professor($NomeProfessor,$MatriculaProfessor,$EmailProfessor, $LoginProfessor, $SenhaProfessor);
 //`sp_inserirProfessor`(nome varchar(100), matricula char(6), email varchar(50), login varchar(50), senha varchar(20))
 
 
