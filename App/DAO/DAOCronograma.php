@@ -13,13 +13,14 @@ require_once dirname(__FILE__).'/../Interfaces/IDAO.php';
 
 class DAOCronograma implements IDAO{
 
-
+//acho que não existe nomecronograma pq ele e fk de atividadecronograma eu acho
 	    public function create($Cronograma){
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "INSERT INTO idCronograma (PorQue, Onde, Quando, Quem, Como, Quanto) 
-    			VALUES ('{$Cronograma->getPorque()}', '{$Cronograma->getOnde()}','{$Cronograma->getQuando()}','{$Cronograma->getQuem()}','{$Cronograma->getComo()}''{$Cronograma->getQuanto()}',getidCronogramaFK); ";
-		
+    	$sql =  "sp_inserirCronograma('{$Cronograma->getnomeCronograma()}', '{$Cronograma->getPorque()}', '{$Cronograma->getOnde()}','{$Cronograma->getQuando()}','{$Cronograma->getQuem()}','{$Cronograma->getComo()}''{$Cronograma->getQuanto()}',getidCronogramaFK)";
+		 
+         `sp_inserirCronograma`( porque varchar(100), onde varchar(100), quando varchar(100), quem varchar(100), como varchar(100), quanto varchar(45))
+
 		echo "<br>".$sql."<br>";
 
 		try {
@@ -39,7 +40,9 @@ class DAOCronograma implements IDAO{
     {
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "UPDATE Cronograma SET PorQue = '{$Cronograma->getPorque()}', Onde = '{$Cronograma->getOnde()}', Quando = '{$Cronograma->getQuando()}', Quem = '{$Cronograma->getQuem()}', Como = '{$Cronograma->getComo()}', Quanto = '{$Cronograma->getQuanto()}' WHERE idCronograma = $idCronograma";
+    	$sql = "call sp_alterarCronograma ('{$Cronograma->getPorque()}', '{$Cronograma->getOnde()}', '{$Cronograma->getQuando()}', '{$Cronograma->getQuem()}','{$Cronograma->getComo()}',  '{$Cronograma->getQuanto()}', idCronograma = '{$Cronograma->getidCronograma()}')";
+
+        // `sp_alterarCronograma` (idCronograma integer(11), nomeatividade varchar(100), porque varchar(100), onde varchar(100), quando varchar(100), quem varchar(100), como varchar(100), quanto varchar(45))
 
 		echo "<br>".$sql."<br>";
 
@@ -120,8 +123,23 @@ class DAOCronograma implements IDAO{
 
         return $this->data;   
     }
-}
+        public function listBy($type, $value)
+    {
+        $connection = new Connection();
+        $connection = $connection->openConnection();
+        $sql = "SELECT * FROM Aluno WHERE ".$type." = ".$value;
 
-}
+        echo "<br>".$sql."<br>";
+        try {
+            $stmt = $connection->query($sql);
+            $this->data = $stmt->fetch();
 
-?>
+
+        }
+        catch(PDOException $e) {
+
+                echo "Error: " . $e->getMessage();
+        }
+        return $this->data;
+    }
+}

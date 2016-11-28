@@ -14,6 +14,7 @@ require_once dirname(__FILE__).'/../DAO/DAODefesa.php';
 //$meuDefesa = new Defesa("TalkingHand", "Luva Foda", "1", "Fazer uma luva foda!!", "Pq eh massa!!!", "1", "1");
 
 
+
 $searchfield = $_POST['searchfield'];
 $type = $_POST['type'];
 
