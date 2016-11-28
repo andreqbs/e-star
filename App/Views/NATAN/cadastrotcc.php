@@ -33,82 +33,77 @@
             <div class="box-header with-border">
               <div class="col-md-5"></div><h3 class="box-title">Dados pessoais</h3>
               <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-            </button>
+               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+              </div>
+            </div> <!-- /.box-header -->
             
-          </div>
-            </div>
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form class="form-horizontal">
+            <form class="form-horizontal"><!-- form start -->
               <div class="box-body">
 
               <div class="row"> <!-- Inicio Linha 01 -->
-                  <div class="form-group">
-                    <label class="col-md-1 control-label">Curso:</label>
+                    <div class="col-md-1"></div> 
                     <div class="col-md-7">
+                    <label class="control-label">Curso:</label>
                       <select class="form-control select1">
                         <option selected>Selecione um curso</option>
-                        <option>Arquitetura e Urbanismo</option>
+                        <option>Arquitetura e
                         <option>Engenharia Civil</option>
                         <option>Engenharia da Computação</option>
                         <option>Engenharia de Petróleo e Gás</option>
                         <option>Sistemas de Informação</option>
                       </select>
-                    </div> <!-- col -->
-                    <label class="col-md-1 control-label">Série:</label>
+                    </div> <!-- col --> 
                     <div class="col-md-2">
+                    <label class="control-label">Série:</label>
                       <select class="form-control select1">
                         <option selected>Selecione sua série</option>
                         <option>9</option>
                         <option>10</option>
                       </select>
                     </div>
-                  </div> <!-- form group-->
                 </div> <!-- Fim Linha 01-->
 
                 <div class="row"> <!-- Inicio Linha 02 -->
-                  <div class="form-group">
-                    <label class="col-md-1 control-label">Aluno(a):</label>
+                <div class="col-md-1"></div>
                     <div class="col-md-7">
+                    <label class="control-label">Aluno(a):</label>
                       <input type="text" class="form-control" placeholder="Nome do Aluno(a)">
-                    </div>
-                    <label class="col-md-1 control-label">Matrícula</label>
+                    </div> 
                     <div class="col-md-2">
+                    <label class="control-label">Matrícula</label>
                       <input type="text" id="matriculaaluno" class="form-control" placeholder="Matrícula">
                     </div>
-                  </div><!-- form group-->
                 </div> <!-- Fim Linha 02 -->
 
                 <div class="row"> <!-- Inicio Linha 03 -->
-                  <div class="form-group">
-                    <label class="col-md-1 control-label">Aluno(a):</label>
+                <div class="col-md-1"></div>   
                     <div class="col-md-7">
+                    <label class="control-label">Aluno(a):</label>
                       <input type="text" class="form-control" placeholder="Nome do Aluno(a)">
                     </div>
-                    <label class="col-md-1 control-label">Matrícula:</label>
                     <div class="col-md-2">
+                    <label class="control-label">Matrícula:</label>
                       <input type="text" id="matriculaaluno2" class="form-control" placeholder="Matrícula">
-                    </div>
-                  </div> <!-- form group -->
+                    </div>   
                 </div>  <!-- Fim Linha 03 -->
 
                 <div class="row"> <!-- Inicio Linha 04 -->
-                  <div class="form-group">
-                    <label class="col-md-1 control-label">Orientador(a):</label>
+                <div class="col-md-1"></div>
                     <div class="col-md-7">
+                    <label class="control-label">Orientador(a):</label>
                       <input type="text" class="form-control"  placeholder="Nome do Orientador(a)">
-                    </div>
-                    <label class="col-md-1 control-label">Matrícula:</label>
+                    </div> 
                     <div class="col-md-2">
+                    <label class="control-label">Matrícula:</label>
                       <input type="text" id="matriculaorientador" class="form-control" placeholder="Matrícula">
                     </div>
-                  </div>
-                </div>  <!-- Fim Linha 04 -->
                 
-                </div>
-                </form>
-              </div>
+                </div>  <!-- Fim Linha 04 -->
+
+              </div><!-- box body -->
+             </form> 
+
+            </div> <!-- Box pessoais -->
             <div class="box box-tcc">
             <div class="box-header with-border">
               <div class="col-md-5"></div><h3 class="box-title">Dados TCC</h3>
@@ -121,9 +116,9 @@
             <form class="form-horizontal">
               <div class="box-body">
                 <div class="row"> <!-- Inicio Linha 04 -->
-                  <div class="form-group">
-                    <label class="col-md-1 control-label">Pesquisa:</label>
-                    <div class="col-md-10">
+                <div class="col-md-1"></div>
+                    <div class="col-md-9">
+                      <label class="control-label">Curso:</label>
                       <select class="form-control select1">
                         <option selected>Selecione uma linha de pesquisa</option>
                         <option>Automação e Controle</option>
@@ -135,44 +130,37 @@
                         <option>Visão Computacional</option>
                       </select>
                     </div>
-                  </div> <!-- form group -->
                 </div> <!-- Fim Linha 04 -->
-
-              <div class="row"> <!-- Inicio Linha 05 -->
-                  <div class="form-group">
-                  <label class="col-md-1 control-label">Título:</label>
-                  <div class="col-md-10">
+                <div class="row"> <!-- Inicio Linha 05 -->
+                <div class="col-md-1"></div> 
+                  <div class="col-md-9">
+                    <label class="control-label">Título:</label>
                     <input type="text" class="form-control" placeholder="Título do trabalho">
                   </div>                
-                  </div><!-- form group -->
                 </div><!-- Fim Linha 05 -->
-
                 <div class="row"> <!-- Inicio Linha 06 -->
-                  <div class="form-group">
-                    <label class="col-md-1 control-label">Resumo:</label>
-                    <div class="col-md-10">
+                <div class="col-md-1"></div>
+                    <div class="col-md-9">
+                      <label class="control-label">Resumo:</label>
                       <textarea class="form-control" style="resize: none" placeholder="Escreva seu resumo"></textarea>
                     </div>
-                  </div><!-- form group -->
                 </div> <!-- Fim Linha 06 -->
-
                 <div class="row"> <!-- Inicio Linha 06 -->
-                  <div class="form-group">
-                    <label class="col-md-1 control-label">Objetivos:</label>
-                    <div class="col-md-10">
+                <div class="col-md-1"></div>    
+                    <div class="col-md-9">
+                      <label class="control-label">Objetivos:</label>
                       <textarea class="form-control" style="resize: none" placeholder="Escreva seus objetivos"></textarea>
                     </div>
-                  </div><!-- form group -->
                 </div> <!-- Fim Linha 06 -->
 
                 <div class="row"> <!-- Inicio Linha 06 -->
-                  <div class="form-group">
-                    <label class="col-md-1 control-label">Justificativas:</label>
-                    <div class="col-md-10">
+                <div class="col-md-1"></div> 
+                    <div class="col-md-9">
+                      <label class="control-label">Justificativas:</label>
                       <textarea class="form-control" style="resize: none" placeholder="Escreva suas justificativas"></textarea>
                       </div>
-                    </div><!-- form group -->
                   </div> <!-- Fim Linha 06 -->
+
                 </div> <!-- Fim do Box body -->
                </form>
               </div> <!-- box tcc -->
@@ -273,7 +261,7 @@
                   <td>5</td>
                 </tr>
               </tbody></table>
-            </div><!-- /.box-body -->
+            </div><!-- table /.box-body -->
            </form>
                      
           </div> <!-- Box cronograma -->
