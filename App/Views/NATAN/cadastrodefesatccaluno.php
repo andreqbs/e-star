@@ -30,22 +30,23 @@
 
 <div class="container=fluid"> 
 <div class="content">    
+
         <section class="content-header">
           <div class="box box-pessoais">
 
             <div class="box-header with-border">
               
-              <h3 class="box-title">Defesa de TCC</h3>
+              <div class="col-md-5"></div><h3 class="box-title">Defesa de TCC</h3>
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
               </div>
             </div>
             <!-- /.box-header -->
-            <form>
+            <form class="form-horizontal">
               <div class="box-body" >
                                                  
-                          <div class="row"> 
+                          <div class="row">
                                         <div class="col-md-10">
                                         <label class="control-label">Título TCC:</label>
                                           <input type="text" class="form-control" placeholder="Título do TCC" disabled="">
