@@ -1,8 +1,12 @@
 <?php  
 
+ini_set('display_errors', 'On');
+error_reporting(E_ALL);
+session_start();
+
 namespace App\DAO;
 use Lib\Database\Connection as Connection;
-use App\Models\Arquivos as Arquivos;
+use App\Model\Arquivos as Arquivos;
 use App\Iface\IDAO as IDAO;
 
 require_once dirname(__FILE__).'/../../Lib/Database/Connection.php';

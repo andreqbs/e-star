@@ -2,7 +2,7 @@
 
 namespace App\DAO;
 use Lib\Database\Connection as Connection;
-use App\Models\Reservas as Reservas;
+use App\Model\Reservas as Reservas;
 use App\Iface\IDAO as IDAO;
 
 require_once dirname(__FILE__).'/../../Lib/Database/Connection.php';

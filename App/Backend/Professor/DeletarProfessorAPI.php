@@ -11,8 +11,10 @@ use App\Controllers\mainController as mainController;
 
 require_once dirname(__FILE__).'/../../../Lib/Core/Loader.php';
 
+$idProfessor = "11 "; //$_POST['']
+
 $ProfessorControl = new mainController();
-$Result =$ProfessorControl->apagarProfessor("23");
+$Result =$ProfessorControl->apagarProfessor($idProfessor);
 
 if ($Result){	
 		echo '<script> alert("Deletado Com Sucesso") </script>  ';
