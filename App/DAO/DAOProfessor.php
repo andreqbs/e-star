@@ -1,8 +1,10 @@
 <?php
-
 namespace App\DAO;
+ini_set('display_errors', 'On');
+error_reporting(E_ALL);
+
 use Lib\Database\Connection as Connection;
-use App\Models\Professor as Professor;
+use App\Model\Professor as Professor;
 use App\Iface\IDAO as IDAO;
 
 require_once dirname(__FILE__).'/../../Lib/Database/Connection.php';
@@ -15,9 +17,10 @@ class DAOProfessor implements IDAO{
     public function create($Professor){
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "INSERT INTO Professor (idProfessor, nome, matricula, email, login, senha)
-    			VALUES ('{$Professor->getidProfessor()}', '{$Professor->getnome()}', '{$Professor->getmatricula()}', '{$Professor->getemail()}',
-    			'{$Professor->getlogin()}', '{$Professor->getsenha()}'; ";
+
+    	$sql = "call sp_inserirProfessor('{$Professor->getNomeProfessor()}','{$Professor->getMatriculaProfessor()}','{$Professor->getEmailProfessor()}','{$Professor->getLoginProfessor()}','{$Professor->getSenhaProfessor()}')";
+
+        // `sp_inserirProfessor`(nome varchar(100), matricula char(6), email varchar(50), login varchar(50), senha varchar(20))
 		echo "<br>".$sql."<br>";
 
 		try {
@@ -37,10 +40,10 @@ class DAOProfessor implements IDAO{
     {
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "UPDATE Professor SET idProfessor = '{$Professor->getidProfessor()}', nome = '{$Professor->getnome()}',
-    			matricula = '{$Professor->getmatricula()}', email = '{$Professor->getemail()}',
-    			login = '{$Professor->getlogin()}', senha = '{$Professor->getsenha()}' WHERE idProfessor = $idProfessor";
+    	
+        $sql = "call sp_alterarProfessor('{$idProfessor}','{$Professor->getNomeProfessor()}','{$Professor->getMatriculaProfessor()}','{$Professor->getEmailProfessor()}','{$Professor->getLoginProfessor()}','{$Professor->getSenhaProfessor()}')";
 
+        
 		echo "<br>".$sql."<br>";
 
 		try {
@@ -59,8 +62,9 @@ class DAOProfessor implements IDAO{
     public function delete($idProfessor){
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "DELETE FROM Professor WHERE idProfessor = $idProfessor";
+    	$sql = "call sp_deletarProfessor('{$idProfessor}')";
 
+        // `sp_deletarProfessor`(idProfessor integer(11))
 		echo "<br>".$sql."<br>";
 
 		try {
@@ -89,7 +93,6 @@ class DAOProfessor implements IDAO{
             $stmt = $connection->query($sql);
             $this->data = $stmt->fetch();
 
-
         }
         catch(PDOException $e) {
 
@@ -103,7 +106,7 @@ class DAOProfessor implements IDAO{
     {
         $connection = new Connection();
         $connection = $connection->openConnection();
-        $sql = "SELECT * FROM Professor";
+        $sql = "call sp_listarProfessor()";
 
         echo "<br>".$sql."<br>";
 
@@ -111,8 +114,6 @@ class DAOProfessor implements IDAO{
 
             $stmt = $connection->query($sql);
             $this->data = $stmt->fetch();
-
-
         }
         catch(PDOException $e) {
 
@@ -121,11 +122,13 @@ class DAOProfessor implements IDAO{
 
         return $this->data;
     }
+
+
         public function listBy($type, $value)
     {
         $connection = new Connection();
         $connection = $connection->openConnection();
-        $sql = "SELECT * FROM Aluno WHERE ".$type." = ".$value;
+        $sql = "SELECT * FROM $type WHERE ".$type." = ".$value;
 
         echo "<br>".$sql."<br>";
 

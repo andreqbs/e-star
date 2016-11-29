@@ -1,6 +1,9 @@
-<?php 
+<?php
 
 namespace App\Models;
+
+ini_set('display_errors', 'On');
+error_reporting(E_ALL);
 
 class Agendamento {
 	private $idAgenda;
@@ -15,65 +18,65 @@ class Agendamento {
 
 	private $idCursoFK;
 
-	
+
 	function __construct($DataHora, $Motivo, $idAlunoFK, $idProfessorFK, $idCursoFK) {
 		$this->DataHora = $DataHora;
 		$this->Motivo = $Motivo;
 		$this->idAlunoFK = $idAlunoFK;
 		$this->idProfessorFK = $idProfessorFK;
 		$this->idCursoFK = $idCursoFK;
-		
+
 	}
 
-		function getidAgenda () 
+		function getidAgenda ()
 		{
 			return $this->idAgenda;
 		}
-						
-		function getDataHora () 
+
+		function getDataHora ()
 		{
 			return $this->DataHora;
 		}
-		
-		function getMotivo () 
+
+		function getMotivo ()
 		{
 			return $this->Motivo;
 		}
 
-		function getidAlunoFK () 
+		function getidAlunoFK ()
 		{
 			return $this->idAlunoFK;
 		}
 
-		function getidProfessorFK () 
+		function getidProfessorFK ()
 		{
 			return $this->idProfessorFK;
 		}
 
-					
-		
-		function setDataHora ($DataHora) 
+
+
+		function setDataHora ($DataHora)
 		{
 			$this->DataHora = $DataHora;
 		}
-		
-		function setMotivo ($Motivo) 
+
+		function setMotivo ($Motivo)
 		{
 			$this->Motivo = $Motivo;
 		}
 
-		function setidAlunoFK ($idAlunoFK) 
+		function setidAlunoFK ($idAlunoFK)
 		{
 			$this->idAlunoFK = $idAlunoFK;
 		}
 
-		function setidProfessorFK ($idProfessorFK) 
+		function setidProfessorFK ($idProfessorFK)
 		{
 			$this->idProfessorFK = $idProfessorFK;
 		}
 
-		
 
-			
+
+
 
 }

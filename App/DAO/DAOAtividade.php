@@ -15,9 +15,10 @@ class DAOAtividade implements IDAO{
     public function create($Atividade){
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "INSERT INTO Atividade (NomeAtividade, MesAtividade, DescricaoAtividade, idTCCFK) 
-    			VALUES ('{$Atividade->getNomeAtividade()}', '{$Atividade->getMesAtividade()}', '{$Atividade->getDescricaoAtividade()}', '{$Atividade->getidTCCFK()}'); ";
+    	$sql =  "call sp_inserirAtividade('{$Atividade->getNomeAtividade()}', '{$Atividade->getMesAtividade()}', '{$Atividade->getDescricaoAtividade()}', '{$Atividade->getidTCCFK()}');"
 		echo "<br>".$sql."<br>";
+         // `sp_inserirAtividade` (nome varchar(50), mes date, descricao varchar(250), idTCCFK integer(11))
+
 
 		try {
             $stmt = $connection->prepare($sql);
@@ -36,8 +37,9 @@ class DAOAtividade implements IDAO{
     {
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "UPDATE Atividade SET NomeAtividade = '{$Atividade->getNomeAtividade()}', MesAtividade = '{$Atividade->getMesAtividade()}', 
-    			DescricaoAtividade = '{$Atividade->getDescricaoAtividade()}', idTCCFK = '{$Atividade->getidTCCFK()}' WHERE idAtividade = $idAtividade";
+    	$sql = "call sp_alterarAtividade('{$Atividade->getNomeAtividade()}','{$Atividade->getMesAtividade()}', 
+    			'{$Atividade->getDescricaoAtividade()}', '{$Atividade->getidTCCFK()}', $idAtividade = '{$idAtividade->getidTCCFK()}')";
+             // `sp_alterarAtividade` (idAtividade integer(11), nome varchar(50), mes date, descricao varchar(250), idTCCFK integer(11))
 
 		echo "<br>".$sql."<br>";
 
@@ -57,8 +59,9 @@ class DAOAtividade implements IDAO{
     public function delete($idAtividade){
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "DELETE FROM Atividade WHERE idAtividade = $idAtividade";
-    			
+    	$sql = "call sp_deletarAtividade(idAtividade = '{$Atividade->getidAtividade()}')";
+    
+        // `sp_deletarAtividade`(idAtividade integer(11))			
 		echo "<br>".$sql."<br>";
 
 		try {
@@ -101,7 +104,7 @@ class DAOAtividade implements IDAO{
     {
         $connection = new Connection();
         $connection = $connection->openConnection();
-        $sql = "SELECT * FROM Atividade";
+        $sql = "call sp_listarAtividade()";
                 
         echo "<br>".$sql."<br>";
 
@@ -118,5 +121,24 @@ class DAOAtividade implements IDAO{
         }
 
         return $this->data;   
+    }
+        public function listBy($type, $value)
+    {
+        $connection = new Connection();
+        $connection = $connection->openConnection();
+        $sql = "SELECT * FROM Aluno WHERE ".$type." = ".$value;
+
+        echo "<br>".$sql."<br>";
+        try {
+            $stmt = $connection->query($sql);
+            $this->data = $stmt->fetch();
+
+
+        }
+        catch(PDOException $e) {
+
+                echo "Error: " . $e->getMessage();
+        }
+        return $this->data;
     }
 }
