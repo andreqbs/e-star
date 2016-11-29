@@ -117,49 +117,33 @@
         </li><!--Fim da aba ALUNO-->
 
         <li class="treeview"><!--Inicio da aba PROFESSOR-->
-          <a href="#">
+          <a onclick="carregar('../busca/BuscaProf.php')" href="#">
             <i class="fa fa-user"></i> <span>PROFESSOR</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
-          <ul class="treeview-menu">
-            <li><a onclick="carregar('../pages/notificacaoProf.php')" href="#"><i class="fa fa-bell"></i>Notificações</a></li>
-            <li><a onclick="carregar('../busca/BuscaAluno.php')" href="#"><i class="fa fa-search"></i>Buscar</a></li>
             
-
-          </ul>
         </li><!--Fim da aba PROFESSOR-->
 
+
         <li class="treeview"><!--Inicio da aba TCC-->
-          <a href="#">
+          <a onclick="carregar('../busca/BuscaTCC.php')" href="#">
             <i class="fa fa-graduation-cap"></i> <span>TCC</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
-          <ul class="treeview-menu">
-            <li><a onclick="carregar('../cadastro/cadastrotcc.php')" href="#"><i class="fa fa-floppy-o"></i>Cadastrar</a></li>
-            <li><a onclick="carregar('../busca/BuscaTCC.php')" href="#"><i class="fa fa-search"></i>Buscar</a></li>
-            
 
-          </ul>
         </li><!--Fim da aba TCC-->
 
         <li class="treeview"><!--Inicio da aba Eventos-->
-          <a href="#">
+          <a onclick="carregar('../busca/BuscaEventos.php')" href="#">
             <i class="fa fa-calendar"></i> <span>Eventos</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
-          <ul class="treeview-menu">
-            <li><a onclick="carregar('../pages/reservasdesalas.php')" href="#"><i class="fa fa-search"></i>Reserva de Sala</a></li>
-            <li><a onclick="carregar('../cadastro/cadastroeventos.php')" href="#"><i class="fa fa-search"></i>Cadastrar Eventos</a></li>
-            <li><a onclick="carregar('../busca/BuscaEventos.php')" href="#"><i class="fa fa-search"></i>Buscar</a></li>
-            
-
-          </ul>
         </li><!--Fim da aba Eventos-->
 
         <li class="treeview"><!--Inicio da aba Defesa de TCC-->
@@ -171,7 +155,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a onclick="carregar('../cadastro/cadastrodefesatccaluno.php')" href="#"><i class="fa fa-search"></i>Cadastrar Aluno</a></li>
-            <li><a onclick="carregar('../cadastro/cadastrodefesatccprofessor.php')" href="#"><i class="fa fa-search"></i>Cadastrar Professor</a></li>
+            
             <li><a onclick="carregar('../busca/BuscaDefTCC.php')" href="#"><i class="fa fa-search"></i>Buscar</a></li>
             
 
@@ -179,18 +163,13 @@
         </li><!--Fim da aba Defesa de TCC-->
 
         <li class="treeview"><!--Inicio da aba Relatórios de TCC-->
-          <a href="#">
+          <a onclick="carregar('../busca/BuscaRelatTCC.php')" href="#">
             <i class="fa fa-files-o"></i> <span>Relatórios de TCC</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
-          <ul class="treeview-menu">
-            <li><a onclick="carregar('/../cadastro/cadastroRelTCC.php')" href="#"><i class="fa fa-floppy-o"></i>Cadastrar</a>
-            <li><a onclick="carregar('../busca/BuscaRelatTCC.php')" href="#"><i class="fa fa-search"></i>Buscar</a></li>
-            
-          </ul>
-        </li><!--Fim da aba Repositório de TCCs-->
+        </li><!--Fim da aba Relatórios de TCCs-->
 
 
         
@@ -242,6 +221,8 @@
         
     }
 </script>
+
+
 
 
 </body>
