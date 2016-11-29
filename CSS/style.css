@@ -1,12 +1,11 @@
-  body{
-
-	margin: 0px;
-	padding: 0px;
-
-
-
+.registro {
+  display: none;
 }
 
+.body {
+  background: #d6d1d1;
+
+}
 
 
 .fundobg { 
