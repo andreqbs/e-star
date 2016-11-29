@@ -4,7 +4,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Defesa TCC Aluno</title>
+  <title>Relatório</title>
 
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
@@ -30,23 +30,22 @@
 
 <div class="container=fluid"> 
 <div class="content">    
-
         <section class="content-header">
           <div class="box box-pessoais">
 
             <div class="box-header with-border">
               
-              <div class="col-md-5"></div><h3 class="box-title">Defesa de TCC</h3>
+              <h3 class="box-title">Relatório de TCC</h3>
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
               </div>
             </div>
             <!-- /.box-header -->
-            <form class="form-horizontal">
+            <form>
               <div class="box-body" >
                                                  
-                          <div class="row">
+                          <div class="row"> 
                                         <div class="col-md-10">
                                         <label class="control-label">Título TCC:</label>
                                           <input type="text" class="form-control" placeholder="Título do TCC" disabled="">
@@ -64,41 +63,41 @@
                           </div>
                           <div class="row">
                                         <div class="col-md-8">
-                                        <label>Postura / Comentário:</label>
+                                        <label>Apresentação / Comentário:</label>
                                          <textarea class="form-control"  style="resize: none"  placeholder="Enter ..."></textarea>
                                         </div>
                                         <div class="col-md-2">
-                                        <label>Nota da postura: </label>
-                                        <input type="number" max="10" min="0" class="form-control">
+                                        <label>Nota da apresentação: </label>
+                                        <input type="number" max=10 min="0" class="form-control">
                                         </div>
                          </div>
                           <div class="row"> 
                                         <div class="col-md-8">
-                                        <label>Comunicação / Comentário:</label>
+                                        <label>Fundamentação / Comentário:</label>
                                          <textarea class="form-control"  style="resize: none"  placeholder="Enter ..."></textarea>
                                         </div>
                                         <div class="col-md-2">
-                                        <label>Nota da comunicação: </label>
+                                        <label>Nota da fundamentação: </label>
                                         <input type="number" max="10" min="0" class="form-control">
                                         </div>
                           </div>
                           <div class="row"> 
                                         <div class="col-md-8">
-                                        <label>Clareza / Comentário:</label>
+                                        <label>Desenvolvimento / Comentário:</label>
                                          <textarea class="form-control"  style="resize: none"  placeholder="Enter ..."></textarea>
                                         </div>
                                         <div class="col-md-2">
-                                        <label>Nota da clareza: </label>
+                                        <label>Nota do Desenvolvimento: </label>
                                         <input type="number" max="10" min="0" class="form-control">
                                         </div>
                           </div>
                           <div class="row"> 
                                         <div class="col-md-8">
-                                        <label>Domínio / Comentário:</label>
+                                        <label>Analise dos Resultados / Comentário:</label>
                                          <textarea class="form-control"  style="resize: none"  placeholder="Enter ..."></textarea>
                                         </div>
                                         <div class="col-md-2">
-                                        <label>Nota do domínio: </label>
+                                        <label>Nota da analise: </label>
                                         <input type="number" max="10" min="0" class="form-control">
                                         </div>
                           </div>
@@ -130,10 +129,12 @@
 <script src="../../../Public/bower_components/AdminLTE/bootstrap/js/bootstrap.min.js"></script>
 
 <script src="../../../Public/bower_components/AdminLTE/dist/js/app.min.js"></script>
+
 <script src="../../../Public/bower_components/jQuery-Mask-Plugin/dist/jquery.mask.js"></script> 
 <!-- Função para campo de entrada da data -->
 <script>$(document).ready(function(){
-    $('#matricula').mask('000000000');
+    $('#matricula').mask('000000000');   
+});
 </script>
 </body>
 </html>

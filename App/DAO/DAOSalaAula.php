@@ -1,4 +1,4 @@
-<?php  
+<?php
 
 namespace App\DAO;
 use Lib\Database\Connection as Connection;
@@ -11,18 +11,17 @@ require_once dirname(__FILE__).'/../Interfaces/IDAO.php';
 
 
 class DAOSalaAula implements IDAO{
-    
+
     public function create($SalaAula){
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "INSERT INTO SalaAula (NomeSala, Setor, Capacidade, Unidade) 
-    			VALUES ('{$SalaAula->getNomeSala()}', '{$SalaAula->getSetor()}', '{$SalaAula->getCapacidade()}', '{$SalaAula->getUnidade()}'); ";
+    			$sql = "call  ('{$SalaAula->getNomeSala()}', '{$SalaAula->getSetor()}', '{$SalaAula->getCapacidade()}', '{$SalaAula->getUnidade()}')"
 		echo "<br>".$sql."<br>";
 
 		try {
             $stmt = $connection->prepare($sql);
-            $stmt->execute();   
-            
+            $stmt->execute();
+
             return TRUE;
         }
         catch(PDOException $e) {
@@ -36,15 +35,14 @@ class DAOSalaAula implements IDAO{
     {
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "UPDATE SalaAula SET NomeSala = '{$SalaAula->getNomeSala()}', Setor = '{$SalaAula->getSetor()}', 
-    			Capacidade = '{$SalaAula->getCapacidade()}', Unidade = '{$SalaAula->getUnidade()}' WHERE idSalaAula = $idSalaAula";
+    	$sql = "call = ('{$SalaAula->getNomeSala()}','{$SalaAula->getSetor()}','{$SalaAula->getCapacidade()}','{$SalaAula->getUnidade()}')"
 
 		echo "<br>".$sql."<br>";
 
 		try {
             $stmt = $connection->prepare($sql);
-            $stmt->execute();   
-            
+            $stmt->execute();
+
             return TRUE;
         }
         catch(PDOException $e) {
@@ -53,18 +51,18 @@ class DAOSalaAula implements IDAO{
         }
     	//$conn->makeQuery($sql);
     }
-    
+
     public function delete($idSalaAula){
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "DELETE FROM SalaAula WHERE idSalaAula = $idSalaAula";
-    			
+    	$sql = "call = ({$idSalaAula->getidSalaAula()})";
+
 		echo "<br>".$sql."<br>";
 
 		try {
             $stmt = $connection->prepare($sql);
-            $stmt->execute();   
-            
+            $stmt->execute();
+
             return TRUE;
         }
         catch(PDOException $e) {
@@ -73,24 +71,24 @@ class DAOSalaAula implements IDAO{
         }
     	//$conn->makeQuery($sql);
     }
-    
+
     public function find($idSalaAula){
 
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "SELECT * FROM SalaAula WHERE idSalaAula = $idSalaAula";
-    			
+    	$sql = "call = ({$idSalaAula->getidSalaAula()})";
+
 		echo "<br>".$sql."<br>";
 
     	try {
 
             $stmt = $connection->query($sql);
             $this->data = $stmt->fetch();
-            
-            
+
+
         }
         catch(PDOException $e) {
-            
+
                 echo "Error: " . $e->getMessage();
         }
 
@@ -102,21 +100,21 @@ class DAOSalaAula implements IDAO{
         $connection = new Connection();
         $connection = $connection->openConnection();
         $sql = "SELECT * FROM SalaAula";
-                
+
         echo "<br>".$sql."<br>";
 
         try {
 
             $stmt = $connection->query($sql);
             $this->data = $stmt->fetch();
-            
-            
+
+
         }
         catch(PDOException $e) {
-            
+
                 echo "Error: " . $e->getMessage();
         }
 
-        return $this->data;   
+        return $this->data;
     }
 }

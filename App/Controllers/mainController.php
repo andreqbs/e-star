@@ -560,7 +560,7 @@ function alterarProfessor($Professor,$idProfessor)
 function apagarProfessor($idProfessor)
 {
 	$DAOProfessor = new DAOProfessor();
-	return $DAOProfessor->delete($idAgendamento);
+	return $DAOProfessor->delete($idProfessor);
 }
 
 //FindAProfessor

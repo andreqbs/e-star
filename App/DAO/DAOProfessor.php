@@ -4,7 +4,7 @@ ini_set('display_errors', 'On');
 error_reporting(E_ALL);
 
 use Lib\Database\Connection as Connection;
-use App\Models\Professor as Professor;
+use App\Model\Professor as Professor;
 use App\Iface\IDAO as IDAO;
 
 require_once dirname(__FILE__).'/../../Lib/Database/Connection.php';
@@ -41,7 +41,8 @@ class DAOProfessor implements IDAO{
     	$connection = new Connection();
     	$connection = $connection->openConnection();
     	
-        $sql = "call sp_inserirProfessor({$idProfessor->getidProfessor()},{$Professor->getNomeProfessor()},{$Professor->getMatriculaProfessor()},{$Professor->getEmailProfessor()},{$Professor->getLoginProfessor()},{$Professor->getSenhaProfessor()})";
+        $sql = "call sp_alterarProfessor('{$idProfessor}','{$Professor->getNomeProfessor()}','{$Professor->getMatriculaProfessor()}','{$Professor->getEmailProfessor()}','{$Professor->getLoginProfessor()}','{$Professor->getSenhaProfessor()}')";
+
         
 		echo "<br>".$sql."<br>";
 

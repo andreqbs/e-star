@@ -1,6 +1,9 @@
-<?php 
+<?php
 
 namespace App\Models;
+
+ini_set('display_errors', 'On');
+error_reporting(E_ALL);
 
 class SalaAula {
 	private $idSalaAula;
@@ -15,66 +18,66 @@ class SalaAula {
 
 
 
-	
+
 	function __construct($NomeSala, $Setor, $Capacidade, $Unidade) {
 		$this->NomeSala = $NomeSala;
 		$this->Setor = $Setor;
 		$this->Capacidade = $Capacidade;
 		$this->Unidade = $Unidade;
-		
-		
+
+
 	}
 
-		function getidSalaAula () 
+		function getidSalaAula ()
 		{
 			return $this->idSalaAula;
 		}
-		
-		function getNomeSala () 
+
+		function getNomeSala ()
 		{
 			return $this->NomeSala;
 		}
-		
-		function getSetor () 
+
+		function getSetor ()
 		{
 			return $this->Setor;
 		}
-		
-		function getCapacidade () 
+
+		function getCapacidade ()
 		{
 			return $this->Capacidade;
 		}
 
-		function getUnidade () 
+		function getUnidade ()
 		{
 			return $this->Unidade;
 		}
 
-		
 
-				
-		function setNomeSala ($NomeSala) 
+
+
+		function setNomeSala ($NomeSala)
 		{
 			$this->NomeSala = $NomeSala;
 		}
-		
-		function setSetor ($Setor) 
+
+		function setSetor ($Setor)
 		{
 			$this->Setor = $Setor;
 		}
-		
-		function setCapacidade ($Capacidade) 
+
+		function setCapacidade ($Capacidade)
 		{
 			$this->Capacidade = $Capacidade;
 		}
 
-		function setUnidade ($Unidade) 
+		function setUnidade ($Unidade)
 		{
 			$this->Unidade = $Unidade;
 		}
 
 
 
-		
+
 
 }

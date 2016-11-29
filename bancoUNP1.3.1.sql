@@ -487,7 +487,7 @@ DROP TABLE IF EXISTS `e-star`.`Relatorio` ;
 
 CREATE TABLE IF NOT EXISTS `e-star`.`Relatorio` (
   `idRelatorio` INT(11) NOT NULL AUTO_INCREMENT,
-  `data` DATETIME NOT NULL, 
+  `data` DATETIME NOT NULL,
   `apresentacaoNota` FLOAT NOT NULL,
   `fundamentacaoNota` FLOAT NOT NULL,
   `desenvolvimentoNota` FLOAT NOT NULL,
@@ -693,17 +693,27 @@ DELIMITER $$
 
 CREATE PROCEDURE `sp_alterarProfessor` (idProfessor integer(11), nome varchar(100), matricula integer(6), email varchar(50), login varchar(50), senha varchar(20))
 BEGIN
+<<<<<<< HEAD
+  UPDATE `estartho_bdunp`.`Professor`
+    SET
+=======
   UPDATE `e-star`.`Professor`
     SET 
+>>>>>>> 3df1b8743390d3375e919f527d8a3a5863e27a15
 `nome`= nome,
 `matricula`= matricula,
 `email`= email,
 `login`=login,
+<<<<<<< HEAD
+`senha`= senha
+WHERE `estartho_bdunp`.`Professor`.`idProfessor`=idProfessor;
+=======
 `senha`= senha 
 WHERE `e-star`.`Professor`.`idProfessor`=idProfessor;
+>>>>>>> 3df1b8743390d3375e919f527d8a3a5863e27a15
 END$$
 
-DELIMITER ; 
+DELIMITER ;
 
 -- ------------------------------------------------------
 -- procedure sp_deletarProfessor
@@ -766,13 +776,20 @@ DELIMITER $$
 
 CREATE PROCEDURE `sp_alterarCurso` (idCurso varchar(11), nomeCurso varchar(45))
 BEGIN
+<<<<<<< HEAD
+  UPDATE `estartho_bdunp`.`Curso`
+    SET
+`nomeCurso`= nomeCurso
+WHERE `estartho_bdunp`.`Curso`.`idCurso`=idCurso;
+=======
   UPDATE `e-star`.`Curso`
     SET 
 `nomeCurso`= nomeCurso 
 WHERE `e-star`.`Curso`.`idCurso`=idCurso;
+>>>>>>> 3df1b8743390d3375e919f527d8a3a5863e27a15
 END$$
 
-DELIMITER ; 
+DELIMITER ;
 
 -- ------------------------------------------------------
 -- procedure sp_deletarCurso
@@ -838,9 +855,15 @@ DELIMITER $$
 
 CREATE PROCEDURE `sp_alterarAgendamento` (idAgendamento integer(11), motivo varchar(100), dataHora DATETIME, idProfessorFK integer(11), idAlunoFK integer(11))
 BEGIN
+<<<<<<< HEAD
+  UPDATE `estartho_bdunp`.`Agendamento`
+    SET
+`motivo`= motivo,
+=======
   UPDATE `e-star`.`Agendamento`
     SET 
 `motivo`= motivo, 
+>>>>>>> 3df1b8743390d3375e919f527d8a3a5863e27a15
 `dataHora`= dataHora,
 `idProfessorFK`= idProfessorFK,
 `idAlunoFK`= idAlunoFK
@@ -848,7 +871,7 @@ BEGIN
 WHERE `e-star`.`Agendamento`.`idAgendamento`=idAgendamento;
 END$$
 
-DELIMITER ; 
+DELIMITER ;
 
 -- ------------------------------------------------------
 -- procedure sp_deletarAgendamento
@@ -913,15 +936,20 @@ DELIMITER $$
 
 CREATE PROCEDURE `sp_alterarLinhaPesquisa` (idLinhaPesquisa integer(11), nome varchar(250), idCursoFK integer(11))
 BEGIN
+<<<<<<< HEAD
+  UPDATE `estartho_bdunp`.`LinhaPesquisa`
+    SET
+=======
   UPDATE `e-star`.`LinhaPesquisa`
     SET 
+>>>>>>> 3df1b8743390d3375e919f527d8a3a5863e27a15
 `nome`= nome,
 `idCursoFK`= idCursoFK
 
 WHERE `e-star`.`LinhaPesquisa`.`idLinhaPesquisa`= idLinhaPesquisa;
 END$$
 
-DELIMITER ; 
+DELIMITER ;
 
 
 -- ------------------------------------------------------
@@ -980,8 +1008,8 @@ VALUES
  INSERT INTO `e-star`.`Componentes`
 (`idTCCFK`,
  `idProfessorFK`,
- `idAlunoFK1`, 
- `idAlunoFK2` 
+ `idAlunoFK1`,
+ `idAlunoFK2`
 )
 
 VALUES
@@ -1001,23 +1029,33 @@ DELIMITER $$
 
 CREATE PROCEDURE `sp_alterarTCC`(idTCC integer(11), titulo varchar(100), resumo varchar(250), statusTCC tinyint(1), objetivo varchar(100), justificativa varchar(100), TCCTipo tinyint(1), idLinhaPesquisaFK integer(11), idProfessorFK INTEGER (11), idAlunoFK1 INTEGER (11), idAlunoFK2 INTEGER (11))
 BEGIN
+<<<<<<< HEAD
+  UPDATE `estartho_bdunp`.`TCC`
+    SET
+=======
   UPDATE `e-star`.`TCC`
     SET 
+>>>>>>> 3df1b8743390d3375e919f527d8a3a5863e27a15
 `titulo` = titulo,
 `resumo`= resumo,
 `statusTCC`= statusTCC,
 `objetivo`= objetivo,
-`justificativa`= justificativa, 
+`justificativa`= justificativa,
 `TCCTipo`= TCCTipo,
 `idLinhaPesquisaFK`= idLinhaPesquisaFK
 WHERE `e-star`.`TCC`.`idTCC`=idTCC;
 
  UPDATE `e-star`.`Componentes`
     SET
+<<<<<<< HEAD
+`idProfessorFK` = idProfessorFK , `idAlunoFK1` = idAlunoFK1, `idAlunoFK2` = idAlunoFK2
+WHERE `estartho_bdunp`.`Componentes`.`idTCCFK`= idTCC;
+=======
 `idProfessorFK` = idProfessorFK , `idAlunoFK1` = idAlunoFK1, `idAlunoFK2` = idAlunoFK2 
 WHERE `e-star`.`Componentes`.`idTCCFK`= idTCC;
+>>>>>>> 3df1b8743390d3375e919f527d8a3a5863e27a15
 END $$
-DELIMITER ; 
+DELIMITER ;
 
 -- ------------------------------------------------------
 -- procedure sp_deletarTCC
@@ -1045,12 +1083,21 @@ DELIMITER $$
 
 CREATE PROCEDURE `sp_listarTCC`()
 BEGIN
+<<<<<<< HEAD
+SELECT T.`idTCC`, T.`titulo`, T.`resumo`, T.`statusTCC`, T.`objetivo`, T.`justificativa`, T.`TCCTipo`, LP.`nome` AS `LinhaPesquisa`, P.`nome` AS `Professor`, A.`nome` AS `Aluno1`, A1.`nome` AS `Aluno2` FROM `estartho_bdunp`.`TCC` AS T
+INNER JOIN `estartho_bdunp`.`LinhaPesquisa` AS LP ON LP.`idLinhaPesquisa`= T.`idLinhaPesquisaFK`
+INNER JOIN `estartho_bdunp`.`Componentes` AS C ON T.`idTCC` = C.`idTCCFK`
+INNER JOIN `estartho_bdunp`.`Professor` AS P ON P.`idProfessor` = C.`idProfessorFK`
+INNER JOIN `estartho_bdunp`.`Aluno` AS A ON  A.`idAluno` = C.`idAlunoFK1`
+INNER JOIN `estartho_bdunp`.`Aluno` AS A1 ON  A1.`idAluno` = C.`idAlunoFK2`
+=======
 SELECT T.`idTCC`, T.`titulo`, T.`resumo`, T.`statusTCC`, T.`objetivo`, T.`justificativa`, T.`TCCTipo`, LP.`nome` AS `LinhaPesquisa`, P.`nome` AS `Professor`, A.`nome` AS `Aluno1`, A1.`nome` AS `Aluno2` FROM `e-star`.`TCC` AS T 
 INNER JOIN `e-star`.`LinhaPesquisa` AS LP ON LP.`idLinhaPesquisa`= T.`idLinhaPesquisaFK` 
 INNER JOIN `e-star`.`Componentes` AS C ON T.`idTCC` = C.`idTCCFK` 
 INNER JOIN `e-star`.`Professor` AS P ON P.`idProfessor` = C.`idProfessorFK` 
 INNER JOIN `e-star`.`Aluno` AS A ON  A.`idAluno` = C.`idAlunoFK1`
 INNER JOIN `e-star`.`Aluno` AS A1 ON  A1.`idAluno` = C.`idAlunoFK2`
+>>>>>>> 3df1b8743390d3375e919f527d8a3a5863e27a15
 ORDER BY T.`titulo` ASC;
 END$$
 
@@ -1087,15 +1134,20 @@ DELIMITER $$
 
 CREATE PROCEDURE `sp_alterarArquivo` (idArquivo integer(11), link varchar(250), idTCCFK integer(11), versao varchar(45))
 BEGIN
+<<<<<<< HEAD
+  UPDATE `estartho_bdunp`.`Arquivo`
+    SET
+=======
   UPDATE `e-star`.`Arquivo`
     SET 
+>>>>>>> 3df1b8743390d3375e919f527d8a3a5863e27a15
 `link`= link,
 `idTCCFK`= idTCCFK,
 `versao`= versao
 WHERE `e-star`.`Arquivo`.`idArquivo`=idArquivo;
 END$$
 
-DELIMITER ; 
+DELIMITER ;
 
 -- ------------------------------------------------------
 -- procedure sp_deletarArquivo
@@ -1160,6 +1212,15 @@ DELIMITER $$
 
 CREATE PROCEDURE `sp_alterarAtividade` (idAtividade integer(11), nome varchar(50), mes date, descricao varchar(250), idTCCFK integer(11))
 BEGIN
+<<<<<<< HEAD
+  UPDATE `estartho_bdunp`.`Atividade`
+    SET
+`nome`= nome,
+`mes`= mes,
+`descricao`= descricao,
+`idTCCFK`= idTCCFK
+WHERE `estartho_bdunp`.`Atividade`.`idAtividade`=idAtividade;
+=======
   UPDATE `e-star`.`Atividade`
     SET 
 `nome`= nome,
@@ -1167,9 +1228,10 @@ BEGIN
 `descricao`= descricao,
 `idTCCFK`= idTCCFK 
 WHERE `e-star`.`Atividade`.`idAtividade`=idAtividade;
+>>>>>>> 3df1b8743390d3375e919f527d8a3a5863e27a15
 END$$
 
-DELIMITER ; 
+DELIMITER ;
 
 -- ------------------------------------------------------
 -- procedure sp_deletarAtividade
@@ -1239,8 +1301,13 @@ DELIMITER $$
 
 CREATE PROCEDURE `sp_alterarCronograma` (idCronograma integer(11), nomeatividade varchar(100), porque varchar(100), onde varchar(100), quando varchar(100), quem varchar(100), como varchar(100), quanto varchar(45))
 BEGIN
+<<<<<<< HEAD
+  UPDATE `estartho_bdunp`.`Cronograma`
+    SET
+=======
   UPDATE `e-star`.`Cronograma`
     SET 
+>>>>>>> 3df1b8743390d3375e919f527d8a3a5863e27a15
 `nomeatividade`= nomeatividade,
 `porque`= porque,
 `onde`= onde,
@@ -1251,7 +1318,7 @@ BEGIN
 WHERE `e-star`.`Cronograma`.`idCronograma`=idCronograma;
 END$$
 
-DELIMITER ; 
+DELIMITER ;
 
 -- ------------------------------------------------------
 -- procedure sp_deletarCronograma
@@ -1279,7 +1346,7 @@ DELIMITER $$
 
 CREATE PROCEDURE `sp_listarCronograma`()
 BEGIN
- SELECT C.`idCronograma` AS ID, C.`nomeatividade` AS NomeAtividade, C.`porque` AS Porque, 
+ SELECT C.`idCronograma` AS ID, C.`nomeatividade` AS NomeAtividade, C.`porque` AS Porque,
  C.`onde` AS Onde, C.`quando` AS Quando, C.`quem` AS Quem, C.`como` AS Como, C.`quanto` AS Quanto
  FROM `e-star`.`Cronograma` AS C;
 END$$
@@ -1317,15 +1384,20 @@ DELIMITER ;
 -- USE `e-star`$$
 -- CREATE PROCEDURE `sp_alterarAtividadesCronograma` (idAtividadesCronograma integer(11), nome varchar(100), idCronogramaFK integer(11), idTCCFK integer(11))
 -- BEGIN
+<<<<<<< HEAD
+--   UPDATE `estartho_bdunp`.`AtividadesCronograma`
+--    SET
+=======
 --   UPDATE `e-star`.`AtividadesCronograma`
 --    SET 
+>>>>>>> 3df1b8743390d3375e919f527d8a3a5863e27a15
 -- `nome`= nome,
 -- `idCronogramaFK`= idCronogramaFK,
 -- `idTCCFK`= idTCCFK
 -- WHERE `e-star`.`AtividadesCronograma`.`idAtividadesCronograma`=idAtividadesCronograma;
 -- END$$
 
--- DELIMITER ; 
+-- DELIMITER ;
 
 -- ------------------------------------------------------
 -- procedure sp_deletarAtividadesCronograma
@@ -1392,8 +1464,13 @@ DELIMITER $$
 USE `e-star`$$
 CREATE PROCEDURE `sp_alterarComponentes` (idTCCFK integer(11), idProfessorFK integer(11), idAlunoFK1 integer(11), idAlunoFK2 integer(11))
 BEGIN
+<<<<<<< HEAD
+  UPDATE `estartho_bdunp`.`Componentes`
+    SET
+=======
   UPDATE `e-star`.`Componentes`
     SET 
+>>>>>>> 3df1b8743390d3375e919f527d8a3a5863e27a15
 `idProfessorFK` = idProfessorFK,
 `idAlunoFK1`= idAlunoFK1,
 `idAlunoFK2`= idAlunoFK2,
@@ -1401,10 +1478,10 @@ BEGIN
 WHERE `e-star`.`Componentes`.`idTCCFK`=idTCCFK;
 END$$
 
-DELIMITER ; 
+DELIMITER ;
 
 -- ------------------------------------------------------
--- procedure sp_deletarComponentes 
+-- procedure sp_deletarComponentes
 -- ------------------------------------------------------
 USE `e-star`;
 DROP procedure IF EXISTS `e-star`.`sp_deletarComponentes`;
@@ -1470,13 +1547,18 @@ DELIMITER $$
 
 CREATE PROCEDURE `sp_alterarUnidade` (idUnidade integer(11), nome varchar(45))
 BEGIN
+<<<<<<< HEAD
+  UPDATE `estartho_bdunp`.`Unidade`
+    SET
+=======
   UPDATE `e-star`.`Unidade`
     SET 
+>>>>>>> 3df1b8743390d3375e919f527d8a3a5863e27a15
 `nome`= nome
 WHERE `e-star`.`Unidade`.`idUnidade`=idUnidade;
 END$$
 
-DELIMITER ; 
+DELIMITER ;
 
 -- ------------------------------------------------------
 -- procedure sp_deletarUnidade
@@ -1542,8 +1624,13 @@ DELIMITER $$
 USE `e-star`$$
 CREATE PROCEDURE `sp_alterarSala` (idSala integer(11), setor varchar(10), nome varchar (20), capacidade integer, idUnidadeFK integer)
 BEGIN
+<<<<<<< HEAD
+  UPDATE `estartho_bdunp`.`Sala`
+    SET
+=======
   UPDATE `e-star`.`Sala`
     SET 
+>>>>>>> 3df1b8743390d3375e919f527d8a3a5863e27a15
 `setor`= setor,
 `nome` = nome,
 `capacidade`= capacidade,
@@ -1551,7 +1638,7 @@ BEGIN
 WHERE `e-star`.`Sala`.`idSala`=idSala;
 END$$
 
-DELIMITER ; 
+DELIMITER ;
 
 -- ------------------------------------------------------
 -- procedure sp_deletarSala
@@ -1615,15 +1702,20 @@ DELIMITER $$
 
 CREATE PROCEDURE `sp_alterarReserva` (idReserva integer(11), dataHora DATETIME, idProfessorFK integer(11), idSalaFK integer(11))
 BEGIN
+<<<<<<< HEAD
+  UPDATE `estartho_bdunp`.`Reserva`
+    SET
+=======
   UPDATE `e-star`.`Reserva`
     SET 
+>>>>>>> 3df1b8743390d3375e919f527d8a3a5863e27a15
 `dataHora`= dataHora,
 `idProfessorFK`= idProfessorFK,
 `idSalaFK`= idSalaFK
 WHERE `e-star`.`Reserva`.`idReserva`=idReserva;
 END$$
 
-DELIMITER ; 
+DELIMITER ;
 
 -- ------------------------------------------------------
 -- procedure sp_deletarReserva
@@ -1690,15 +1782,20 @@ DELIMITER $$
 USE `e-star`$$
 CREATE PROCEDURE `sp_alterarDefesa` (idDefesa integer(11), DataDef DATETIME, idTCCFK integer(11), idReservaFK INT(11))
 BEGIN
+<<<<<<< HEAD
+  UPDATE `estartho_bdunp`.`Defesa`
+    SET
+=======
   UPDATE `e-star`.`Defesa`
     SET 
+>>>>>>> 3df1b8743390d3375e919f527d8a3a5863e27a15
 `data`= DataDef,
 `idTCCFK`= idTCCFK,
 `idReservaFK`= idReservaFK
 WHERE `e-star`.`Defesa`.`idDefesa`=idDefesa;
 END$$
 
-DELIMITER ; 
+DELIMITER ;
 
 -- ------------------------------------------------------
 -- procedure sp_deletarDefesa
@@ -1761,14 +1858,19 @@ DELIMITER $$
 
 CREATE PROCEDURE `sp_alterarErros` (idErros integer(11), nomeErro varchar(50), categoria varchar(100))
 BEGIN
+<<<<<<< HEAD
+  UPDATE `estartho_bdunp`.`Erros`
+    SET
+=======
   UPDATE `e-star`.`Erros`
     SET 
+>>>>>>> 3df1b8743390d3375e919f527d8a3a5863e27a15
 `nomeErro`= nomeErro,
 `categoria`= categoria
 WHERE `e-star`.`Erros`.`idErros`=idErros;
 END$$
 
-DELIMITER ; 
+DELIMITER ;
 
 -- ------------------------------------------------------
 -- procedure sp_deletarErros
@@ -1831,14 +1933,19 @@ DELIMITER $$
 
 CREATE PROCEDURE `sp_alterarErrosTCC` (idErrosTCC integer(11), idTCCFK integer(11), idErrosFK integer(11))
 BEGIN
+<<<<<<< HEAD
+  UPDATE `estartho_bdunp`.`ErrosTCC`
+    SET
+=======
   UPDATE `e-star`.`ErrosTCC`
     SET 
+>>>>>>> 3df1b8743390d3375e919f527d8a3a5863e27a15
 `idTCCFK`= idTCCFK,
 `idErrosFK`= idErrosFK
 WHERE `e-star`.`ErrosTCC`.`idErrosTCC`=idErrosTCC;
 END$$
 
-DELIMITER ; 
+DELIMITER ;
 
 -- ------------------------------------------------------
 -- procedure sp_deletarErrosTCC
@@ -1904,17 +2011,27 @@ DELIMITER $$
 
 CREATE PROCEDURE `sp_alterarEvento` (idEvento integer(11), nome varchar(50), dataHora datetime, Localizacao varchar(100), idProfessorFK integer(11), idCursoFK integer(11))
 BEGIN
+<<<<<<< HEAD
+  UPDATE `estartho_bdunp`.`Evento`
+    SET
+=======
   UPDATE `e-star`.`Evento`
     SET 
+>>>>>>> 3df1b8743390d3375e919f527d8a3a5863e27a15
 `nome`= nome,
 `dataHora`= dataHora,
 `local`= Localizacao,
 `idProfessorFK`= idProfessorFK,
+<<<<<<< HEAD
+`idCursoFK`= idCursoFK
+WHERE `estartho_bdunp`.`Evento`.`idEvento`=idEvento;
+=======
 `idCursoFK`= idCursoFK 
 WHERE `e-star`.`Evento`.`idEvento`=idEvento;
+>>>>>>> 3df1b8743390d3375e919f527d8a3a5863e27a15
 END$$
 
-DELIMITER ; 
+DELIMITER ;
 
 -- ------------------------------------------------------
 -- procedure sp_deletarEvento
@@ -1958,8 +2075,8 @@ DROP procedure IF EXISTS `e-star`.`sp_inserirRelatorio`;
 
 DELIMITER $$
 
-CREATE PROCEDURE `sp_inserirRelatorio`(apresentacaoNota FLOAT, dataH DATETIME, fundamentacaoNota FLOAT, desenvolvimentoNota FLOAT, resultadosNota FLOAT, notaFinal FLOAT, 
-  TipoRelatorio varchar(50), apresentacaoComentario varchar(250), fundamentacaoComentario varchar(250), desenvolvimentoComentario varchar(250), 
+CREATE PROCEDURE `sp_inserirRelatorio`(apresentacaoNota FLOAT, dataH DATETIME, fundamentacaoNota FLOAT, desenvolvimentoNota FLOAT, resultadosNota FLOAT, notaFinal FLOAT,
+  TipoRelatorio varchar(50), apresentacaoComentario varchar(250), fundamentacaoComentario varchar(250), desenvolvimentoComentario varchar(250),
   resultadosComentario varchar(250), idTCCFK integer(11))
 BEGIN
   INSERT INTO `e-star`.`Relatorio`
@@ -1969,7 +2086,7 @@ BEGIN
 `desenvolvimentoNota`,
 `resultadosNota`,
 `notaFinal`,
-`TipoRelatorio`, 
+`TipoRelatorio`,
 `apresentacaoComentario`,
 `fundamentacaoComentario`,
 `desenvolvimentoComentario`,
@@ -1990,19 +2107,24 @@ DROP procedure IF EXISTS `e-star`.`sp_alterarRelatorio`;
 
 DELIMITER $$
 
-CREATE PROCEDURE `sp_alterarRelatorio` (idRelatorio integer(11), dataH DATETIME, apresentacaoNota FLOAT, fundamentacaoNota FLOAT, desenvolvimentoNota FLOAT, resultadosNota FLOAT, notaFinal FLOAT, 
-  TipoRelatorio varchar(50), apresentacaoComentario varchar(250), fundamentacaoComentario varchar(250), desenvolvimentoComentario varchar(250), 
+CREATE PROCEDURE `sp_alterarRelatorio` (idRelatorio integer(11), dataH DATETIME, apresentacaoNota FLOAT, fundamentacaoNota FLOAT, desenvolvimentoNota FLOAT, resultadosNota FLOAT, notaFinal FLOAT,
+  TipoRelatorio varchar(50), apresentacaoComentario varchar(250), fundamentacaoComentario varchar(250), desenvolvimentoComentario varchar(250),
   resultadosComentario varchar(250), idTCCFK integer(11))
 BEGIN
+<<<<<<< HEAD
+  UPDATE `estartho_bdunp`.`Relatorio`
+    SET
+=======
   UPDATE `e-star`.`Relatorio`
     SET 
+>>>>>>> 3df1b8743390d3375e919f527d8a3a5863e27a15
 `apresentacaoNota`= apresentacaoNota,
 `data`= dataH,
 `fundamentacaoNota`= fundamentacaoNota,
 `desenvolvimentoNota`= desenvolvimentoNota,
 `resultadosNota`= resultadosNota,
 `notaFinal`= notaFinal,
-`TipoRelatorio`= TipoRelatorio, 
+`TipoRelatorio`= TipoRelatorio,
 `apresentacaoComentario`= apresentacaoComentario,
 `fundamentacaoComentario`= fundamentacaoComentario,
 `desenvolvimentoComentario`= desenvolvimentoComentario,
@@ -2011,7 +2133,7 @@ BEGIN
 WHERE `e-star`.`Relatorio`.`idRelatorio`=idRelatorio;
 END$$
 
-DELIMITER ; 
+DELIMITER ;
 
 -- ------------------------------------------------------
 -- procedure sp_deletarRelatorio
@@ -2037,10 +2159,15 @@ DELIMITER $$
 
 CREATE PROCEDURE `sp_listarRelatorio`()
 BEGIN
-SELECT T.`titulo` AS TCC , R.`data` AS `Data e Hora`, R.`apresentacaoNota` AS `Nota da Apresentacao`, R.`fundamentacaoNota` AS `Nota da Fundamentacao`, R.`desenvolvimentoNota` AS `Nota da Desenvolvimento`, R.`resultadosNota` AS `Resultados da Nota`, R.`notaFinal` AS `Nota Final`, 
+SELECT T.`titulo` AS TCC , R.`data` AS `Data e Hora`, R.`apresentacaoNota` AS `Nota da Apresentacao`, R.`fundamentacaoNota` AS `Nota da Fundamentacao`, R.`desenvolvimentoNota` AS `Nota da Desenvolvimento`, R.`resultadosNota` AS `Resultados da Nota`, R.`notaFinal` AS `Nota Final`,
 R.`TipoRelatorio` AS `Tipo de Relatorio`, R.`apresentacaoComentario` AS `Comentario da Apresentacao`, R.`fundamentacaoComentario` AS `Comentario da Fundamentaçao`, R.`desenvolvimentoComentario` AS `Comentario da Desenvolvimento`, R.`resultadosComentario` AS `Comentario dos Resultados`
+<<<<<<< HEAD
+ FROM `estartho_bdunp`.`Relatorio` AS R
+ INNER JOIN `estartho_bdunp`.`TCC` AS T ON T.`idTCC` = R.`idTCCFK`
+=======
  FROM `e-star`.`Relatorio` AS R
  INNER JOIN `e-star`.`TCC` AS T ON T.`idTCC` = R.`idTCCFK` 
+>>>>>>> 3df1b8743390d3375e919f527d8a3a5863e27a15
  ORDER BY R.`data` ASC, T.`titulo` ASC;
 END$$
 
@@ -2054,7 +2181,7 @@ DROP procedure IF EXISTS `e-star`.`sp_inserirAlunoDefesa`;
 
 DELIMITER $$
 
-CREATE PROCEDURE `sp_inserirAlunoDefesa`(notaPostura FLOAT, notaComunicacao FLOAT, notaClareza FLOAT, notaDominio FLOAT, idAluno integer(11), notaFinal FLOAT, 
+CREATE PROCEDURE `sp_inserirAlunoDefesa`(notaPostura FLOAT, notaComunicacao FLOAT, notaClareza FLOAT, notaDominio FLOAT, idAluno integer(11), notaFinal FLOAT,
  posturaComentario varchar(200), comunicacaoComentario varchar(45), clarezaComentario varchar(45), dominioComentario varchar(45), idDefesa integer(11))
 BEGIN
   INSERT INTO `e-star`.`AlunoDefesa`
@@ -2084,12 +2211,17 @@ DROP procedure IF EXISTS `e-star`.`sp_alterarAlunoDefesa`;
 
 DELIMITER $$
 
-CREATE PROCEDURE `sp_alterarAlunoDefesa` (notaPostura FLOAT, notaComunicacao FLOAT, notaClareza FLOAT, notaDominio FLOAT, idAluno integer(11), notaFinal FLOAT, 
+CREATE PROCEDURE `sp_alterarAlunoDefesa` (notaPostura FLOAT, notaComunicacao FLOAT, notaClareza FLOAT, notaDominio FLOAT, idAluno integer(11), notaFinal FLOAT,
  posturaComentario varchar(200), comunicacaoComentario varchar(45), clarezaComentario varchar(45), dominioComentario varchar(45), idDefesa integer(11))
 
 BEGIN
+<<<<<<< HEAD
+  UPDATE `estartho_bdunp`.`AlunoDefesa`
+    SET
+=======
   UPDATE `e-star`.`AlunoDefesa`
     SET 
+>>>>>>> 3df1b8743390d3375e919f527d8a3a5863e27a15
 `notaPostura`= notaPostura,
 `notaComunicacao`= notaComunicacao,
 `notaClareza`= notaClareza,
@@ -2104,7 +2236,7 @@ BEGIN
 WHERE `e-star`.`AlunoDefesa`.`idTCC`=idTCC;
 END$$
 
-DELIMITER ; 
+DELIMITER ;
 
 
 -- ------------------------------------------------------
@@ -2135,10 +2267,15 @@ DELIMITER $$
 
 CREATE PROCEDURE `sp_listarAlunoDefesa_Geral`()
 BEGIN
-SELECT A.`nome` AS Aluno, AD.`notaPostura` AS `Nota Da Postura`, AD.`notaComunicacao` AS `Nota da Comunicacao`, AD.`notaClareza` AS `Nota da Clareza`, AD.`notaDominio` AS `Nota do Dominio`, AD.`notaFinal` AS `Nota Final`, AD.`posturaComentario` AS `Comentario da Postura`, 
+SELECT A.`nome` AS Aluno, AD.`notaPostura` AS `Nota Da Postura`, AD.`notaComunicacao` AS `Nota da Comunicacao`, AD.`notaClareza` AS `Nota da Clareza`, AD.`notaDominio` AS `Nota do Dominio`, AD.`notaFinal` AS `Nota Final`, AD.`posturaComentario` AS `Comentario da Postura`,
 AD.`comunicacaoComentario` AS `Comentario da Comunicaçao`, AD.`clarezaComentario` AS `Comentario da Clareza`, AD.`dominioComentario` AS `Comentario do Dominio`, AD.`idDefesa` AS ID
+<<<<<<< HEAD
+ FROM `estartho_bdunp`.`AlunoDefesa` AS AD
+ INNER JOIN `estartho_bdunp`.`Aluno` AS A ON A.`idAluno` = AD.`idAluno`
+=======
  FROM `e-star`.`AlunoDefesa` AS AD 
  INNER JOIN `e-star`.`Aluno` AS A ON A.`idAluno` = AD.`idAluno` 
+>>>>>>> 3df1b8743390d3375e919f527d8a3a5863e27a15
  order by A.`nome` ASC;
 END$$
 
