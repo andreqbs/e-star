@@ -9,15 +9,10 @@ require_once dirname(__FILE__).'/../../Lib/Database/Connection.php';
 require_once dirname(__FILE__).'/../Model/AtividadeCronograma.php';
 require_once dirname(__FILE__).'/../Interfaces/IDAO.php';
 
-/*
-private $idAtividadeCronograma;
-private $NomeAtividade;
-private $idCronogramaFK;
-private $idTCCFK;
-*/
+
 class DAOAtividadeCronograma implements IDAO{
 
-
+//sem procudere
     public function create($AtividadeCronograma){
     	$connection = new Connection();
     	$connection = $connection->openConnection();
@@ -105,7 +100,7 @@ class DAOAtividadeCronograma implements IDAO{
     {
         $connection = new Connection();
         $connection = $connection->openConnection();
-        $sql = "SELECT * FROM AtividadeCronograma";
+        $sql = "call sp_listarCronograma()";
                 
         echo "<br>".$sql."<br>";
 
@@ -123,5 +118,23 @@ class DAOAtividadeCronograma implements IDAO{
 
         return $this->data;   
     }
+        public function listBy($type, $value)
+    {
+        $connection = new Connection();
+        $connection = $connection->openConnection();
+        $sql = "SELECT * FROM Aluno WHERE ".$type." = ".$value;
+
+        echo "<br>".$sql."<br>";
+        try {
+            $stmt = $connection->query($sql);
+            $this->data = $stmt->fetch();
+
+
+        }
+        catch(PDOException $e) {
+
+                echo "Error: " . $e->getMessage();
+        }
+        return $this->data;
+    }
 }
-?>

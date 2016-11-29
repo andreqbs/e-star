@@ -259,4 +259,3 @@
 <script src="bower_components/AdminLTE/dist/js/demo.js"></script>
 
 </body>
-</html>
