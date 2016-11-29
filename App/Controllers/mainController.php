@@ -348,6 +348,12 @@ function buscarAluno($Aluno,$idAluno)
 	return $DAOAluno->find($Aluno, $idAluno);
 }
 
+function loginAluno($login,$senha)
+{
+	$DAOAluno = new DAOAluno();
+	return $DAOAluno->findBy($login, $senha);
+}
+
 //ListAluno
 function listarAluno($Aluno,$idAluno)
 {

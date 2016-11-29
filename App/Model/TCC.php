@@ -1,13 +1,13 @@
 <?php 
 
-namespace App\Models;
+namespace App\Model;
 
 class TCC {
 	private $Titulo;
 
-	private $Descricao;
+	private $Resumo;
 
-	private $Status;
+	private $TCCStatus;
 
 	private $Objetivos;
 
@@ -15,16 +15,26 @@ class TCC {
 
 	private $TCCTipo;
 
-	private $LinhaPesquisa;
+	private $idLinhaPesquisaFK;
 
-	function __construct($titulo, $descricao, $status, $objetivos, $justificativas, $tCCTipo, $linhaPesquisa) {
+	private $idAluno1FK;
+
+	private $idAluno2FK;
+
+	private $idProfessorFK;
+
+	function __construct($titulo, $Resumo, $TCCStatus, $objetivos, $justificativas, $tCCTipo, $idLinhaPesquisaFK, $idAluno1FK, $idAluno2FK, $idProfessorFK) 
+	{
 		$this->Titulo = $titulo;	
-		$this->Descricao = $descricao;
-		$this->Status = $status;
+		$this->Resumo = $Resumo;
+		$this->TCCStatus = $TCCStatus;
 		$this->Objetivos = $objetivos;
 		$this->Justificativas = $justificativas;
 		$this->TCCTipo = $tCCTipo;
-		$this->LinhaPesquisa = $linhaPesquisa;
+		$this->idLinhaPesquisaFK = $idLinhaPesquisaFK;
+		$this->idAluno1FK = $idAluno1FK;
+		$this->idAluno2FK = $idAluno2FK;
+		$this->idProfessorFK = $idProfessorFK;
 	}
 
 		function getTitulo () 
@@ -32,14 +42,14 @@ class TCC {
 			return $this->Titulo;
 		}
 		
-		function getDescricao () 
+		function getResumo () 
 		{
-			return $this->Descricao;
+			return $this->Resumo;
 		}
 		
-		function getStatus () 
+		function getTCCStatus () 
 		{
-			return $this->Status;
+			return $this->TCCStatus;
 		}
 		
 		function getObjetivos () 
@@ -57,10 +67,28 @@ class TCC {
 			return $this->TCCTipo;
 		}
 
-		function getLinhaPesquisa () 
+		function getidLinhaPesquisaFK () 
 		{
-			return $this->LinhaPesquisa;
+			return $this->idLinhaPesquisaFK;
 		}
+
+		function getidAluno1FK () 
+		{
+			return $this->idAluno1FK;
+		}
+		
+		function getidAluno2FK () 
+		{
+			return $this->idAluno2FK;
+		}
+		
+		
+		function getidProfessorFK () 
+		{
+			return $this->idProfessorFK;
+		}
+
+
 
 
 		function setTitulo($Titulo) 
@@ -68,14 +96,14 @@ class TCC {
    			$this->Titulo = $Titulo;
   		}
 
-		function setDescricao ($Descricao) 
+		function setResumo ($Resumo) 
 		{
-			$this->Descricao = $Descricao;
+			$this->Resumo = $Resumo;
 		}
 		
-		function setStatus ($Status) 
+		function setTCCStatus ($TCCStatus) 
 		{
-			$this->Status = $Status;
+			$this->TCCStatus = $TCCStatus;
 		}
 		
 		function setObjetivos ($Objetivos) 
@@ -93,9 +121,24 @@ class TCC {
 			$this->TCCTipo = $TCCTipo;
 		}
 
-		function setLinhaPesquisa ($LinhaPesquisa) 
+		function setidLinhaPesquisaFK ($idLinhaPesquisaFK) 
 		{
-			$this->LinhaPesquisa = $LinhaPesquisa;
+			$this->idLinhaPesquisaFK = $idLinhaPesquisaFK;
+		}
+
+		function setidAluno1FK ($idAluno1FK) 
+		{
+			$this->idAluno1FK = $idAluno1FK;
+		}
+		
+		function setidAluno2FK ($idAluno2FK) 
+		{
+			$this->idAluno2FK = $idAluno2FK;
+		}
+		
+		function setidProfessorFK ($idProfessorFK) 
+		{
+			$this->idProfessorFK = $idProfessorFK;
 		}
 
 }
