@@ -2,7 +2,7 @@
 
 namespace App\DAO;
 use Lib\Database\Connection as Connection;
-use App\Models\TCC as TCC;
+use App\Model\TCC as TCC;
 use App\Iface\IDAO as IDAO;
 
 require_once dirname(__FILE__).'/../../Lib/Database/Connection.php';
@@ -12,10 +12,13 @@ require_once dirname(__FILE__).'/../Interfaces/IDAO.php';
 
 class DAOTCC implements IDAO{
     
-    public function create($Tcc){
+    public function create($Tcc)
+    {
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-        $sql = "call sp_inserirTCC({$Tcc->getTitulo()}, {$Tcc->getResumo()}, {$Tcc->getTCCStatus()}, {$Tcc->getObjetivos()}, {$Tcc->getJustificativas()}, {$Tcc->getTCCTipo()}, {$Tcc->getLinhaPesquisa()})"
+        $sql = "call sp_inserirTCC('{$Tcc->getTitulo()}', '{$Tcc->getResumo()}', '{$Tcc->getTCCStatus()}', '{$Tcc->getObjetivos()}',
+                '{$Tcc->getJustificativas()}', '{$Tcc->getTCCTipo()}', '{$Tcc->getidLinhaPesquisaFK()}', '{$Tcc->getidProfessorFK()}',
+                '{$Tcc->getidAluno1FK()}', '{$Tcc->getidAluno2FK()}')";
 		try {
             $stmt = $connection->prepare($sql);
             $stmt->execute();   
@@ -33,10 +36,10 @@ class DAOTCC implements IDAO{
     {
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "UPDATE TCC SET Titulo = '{$Tcc->getTitulo()}', Resumo = '{$Tcc->getResumo()}', 
-    			TCCStatus = '{$Tcc->getTCCStatus()}', Objetivos = '{$Tcc->getObjetivos()}', 
-    			Justificativas = '{$Tcc->getJustificativas()}', TCCTipo = '{$Tcc->getTCCTipo()}', 
-    			LinhaPesquisa_idLinhaPesquisa = '{$Tcc->getLinhaPesquisa()}' WHERE idTCC = $idTcc";
+        $sql = "call sp_alterarTCC('{$Tcc->getidTCC()}', '{$Tcc->getTitulo()}', '{$Tcc->getResumo()}', '{$Tcc->getTCCStatus()}', '{$Tcc->getObjetivos()}',
+                '{$Tcc->getJustificativas()}', '{$Tcc->getTCCTipo()}', '{$Tcc->getLinhaPesquisa()}', '{$Componentes->getidProfessorFK()}',
+                '{$Componentes->getidAlunoFK1()}', '{$Componentes->getidAlunoFK2()}', '{$Componentes->getidTCCFK()}')";
+    	
 
 		echo "<br>".$sql."<br>";
 
@@ -47,7 +50,7 @@ class DAOTCC implements IDAO{
             return TRUE;
         }
         catch(PDOException $e) {
-                echo "Error: " . $e->getMessage() ;
+                echo "Error: " . $e->getMessage();
             return FALSE;
         }
     	//$conn->makeQuery($sql);
@@ -56,7 +59,8 @@ class DAOTCC implements IDAO{
     public function delete($idTcc){
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "DELETE FROM TCC WHERE idTCC = $idTcc";
+        $sql = "sp_deletarTCC({$idTcc})";
+    	
     			
 		echo "<br>".$sql."<br>";
 
@@ -100,7 +104,7 @@ class DAOTCC implements IDAO{
     {
         $connection = new Connection();
         $connection = $connection->openConnection();
-        $sql = "SELECT * FROM TCC";
+        $sql = "call sp_listarTCC()";
                 
         echo "<br>".$sql."<br>";
 

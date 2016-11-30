@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Models;
+namespace App\Model;
 
 class Componentes {
 	private $idComponentes;
@@ -15,11 +15,10 @@ class Componentes {
 
 	
 
-	function __construct($idAluno1FK, $idAluno2FK, $idTCCFK, $idProfessorFK) 
+	function __construct($idAluno1FK, $idAluno2FK, $idProfessorFK) 
 	{
 		$this->idAluno1FK = $idAluno1FK;
 		$this->idAluno2FK = $idAluno2FK;
-		$this->idTCCFK = $idTCCFK;
 		$this->idProfessorFK = $idProfessorFK;
 	}
 
@@ -38,11 +37,7 @@ class Componentes {
 			return $this->idAluno2FK;
 		}
 		
-		function getidTCCFK () 
-		{
-			return $this->idTCCFK;
-		}
-
+		
 		function getidProfessorFK () 
 		{
 			return $this->idProfessorFK;
@@ -60,11 +55,6 @@ class Componentes {
 			$this->idAluno2FK = $idAluno2FK;
 		}
 		
-		function setidTCCFK ($idTCCFK) 
-		{
-			$this->idTCCFK = $idTCCFK;
-		}
-
 		function setidProfessorFK ($idProfessorFK) 
 		{
 			$this->idProfessorFK = $idProfessorFK;

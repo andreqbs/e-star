@@ -1,3 +1,13 @@
+<?php 
+session_start();
+
+if(!$_SESSION['idAluno']){
+  echo "não entre";
+} else {
+
+
+ ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -227,3 +237,8 @@
 
 </body>
 </html>
+
+<?php 
+
+}
+ ?>

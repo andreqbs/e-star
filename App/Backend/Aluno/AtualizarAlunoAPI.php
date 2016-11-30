@@ -28,18 +28,18 @@ require_once dirname(__FILE__).'/../../../Lib/Core/Loader.php';
 
 
 //$Aluno = new Aluno($NomeAluno, $MatriculaAluno, $EmailAluno, $LoginAluno, $SenhaAluno;, $idCursoFK);
-$Aluno = new Aluno("eu", "123456", "eu@tu.com", "eu", "123", "2");
+$Aluno = new Aluno("tu", "54321", "noia@tu.com", "me", "123", "2");
 
 $Controller = new mainController();
-$Result = $Controller->cadastrarAluno($Aluno);
+$Result = $Controller->alterarAluno($Aluno, 13);
 
 //echo($Result);
 
 if ($Result){
-	echo '<script>alert("Usuario Criado")</script>';
+	echo '<script>alert("Usuario Atualizado")</script>';
 }
 else 
-	echo '<script> alert(" Não Cadastrado ") </script>  ';
+	echo '<script> alert(" Não Atualizado ") </script>  ';
 
 
 
