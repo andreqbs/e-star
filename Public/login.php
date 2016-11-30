@@ -54,7 +54,7 @@
           <select id="usuarioSelect" class="form-control select1" required="true">
             <option selected>Selecione um vínculo</option>
             <option value="1">Aluno(a)</option>
-            <option value="2  ">Professor(a)</option>
+            <option value="2">Professor(a)</option>
           </select>
       </div>
 
@@ -149,18 +149,27 @@
 </script>
 
 <script>
-  
   $('#formLoginUsuario').on('submit', function(){
                     var usuarioLogin = document.getElementById('usuarioLogin').value;
                     var senhaLogin = document.getElementById('senhaLogin').value;
                     var usuarioSelect = document.getElementById('usuarioSelect').value;
                     
+                    if(usuarioSelect === "1"){
                     var dataString = $("#formLoginUsuario").serialize();
                     dataString += '&usuarioLogin='+usuarioLogin+'&senhaLogin='+senhaLogin;
-                    //alert(dataString);
-                    
+                    alert(dataString);
+                    alert(usuarioSelect);  
+                    alert("to no aluno");                   
                     ajaxPostRedirect(dataString,"../App/Backend/Aluno/LoginAlunoAPI.php","../App/Views/usuario/principalAluno.php");
-        
+                    }
+                    else if(usuarioSelect === "2"){
+                    var dataString = $("#formLoginUsuario").serialize();
+                    dataString += '&usuarioLogin='+usuarioLogin+'&senhaLogin='+senhaLogin;
+                    alert(dataString);
+                    alert(usuarioSelect);  
+                    alert("to no Professor");                   
+                    ajaxPostRedirect(dataString,"../App/Backend/Professor/LoginProfessorAPI.php","../App/Views/usuario/principalProfessor.php");
+                    }
 
         return false;
     }); 
