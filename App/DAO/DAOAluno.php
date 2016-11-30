@@ -92,7 +92,7 @@ class DAOAluno implements IDAO{
     public function findBy($login, $senha){
         $connection = new Connection();
         $connection = $connection->openConnection();
-        $sql = "SELECT idAluno FROM Aluno WHERE Login = '{$login}' and Senha = '{$senha}'";
+        $sql = "SELECT idAluno, nome, matricula, login FROM Aluno WHERE Login = '{$login}' and Senha = '{$senha}'";
 
         echo "<br>".$sql."<br>";
         try {

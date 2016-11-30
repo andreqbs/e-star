@@ -15,15 +15,27 @@ require_once dirname(__FILE__).'/../../../Lib/Core/Loader.php';
 //$meuAluno = new Aluno("TalkingHand", "Luva Foda", "1", "Fazer uma luva foda!!", "Pq eh massa!!!", "1", "1");
 
 
-$login = "erick";
+$login = $_POST['usuarioLogin'];
 
-$senha = "1234";
+$senha = $_POST['senhaLogin'];
+
+//$login = "erick";
+
+//$senha = "123123123";
 
 $Control = new mainController();
 $Result = $Control->loginAluno($login, $senha);
 
+
+
+print_r($Result);
 if ($Result){
 	echo '<script>alert("Login Com sucesso")</script>';
+	$_SESSION['idAluno'] = $Result['idAluno'];
+	$_SESSION['nome'] = $Result['nome'];
+	$_SESSION['matricula'] = $Result['matricula'];
+	$_SESSION['login'] = $Result['login'];
+
 }
 else {
 	echo '<script> alert("erro") </script>  ';
