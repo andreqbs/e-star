@@ -34,29 +34,27 @@
   <div class="login-box-body formulario animated fadeInUp">
 
 
-    <p class="login-box-msg">Login</p>
+    
 
 
-    <form class="" data-toggle="validator">
+    <form class="" id="formLoginUsuario" data-toggle="validator">
+
+      <p class="login-box-msg">Login</p>
 
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email" required="true" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
-        <small class="help-block with-errors"></small>
+        <input id="usuarioLogin" type="text" class="form-control" placeholder="usuario" required="true">
       </div>
+
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" id="senha" placeholder="senha" required="true" data-minlength="8" data-error="senha tem que ter no minimo 8 caracteres!">
-        <small class="help-block with-errors"></small>
-      </div>
-       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="repetir senha" required="true" data-match="#senha" data-error="senha tem que ser igual!">
+        <input id="senhaLogin" type="password" class="form-control" id="senha" placeholder="senha" required="true" data-minlength="8" data-error="senha tem que ter no minimo 8 caracteres!">
         <small class="help-block with-errors"></small>
       </div>
 
       <div class="row">
         <div class="col-xs-12">
-          <button type="submit" class="btn btn-info btn-block btn-flat"><h5>ENTRAR</h4></button>
+          <button type="submit" class="btn btn-info btn-block btn-flat"><h5>CRIAR</h4></button>
           <br>
-          <p class="abrir">Não está registrado? <a href="#">Crie uma conta</a></p>
+          <p class="abrir">Já está registrado?  <a href="#">Entre aqui</a></p>
         </div>
 
       </div>
@@ -65,21 +63,52 @@
 
 
 
-
-    <form>
+    <form class="" id="formCadastroUsuario" data-toggle="validator">
+      <p class="login-box-msg">Cadastro</p>
+      
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email">
-
+        <input id="nomeCompleto"  type="text" class="form-control" placeholder="nome completo" data-minlength="4" required="true">
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
+        <input id="matricula" type="text" class="form-control" placeholder="matricula" required="true">
+      </div>
+      <div class="form-group has-feedback">
+        <input id="email" type="email" class="form-control" placeholder="email" required="true" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+        <small class="help-block with-errors"></small>
+      </div>
+      <div class="form-group has-feedback">
+          <select class="form-control select1" required="true">
+            <option selected>Selecione um vínculo</option>
+            <option>Aluno(a)</option>
+            <option>Professor(a)</option>
+          </select>
+      </div>
+      <div class="form-group has-feedback">
+          <select class="form-control select1" required="true">
+            <option>Selecione um curso</option>
+            <option>Engenharia Civil</option>
+            <option>Engenharia da Computação</option>
+            <option>Engenharia de Petróleo e Gás</option>
+            <option>Sistemas de Informação</option>
+          </select>
+      </div>
+      <div class="form-group has-feedback">
+        <input id="usuario" type="text" class="form-control" placeholder="usuario" required="true">
+      </div>
+      <div class="form-group has-feedback">
+        <input id="senha" type="password" class="form-control" id="senha" placeholder="senha" required="true" data-minlength="8" data-error="senha tem que ter no minimo 8 caracteres!">
+        <small class="help-block with-errors"></small>
+      </div>
+       <div class="form-group has-feedback">
+        <input id="repetirSenha" type="password" class="form-control" placeholder="repetir senha" required="true" data-match="#senha" data-error="senha tem que ser igual!">
+        <small class="help-block with-errors"></small>
       </div>
 
       <div class="row">
         <div class="col-xs-12">
-          <button type="submit" class="btn btn-info btn-block btn-flat"><h5>CRIAR</h4></button>
+          <button type="submit" class="btn btn-info btn-block btn-flat"><h5>ENTRAR</h4></button>
           <br>
-          <p class="abrir">Já está registrado?  <a href="#">Entre aqui</a></p>
+          <p class="abrir">Não está registrado? <a href="#">Crie uma conta</a></p>
         </div>
 
       </div>
@@ -101,6 +130,13 @@
 <script src="bower_components/AdminLTE/plugins/iCheck/icheck.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
+
+<script src="bower_components/jQuery-Mask-Plugin/dist/jquery.mask.js"></script> 
+<!-- Função para campo de entrada da data -->
+<script>$(document).ready(function(){
+    $('#matricula').mask('000000000');   
+});
+</script>
 
 </body>
 </html>
