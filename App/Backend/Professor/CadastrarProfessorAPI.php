@@ -11,28 +11,41 @@ use App\Controllers\mainController as mainController;
 
 require_once dirname(__FILE__).'/../../../Lib/Core/Loader.php';
 
- $NomeProfessor = "andre "; //$_POST['']
+ $NomeProfessor = $_POST['NomeProfessor'];
 
- $MatriculaProfessor = "123356";
+ $MatriculaProfessor = $_POST['MatriculaProfessor'];
 
- $EmailProfessor = "teste@test.com";
+ $EmailProfessor = $_POST['EmailProfessor'];
 
- $LoginProfessor = "andree";
+ $LoginProfessor = $_POST['LoginProfessor'];
 
- $SenhaProfessor = "1234";
+ $SenhaProfessor = $_POST['SenhaProfessor'];
 
- $SenhaProfessorConfirmacao = "egy321gg";
+ $SenhaProfessorConfirmacao = $_POST['SenhaProfessor'];
 
+ // $NomeProfessor = "andre "; //$_POST['']
+
+ // $MatriculaProfessor = "123356";
+
+ // $EmailProfessor = "teste@test.com";
+
+ // $LoginProfessor = "andree";
+
+ // $SenhaProfessor = "123456789";
+
+ // $SenhaProfessorConfirmacao = "egy321gg";
 
 $meuProfessor = new Professor($NomeProfessor,$MatriculaProfessor,$EmailProfessor, $LoginProfessor, $SenhaProfessor);
-//`sp_inserirProfessor`(nome varchar(100), matricula char(6), email varchar(50), login varchar(50), senha varchar(20))
-
 
 $ProfessorControl = new mainController();
 $Result =$ProfessorControl->cadastrarProfessor($meuProfessor);
 
 if ($Result){	
 		echo '<script> alert("Cadastrado Com Sucesso") </script>  ';
+	$_SESSION['NomeProfessor'] = $Result['NomeProfessor'];
+	$_SESSION['MatriculaProfessor'] = $Result['MatriculaProfessor'];
+	$_SESSION['EmailProfessor'] = $Result['EmailProfessor'];
+	$_SESSION['LoginProfessor'] = $Result['LoginProfessor'];
 }	
 else 
 	echo '<script> alert("Não Cadastrado Com Sucesso") </script>  ';

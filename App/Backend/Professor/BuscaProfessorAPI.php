@@ -22,7 +22,7 @@ $type = $_POST['type'];
 $ListarProfessor = new Professor($type, $searchfield);
 
 $ProfessorControl = new mainController();
-$Result =$ProfessorControl->listarProfessor($ListarProfessor);
+$Result =$ProfessorControl->listBy($ListarProfessor);
 
 if ($Result){
 		echo '<script> alert("Procurado com sucesso") </script>  ';

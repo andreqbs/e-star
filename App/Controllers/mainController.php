@@ -577,6 +577,12 @@ function listarProfessor($Agendamento,$idProfessor)
 	return $DAOProfessor->list($Professor, $idProfessor);
 }
 
+function loginProfessor($login,$senha)
+{
+	$DAOProfessor = new DAOProfessor();
+	return $DAOProfessor->findBy($login, $senha);
+}
+
 
 //CreateDefesa
 function cadastrarDefesa($Defesa)
