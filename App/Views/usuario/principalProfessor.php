@@ -1,3 +1,17 @@
+<?php 
+session_start();
+
+if(!$_SESSION['idProfessor']){
+  // echo "não entre";
+
+header("HTTP/1.1 301 Moved Permanently");
+
+header("location:  ../../../Public/login.php");
+
+} else {
+
+
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -246,3 +260,7 @@
 
 </body>
 </html>
+
+<?php 
+}
+?>

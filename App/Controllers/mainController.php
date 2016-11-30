@@ -348,6 +348,12 @@ function buscarAluno($Aluno,$idAluno)
 	return $DAOAluno->find($Aluno, $idAluno);
 }
 
+function loginAluno($login,$senha)
+{
+	$DAOAluno = new DAOAluno();
+	return $DAOAluno->findBy($login, $senha);
+}
+
 //ListAluno
 function listarAluno($Aluno,$idAluno)
 {
@@ -569,6 +575,12 @@ function listarProfessor($Agendamento,$idProfessor)
 {
 	$DAOProfessor = new Professor();
 	return $DAOProfessor->list($Professor, $idProfessor);
+}
+
+function loginProfessor($login,$senha)
+{
+	$DAOProfessor = new DAOProfessor();
+	return $DAOProfessor->findBy($login, $senha);
 }
 
 
