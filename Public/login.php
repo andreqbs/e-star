@@ -50,6 +50,14 @@
         <small class="help-block with-errors"></small>
       </div>
 
+      <div class="form-group has-feedback">
+          <select id="usuarioSelect" class="form-control select1" required="true">
+            <option selected>Selecione um vínculo</option>
+            <option value="1">Aluno(a)</option>
+            <option value="2  ">Professor(a)</option>
+          </select>
+      </div>
+
       <div class="row">
         <div class="col-xs-12">
           <button type="submit" class="btn btn-info btn-block btn-flat"><h5>CRIAR</h4></button>
@@ -132,10 +140,31 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
 
 <script src="bower_components/jQuery-Mask-Plugin/dist/jquery.mask.js"></script> 
+
+<script src="../Js/ajaxFunctions.js"></script> 
 <!-- Função para campo de entrada da data -->
 <script>$(document).ready(function(){
     $('#matricula').mask('000000000');   
 });
+</script>
+
+<script>
+  
+  $('#formLoginUsuario').on('submit', function(){
+                    var usuarioLogin = document.getElementById('usuarioLogin').value;
+                    var senhaLogin = document.getElementById('senhaLogin').value;
+                    var usuarioSelect = document.getElementById('usuarioSelect').value;
+                    
+                    var dataString = $("#formLoginUsuario").serialize();
+                    dataString += '&usuarioLogin='+usuarioLogin+'&senhaLogin='+senhaLogin;
+                    //alert(dataString);
+                    
+                    ajaxPostRedirect(dataString,"../App/Backend/Aluno/LoginAlunoAPI.php","../App/Views/usuario/principalAluno.php");
+        
+
+        return false;
+    }); 
+
 </script>
 
 </body>
