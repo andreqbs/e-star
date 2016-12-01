@@ -11,15 +11,15 @@ use App\Controllers\mainController as mainController;
 
 require_once dirname(__FILE__).'/../../../Lib/Core/Loader.php';
 
- $NomeProfessor = $_POST['NomeProfessor'];
+ $NomeProfessor = $_POST['nomeCompleto'];
 
- $MatriculaProfessor = $_POST['MatriculaProfessor'];
+ $MatriculaProfessor = $_POST['matricula'];
 
- $EmailProfessor = $_POST['EmailProfessor'];
+ $EmailProfessor = $_POST['email'];
 
- $LoginProfessor = $_POST['LoginProfessor'];
+ $LoginProfessor = $_POST['usuario'];
 
- $SenhaProfessor = $_POST['SenhaProfessor'];
+ $SenhaProfessor = $_POST['repetirSenha'];
 
  $SenhaProfessorConfirmacao = $_POST['SenhaProfessor'];
 
@@ -34,7 +34,6 @@ require_once dirname(__FILE__).'/../../../Lib/Core/Loader.php';
  // $SenhaProfessor = "123456789";
 
  // $SenhaProfessorConfirmacao = "egy321gg";
-
 $meuProfessor = new Professor($NomeProfessor,$MatriculaProfessor,$EmailProfessor, $LoginProfessor, $SenhaProfessor);
 
 $ProfessorControl = new mainController();
