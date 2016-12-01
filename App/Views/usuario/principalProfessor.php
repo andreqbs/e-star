@@ -88,7 +88,7 @@ header("location:  ../../../Public/login.php");
                 </div>
 
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sair</a>
+                  <a href="../../../App/Backend/Professor/LogoffProfessorAPI.php" class="btn btn-default btn-flat">Sair</a>
                 </div>
               </li>
 
