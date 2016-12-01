@@ -22,7 +22,7 @@ header("location:  ../../../Public/login.php");
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-  <link rel="stylesheet" href="estart/css/style.css">
+  <link rel="stylesheet" href="../../../CSS/style.css">
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="../../../Public/bower_components/AdminLTE/bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
@@ -68,7 +68,13 @@ header("location:  ../../../Public/login.php");
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="../../../Imagens/Start.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Administrador</span>
+              <span class="hidden-xs">
+              <?php
+                echo $_SESSION['nome'];
+              ?>
+
+
+              </span>
             </a>
 
             <!-- Inicio do dropdown usuario -->
@@ -77,7 +83,10 @@ header("location:  ../../../Public/login.php");
               <li class="user-header">
                 <img src="../../../Imagens/Start.jpg" class="img-circle" alt="User Image">
                 <p>
-                  Administrador
+                <?php
+                echo $_SESSION['nome'];
+                ?>
+
                 </p>
               </li><!-- Fim da imagem do usuario -->
 
