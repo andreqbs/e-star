@@ -25,8 +25,7 @@
 
     
     <section class="content-header"><!-- cabeçalho de conteúdo (cabeçalho da página) -->
-      <br>
-      <br>
+      <form class="form-horizontal" id="formCadastroProfessor"><!-- form start -->
           <div class="box box-pessoais">
             <div class="box-header with-border">
               <div class="col-md-5"></div><h3 class="box-title">Cadastro de Professor</h3>
@@ -36,7 +35,7 @@
             
           </div>
             </div><!-- /.box-header -->           
-            <form class="form-horizontal" id="formCadastroProfessor"><!-- form start -->
+            
               <div class="box-body">
               <div class="row">
                 <div class="col-md-12">
@@ -86,10 +85,10 @@
                   <button class="btn btn-default">Cancelar</button>
                   <button class="btn btn-primary" type="submit">Salvar</button>
                 </div>                
-               </form>
+               
               </div>  <!-- Box pessoais -->
            <br>           
-        
+      </form>  
     </section><!-- Fim da seção -->
     
   </div><!-- Fim do conteúdo da página -->

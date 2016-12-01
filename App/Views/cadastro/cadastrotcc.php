@@ -28,7 +28,7 @@
 
     
     <section class="content-header"><!-- cabeçalho de conteúdo (cabeçalho da página) -->
-      
+      <form> <!-- Form geral -->
           <div class="box box-pessoais">
             <div class="box-header with-border">
               <div class="col-md-5"></div><h3 class="box-title">Dados pessoais</h3>
@@ -271,6 +271,7 @@
                     <button class="btn btn-primary">Salvar</button>
                   </div>
           </div><!-- form group  button-->
+      </form>    
     </section><!-- Fim da seção -->
     
   </div><!-- Fim do conteúdo da página -->

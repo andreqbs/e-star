@@ -28,6 +28,7 @@
 
     
     <section class="content-header"><!-- cabeçalho de conteúdo (cabeçalho da página) -->
+      <form class="form-horizontal"> <!-- form start -->
           <div class="box box-pessoais"> 
             <div class="box-header with-border">
               <div class="col-md-5"></div><h3 class="box-title">Agendamento de dúvidas</h3>
@@ -37,7 +38,7 @@
               </div>
             </div> <!-- /.box-header -->
             
-            <form class="form-horizontal"> <!-- form start -->
+            
               <div class="box-body">
 
                 <div class="col-md-3"></div> <!-- Inicio Linha 02 -->
@@ -75,7 +76,7 @@
                   </div> <!-- Fim Linha 04 -->
 
                 </div> <!-- Fim Box body -->
-              </form>
+              
             </div> <!-- Fim Box pessoais -->
              
            <br/>           
@@ -85,7 +86,7 @@
                     <button class="btn btn-primary">Salvar</button>
                   </div>
           </div><!-- form group  button-->
-        
+      </form>
     </section><!-- Fim da seção -->
     
   </div><!-- Fim do conteúdo da página -->

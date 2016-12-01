@@ -28,19 +28,18 @@
 
     
     <section class="content-header"><!-- cabeçalho de conteúdo (cabeçalho da página) -->
-      
+      <form class="form-horizontal">
           <div class="box box-pessoais">
             <div class="box-header with-border">
               <div class="col-md-5"></div><h3 class="box-title">Dados do evento</h3>
               <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
             </button>
-            
-          </div>
+              </div>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal">
+            
               <div class="box-body">
 
               <div class="col-md-3"></div>
@@ -111,7 +110,7 @@
                 </div> <!-- Fim Linha 01-->
 
                 </div> <!-- Box body -->
-              </form>
+              
             </div> <!-- Box pessoais --> 
            <br/>           
           <div class="form-group">      
@@ -120,7 +119,7 @@
                     <button class="btn btn-primary">Salvar</button>
                   </div>
           </div><!-- form group  button-->
-        
+      </form>  
     </section><!-- Fim da seção -->
     
   </div><!-- Fim do conteúdo da página -->
