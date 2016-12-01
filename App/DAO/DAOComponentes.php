@@ -2,7 +2,7 @@
 
 namespace App\DAO;
 use Lib\Database\Connection as Connection;
-use App\Models\Componentes as Componentes;
+use App\Model\Componentes as Componentes;
 use App\Iface\IDAO as IDAO;
 
 require_once dirname(__FILE__).'/../../Lib/Database/Connection.php';
@@ -117,6 +117,25 @@ class DAOComponentes implements IDAO{
                 echo "Error: " . $e->getMessage();
         }
 
+        return $this->data;
+    }
+        public function listBy($type, $value)
+    {
+        $connection = new Connection();
+        $connection = $connection->openConnection();
+        $sql = "SELECT * FROM Aluno WHERE ".$type." = ".$value;
+
+        echo "<br>".$sql."<br>";
+        try {
+            $stmt = $connection->query($sql);
+            $this->data = $stmt->fetch();
+
+
+        }
+        catch(PDOException $e) {
+
+                echo "Error: " . $e->getMessage();
+        }
         return $this->data;
     }
 }

@@ -1,12 +1,11 @@
-body{
-
-	margin: 0px;
-	padding: 0px;
-
-
-
+.registro {
+  display: none;
 }
 
+.body {
+  background: #d6d1d1;
+
+}
 
 
 .fundobg { 
@@ -55,4 +54,18 @@ body{
   	text-align: center;
   	padding: 0 20px 20px 20px;
 }
+.box.box-pessoais {
+  border-top-color: #f5ad08;
+}.box.box-tcc {
+  border-top-color: #2025f5;
+}.box.box-cronograma {
+  border-top-color: #39f520;
+}
+.box-entrada {
+  max-width: 100px;
+}
+
+
+
+
 

@@ -1,7 +1,8 @@
 <?php
 
 namespace Lib\Database;
-
+ini_set('display_errors', 'On');
+error_reporting(E_ALL);
 use PDO;
 use Exception;
 
