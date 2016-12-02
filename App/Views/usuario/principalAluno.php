@@ -1,11 +1,8 @@
 <?php 
 session_start();
-
 if(!$_SESSION['idAluno']){
   echo "não entre";
 } else {
-
-
  ?>
 
 <!DOCTYPE html>
@@ -226,7 +223,6 @@ if(!$_SESSION['idAluno']){
 
 <script>
     function carregar(pagina){
-
         $("#conteudo").load(pagina);
         
     }
@@ -239,6 +235,5 @@ if(!$_SESSION['idAluno']){
 </html>
 
 <?php 
-
 }
  ?>
