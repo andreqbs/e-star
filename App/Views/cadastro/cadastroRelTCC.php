@@ -4,7 +4,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Relatório</title>
+  <title>Relatório TCC</title>
 
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
@@ -31,18 +31,19 @@
 <div class="container=fluid"> 
 <div class="content">    
         <section class="content-header">
+          <form class="form-horizontal">
           <div class="box box-pessoais">
 
             <div class="box-header with-border">
               
-              <h3 class="box-title">Relatório de TCC</h3>
+              <div class="col-md-5"></div><h3 class="box-title">Relatório do TCC</h3>
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
               </div>
             </div>
             <!-- /.box-header -->
-            <form>
+            
               <div class="box-body" >
                                                  
                           <div class="row"> 
@@ -54,7 +55,7 @@
                           <div class="row"> 
                                         <div class="col-md-8">
                                         <label>Aluno(a): </label>
-                                        <input type="text" class="form-control"  placeholder="Titulo do TCC">
+                                        <input type="text" class="form-control"  placeholder="Nome do Aluno(a)">
                                         </div>
                                         <div class="col-md-2">
                                         <label>Matrícula: </label>
@@ -110,7 +111,7 @@
                           </div>
 
               </div><!-- /.box-body -->
-            </form> 
+             
           </div><!-- /.box geral-->
 
           <div class="form-group">      
@@ -119,6 +120,7 @@
               <button class="btn btn-primary">Salvar</button>
               </div>
           </div><!-- form group  button-->
+          </form>
         </section>
 
 </div> <!-- Fim content -->
