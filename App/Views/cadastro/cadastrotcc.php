@@ -28,7 +28,7 @@
 
     
 <section class="content-header"><!-- cabeçalho de conteúdo (cabeçalho da página) -->
-<form id="formCadastroTcc"> <!-- Form geral -->
+<form id="formCadastroTcc" class="form-horizontal"> <!-- Form cadastro tcc -->
           <div class="box box-pessoais">
             <div class="box-header with-border">
               <div class="col-md-5"></div><h3 class="box-title">Dados pessoais</h3>
@@ -37,7 +37,6 @@
               </div>
             </div> <!-- /.box-header -->
             
-            <form class="form-horizontal" id="formCadastroTccDadosPessoais"><!-- form start -->
               <div class="box-body">
 
               <div class="row"> <!-- Inicio Linha 01 -->
@@ -101,7 +100,6 @@
                 </div>  <!-- Fim Linha 04 -->
 
               </div><!-- box body -->
-             </form> <!-- Form Dados pessoais -->
 
             </div> <!-- Box pessoais -->
             <div class="box box-tcc">
@@ -113,7 +111,6 @@
               </div>
             </div><!-- /.box-header -->
 
-            <form class="form-horizontal" id="formCadastroTccDadosTcc">
               <div class="box-body">
 
                 <div class="row"> <!-- Inicio Linha 04 -->
@@ -166,7 +163,6 @@
                   </div> <!-- Fim Linha 06 -->
 
                 </div> <!-- Fim do Box body -->
-               </form> <!-- Form Dados Tcc -->
               </div> <!-- box tcc -->
 
                 <div class="box box-cronograma">
@@ -176,7 +172,6 @@
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                   </div>
                 </div>
-            <form class="form-horizontal" id="formCadastroTccCronograma">
             <div class="box-body">
               <div class="box-tools pull-right">
 
@@ -267,7 +262,6 @@
                 </tr>
               </tbody></table>
             </div><!-- table /.box-body -->
-           </form> <!-- Form cronograma -->
                      
           </div> <!-- Box cronograma -->
           <div class="form-group">      
@@ -293,9 +287,9 @@
 <script src="../../../Public/bower_components/jQuery-Mask-Plugin/dist/jquery.mask.js"></script> 
 <!-- Função para campo de entrada da data -->
 <script>$(document).ready(function(){
-    $('#matriculaaluno').mask('000000000');
-    $('#matriculaaluno2').mask('000000000');
-    $('#matriculaorientador').mask('000000000');   
+    $('#MatriculaAluno1').mask('000000000');
+    $('#MatriculaAluno2').mask('000000000');
+    $('#MatriculaOrientador').mask('000000000');   
 });
 </script>
 </body>
