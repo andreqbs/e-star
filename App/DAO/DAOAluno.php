@@ -109,7 +109,7 @@ class DAOAluno implements IDAO{
     }
 
 
-    public function list()
+/*    public function list()
     {
         $connection = new Connection();
         $connection = $connection->openConnection();
@@ -127,7 +127,7 @@ class DAOAluno implements IDAO{
                 echo "Error: " . $e->getMessage();
         }
         return $this->data;
-    }
+    }*/
     public function listBy($type, $value)
     {
         $connection = new Connection();

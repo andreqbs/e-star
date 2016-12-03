@@ -12,7 +12,7 @@ interface IDAO{
 
     public function find($idObject);
 
-	public function list();
+	//public function list();
 
 	public function listBy($type, $value);
 }

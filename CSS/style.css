@@ -1,6 +1,4 @@
-.registro {
-  display: none;
-}
+
 
 .body {
   background: #d6d1d1;
@@ -65,7 +63,20 @@
   max-width: 100px;
 }
 
+.form .register-form {
+  display: none;
+}
 
 
-
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 300px;
+  margin: 0 auto;
+}
+.container:before, .container:after {
+  content: "";
+  display: block;
+  clear: both;
+}
 
