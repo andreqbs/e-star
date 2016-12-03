@@ -45,7 +45,7 @@
                         <div class="form-group">
                           <label class="col-md-1 control-label">Nome:</label>
                           <div class="col-md-5">
-                            <input type="text" id="NomeProfessor"class="form-control" placeholder="Digite aqui seu nome">
+                            <input type="text" id="NomeProfessor" class="form-control" placeholder="Digite aqui seu nome">
                           </div>
                           <label class="col-md-1 control-label">Matrícula:</label>
                           <div class="col-md-2">
@@ -73,7 +73,7 @@
                           </div>
                           <label class="col-md-1 control-label">Senha:</label>
                           <div class="col-md-3">
-                            <input type="password" id="SenhaProfessor"class="form-control" placeholder="Máximo 20 caracteres">
+                            <input type="password" id="SenhaProfessor" class="form-control" placeholder="Máximo 20 caracteres">
                           </div>
                         </div>
                       </div> <!--Fim Linha 02 -->

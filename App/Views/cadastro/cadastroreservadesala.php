@@ -28,7 +28,7 @@
 
     
     <section class="content-header"><!-- cabeçalho de conteúdo (cabeçalho da página) -->
-      <form class="form-horizontal">
+      <form class="form-horizontal" id="formCadastroReservaSala">
           <div class="box box-pessoais">
             <div class="box-header with-border">
               <div class="col-md-5"></div><h3 class="box-title">Reservas de Salas</h3>
@@ -68,7 +68,7 @@
                     <div class="form-group">
                       <label class="col-md-1 control-label">Professor:</label>
                       <div class="col-md-3">
-                        <input type="text" class="form-control" placeholder="Professor que deseja reservar a sala">
+                        <input id="NomeProfessor" type="text" class="form-control" placeholder="Professor que deseja reservar a sala">
                       </div>
                     </div>
                   </div>
@@ -77,7 +77,7 @@
                     <div class="form-group">
                       <label class="col-md-1 control-label">Sala:</label>
                       <div class="col-md-3">
-                        <input type="text" class="form-control" placeholder="Sala reservada">
+                        <input id="NomeSala" type="text" class="form-control" placeholder="Sala reservada">
                       </div>
                     </div>
                   </div>
@@ -88,20 +88,16 @@
            <br/>           
           <div class="form-group">      
                   <div class="col-md-offset-10">
-                    <button class="btn btn-default">Cancelar</button>
-                    <button class="btn btn-primary">Salvar</button>
+                    <button class="btn btn-default" type="reset">Cancelar</button>
+                    <button class="btn btn-primary" type="submit">Salvar</button>
                   </div>
           </div><!-- form group  button-->
       </form>  
     </section><!-- Fim da seção -->
     
   </div><!-- Fim do conteúdo da página -->
-  
-
 
 </div><!--Fim do Conteudo-->
-
-
 
 <script src="../../../Public/bower_components/AdminLTE/plugins/jQuery/jquery-2.2.3.min.js"></script>
 
@@ -116,5 +112,6 @@
     $('#hora').mask('00:00');   
 });
 </script>
+
 </body>
 </html>

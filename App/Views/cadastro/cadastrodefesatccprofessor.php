@@ -25,7 +25,7 @@
 
     
     <section class="content-header"><!-- cabeçalho de conteúdo (cabeçalho da página) -->
-      <form class="form-horizontal">
+      <form class="form-horizontal" id="formCadastroDefesaTccProfessor">
           <div class="box box-pessoais">
             <div class="box-header with-border">
               <div class="col-md-5"></div><h3 class="box-title">Defesa do TCC</h3>
@@ -46,7 +46,7 @@
                       <div class="col-md-12 col-md-offset-2">
                         <label class="col-md-1 control-label">Título:</label>
                         <div class="col-md-7">
-                          <input type="text" class="form-control" placeholder="Título do TCC" disabled="">
+                          <input id="TituloTcc" type="text" class="form-control" placeholder="Título do TCC" disabled="">
                         </div>
                       </div>
                 </div>
@@ -55,16 +55,16 @@
                       <div class="col-md-12 col-md-offset-2">                
                         <label class="col-md-1 control-label">Aluno(a):</label>
                         <div class="col-md-7">
-                          <input type="text" class="form-control" placeholder="Nome do Aluno(a)" disabled="">
+                          <input id="NomeAluno1" type="text" class="form-control" placeholder="Nome do Aluno(a)" disabled="">
                         </div>
                       </div>
                 </div>
 
                 <div class="form-group">               
                       <div class="col-md-12 col-md-offset-2">
-                        <label class="col-md-1 control-label">ALuno(a):</label>
+                        <label class="col-md-1 control-label">Aluno(a):</label>
                         <div class="col-md-7">
-                          <input type="text" class="form-control" placeholder="Nome do Aluno(a)" disabled="">
+                          <input id="NomeAluno2" type="text" class="form-control" placeholder="Nome do Aluno(a)" disabled="">
                         </div>
                       </div>
                 </div>      
@@ -73,7 +73,7 @@
                       <div class="col-md-12 col-md-offset-2">
                         <label class="col-md-1 control-label">Orientador:</label>
                         <div class="col-md-7">
-                          <input type="text" class="form-control" placeholder="Nome do orientador" disabled="">
+                          <input id="NomeOrientador" type="text" class="form-control" placeholder="Nome do orientador" disabled="">
                         </div>
                       </div>
                 </div>
@@ -82,7 +82,7 @@
                       <div class="col-md-12 col-md-offset-2">
                         <label class="col-md-1 control-label">Professor:</label>
                         <div class="col-md-7">
-                          <input type="text" class="form-control" placeholder="Professor avaliador 1">
+                          <input id="NomeProfessor1" type="text" class="form-control" placeholder="Professor avaliador 1">
                         </div>
                       </div>
                 </div>
@@ -91,7 +91,7 @@
                       <div class="col-md-12 col-md-offset-2">
                         <label class="col-md-1 control-label">Professor:</label>
                         <div class="col-md-7">
-                          <input type="text" class="form-control" placeholder="Professor avaliador 2">
+                          <input id="NomeProfessor2" type="text" class="form-control" placeholder="Professor avaliador 2">
                         </div>
                       </div>
                 </div>    
@@ -108,7 +108,7 @@
                         </div>
                         <label class="col-md-1 control-label">Sala:</label>
                         <div class="col-md-2">
-                        <input type="text" class="form-control" placeholder="Reserva de sala">
+                        <input type="text" id="NomeSala" class="form-control" placeholder="Reserva de sala">
                         </div>
                       </div>
                     </div> 
@@ -121,8 +121,8 @@
            <br/>
           <div class="form-group">      
                   <div class="col-md-offset-10">
-                    <button class="btn btn-default">Cancelar</button>
-                    <button class="btn btn-primary">Salvar</button>
+                    <button class="btn btn-default" type="reset">Cancelar</button>
+                    <button class="btn btn-primary" type="submit">Salvar</button>
                   </div>
           </div><!-- form group  button-->
       </form>  
@@ -130,11 +130,7 @@
     
   </div><!-- Fim do conteúdo da página -->
   
-
-
 </div><!--Fim do Conteudo-->
-
-
 
 <script src="../../../Public/bower_components/AdminLTE/plugins/jQuery/jquery-2.2.3.min.js"></script>
 
@@ -149,5 +145,6 @@
     $('#hora').mask('00:00');   
 });
 </script>
+
 </body>
 </html>

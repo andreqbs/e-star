@@ -28,12 +28,12 @@
 
     
     <section class="content-header"><!-- cabeçalho de conteúdo (cabeçalho da página) -->
-      <form class="form-horizontal"> <!-- form start -->
+      <form class="form-horizontal" id="formCadastroDuvidasAluno"> <!-- form start -->
           <div class="box box-pessoais">
             <div class="box-header with-border">
               <div class="col-md-5"></div><h3 class="box-title">Agendamento de dúvidas</h3>
               <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
             </button>
             
           </div>
@@ -46,7 +46,7 @@
                     <div class="form-group">
                       <label class="col-md-1 control-label">Aluno:</label>
                       <div class="col-md-3">
-                        <input type="text" class="form-control" placeholder="Nome do Aluno(a)" disabled="">
+                        <input id="NomeAluno" type="text" class="form-control" placeholder="Nome do Aluno(a)" disabled="">
                       </div>
                     </div>
                 </div> <!-- Fim Linha 01 -->
@@ -56,7 +56,7 @@
                   <div class="form-group">
                     <label class="col-md-1 control-label">Motivo:</label>
                     <div class="col-md-3">
-                      <textarea class="form-control" style="resize: none" placeholder="Escreva o motivo do agendamento"></textarea>
+                      <textarea id="MotivoDuvidaAluno" class="form-control" style="resize: none" placeholder="Escreva o motivo do agendamento"></textarea>
                     </div>
                   </div><!-- form group-->
                 </div> <!-- Fim Linha 02 -->
@@ -66,7 +66,7 @@
                     <div class="form-group">
                       <label class="col-md-1 control-label">Atendimento:</label>
                       <div class="col-md-3">
-                        <select class="form-control">
+                        <select class="form-control" id="TipoAtendimento">
                           <option selected>Selecione seu atendimento</option> 
                           <option>Professor orientador</option> <!-- Vai puxar de acordo com o aluno -->
                           <option>Equipe pedagógica</option>
@@ -80,7 +80,7 @@
                     <div class="form-group">
                       <label class="col-md-1 control-label">Data:</label>
                       <div class="col-md-3">
-                        <select class="form-control">
+                        <select class="form-control" id="DataAgendamentoDuvidasAluno">
                           <option selected>Selecione uma data</option> <!-- Listar as datas cadastrada pelo coordenador-->
                           <option>01/02/16</option>
                           <option>01/03/16</option>
@@ -98,7 +98,7 @@
                     <div class="form-group">
                       <label class="col-md-1 control-label">Horário:</label>
                       <div class="col-md-3">
-                        <select class="form-control">
+                        <select class="form-control" id="HorarioAgendamentoDuvidas">
                           <option selected>Selecione um horário</option> <!--Listar os horários cadastrados pelo coordenador-->
                           <option>00:00</option>
                           <option>01:00</option>
@@ -124,8 +124,8 @@
            <br/>           
           <div class="form-group">      
                   <div class="col-md-offset-10">
-                    <button class="btn btn-default">Cancelar</button>
-                    <button class="btn btn-primary">Salvar</button>
+                    <button class="btn btn-default" type="reset">Cancelar</button>
+                    <button class="btn btn-primary" type="submit">Salvar</button>
                   </div>
           </div><!-- form group  button-->
         </form>
