@@ -27,8 +27,8 @@
 <div class="content"><!-- Contém o conteúdo da página -->
 
     
-    <section class="content-header"><!-- cabeçalho de conteúdo (cabeçalho da página) -->
-      <form> <!-- Form geral -->
+<section class="content-header"><!-- cabeçalho de conteúdo (cabeçalho da página) -->
+<form id="formCadastroTcc"> <!-- Form geral -->
           <div class="box box-pessoais">
             <div class="box-header with-border">
               <div class="col-md-5"></div><h3 class="box-title">Dados pessoais</h3>
@@ -37,14 +37,14 @@
               </div>
             </div> <!-- /.box-header -->
             
-            <form class="form-horizontal"><!-- form start -->
+            <form class="form-horizontal" id="formCadastroTccDadosPessoais"><!-- form start -->
               <div class="box-body">
 
               <div class="row"> <!-- Inicio Linha 01 -->
                     <div class="col-md-1"></div> 
                     <div class="col-md-7">
                     <label class="control-label">Curso:</label>
-                      <select class="form-control select1">
+                      <select id="NomeCurso" class="form-control select1">
                         <option selected>Selecione um curso</option>
                         <option>Arquitetura e
                         <option>Engenharia Civil</option>
@@ -55,7 +55,7 @@
                     </div> <!-- col --> 
                     <div class="col-md-2">
                     <label class="control-label">Série:</label>
-                      <select class="form-control select1">
+                      <select id="NumeroSerie" class="form-control select1">
                         <option selected>Selecione sua série</option>
                         <option>9</option>
                         <option>10</option>
@@ -67,11 +67,11 @@
                 <div class="col-md-1"></div>
                     <div class="col-md-7">
                     <label class="control-label">Aluno(a):</label>
-                      <input type="text" class="form-control" placeholder="Nome do Aluno(a)">
+                      <input id="NomeAluno1" type="text" class="form-control" placeholder="Nome do Aluno(a)">
                     </div> 
                     <div class="col-md-2">
                     <label class="control-label">Matrícula</label>
-                      <input type="text" id="matriculaaluno" class="form-control" placeholder="Matrícula">
+                      <input type="text" id="MatriculaAluno1" class="form-control" placeholder="Matrícula">
                     </div>
                 </div> <!-- Fim Linha 02 -->
 
@@ -83,7 +83,7 @@
                     </div>
                     <div class="col-md-2">
                     <label class="control-label">Matrícula:</label>
-                      <input type="text" id="matriculaaluno2" class="form-control" placeholder="Matrícula">
+                      <input type="text" id="MatriculaAluno2" class="form-control" placeholder="Matrícula">
                     </div>   
                 </div>  <!-- Fim Linha 03 -->
 
@@ -91,17 +91,17 @@
                 <div class="col-md-1"></div>
                     <div class="col-md-7">
                     <label class="control-label">Orientador(a):</label>
-                      <input type="text" class="form-control"  placeholder="Nome do Orientador(a)">
+                      <input id="NomeOrientador" type="text" class="form-control"  placeholder="Nome do Orientador(a)">
                     </div> 
                     <div class="col-md-2">
                     <label class="control-label">Matrícula:</label>
-                      <input type="text" id="matriculaorientador" class="form-control" placeholder="Matrícula">
+                      <input type="text" id="MatriculaOrientador" class="form-control" placeholder="Matrícula">
                     </div>
                 
                 </div>  <!-- Fim Linha 04 -->
 
               </div><!-- box body -->
-             </form> 
+             </form> <!-- Form Dados pessoais -->
 
             </div> <!-- Box pessoais -->
             <div class="box box-tcc">
@@ -113,13 +113,14 @@
               </div>
             </div><!-- /.box-header -->
 
-            <form class="form-horizontal">
+            <form class="form-horizontal" id="formCadastroTccDadosTcc">
               <div class="box-body">
+
                 <div class="row"> <!-- Inicio Linha 04 -->
                 <div class="col-md-1"></div>
                     <div class="col-md-9">
-                      <label class="control-label">Curso:</label>
-                      <select class="form-control select1">
+                      <label class="control-label">Pesquisa:</label>
+                      <select id="NomePesquisa" class="form-control select1">
                         <option selected>Selecione uma linha de pesquisa</option>
                         <option>Automação e Controle</option>
                         <option>Computação de Alto Desempenho</option>
@@ -131,25 +132,28 @@
                       </select>
                     </div>
                 </div> <!-- Fim Linha 04 -->
+
                 <div class="row"> <!-- Inicio Linha 05 -->
                 <div class="col-md-1"></div> 
                   <div class="col-md-9">
                     <label class="control-label">Título:</label>
-                    <input type="text" class="form-control" placeholder="Título do trabalho">
+                    <input id="TituloTCC" type="text" class="form-control" placeholder="Escreva o título do seu TCC">
                   </div>                
                 </div><!-- Fim Linha 05 -->
+
                 <div class="row"> <!-- Inicio Linha 06 -->
                 <div class="col-md-1"></div>
                     <div class="col-md-9">
                       <label class="control-label">Resumo:</label>
-                      <textarea class="form-control" style="resize: none" placeholder="Escreva seu resumo"></textarea>
+                      <textarea id="ResumoTcc" class="form-control" style="resize: none" placeholder="Escreva seu resumo"></textarea>
                     </div>
                 </div> <!-- Fim Linha 06 -->
+
                 <div class="row"> <!-- Inicio Linha 06 -->
                 <div class="col-md-1"></div>    
                     <div class="col-md-9">
                       <label class="control-label">Objetivos:</label>
-                      <textarea class="form-control" style="resize: none" placeholder="Escreva seus objetivos"></textarea>
+                      <textarea id="ObjetivosTcc" class="form-control" style="resize: none" placeholder="Escreva seus objetivos"></textarea>
                     </div>
                 </div> <!-- Fim Linha 06 -->
 
@@ -162,7 +166,7 @@
                   </div> <!-- Fim Linha 06 -->
 
                 </div> <!-- Fim do Box body -->
-               </form>
+               </form> <!-- Form Dados Tcc -->
               </div> <!-- box tcc -->
 
                 <div class="box box-cronograma">
@@ -172,9 +176,10 @@
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                   </div>
                 </div>
-            <form class="form-horizontal">
+            <form class="form-horizontal" id="formCadastroTccCronograma">
             <div class="box-body">
               <div class="box-tools pull-right">
+
                     <div> <!-- Início da Modal -->
                             <!-- Botão  -->
                             <a href="#myModal" class="btn btn-default" data-toggle="modal">Nova atividade</a>
@@ -187,12 +192,12 @@
                                             <h4 class="modal-title">Agendamento de atividades</h4>
                                         </div>
                                         <br><br>
-                                        <div class="body"> <!-- Conteúdo -->
+                                        <div> <!-- Conteúdo -->
                                             <div class="form-group">
                                             <label class="col-md-2 control-label">Mês:</label>
                                                       <div class="col-md-7">
-                                                    <select class="form-control select1">
-                                                      <option selected>Selecione o mês referente a atividade</option>
+                                                    <select id="MesAtividade" class="form-control select1">
+                                                      <option>Selecione o mês referente a atividade</option>
                                                       <option>Mês 1</option>
                                                       <option>Mês 2</option>
                                                       <option>Mês 3</option>
@@ -204,15 +209,15 @@
                                               <div class="form-group">
                                                 <label class="col-md-2 control-label">Atividade: </label>
                                                 <div class="col-md-7">
-                                                  <input type="text" class="form-control" placeholder="Nome da atividade">
+                                                  <input id="NomeAtividade" type="text" class="form-control" placeholder="Nome da atividade">
                                                 </div>
                                               </div><!-- form group-->  
                                               <br>        
                                         </div>
                                        
                                         <div class="modal-footer"> <!-- Area dos botões -->
-                                          <button class="btn btn-default">Cancelar</button>
-                                          <button class="btn btn-outline"><i class="fa fa-save"></i>&nbsp;&nbsp;Salvar</button>
+                                          <button id="BotaoCancelarAtividade" class="btn btn-default" type="reset">Cancelar</button>
+                                          <button id="BotaoSalvarAtividade" type="submit" class="btn btn-outline"><i class="fa fa-save"></i>&nbsp;&nbsp;Salvar</button>
                                         </div>
                                     </div>
                                 </div>
@@ -262,17 +267,17 @@
                 </tr>
               </tbody></table>
             </div><!-- table /.box-body -->
-           </form>
+           </form> <!-- Form cronograma -->
                      
           </div> <!-- Box cronograma -->
           <div class="form-group">      
                   <div class="col-md-offset-10">
-                    <button class="btn btn-default">Cancelar</button>
-                    <button class="btn btn-primary">Salvar</button>
+                    <button id="BotaoCancelarCadastroTcc" class="btn btn-default" type="reset">Cancelar</button>
+                    <button id="BotaoSalvarCadastroTcc" class="btn btn-primary" type="submit">Salvar</button>
                   </div>
           </div><!-- form group  button-->
-      </form>    
-    </section><!-- Fim da seção -->
+</form> <!-- Form Cadastro Tcc -->  
+</section><!-- Fim da seção -->
     
   </div><!-- Fim do conteúdo da página -->
 </div><!--Fim do Conteudo-->

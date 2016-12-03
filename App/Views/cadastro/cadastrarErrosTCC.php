@@ -28,12 +28,12 @@
 
     
     <section class="content-header"><!-- cabeçalho de conteúdo (cabeçalho da página) -->
-      <form class="form-horizontal">
+      <form class="form-horizontal" id="formCadastroErrosTCC">
           <div class="box box-pessoais">
             <div class="box-header with-border">
-              <div class="col-md-5"></div><h3 class="box-title">ERROS TCC</h3>
+              <div class="col-md-5"></div><h3 class="box-title">Erros TCC</h3>
               <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
             </button>
             
           </div>
@@ -50,7 +50,7 @@
                       <div class="form-group">                   
                        <label class="col-md-1 control-label">Título:</label>
                         <div class="col-md-7">
-                          <input type="text" class="form-control" placeholder="Título do TCC" disabled="">
+                          <input id="TituloTccErrosTCC" type="text" class="form-control" placeholder="Título do TCC" disabled="">
                         </div>
                       </div>
                     </div> <!-- Fim Linha 01 -->
@@ -60,11 +60,11 @@
                       <div class="form-group">                   
                        <label class="col-md-1 control-label">Nome:</label>
                         <div class="col-md-3">
-                          <input type="text" class="form-control" placeholder="Informe o nome do erro">
+                          <input id="NomeErrosTCC" type="text" class="form-control" placeholder="Informe o nome do erro">
                         </div>                   
                        <label class="col-md-1 control-label">Categoria:</label>
                         <div class="col-md-3">
-                          <input type="text" class="form-control" placeholder="Informe a categoria do erro">
+                          <input id="CategoriaErrosTCC" type="text" class="form-control" placeholder="Informe a categoria do erro">
                         </div>
                       </div>
                     </div> <!-- Fim Linha 02 -->
@@ -78,8 +78,8 @@
            <br/>           
           <div class="form-group">      
                   <div class="col-md-offset-10">
-                    <button class="btn btn-default">Cancelar</button>
-                    <button class="btn btn-primary">Salvar</button>
+                    <button class="btn btn-default" type="reset">Cancelar</button>
+                    <button class="btn btn-primary" type="submit">Salvar</button>
                   </div>
           </div><!-- form group  button-->
       </form>  
