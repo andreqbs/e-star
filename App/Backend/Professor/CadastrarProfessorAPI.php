@@ -23,17 +23,6 @@ require_once dirname(__FILE__).'/../../../Lib/Core/Loader.php';
 
  $SenhaProfessorConfirmacao = $_POST['SenhaProfessor'];
 
- // $NomeProfessor = "andre "; //$_POST['']
-
- // $MatriculaProfessor = "123356";
-
- // $EmailProfessor = "teste@test.com";
-
- // $LoginProfessor = "andree";
-
- // $SenhaProfessor = "123456789";
-
- // $SenhaProfessorConfirmacao = "egy321gg";
 $meuProfessor = new Professor($NomeProfessor,$MatriculaProfessor,$EmailProfessor, $LoginProfessor, $SenhaProfessor);
 
 $ProfessorControl = new mainController();

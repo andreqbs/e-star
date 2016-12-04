@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Models;
+namespace App\Model;
 
 class Eventos {
 	private $idEventos;
@@ -9,16 +9,19 @@ class Eventos {
 
 	private $DataEvento;
 
+	private $horaEventos;
+
 	private $LocalEvento;
 
 	private $ProfessorFK;
 
 	private $CursoFK;
 
-	
-	function __construct($NomeEvento, $DataEvento, $LocalEvento, $ProfessorFK, $CursoFK) {
+	// NomeEvento data hora LocalEvento NomeProfessor NomeCurso
+	function __construct($NomeEvento, $DataEvento, $horaEventos, $LocalEvento, $ProfessorFK, $CursoFK) {
 		$this->NomeEvento = $NomeEvento;
 		$this->DataEvento = $DataEvento;
+		$this->horaEventos = $horaEventos;
 		$this->LocalEvento = $LocalEvento;
 		$this->ProfessorFK = $ProfessorFK;
 		$this->CursoFK = $CursoFK;
@@ -38,6 +41,10 @@ class Eventos {
 		function getDataEvento () 
 		{
 			return $this->DataEvento;
+		}
+		function gethoraEventos () 
+		{
+			return $this->horaEventos;
 		}
 		
 		function getLocalEvento () 
@@ -65,7 +72,10 @@ class Eventos {
 		{
 			$this->DataEvento = $DataEvento;
 		}
-		
+		function sethoraEventos ($horaEventos) 
+		{
+			return $this->horaEventos;
+		}
 		function setLocalEvento ($LocalEvento) 
 		{
 			$this->LocalEvento = $LocalEvento;
