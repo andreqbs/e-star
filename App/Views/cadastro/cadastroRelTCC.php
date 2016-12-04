@@ -31,7 +31,7 @@
 <div class="container=fluid"> 
 <div class="content">    
         <section class="content-header">
-          <form class="form-horizontal">
+          <form class="form-horizontal" id="formCadastroRelatorioTcc">
           <div class="box box-pessoais">
 
             <div class="box-header with-border">
@@ -63,9 +63,9 @@
                                       </div>
                                       <div class="col-md-2">
                                         <label>Matrícula: </label>
-                                        <input id="MatriculaAluno" type="text" id="matricula" class="form-control" disabled="">
+                                        <input id="MatriculaAluno" type="text"  class="form-control" disabled="">
                                       </div>
-                          </div>
+                          </div> 
                           <div class="row">
                                       <div class="col-md-8">
                                         <label>Apresentação / Comentário:</label>
@@ -137,10 +137,56 @@
 <script src="../../../Public/bower_components/AdminLTE/dist/js/app.min.js"></script>
 
 <script src="../../../Public/bower_components/jQuery-Mask-Plugin/dist/jquery.mask.js"></script> 
+
+<script src="../../../Js/ajaxFunctions.js"></script> 
+
 <!-- Função para campo de entrada da data -->
 <script>$(document).ready(function(){
     $('#matricula').mask('000000000');   
 });
 </script>
+
+<?php session_start() ?>
+<script>
+  $('#formCadastroRelatorioTcc').on('submit', function(){
+     // e.preventDefault();  //prevent form from submitting
+                    var TituloTcc = document.getElementById('TituloTcc').value;
+                    var NomeAluno = document.getElementById('NomeAluno').value;
+                    var MatriculaAluno = document.getElementById('MatriculaAluno').value;
+                    var ApresentacaoComentario = document.getElementById('ApresentacaoComentario').value;
+                    var NotaApresentacao = document.getElementById('NotaApresentacao').value;
+                    var FundamentacaoComentario = document.getElementById('FundamentacaoComentario').value;
+                    var NotaFundamentacao = document.getElementById('NotaFundamentacao').value;
+                    var DesenvolvimentoComentario = document.getElementById('DesenvolvimentoComentario').value;
+                    var NotaDesenvolvimento = document.getElementById('NotaDesenvolvimento').value;
+                    var ResultadosComentario = document.getElementById('ResultadosComentario').value;
+                    var NotaResultados = document.getElementById('NotaResultados').value;
+                    var NotaTotal = document.getElementById('NotaTotal').value;
+
+                    var dataString = $("#formCadastroRelatorioTcc").serialize();
+                    dataString += '&TituloTcc='+TituloTcc+'&NomeAluno='+NomeAluno+'&MatriculaAluno='+MatriculaAluno+'&ApresentacaoComentario='+ApresentacaoComentario+'&NotaApresentacao='+NotaApresentacao+'&FundamentacaoComentario='+FundamentacaoComentario+'&NotaFundamentacao='+NotaFundamentacao+'&DesenvolvimentoComentario='+DesenvolvimentoComentario+'&NotaDesenvolvimento='+NotaDesenvolvimento+'&ResultadosComentario='+ResultadosComentario+'&NotaResultados='+NotaResultados+'&NotaTotal='+NotaTotal;
+                    alert(dataString);
+                   
+                    var minhaSessionP = '<?php echo $_SESSION['idProfessor']; ?>';
+
+                    var minhaSessionA = '<?php echo $_SESSION['idAluno']; ?>';
+
+                    // alert("aluno");
+                    // alert(minhaSessionA);
+                    // alert("Professor");
+                    // alert(minhaSessionP);
+                    if(minhaSessionP > 0){
+                     alert("ProfessorRedi");                   
+                     ajaxPostRedirect(dataString,"../../../App/Backend/RelatorioTCC/CadastroRelatorioTccAPI.php","../../../App/Views/usuario/principalProfessor.php");
+                    }
+                    else if(minhaSessionA > 0){
+                     alert("AlunoRedi");                     
+                     ajaxPostRedirect(dataString,"../../../App/Backend/RelatorioTCC/CadastroRelatorioTccAPI.php","../../../App/Views/usuario/principalAluno.php");
+                    }                    
+                     
+        return false;
+    }); 
+</script>
+
 </body>
 </html>

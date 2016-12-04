@@ -1,42 +1,52 @@
 <?php 
 
-namespace App\Models;
+namespace App\Model;
 
 class RelatorioTCC {
 
 	private $idRelatorioTCC;
 
-	private $Apresentacao;
+	private $TituloTcc;
 
-	private $Fundamentacao;
+	private $NomeAluno;
 
-	private $Desenvolvimento;
-
-	private $ModeloResultado;
+	private $MatriculaAluno;
 
 	private $ApresentacaoComentario;
 
+	private $NotaApresentacao;
+
 	private $FundamentacaoComentario;
+
+	private $NotaFundamentacao;
 
 	private $DesenvolvimentoComentario;
 
-	private $ModeloResultadoComentario;
+	private $NotaDesenvolvimento;
+
+	private $ResultadosComentario;
+
+	private $NotaResultados;
 
 	private $NotaTotal;
 
-	private $TipoRelatorio;
-
 	private $idTCCFK;	
 
+ // TituloTcc NomeAluno MatriculaAluno ApresentacaoComentario NotaApresentacao FundamentacaoComentario NotaFundamentacao DesenvolvimentoComentario NotaDesenvolvimento ResultadosComentario NotaResultados  NotaTotal
 
-
-	function __construct($Apresentacao, $Fundamentacao, $Desenvolvimento, $ModeloResultado, $ApresentacaoComentario, $FundamentacaoComentario, $DesenvolvimentoComentario, $ModeloResultadoComentario, $NotaTotal, $TipoRelatorio, $idTCCFK) {
-		$this->Apresentacao = $Apresentacao;
-		$this->Fundamentacao = $Fundamentacao;
-		$this->Desenvolvimento = $Desenvolvimento;
-		$this->ModeloResultado = $ModeloResultado;
+	function __construct($TituloTcc, $NomeAluno, $MatriculaAluno, $ApresentacaoComentario, $NotaApresentacao, $FundamentacaoComentario, $NotaFundamentacao, $DesenvolvimentoComentario, $NotaDesenvolvimento, $ResultadosComentario, $NotaResultados, $NotaTotal) {
+		$this->TituloTcc = $TituloTcc;
+		$this->NomeAluno = $NomeAluno;
+		$this->MatriculaAluno = $MatriculaAluno;
+		$this->ApresentacaoComentario = $ApresentacaoComentario;
+		$this->NotaApresentacao = $NotaApresentacao;
+		$this->FundamentacaoComentario = $FundamentacaoComentario;
+		$this->NotaFundamentacao = $NotaFundamentacao;
+		$this->DesenvolvimentoComentario = $DesenvolvimentoComentario;
+		$this->NotaDesenvolvimento = $NotaDesenvolvimento;
+		$this->ResultadosComentario = $ResultadosComentario;
+		$this->NotaResultados = $NotaResultados;
 		$this->NotaTotal = $NotaTotal;
-		$this->TipoRelatorio = $TipoRelatorio;
 		$this->idTCCFK = $idTCCFK;
 
 	}
@@ -46,54 +56,64 @@ class RelatorioTCC {
 			return $this->idRelatorioTCC;
 		}
 		
-		function getApresentacao () 
+		function getTituloTcc () 
 		{
-			return $this->Apresentacao;
+			return $this->TituloTcc;
 		}
 		
-		function getFundamentacao () 
+		function getNomeAluno () 
 		{
-			return $this->Fundamentacao;
+			return $this->NomeAluno;
 		}
 		
-		function getDesenvolvimento () 
+		function getMatriculaAluno () 
 		{
-			return $this->Desenvolvimento;
-		}
-
-		function getModeloResultado () 
-		{
-			return $this->ModeloResultado;
+			return $this->MatriculaAluno;
 		}
 
 		function getApresentacaoComentario () 
 		{
 			return $this->ApresentacaoComentario;
 		}
-		
+
+		function getNotaApresentacao () 
+		{
+			return $this->NotaApresentacao;
+		}
+
 		function getFundamentacaoComentario () 
 		{
 			return $this->FundamentacaoComentario;
 		}
 		
+		function getNotaFundamentacao () 
+		{
+			return $this->NotaFundamentacao;
+		}
+
 		function getDesenvolvimentoComentario () 
 		{
 			return $this->DesenvolvimentoComentario;
 		}
 
-		function getModeloResultadoComentario () 
+		function getNotaDesenvolvimento () 
 		{
-			return $this->ModeloResultadoComentario;
+			return $this->NotaDesenvolvimento;
+		}
+
+		function getResultadosComentario () 
+		{
+			return $this->ResultadosComentario;
+		}
+
+		function getNotaResultados () 
+		{
+			return $this->NotaResultados;
 		}
 
 		function getNotaTotal () 
 		{
 			return $this->NotaTotal;
-		}
-
-		function getTipoRelatorio () 
-		{
-			return $this->TipoRelatorio;
 		}
 
 		function getidTCCFK () 
@@ -103,54 +123,64 @@ class RelatorioTCC {
 
 
 
-		function setApresentacao ($Apresentacao) 
+		function setTituloTcc ($TituloTcc) 
 		{
-			$this->Apresentacao = $Apresentacao;
+			$this->TituloTcc = $TituloTcc;
 		}
 		
-		function setFundamentacao ($Fundamentacao) 
+		function SetNomeAluno ($NomeAluno) 
 		{
-			$this->Fundamentacao = $Fundamentacao;
+			return $this->NomeAluno;
 		}
 		
-		function setDesenvolvimento ($Desenvolvimento) 
+		function SetMatriculaAluno ($MatriculaAluno) 
 		{
-			$this->Desenvolvimento = $Desenvolvimento;
+			return $this->MatriculaAluno;
 		}
 
-		function setModeloResultado ($ModeloResultado) 
+		function SetApresentacaoComentario ($ApresentacaoComentario) 
 		{
-			$this->ModeloResultado = $ModeloResultado;
+			return $this->ApresentacaoComentario;
 		}
 
-		function setApresentacaoComentario ($ApresentacaoComentario) 
+		function SetNotaApresentacao ($NotaApresentacao) 
 		{
-			$this->ApresentacaoComentario = $ApresentacaoComentario;
+			return $this->NotaApresentacao;
+		}
+
+		function SetFundamentacaoComentario ($FundamentacaoComentario) 
+		{
+			return $this->FundamentacaoComentario;
 		}
 		
-		function setFundamentacaoComentario ($FundamentacaoComentario) 
+		function SetNotaFundamentacao ($NotaFundamentacao) 
 		{
-			$this->FundamentacaoComentario = $FundamentacaoComentario;
-		}
-		
-		function setDesenvolvimentoComentario ($DesenvolvimentoComentario) 
-		{
-			$this->DesenvolvimentoComentario = $DesenvolvimentoComentario;
+			return $this->NotaFundamentacao;
 		}
 
-		function setModeloResultadoComentario ($ModeloResultadoComentario) 
+		function SetDesenvolvimentoComentario ($DesenvolvimentoComentario) 
 		{
-			$this->ModeloResultadoComentario = $ModeloResultadoComentario;
+			return $this->DesenvolvimentoComentario;
 		}
 
-		function setNotaTotal ($NotaTotal) 
+		function SetNotaDesenvolvimento ($NotaDesenvolvimento) 
 		{
-			$this->NotaTotal = $NotaTotal;
+			return $this->NotaDesenvolvimento;
 		}
 
-		function setTipoRelatorio ($TipoRelatorio) 
+		function SetResultadosComentario ($ResultadosComentario) 
 		{
-			$this->TipoRelatorio = $TipoRelatorio;
+			return $this->ResultadosComentario;
+		}
+
+		function SetNotaResultados ($NotaResultados) 
+		{
+			return $this->NotaResultados;
+		}
+
+		function SetNotaTotal ($NotaTotal) 
+		{
+			return $this->NotaTotal;
 		}
 
 		function setidTCCFK ($idTCCFK) 
