@@ -46,7 +46,7 @@
       </div>
 
       <div class="form-group has-feedback">
-        <input id="senhaLogin" type="password" class="form-control"  placeholder="senha" required="true"  data-error="senha tem que ter no minimo 8 caracteres!">
+        <input id="senhaLogin" type="password" class="form-control"  placeholder="senha" required="true" data-minlength="6"  data-error="senha tem que ter no minimo 6 caracteres!">
         <small class="help-block with-errors"></small>
       </div>
 
@@ -109,7 +109,7 @@
       </div>
       
       <div class="form-group has-feedback">
-        <input id="senha"   type="password" class="form-control"  placeholder="senha" required="true" data-minlength="8" data-error="senha tem que ter no minimo 8 caracteres!">
+        <input id="senha"   type="password" class="form-control"  placeholder="senha" required="true" data-minlength="6" data-error="senha tem que ter no minimo 6 caracteres!">
         <small class="help-block with-errors"></small>
       </div>
      
@@ -147,13 +147,17 @@
 
 <script src="bower_components/jQuery-Mask-Plugin/dist/jquery.mask.js"></script> 
 
-<script src="../Js/ajaxFunctions.js"></script> 
+<script src="../Js/login.js"></script>
+
+<script src="../Js/ajaxFunctions.js"></script>
+
+ 
 <!-- Função para campo de entrada da data -->
 <script>$(document).ready(function(){
     $('#matricula').mask('000000000');   
 });
 </script>
-<script src="../Js/index.js"></script>
+
 <script>
   $('#formLoginUsuario').on('submit', function(e){
     e.preventDefault();  //prevent form from submitting

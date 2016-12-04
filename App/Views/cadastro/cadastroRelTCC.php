@@ -31,7 +31,7 @@
 <div class="container=fluid"> 
 <div class="content">    
         <section class="content-header">
-          <form class="form-horizontal">
+          <form class="form-horizontal" id="formCadastroRelatorioTcc">
           <div class="box box-pessoais">
 
             <div class="box-header with-border">
@@ -49,65 +49,69 @@
                           <div class="row"> 
                                         <div class="col-md-10">
                                         <label class="control-label">Título TCC:</label>
-                                          <input type="text" class="form-control" placeholder="Título do TCC" disabled="">
+                                          <input type="text" id="TituloTcc" placeholder="Título do TCC" disabled="" class="form-control">
                                         </div>
                           </div>
                           <div class="row"> 
-                                        <div class="col-md-8">
+                                      <div class="col-md-8">
                                         <label>Aluno(a): </label>
-                                        <input type="text" class="form-control"  placeholder="Nome do Aluno(a)">
-                                        </div>
-                                        <div class="col-md-2">
+                                        <select id="NomeAluno" class="form-control">
+                                          <option>Selecione o aluno para avaliar</option> <!-- Lista os alunos de acordo com o título do tcc -->
+                                          <option>Aluno 1</option>
+                                          <option>Aluno 2</option>
+                                        </select>
+                                      </div>
+                                      <div class="col-md-2">
                                         <label>Matrícula: </label>
-                                        <input type="text" id="matricula" class="form-control">
-                                        </div>
-                          </div>
+                                        <input id="MatriculaAluno" type="text"  class="form-control" disabled="">
+                                      </div>
+                          </div> 
                           <div class="row">
-                                        <div class="col-md-8">
+                                      <div class="col-md-8">
                                         <label>Apresentação / Comentário:</label>
-                                         <textarea class="form-control"  style="resize: none"  placeholder="Enter ..."></textarea>
-                                        </div>
-                                        <div class="col-md-2">
+                                         <textarea id="ApresentacaoComentario" class="form-control" style="resize: none"  placeholder="Enter ..."></textarea>
+                                      </div>
+                                      <div class="col-md-2">
                                         <label>Nota da apresentação: </label>
-                                        <input type="number" max=10 min="0" class="form-control">
-                                        </div>
+                                        <input id="NotaApresentacao" type="number" max=10 min="0" class="form-control">
+                                      </div>
                          </div>
                           <div class="row"> 
-                                        <div class="col-md-8">
+                                      <div class="col-md-8">
                                         <label>Fundamentação / Comentário:</label>
-                                         <textarea class="form-control"  style="resize: none"  placeholder="Enter ..."></textarea>
-                                        </div>
-                                        <div class="col-md-2">
+                                         <textarea id="FundamentacaoComentario" class="form-control"  style="resize: none"  placeholder="Enter ..."></textarea>
+                                      </div>
+                                      <div class="col-md-2">
                                         <label>Nota da fundamentação: </label>
-                                        <input type="number" max="10" min="0" class="form-control">
-                                        </div>
+                                        <input id="NotaFundamentacao" type="number" max="10" min="0" class="form-control">
+                                      </div>
                           </div>
                           <div class="row"> 
-                                        <div class="col-md-8">
+                                      <div class="col-md-8">
                                         <label>Desenvolvimento / Comentário:</label>
-                                         <textarea class="form-control"  style="resize: none"  placeholder="Enter ..."></textarea>
-                                        </div>
-                                        <div class="col-md-2">
+                                         <textarea id="DesenvolvimentoComentario" class="form-control"  style="resize: none"  placeholder="Enter ..."></textarea>
+                                      </div>
+                                      <div class="col-md-2">
                                         <label>Nota do Desenvolvimento: </label>
-                                        <input type="number" max="10" min="0" class="form-control">
-                                        </div>
+                                        <input id="NotaDesenvolvimento" type="number" max="10" min="0" class="form-control">
+                                      </div>
                           </div>
                           <div class="row"> 
-                                        <div class="col-md-8">
+                                      <div class="col-md-8">
                                         <label>Analise dos Resultados / Comentário:</label>
-                                         <textarea class="form-control"  style="resize: none"  placeholder="Enter ..."></textarea>
-                                        </div>
-                                        <div class="col-md-2">
+                                         <textarea id="ResultadosComentario" class="form-control"  style="resize: none"  placeholder="Enter ..."></textarea>
+                                      </div>
+                                      <div class="col-md-2">
                                         <label>Nota da analise: </label>
-                                        <input type="number" max="10" min="0" class="form-control">
-                                        </div>
+                                        <input id="NotaResultados" type="number" max="10" min="0" class="form-control">
+                                      </div>
                           </div>
                           <div class="row"> 
                                         <div class="col-md-8"></div>
-                                        <div class="col-md-2">
+                                      <div class="col-md-2">
                                         <label>Nota total: </label> 
-                                        <input type="number" class="form-control" placeholder="Soma das notas" disabled=""> 
-                                        </div>
+                                        <input id="NotaTotal" type="number" class="form-control" placeholder="Soma das notas" disabled=""> 
+                                      </div>
                           </div>
 
               </div><!-- /.box-body -->
@@ -116,8 +120,8 @@
 
           <div class="form-group">      
              <div class="col-md-offset-10">
-              <button class="btn btn-default">Cancelar</button>
-              <button class="btn btn-primary">Salvar</button>
+              <button class="btn btn-default" type="reset">Cancelar</button>
+              <button class="btn btn-primary" type="submit">Salvar</button>
               </div>
           </div><!-- form group  button-->
           </form>
@@ -133,10 +137,56 @@
 <script src="../../../Public/bower_components/AdminLTE/dist/js/app.min.js"></script>
 
 <script src="../../../Public/bower_components/jQuery-Mask-Plugin/dist/jquery.mask.js"></script> 
+
+<script src="../../../Js/ajaxFunctions.js"></script> 
+
 <!-- Função para campo de entrada da data -->
 <script>$(document).ready(function(){
     $('#matricula').mask('000000000');   
 });
 </script>
+
+<?php session_start() ?>
+<script>
+  $('#formCadastroRelatorioTcc').on('submit', function(){
+     // e.preventDefault();  //prevent form from submitting
+                    var TituloTcc = document.getElementById('TituloTcc').value;
+                    var NomeAluno = document.getElementById('NomeAluno').value;
+                    var MatriculaAluno = document.getElementById('MatriculaAluno').value;
+                    var ApresentacaoComentario = document.getElementById('ApresentacaoComentario').value;
+                    var NotaApresentacao = document.getElementById('NotaApresentacao').value;
+                    var FundamentacaoComentario = document.getElementById('FundamentacaoComentario').value;
+                    var NotaFundamentacao = document.getElementById('NotaFundamentacao').value;
+                    var DesenvolvimentoComentario = document.getElementById('DesenvolvimentoComentario').value;
+                    var NotaDesenvolvimento = document.getElementById('NotaDesenvolvimento').value;
+                    var ResultadosComentario = document.getElementById('ResultadosComentario').value;
+                    var NotaResultados = document.getElementById('NotaResultados').value;
+                    var NotaTotal = document.getElementById('NotaTotal').value;
+
+                    var dataString = $("#formCadastroRelatorioTcc").serialize();
+                    dataString += '&TituloTcc='+TituloTcc+'&NomeAluno='+NomeAluno+'&MatriculaAluno='+MatriculaAluno+'&ApresentacaoComentario='+ApresentacaoComentario+'&NotaApresentacao='+NotaApresentacao+'&FundamentacaoComentario='+FundamentacaoComentario+'&NotaFundamentacao='+NotaFundamentacao+'&DesenvolvimentoComentario='+DesenvolvimentoComentario+'&NotaDesenvolvimento='+NotaDesenvolvimento+'&ResultadosComentario='+ResultadosComentario+'&NotaResultados='+NotaResultados+'&NotaTotal='+NotaTotal;
+                    alert(dataString);
+                   
+                    var minhaSessionP = '<?php echo $_SESSION['idProfessor']; ?>';
+
+                    var minhaSessionA = '<?php echo $_SESSION['idAluno']; ?>';
+
+                    // alert("aluno");
+                    // alert(minhaSessionA);
+                    // alert("Professor");
+                    // alert(minhaSessionP);
+                    if(minhaSessionP > 0){
+                     alert("ProfessorRedi");                   
+                     ajaxPostRedirect(dataString,"../../../App/Backend/RelatorioTCC/CadastroRelatorioTccAPI.php","../../../App/Views/usuario/principalProfessor.php");
+                    }
+                    else if(minhaSessionA > 0){
+                     alert("AlunoRedi");                     
+                     ajaxPostRedirect(dataString,"../../../App/Backend/RelatorioTCC/CadastroRelatorioTccAPI.php","../../../App/Views/usuario/principalAluno.php");
+                    }                    
+                     
+        return false;
+    }); 
+</script>
+
 </body>
 </html>

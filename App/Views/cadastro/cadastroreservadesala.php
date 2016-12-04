@@ -28,7 +28,7 @@
 
     
     <section class="content-header"><!-- cabeçalho de conteúdo (cabeçalho da página) -->
-      <form class="form-horizontal">
+      <form class="form-horizontal" id="formCadastroReservaSala">
           <div class="box box-pessoais">
             <div class="box-header with-border">
               <div class="col-md-5"></div><h3 class="box-title">Reservas de Salas</h3>
@@ -68,7 +68,7 @@
                     <div class="form-group">
                       <label class="col-md-1 control-label">Professor:</label>
                       <div class="col-md-3">
-                        <input type="text" class="form-control" placeholder="Professor que deseja reservar a sala">
+                        <input id="NomeProfessor" type="text" class="form-control" placeholder="Professor que deseja reservar a sala">
                       </div>
                     </div>
                   </div>
@@ -77,7 +77,7 @@
                     <div class="form-group">
                       <label class="col-md-1 control-label">Sala:</label>
                       <div class="col-md-3">
-                        <input type="text" class="form-control" placeholder="Sala reservada">
+                        <input id="NomeSala" type="text" class="form-control" placeholder="Sala reservada">
                       </div>
                     </div>
                   </div>
@@ -88,20 +88,16 @@
            <br/>           
           <div class="form-group">      
                   <div class="col-md-offset-10">
-                    <button class="btn btn-default">Cancelar</button>
-                    <button class="btn btn-primary">Salvar</button>
+                    <button class="btn btn-default" type="reset">Cancelar</button>
+                    <button class="btn btn-primary" type="submit">Salvar</button>
                   </div>
           </div><!-- form group  button-->
       </form>  
     </section><!-- Fim da seção -->
     
   </div><!-- Fim do conteúdo da página -->
-  
-
 
 </div><!--Fim do Conteudo-->
-
-
 
 <script src="../../../Public/bower_components/AdminLTE/plugins/jQuery/jquery-2.2.3.min.js"></script>
 
@@ -110,11 +106,49 @@
 <script src="../../../Public/bower_components/AdminLTE/dist/js/app.min.js"></script>
 
 <script src="../../../Public/bower_components/jQuery-Mask-Plugin/dist/jquery.mask.js"></script> 
+
+<script src="../../../Js/ajaxFunctions.js"></script>
+
 <!-- Função para campo de entrada da data -->
 <script>$(document).ready(function(){
     $('#data').mask('00/00/0000');
     $('#hora').mask('00:00');   
 });
 </script>
+<?php session_start() ?>
+<script>
+  $('#formCadastroReservaSala').on('submit', function(){
+     // e.preventDefault();  //prevent form from submitting
+                    var data = document.getElementById('data').value;
+                    var hora = document.getElementById('hora').value;
+                    var NomeProfessor = document.getElementById('NomeProfessor').value;
+                    var NomeSala = document.getElementById('NomeSala').value;
+
+
+                    var dataString = $("#formCadastroReservaSala").serialize();
+                    dataString += '&data='+data+'&hora='+hora+'&NomeProfessor='+NomeProfessor+'&NomeSala='+NomeSala;
+                    alert(dataString);
+                   
+                    var minhaSessionP = '<?php echo $_SESSION['idProfessor']; ?>';
+
+                    var minhaSessionA = '<?php echo $_SESSION['idAluno']; ?>';
+
+                    alert("aluno");
+                    alert(minhaSessionA);
+                    alert("Professor");
+                    alert(minhaSessionP);
+                    if(minhaSessionP > 0){
+                     alert("ProfessorRedi");                   
+                     ajaxPostRedirect(dataString,"../../../App/Backend/Reserva/CadastrarReservaAPI.php","../../../App/Views/usuario/principalProfessor.php");
+                    }
+                    else if(minhaSessionA > 0){
+                     alert("AlunoRedi");                     
+                     ajaxPostRedirect(dataString,"../../../App/Backend/Reserva/CadastrarReservaAPI.php","../../../App/Views/usuario/principalAluno.php");
+                    }                    
+                     
+        return false;
+    }); 
+</script>
+
 </body>
 </html>

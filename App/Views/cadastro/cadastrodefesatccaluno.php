@@ -20,11 +20,7 @@
 
   <link rel="stylesheet" href="../../../Public/bower_components/AdminLTE/plugins/datepicker/datepicker3.css">
 
-  
-
 </head>
-
-
 
 <body>
 
@@ -32,7 +28,7 @@
 <div class="content">    
 
         <section class="content-header">
-          <form class="form-horizontal">
+          <form class="form-horizontal" id="formCadastroDefesaTccAluno">
             <div class="box box-pessoais">
              <div class="box-header with-border">              
               <div class="col-md-5"></div><h3 class="box-title">Defesa de TCC</h3>
@@ -45,67 +41,71 @@
             
               <div class="box-body" >
                                                  
-                          <div class="row">
+                           <div class="row"> 
                                         <div class="col-md-10">
                                         <label class="control-label">Título TCC:</label>
-                                          <input type="text" class="form-control" placeholder="Título do TCC" disabled="">
+                                        <input type="text" id="TituloTcc" placeholder="Título do TCC" class="form-control" disabled="">
                                         </div>
                           </div>
                           <div class="row"> 
                                         <div class="col-md-8">
                                         <label>Aluno(a): </label>
-                                        <input type="text" class="form-control"  placeholder="Titulo do TCC">
+                                        <select id="NomeAluno" class="form-control">
+                                          <option>Selecione o aluno para avaliar</option> <!-- Lista os alunos de acordo com o título do tcc -->
+                                          <option>Aluno 1</option>
+                                          <option>Aluno 2</option>
+                                        </select>
                                         </div>
                                         <div class="col-md-2">
                                         <label>Matrícula: </label>
-                                        <input type="text" id="matricula" class="form-control">
+                                        <input id="MatriculaAluno" type="text" id="matricula" class="form-control" disabled="">
                                         </div>
                           </div>
                           <div class="row">
                                         <div class="col-md-8">
                                         <label>Postura / Comentário:</label>
-                                         <textarea class="form-control"  style="resize: none"  placeholder="Enter ..."></textarea>
+                                         <textarea id="PosturaComentario" class="form-control" style="resize: none"  placeholder="Enter ..."></textarea>
                                         </div>
                                         <div class="col-md-2">
                                         <label>Nota da postura: </label>
-                                        <input type="number" max="10" min="0" class="form-control">
+                                        <input id="NotaPostura" type="number" max="10" min="0" class="form-control">
                                         </div>
                          </div>
                           <div class="row"> 
                                         <div class="col-md-8">
                                         <label>Comunicação / Comentário:</label>
-                                         <textarea class="form-control"  style="resize: none"  placeholder="Enter ..."></textarea>
+                                         <textarea id="ComunicacaoComentario" class="form-control" style="resize: none"  placeholder="Enter ..."></textarea>
                                         </div>
                                         <div class="col-md-2">
                                         <label>Nota da comunicação: </label>
-                                        <input type="number" max="10" min="0" class="form-control">
+                                        <input id="NotaComunicacao" type="number" max="10" min="0" class="form-control">
                                         </div>
                           </div>
                           <div class="row"> 
                                         <div class="col-md-8">
                                         <label>Clareza / Comentário:</label>
-                                         <textarea class="form-control"  style="resize: none"  placeholder="Enter ..."></textarea>
+                                         <textarea id="ClarezaComentario" class="form-control" style="resize: none"  placeholder="Enter ..."></textarea>
                                         </div>
                                         <div class="col-md-2">
                                         <label>Nota da clareza: </label>
-                                        <input type="number" max="10" min="0" class="form-control">
+                                        <input id="NotaClareza" type="number" max="10" min="0" class="form-control">
                                         </div>
                           </div>
                           <div class="row"> 
                                         <div class="col-md-8">
                                         <label>Domínio / Comentário:</label>
-                                         <textarea class="form-control"  style="resize: none"  placeholder="Enter ..."></textarea>
+                                         <textarea id="DominioComentario" class="form-control" style="resize: none"  placeholder="Enter ..."></textarea>
                                         </div>
                                         <div class="col-md-2">
                                         <label>Nota do domínio: </label>
-                                        <input type="number" max="10" min="0" class="form-control">
+                                        <input id="NotaDominio" type="number" max="10" min="0" class="form-control">
                                         </div>
                           </div>
                           <div class="row"> 
                                         <div class="col-md-8"></div>
                                         <div class="col-md-2">
                                         <label>Nota total: </label> 
-                                        <input type="number" class="form-control" placeholder="Soma das notas" disabled=""> 
+                                        <input id="NotaTotal" type="number" class="form-control" placeholder="Soma das notas" disabled=""> 
                                         </div>
                           </div>
 
@@ -115,8 +115,8 @@
 
           <div class="form-group">      
              <div class="col-md-offset-10">
-              <button class="btn btn-default">Cancelar</button>
-              <button class="btn btn-primary">Salvar</button>
+              <button class="btn btn-default" type="reset">Cancelar</button>
+              <button class="btn btn-primary" type="submit">Salvar</button>
               </div>
           </div><!-- form group  button-->
           </form>

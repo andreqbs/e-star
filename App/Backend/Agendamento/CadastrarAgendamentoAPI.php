@@ -12,7 +12,7 @@ require_once dirname(__FILE__).'/../../../Lib/Core/Loader.php';
 date_default_timezone_set('America/Sao_Paulo');
 $date = date('Y-m-d H:i:s');
 
-$Agendamento = new Agendamento("{$date}","Saber de QBS","1","1");
+$Agendamento = new Agendamento($date,"Saber de QBS","7","1");
 
 $Controller = new mainController();
 $Result = $Controller->cadastrarAgendamento($Agendamento);

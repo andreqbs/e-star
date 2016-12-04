@@ -209,7 +209,7 @@ header("location:  ../../../Public/login.php");
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a onclick="carregar('/../cadastro/cadastroRelTCC.php')" href="#"><i class="fa fa-floppy-o"></i>Cadastrar</a>
+            <li><a onclick="carregar('../cadastro/cadastroRelTCC.php')" href="#"><i class="fa fa-floppy-o"></i>Cadastrar</a>
             <li><a onclick="carregar('../busca/BuscaRelatTCC.php')" href="#"><i class="fa fa-search"></i>Buscar</a></li>
             
           </ul>

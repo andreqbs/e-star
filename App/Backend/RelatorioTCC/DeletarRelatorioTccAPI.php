@@ -5,16 +5,16 @@ error_reporting(E_ALL);
 session_start();
 
 
-use App\Model\Professor as Professor;
-use App\DAO\DAOProfessor as DAOProfessor;
+use App\Model\RelatorioTCC as RelatorioTCC;
+use App\DAO\DAORelatorioTCC as DAORelatorioTCC;
 use App\Controllers\mainController as mainController;
 
 require_once dirname(__FILE__).'/../../../Lib/Core/Loader.php';
 
-$idProfessor = "11 "; //$_POST['']
+$idRelatorioTCC = "11"; //$_POST['']
 
-$ProfessorControl = new mainController();
-$Result =$ProfessorControl->apagarProfessor($idProfessor);
+$RelatorioTCCControl = new mainController();
+$Result =$RelatorioTCCControl->apagarRelatorioTCC($idRelatorioTCC);
 
 if ($Result){	
 		echo '<script> alert("Deletado Com Sucesso") </script>  ';
