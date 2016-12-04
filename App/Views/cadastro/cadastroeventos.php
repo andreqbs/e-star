@@ -115,7 +115,7 @@
            <br/>           
           <!-- <div class="form-group">    -->   
                   <div class="col-md-offset-10">
-                    <button class="btn btn-default">Cancelar</button>
+                    <button class="btn btn-default" type="reset">Cancelar</button>
                     <button class="btn btn-primary" type="submit">Salvar</button>
                   </div>
           <!-- </div> form group  button -->

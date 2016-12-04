@@ -18,6 +18,7 @@ class DAOReservas implements IDAO{
     	$sql = "INSERT INTO Reservas (DataHora, ProfessorFK, SalaFK) 
     			VALUES ('{$Reservas->getDataHora()}', '{$Reservas->getProfessorFK()}', '{$Reservas->getSalaFK()}'); ";
 		echo "<br>".$sql."<br>";
+// CREATE PROCEDURE `sp_inserirReserva`(dataHora DATETIME, idProfessorFK integer(11), idSalaFK integer(11))
 
 		try {
             $stmt = $connection->prepare($sql);
@@ -38,6 +39,8 @@ class DAOReservas implements IDAO{
     	$connection = $connection->openConnection();
     	$sql = "UPDATE Reservas SET DataHora = '{$Reservas->getDataHora()}', ProfessorFK = '{$Reservas->getProfessorFK()}', 
     			SalaFK = '{$Reservas->getSalaFK()}' WHERE idReservas = $idReservas";
+
+// CREATE PROCEDURE `sp_alterarReserva`(idReserva integer(11), dataHora DATETIME, idProfessorFK integer(11), idSalaFK integer(11))
 
 		echo "<br>".$sql."<br>";
 
@@ -60,6 +63,7 @@ class DAOReservas implements IDAO{
     	$sql = "DELETE FROM Reservas WHERE idReservas = $idReservas";
     			
 		echo "<br>".$sql."<br>";
+// CREATE PROCEDURE `sp_deletarReserva`(idReserva integer(11))
 
 		try {
             $stmt = $connection->prepare($sql);

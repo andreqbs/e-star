@@ -106,11 +106,48 @@
 <script src="../../../Public/bower_components/AdminLTE/dist/js/app.min.js"></script>
 
 <script src="../../../Public/bower_components/jQuery-Mask-Plugin/dist/jquery.mask.js"></script> 
+
+<script src="../../../Js/ajaxFunctions.js"></script>
+
 <!-- Função para campo de entrada da data -->
 <script>$(document).ready(function(){
     $('#data').mask('00/00/0000');
     $('#hora').mask('00:00');   
 });
+</script>
+<?php session_start() ?>
+<script>
+  $('#formCadastroReservaSala').on('submit', function(){
+     // e.preventDefault();  //prevent form from submitting
+                    var data = document.getElementById('data').value;
+                    var hora = document.getElementById('hora').value;
+                    var NomeProfessor = document.getElementById('NomeProfessor').value;
+                    var NomeSala = document.getElementById('NomeSala').value;
+
+
+                    var dataString = $("#formCadastroReservaSala").serialize();
+                    dataString += '&data='+data+'&hora='+hora+'&NomeProfessor='+NomeProfessor+'&NomeSala='+NomeSala;
+                    alert(dataString);
+                   
+                    var minhaSessionP = '<?php echo $_SESSION['idProfessor']; ?>';
+
+                    var minhaSessionA = '<?php echo $_SESSION['idAluno']; ?>';
+
+                    alert("aluno");
+                    alert(minhaSessionA);
+                    alert("Professor");
+                    alert(minhaSessionP);
+                    if(minhaSessionP > 0){
+                     alert("ProfessorRedi");                   
+                     ajaxPostRedirect(dataString,"../../../App/Backend/Reserva/CadastrarReservaAPI.php","../../../App/Views/usuario/principalProfessor.php");
+                    }
+                    else if(minhaSessionA > 0){
+                     alert("AlunoRedi");                     
+                     ajaxPostRedirect(dataString,"../../../App/Backend/Reserva/CadastrarReservaAPI.php","../../../App/Views/usuario/principalAluno.php");
+                    }                    
+                     
+        return false;
+    }); 
 </script>
 
 </body>
