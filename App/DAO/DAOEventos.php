@@ -15,11 +15,9 @@ class DAOEventos implements IDAO{
     public function create($Eventos){
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "INSERT INTO Eventos (NomeEvento, DataEvento, LocalEvento, ProfessorFK, CursoFK) 
-    			VALUES ('{$Eventos->getNomeEvento()}', '{$Eventos->getDataEvento()}', '{$Eventos->getLocalEvento()}', '{$Eventos->getProfessorFK()}', 
-    			'{$Eventos->getCursoFK()}'); ";
-		echo "<br>".$sql."<br>";
+    	$sql = " call sp_inserirEvento ('{$Eventos->getNomeEvento()}', '{$Eventos->getDataEvento()}', '{$Eventos->getLocalEvento()}', '{$Eventos->getProfessorFK()}', '{$Eventos->getCursoFK()}'); ";
 
+		echo "<br>".$sql."<br>";
 		try {
             $stmt = $connection->prepare($sql);
             $stmt->execute();   
@@ -37,12 +35,10 @@ class DAOEventos implements IDAO{
     {
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "UPDATE Eventos SET NomeEvento = '{$Eventos->getNomeEvento()}', DataEvento = '{$Eventos->getDataEvento()}', 
-    			LocalEvento = '{$Eventos->getLocalEvento()}', ProfessorFK = '{$Eventos->getProfessorFK()}', 
-    			CursoFK = '{$Eventos->getCursoFK()}' WHERE idEventos = $idEventos";
+        $sql = " call sp_inserirEvento ('{$idEventos}','{$Eventos->getNomeEvento()}', '{$Eventos->getDataEvento()}', '{$Eventos->getLocalEvento()}', '{$Eventos->getProfessorFK()}', '{$Eventos->getCursoFK()}'); ";
 
 		echo "<br>".$sql."<br>";
-
+ 
 		try {
             $stmt = $connection->prepare($sql);
             $stmt->execute();   
@@ -59,7 +55,7 @@ class DAOEventos implements IDAO{
     public function delete($idEventos){
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "DELETE FROM Eventos WHERE idEventos = $idEventos";
+    	$sql = "call sp_deletarEvento('{$idEventos}')";
     			
 		echo "<br>".$sql."<br>";
 
@@ -103,7 +99,7 @@ class DAOEventos implements IDAO{
     {
         $connection = new Connection();
         $connection = $connection->openConnection();
-        $sql = "SELECT * FROM Eventos";
+        $sql = "call sp_listarEvento()";
                 
         echo "<br>".$sql."<br>";
 

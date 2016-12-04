@@ -7,7 +7,7 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-  <link rel="stylesheet" href="../../../css/style.css">
+  <link rel="stylesheet" href="../../../CSS/style.css">
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="../../../Public/bower_components/AdminLTE/bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
@@ -28,7 +28,7 @@
 
     
     <section class="content-header"><!-- cabeçalho de conteúdo (cabeçalho da página) -->
-      <form class="form-horizontal">
+      <form class="form-horizontal" id="formEvento" >
           <div class="box box-pessoais">
             <div class="box-header with-border">
               <div class="col-md-5"></div><h3 class="box-title">Dados do evento</h3>
@@ -40,14 +40,14 @@
             <!-- /.box-header -->
             <!-- form start -->
             
-              <div class="box-body">
+            <div class="box-body">
 
               <div class="col-md-3"></div>
                 <div class="row"> <!-- Inicio Linha 01 -->
                   <div class="form-group">
                     <label class="col-md-1 control-label">Evento:</label>
                     <div class="col-md-3">
-                      <input type="text" class="form-control" placeholder="Nome do Evento">
+                      <input type="text" id="NomeEvento" class="form-control" placeholder="Nome do Evento">
                     </div>
                   </div><!-- form group-->
                 </div> <!-- Fim Linha 01 -->
@@ -77,7 +77,7 @@
                   <div class="form-group">
                     <label class="col-md-1 control-label">Local:</label>
                     <div class="col-md-3">
-                      <input type="text" class="form-control" placeholder="Local do Evento">
+                      <input type="text" id="LocalEvento" class="form-control" placeholder="Local do Evento">
                     </div>
                   </div> <!-- form group -->
                 </div>
@@ -87,23 +87,23 @@
                   <div class="form-group">
                     <label class="col-md-1 control-label">Professor:</label>
                     <div class="col-md-3">
-                      <input type="text" class="form-control" placeholder="Nome do Professor">
+                      <input type="text" id="NomeProfessor" class="form-control" placeholder="Nome do Professor">
                     </div>
                   </div> <!-- form group -->
                 </div>
 
                 <div class="col-md-3"></div>
-                <div class="row"> <!-- Inicio Linha 01 -->
+                <div class="row"> <!-- Inicio Linha 01  aqui tenho que buscar no banco os curso disponiveis(pre cadastrados) --> 
                   <div class="form-group">
                     <label class="col-md-1 control-label">Curso:</label>
                     <div class="col-md-3">
-                      <select class="form-control select1">
+                      <select id="NomeCurso" class="form-control select1">
                         <option selected>Selecione um curso</option>
-                        <option>Arquitetura e Urbanismo</option>
-                        <option>Engenharia Civil</option>
-                        <option>Engenharia da Computação</option>
-                        <option>Engenharia de Petróleo e Gás</option>
-                        <option>Sistemas de Informação</option>
+                        <option >Arquitetura e Urbanismo</option>
+                        <option >Engenharia Civil</option>
+                        <option >Engenharia da Computação</option>
+                        <option >Engenharia de Petróleo e Gás</option>
+                        <option >Sistemas de Informação</option>
                       </select>
                     </div> <!-- col -->
                   </div> <!-- form group-->
@@ -113,12 +113,12 @@
               
             </div> <!-- Box pessoais --> 
            <br/>           
-          <div class="form-group">      
+          <!-- <div class="form-group">    -->   
                   <div class="col-md-offset-10">
                     <button class="btn btn-default">Cancelar</button>
-                    <button class="btn btn-primary">Salvar</button>
+                    <button class="btn btn-primary" type="submit">Salvar</button>
                   </div>
-          </div><!-- form group  button-->
+          <!-- </div> form group  button -->
       </form>  
     </section><!-- Fim da seção -->
     
@@ -134,13 +134,49 @@
 <script src="../../../Public/bower_components/AdminLTE/dist/js/app.min.js"></script>
 
 <script src="../../../Public/bower_components/jQuery-Mask-Plugin/dist/jquery.mask.js"></script> 
+
+<script src="../../../Js/ajaxFunctions.js"></script> 
 <!-- Função para campo de entrada da data -->
 <script>$(document).ready(function(){
     $('#data').mask('00/00/0000');
     $('#hora').mask('00:00');   
 });
 </script>
+<?php session_start() ?>
+<script>
+  $('#formEvento').on('submit', function(){
+     // e.preventDefault();  //prevent form from submitting
+                    var NomeEvento = document.getElementById('NomeEvento').value;
+                    var data = document.getElementById('data').value;
+                    var hora = document.getElementById('hora').value;
+                    var LocalEvento = document.getElementById('LocalEvento').value;
+                    var NomeProfessor = document.getElementById('NomeProfessor').value;
+                    var NomeCurso = document.getElementById('NomeCurso').value;
 
+                    var dataString = $("#formEvento").serialize();
+                    dataString += '&NomeEvento='+NomeEvento+'&data='+data+'&hora='+hora+'&LocalEvento='+LocalEvento+'&NomeProfessor='+NomeProfessor+'&NomeCurso='+NomeCurso;
+                    alert(dataString);
+                   
+                    var minhaSessionP = '<?php echo $_SESSION['idProfessor']; ?>';
+
+                    var minhaSessionA = '<?php echo $_SESSION['idAluno']; ?>';
+
+                    // alert("aluno");
+                    // alert(minhaSessionA);
+                    // alert("Professor");
+                    // alert(minhaSessionP);
+                    if(minhaSessionP > 0){
+                     alert("ProfessorRedi");                   
+                     ajaxPostRedirect(dataString,"../../../App/Backend/Eventos/CadastrarEventosAPI.php","../../../App/Views/usuario/principalProfessor.php");
+                    }
+                    else if(minhaSessionA > 0){
+                     alert("AlunoRedi");                     
+                     ajaxPostRedirect(dataString,"../../../App/Backend/Eventos/CadastrarEventosAPI.php","../../../App/Views/usuario/principalAluno.php");
+                    }                    
+                     
+        return false;
+    }); 
+</script>
 
 </body>
 </html>
