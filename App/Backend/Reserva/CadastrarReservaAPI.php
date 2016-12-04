@@ -2,7 +2,6 @@
 ini_set('display_errors', 'On');
 error_reporting(E_ALL);
 
-// session_start();
 
 use App\Model\Reservas as Reservas;
 use App\DAO\DAOReservas as DAOReservas;
@@ -26,12 +25,6 @@ $Result =$ReservasControl->inserirEvento($minhaReservas);
 
 if ($Result){	
 		echo '<script> alert("Cadastrado Com Sucesso") </script>  ';
-	// $_SESSION['NomeReservas'] = $Result['NomeReservas'];
-	// $_SESSION['dataReservas'] = $Result['dataReservas'];
-	// $_SESSION['horaReservas'] = $Result['horaReservas'];
-	// $_SESSION['LocalReservas'] = $Result['LocalReservas'];
-	// $_SESSION['NomeProfessorReservas'] = $Result['NomeProfessorReservas'];
-	// $_SESSION['NomeSalaReservas'] = $Result['NomeSalaReservas'];
 
 }	
 else 
