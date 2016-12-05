@@ -34,9 +34,11 @@ class RelatorioTCC {
 
  // TituloTcc NomeAluno MatriculaAluno ApresentacaoComentario NotaApresentacao FundamentacaoComentario NotaFundamentacao DesenvolvimentoComentario NotaDesenvolvimento ResultadosComentario NotaResultados  NotaTotal
 
-	function __construct($TituloTcc, $NomeAluno, $MatriculaAluno, $ApresentacaoComentario, $NotaApresentacao, $FundamentacaoComentario, $NotaFundamentacao, $DesenvolvimentoComentario, $NotaDesenvolvimento, $ResultadosComentario, $NotaResultados, $NotaTotal) {
+	function __construct($TituloTcc, $NomeAluno, $Datasystem, $TipoRela, $MatriculaAluno, $ApresentacaoComentario, $NotaApresentacao, $FundamentacaoComentario, $NotaFundamentacao, $DesenvolvimentoComentario, $NotaDesenvolvimento, $ResultadosComentario, $NotaResultados, $NotaTotal, $idTCCFK) {
 		$this->TituloTcc = $TituloTcc;
 		$this->NomeAluno = $NomeAluno;
+		$this->Datasystem = $Datasystem;
+		$this->TipoRela = $TipoRela;
 		$this->MatriculaAluno = $MatriculaAluno;
 		$this->ApresentacaoComentario = $ApresentacaoComentario;
 		$this->NotaApresentacao = $NotaApresentacao;
@@ -66,6 +68,16 @@ class RelatorioTCC {
 			return $this->NomeAluno;
 		}
 		
+		function getDatasystem () 
+		{
+			return $this->Datasystem;
+		}
+
+		function getTipoRela() 
+		{
+			return $this->TipoRela;
+		}
+
 		function getMatriculaAluno () 
 		{
 			return $this->MatriculaAluno;
@@ -118,7 +130,7 @@ class RelatorioTCC {
 
 		function getidTCCFK () 
 		{
-			return $this->TipoidTCCFK;
+			return $this->idTCCFK;
 		}
 
 
