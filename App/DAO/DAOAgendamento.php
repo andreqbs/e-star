@@ -1,6 +1,9 @@
 <?php
-
 namespace App\DAO;
+
+ini_set('display_errors', 'On');
+error_reporting(E_ALL);
+
 use Lib\Database\Connection as Connection;
 use App\Models\Agendamento as Agendamento;
 use App\Iface\IDAO as IDAO;
@@ -15,9 +18,7 @@ class DAOAgendamento implements IDAO{
     public function create($Agendamento){
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "call sp_inserirAgendamento ('{$Agendamento -> getDataHora()}', '{$Agendamento -> getMotivo()}', '{$Agendamento -> getidAlunoFK()}', '{$Agendamento-> getidProfessorFK()}', '{$Agendamento -> getidCursoFK()}')";
-
-          //CREATE PROCEDURE `sp_inserirAgendamento`(motivo varchar(100), dataHora DATETIME, idProfessorFK integer(11), idAlunoFK integer(11))
+    	$sql = "call sp_inserirAgendamento ('{$Agendamento -> getMotivo()}', '{$Agendamento -> getDataHora()}', '{$Agendamento-> getidProfessorFK()}', '{$Agendamento -> getidAlunoFK()}')";
 
     echo "<br>".$sql."<br>";
 
@@ -38,9 +39,7 @@ class DAOAgendamento implements IDAO{
     {
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "call sp_alterarAgendamento ('{$Agendamento->getDataHora()}', Motivo = '{$Agendamento->getMotivo()}',
-    			idAlunoFK = '{$Agendamento->getidAlunoFK()}', idProfessorFK = '{$Agendamento->getidProfessorFK()}',
-    			idCursoFK = '{$Agendamento->getidCursoFK()}')";
+      $sql = "call sp_alterarAgendamento ('{$idAgenda}','{$Agendamento -> getMotivo()}', '{$Agendamento -> getDataHora()}', '{$Agendamento-> getidProfessorFK()}', '{$Agendamento -> getidAlunoFK()}')";
 
 		echo "<br>".$sql."<br>";
 
@@ -60,7 +59,7 @@ class DAOAgendamento implements IDAO{
     public function delete($idAgenda){
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "call sp_deletarAgendamento ('{$idAgenda = getidAgendamento()}')";
+    	$sql = "call sp_deletarAgendamento ({$idAgenda})";
 
 		echo "<br>".$sql."<br>";
 
@@ -120,6 +119,25 @@ class DAOAgendamento implements IDAO{
                 echo "Error: " . $e->getMessage();
         }
 
+        return $this->data;
+    }
+    public function listBy($type, $value)
+    {
+        $connection = new Connection();
+        $connection = $connection->openConnection();
+        $sql = "SELECT * FROM Agendamento WHERE ".$type." = ".$value;
+
+        echo "<br>".$sql."<br>";
+        try {
+            $stmt = $connection->query($sql);
+            $this->data = $stmt->fetch();
+
+
+        }
+        catch(PDOException $e) {
+
+                echo "Error: " . $e->getMessage();
+        }
         return $this->data;
     }
 }

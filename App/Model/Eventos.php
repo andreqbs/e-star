@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Models;
+namespace App\Model;
 
 class Eventos {
 	private $idEventos;
@@ -15,7 +15,7 @@ class Eventos {
 
 	private $CursoFK;
 
-	
+	// NomeEvento data hora LocalEvento NomeProfessor NomeCurso
 	function __construct($NomeEvento, $DataEvento, $LocalEvento, $ProfessorFK, $CursoFK) {
 		$this->NomeEvento = $NomeEvento;
 		$this->DataEvento = $DataEvento;
@@ -65,7 +65,6 @@ class Eventos {
 		{
 			$this->DataEvento = $DataEvento;
 		}
-		
 		function setLocalEvento ($LocalEvento) 
 		{
 			$this->LocalEvento = $LocalEvento;
