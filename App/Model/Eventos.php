@@ -9,8 +9,6 @@ class Eventos {
 
 	private $DataEvento;
 
-	private $horaEventos;
-
 	private $LocalEvento;
 
 	private $ProfessorFK;
@@ -18,10 +16,9 @@ class Eventos {
 	private $CursoFK;
 
 	// NomeEvento data hora LocalEvento NomeProfessor NomeCurso
-	function __construct($NomeEvento, $DataEvento, $horaEventos, $LocalEvento, $ProfessorFK, $CursoFK) {
+	function __construct($NomeEvento, $DataEvento, $LocalEvento, $ProfessorFK, $CursoFK) {
 		$this->NomeEvento = $NomeEvento;
 		$this->DataEvento = $DataEvento;
-		$this->horaEventos = $horaEventos;
 		$this->LocalEvento = $LocalEvento;
 		$this->ProfessorFK = $ProfessorFK;
 		$this->CursoFK = $CursoFK;
@@ -41,10 +38,6 @@ class Eventos {
 		function getDataEvento () 
 		{
 			return $this->DataEvento;
-		}
-		function gethoraEventos () 
-		{
-			return $this->horaEventos;
 		}
 		
 		function getLocalEvento () 
@@ -71,10 +64,6 @@ class Eventos {
 		function setDataEvento ($DataEvento) 
 		{
 			$this->DataEvento = $DataEvento;
-		}
-		function sethoraEventos ($horaEventos) 
-		{
-			return $this->horaEventos;
 		}
 		function setLocalEvento ($LocalEvento) 
 		{

@@ -8,20 +8,37 @@ use App\Controllers\mainController as mainController;
 
 require_once dirname(__FILE__).'/../../../Lib/Core/Loader.php';
 
- $dataEventos = $_POST['data'];
+ // $NomeEventos = $_POST['NomeEvento'];
 
- $horaEventos = $_POST['hora'];
+ // $dataEventos = $_POST['data'];
 
- $LocalEventos = $_POST['LocalEvento'];
+ // $horaEventos = $_POST['hora'];
 
- $NomeProfessorEventos = $_POST['NomeProfessor'];
+ // $LocalEventos = $_POST['LocalEvento'];
 
- $NomeCursoEventos = $_POST['NomeCurso'];
+ // $NomeProfessorEventos = $_POST['NomeProfessor'];
+
+ // $NomeCursoEventos = $_POST['NomeCurso'];
+date_default_timezone_set('America/Sao_Paulo');
+
+ $NomeEventos = 'Rock';
+
+ $dataEventos = '10/12/2017';
+
+ $horaEventos = '21:15';
+
+ $LocalEventos = 'unproberto';
+
+ $NomeProfessorEventos = '2';
+
+ $NomeCursoEventos = '2';
+ $date = date('Y-m-d H:i:s');
+ // $date = date('d/m/Y H:i:s');
+ $DataEventos = date($date, ($dataEventos.$horaEventos)); 
 
 
+$meuEventos = new Eventos($NomeEventos,$DataEventos, $LocalEventos, $NomeProfessorEventos, $NomeCursoEventos);
 echo '<script> alert($meuEventos) </script>  ';
-$meuEventos = new Eventos($NomeEventos,$dataEventos, $horaEventos, $LocalEventos, $NomeProfessorEventos, $NomeCursoEventos);
-
 $EventosControl = new mainController();
 $Result =$EventosControl->inserirEvento($meuEventos);
 
