@@ -19,26 +19,26 @@ require_once dirname(__FILE__).'/../../../Lib/Core/Loader.php';
  // $NomeProfessorEventos = $_POST['NomeProfessor'];
 
  // $NomeCursoEventos = $_POST['NomeCurso'];
-date_default_timezone_set('America/Sao_Paulo');
+ date_default_timezone_set('America/Sao_Paulo');
 
- $NomeEventos = 'Rock';
+ $NomeEventos = 'rock';
 
- $dataEventos = '10/12/2017';
+ $dataEventos = '2027-12-07 ';
 
- $horaEventos = '21:15';
+ $horaEventos = '21:15:12';
 
  $LocalEventos = 'unproberto';
 
  $NomeProfessorEventos = '2';
 
  $NomeCursoEventos = '2';
- $date = date('Y-m-d H:i:s');
+ // $date = date('Y-m-d H:i:s');
  // $date = date('d/m/Y H:i:s');
- $DataEventos = date($date, ($dataEventos.$horaEventos)); 
+ $DataEventos = date($dataEventos . $horaEventos); 
 
 
 $meuEventos = new Eventos($NomeEventos,$DataEventos, $LocalEventos, $NomeProfessorEventos, $NomeCursoEventos);
-echo '<script> alert($meuEventos) </script>  ';
+// echo '<script> alert($meuEventos) </script>  ';
 $EventosControl = new mainController();
 $Result =$EventosControl->inserirEvento($meuEventos);
 

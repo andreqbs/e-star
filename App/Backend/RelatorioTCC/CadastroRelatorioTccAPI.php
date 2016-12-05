@@ -5,14 +5,22 @@ error_reporting(E_ALL);
 use App\Model\RelatorioTCC as RelatorioTCC;
 use App\DAO\DAORelatorioTCC as DAORelatorioTCC;
 use App\Controllers\mainController as mainController;
-
+date_default_timezone_set('America/Bahia');
 require_once dirname(__FILE__).'/../../../Lib/Core/Loader.php';
 
- $TituloTcc = $_POST['TituloTcc'];
+ $TipoRelatorio = '1';//$_POST['1'];
+	
+ $TituloTcc = 'projeto';//$_POST['TituloTcc'];
 
  $NomeAluno = $_POST['NomeAluno'];
 
- $MatriculaAluno = $_POST['MatriculaAluno'];
+ $date = date('Y-m-d H:i:s');
+ $datesystem = '01-02-2012 ';
+ $timesystem = '15:12';
+ 
+ $Datasystem = date($date,($datesystem.$timesystem)) ; 
+ 
+ $MatriculaAluno = '5456765';//$_POST['MatriculaAluno'];
 
  $ApresentacaoComentario = $_POST['ApresentacaoComentario'];
 
@@ -31,10 +39,12 @@ require_once dirname(__FILE__).'/../../../Lib/Core/Loader.php';
  $NotaResultados = $_POST['NotaResultados'];
 
  $NotaTotal = $_POST['NotaTotal'];
+
+ $idTCCFK = '3';//$_POST['1'];
  
  // TituloTcc NomeAluno MatriculaAluno ApresentacaoComentario NotaApresentacao FundamentacaoComentario NotaFundamentacao DesenvolvimentoComentario NotaDesenvolvimento ResultadosComentario NotaResultados  NotaTotal
 
-$meuRelatorio = new RelatorioTCC($TituloTcc, $NomeAluno, $MatriculaAluno, $ApresentacaoComentario, $NotaApresentacao, $FundamentacaoComentario, $NotaFundamentacao, $DesenvolvimentoComentario, $NotaDesenvolvimento, $ResultadosComentario, $NotaResultados, $NotaTotal);
+$meuRelatorio = new RelatorioTCC($TituloTcc, $NomeAluno, $Datasystem, $TipoRelatorio, $MatriculaAluno, $ApresentacaoComentario, $NotaApresentacao, $FundamentacaoComentario, $NotaFundamentacao, $DesenvolvimentoComentario, $NotaDesenvolvimento, $ResultadosComentario, $NotaResultados, $NotaTotal, $idTCCFK);
 
 $RelatorioControl = new mainController();
 $Result =$RelatorioControl->cadastrarRelatorioTCC($meuRelatorio);
