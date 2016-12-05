@@ -1,3 +1,17 @@
+<?php 
+session_start();
+
+if(!$_SESSION['idProfessor']){
+  // echo "não entre";
+
+header("HTTP/1.1 301 Moved Permanently");
+
+header("location:  ../../../Public/login.php");
+
+} else {
+
+
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +22,7 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-  <link rel="stylesheet" href="estart/css/style.css">
+  <link rel="stylesheet" href="../../../CSS/style.css">
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="../../../Public/bower_components/AdminLTE/bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
@@ -54,7 +68,13 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="../../../Imagens/Start.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Administrador</span>
+              <span class="hidden-xs">
+              <?php
+                echo $_SESSION['nome'];
+              ?>
+
+
+              </span>
             </a>
 
             <!-- Inicio do dropdown usuario -->
@@ -63,7 +83,10 @@
               <li class="user-header">
                 <img src="../../../Imagens/Start.jpg" class="img-circle" alt="User Image">
                 <p>
-                  Administrador
+                <?php
+                echo $_SESSION['nome'];
+                ?>
+
                 </p>
               </li><!-- Fim da imagem do usuario -->
 
@@ -74,7 +97,7 @@
                 </div>
 
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sair</a>
+                  <a href="../../../App/Backend/Professor/LogoffProfessorAPI.php" class="btn btn-default btn-flat">Sair</a>
                 </div>
               </li>
 
@@ -186,7 +209,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a onclick="carregar('/../cadastro/cadastroRelTCC.php')" href="#"><i class="fa fa-floppy-o"></i>Cadastrar</a>
+            <li><a onclick="carregar('../cadastro/cadastroRelTCC.php')" href="#"><i class="fa fa-floppy-o"></i>Cadastrar</a>
             <li><a onclick="carregar('../busca/BuscaRelatTCC.php')" href="#"><i class="fa fa-search"></i>Buscar</a></li>
             
           </ul>
@@ -246,3 +269,7 @@
 
 </body>
 </html>
+
+<?php 
+}
+?>

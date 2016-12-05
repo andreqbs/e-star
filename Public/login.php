@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>e-Etart</title>
+  <title>e-Start</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
@@ -46,7 +46,7 @@
       </div>
 
       <div class="form-group has-feedback">
-        <input id="senhaLogin" type="password" class="form-control" id="senha" placeholder="senha" required="true" data-minlength="8" data-error="senha tem que ter no minimo 8 caracteres!">
+        <input id="senhaLogin" type="password" class="form-control"  placeholder="senha" required="true" data-minlength="8" data-error="senha tem que ter no minimo 8 caracteres!">
         <small class="help-block with-errors"></small>
       </div>
 
@@ -54,13 +54,13 @@
           <select id="usuarioSelect" class="form-control select1" required="true">
             <option selected>Selecione um vínculo</option>
             <option value="1">Aluno(a)</option>
-            <option value="2  ">Professor(a)</option>
+            <option value="2">Professor(a)</option>
           </select>
       </div>
 
       <div class="row">
         <div class="col-xs-12">
-          <button type="submit" class="btn btn-info btn-block btn-flat"><h5>CRIAR</h4></button>
+          <button type="submit" class="btn btn-info btn-block btn-flat"><h5>ENTRAR</h4></button>
           <br>
           <p class="abrir">Já está registrado?  <a href="#">Entre aqui</a></p>
         </div>
@@ -77,18 +77,21 @@
       <div class="form-group has-feedback">
         <input id="nomeCompleto"  type="text" class="form-control" placeholder="nome completo" data-minlength="4" required="true">
       </div>
+
       <div class="form-group has-feedback">
         <input id="matricula" type="text" class="form-control" placeholder="matricula" required="true">
       </div>
+      
       <div class="form-group has-feedback">
         <input id="email" type="email" class="form-control" placeholder="email" required="true" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
         <small class="help-block with-errors"></small>
       </div>
+      
       <div class="form-group has-feedback">
-          <select class="form-control select1" required="true">
+          <select id="usuarioCadastro" class="form-control select1" required="true">
             <option selected>Selecione um vínculo</option>
-            <option>Aluno(a)</option>
-            <option>Professor(a)</option>
+            <option value="3">Aluno(a)</option>
+            <option value="4">Professor(a)</option>
           </select>
       </div>
       <div class="form-group has-feedback">
@@ -100,21 +103,24 @@
             <option>Sistemas de Informação</option>
           </select>
       </div>
+      
       <div class="form-group has-feedback">
         <input id="usuario" type="text" class="form-control" placeholder="usuario" required="true">
       </div>
+      
       <div class="form-group has-feedback">
-        <input id="senha" type="password" class="form-control" id="senha" placeholder="senha" required="true" data-minlength="8" data-error="senha tem que ter no minimo 8 caracteres!">
+        <input id="senha"   type="password" class="form-control"  placeholder="senha" required="true" data-minlength="8" data-error="senha tem que ter no minimo 8 caracteres!">
         <small class="help-block with-errors"></small>
       </div>
-       <div class="form-group has-feedback">
+     
+      <div class="form-group has-feedback">
         <input id="repetirSenha" type="password" class="form-control" placeholder="repetir senha" required="true" data-match="#senha" data-error="senha tem que ser igual!">
         <small class="help-block with-errors"></small>
       </div>
 
       <div class="row">
         <div class="col-xs-12">
-          <button type="submit" class="btn btn-info btn-block btn-flat"><h5>ENTRAR</h4></button>
+          <button type="submit" class="btn btn-info btn-block btn-flat"><h5>CRIAR</h4></button>
           <br>
           <p class="abrir">Não está registrado? <a href="#">Crie uma conta</a></p>
         </div>
@@ -149,23 +155,64 @@
 </script>
 
 <script>
-  
-  $('#formLoginUsuario').on('submit', function(){
+  $('#formLoginUsuario').on('submit', function(e){
+    e.preventDefault();  //prevent form from submitting
                     var usuarioLogin = document.getElementById('usuarioLogin').value;
                     var senhaLogin = document.getElementById('senhaLogin').value;
                     var usuarioSelect = document.getElementById('usuarioSelect').value;
                     
+                    if(usuarioSelect === "1"){
                     var dataString = $("#formLoginUsuario").serialize();
                     dataString += '&usuarioLogin='+usuarioLogin+'&senhaLogin='+senhaLogin;
-                    //alert(dataString);
-                    
+                    alert(dataString);
+                    alert(usuarioSelect);  
+                    alert("to no aluno");                   
                     ajaxPostRedirect(dataString,"../App/Backend/Aluno/LoginAlunoAPI.php","../App/Views/usuario/principalAluno.php");
-        
+                    }
+                    if(usuarioSelect === "2"){
+                    var dataString = $("#formLoginUsuario").serialize();
+                    dataString += '&usuarioLogin='+usuarioLogin+'&senhaLogin='+senhaLogin;
+                    alert(dataString);
+                    alert(usuarioSelect);  
+                    alert("to no Professor");                   
+                    ajaxPostRedirect(dataString,"../App/Backend/Professor/LoginProfessorAPI.php","../App/Views/usuario/principalProfessor.php");
+                    }
 
         return false;
     }); 
-
 </script>
 
+<script>
+  $('#formCadastroUsuario').on('submit', function(e){
+    e.preventDefault();  //prevent form from submitting
+                    var nomeCompleto = document.getElementById('nomeCompleto').value;
+                    var matricula = document.getElementById('matricula').value;
+                    var email = document.getElementById('email').value;
+                    var usuario = document.getElementById('usuario').value;
+                    var repetirSenha = document.getElementById('repetirSenha').value;
+                    var usuarioCadastro = document.getElementById('usuarioCadastro').value;
+
+                    alert(usuarioCadastro);
+
+                    if(usuarioCadastro === "3"){
+                    var dataString = $("#formCadastroUsuario").serialize();
+                     dataString += '&nomeCompleto='+nomeCompleto+'&matricula='+matricula+'&email='+email+'&usuario='+usuario+'&repetirSenha='+repetirSenha;
+                    alert(dataString);
+                    alert(usuarioCadastro);  
+                    alert("to no aluno");                   
+                    ajaxPostRedirect(dataString,"../App/Backend/Aluno/CadastrarAlunoAPI.php","../Public/login.php");
+                    }
+                    else if(usuarioCadastro === "4"){
+                    var dataString = $("#formCadastroUsuario").serialize();
+                    dataString += '&nomeCompleto='+nomeCompleto+'&matricula='+matricula+'&email='+email+'&usuario='+usuario+'&repetirSenha='+repetirSenha;
+                    alert(dataString);
+                    alert(usuarioCadastro);  
+                    alert("to no Professor");                   
+                    ajaxPostRedirect(dataString,"../App/Backend/Professor/CadastrarProfessorAPI.php", "../Public/login.php");
+                    }
+        
+        return false;
+    }); 
+</script>
 </body>
 </html>

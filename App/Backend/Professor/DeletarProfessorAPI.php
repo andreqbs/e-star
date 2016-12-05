@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 session_start();
 
 
-use App\Models\Professor as Professor;
+use App\Model\Professor as Professor;
 use App\DAO\DAOProfessor as DAOProfessor;
 use App\Controllers\mainController as mainController;
 

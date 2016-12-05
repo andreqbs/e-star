@@ -11,28 +11,29 @@ use App\Controllers\mainController as mainController;
 
 require_once dirname(__FILE__).'/../../../Lib/Core/Loader.php';
 
- $NomeProfessor = "andre "; //$_POST['']
+ $NomeProfessor = $_POST['nomeCompleto'];
 
- $MatriculaProfessor = "123356";
+ $MatriculaProfessor = $_POST['matricula'];
 
- $EmailProfessor = "teste@test.com";
+ $EmailProfessor = $_POST['email'];
 
- $LoginProfessor = "andree";
+ $LoginProfessor = $_POST['usuario'];
 
- $SenhaProfessor = "1234";
+ $SenhaProfessor = $_POST['repetirSenha'];
 
- $SenhaProfessorConfirmacao = "egy321gg";
-
+ $SenhaProfessorConfirmacao = $_POST['SenhaProfessor'];
 
 $meuProfessor = new Professor($NomeProfessor,$MatriculaProfessor,$EmailProfessor, $LoginProfessor, $SenhaProfessor);
-//`sp_inserirProfessor`(nome varchar(100), matricula char(6), email varchar(50), login varchar(50), senha varchar(20))
-
 
 $ProfessorControl = new mainController();
 $Result =$ProfessorControl->cadastrarProfessor($meuProfessor);
 
 if ($Result){	
 		echo '<script> alert("Cadastrado Com Sucesso") </script>  ';
+	$_SESSION['NomeProfessor'] = $Result['NomeProfessor'];
+	$_SESSION['MatriculaProfessor'] = $Result['MatriculaProfessor'];
+	$_SESSION['EmailProfessor'] = $Result['EmailProfessor'];
+	$_SESSION['LoginProfessor'] = $Result['LoginProfessor'];
 }	
 else 
 	echo '<script> alert("Não Cadastrado Com Sucesso") </script>  ';

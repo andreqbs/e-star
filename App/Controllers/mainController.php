@@ -13,7 +13,7 @@ use App\DAO\DAOCronograma as DAOCronograma;
 use App\DAO\DAOCurso as DAOCurso;
 use App\DAO\DAODefesa as DAODefesa;
 use App\DAO\DAOErro as DAOErro;
-use App\DAO\DAOEvento as DAOEvento;
+use App\DAO\DAOEventos as DAOEventos;
 use App\DAO\DAOLinhaPesquisa as DAOLinhaPesquisa;
 use App\DAO\DAOProfessor as DAOProfessor;
 use App\DAO\DAORelatorioTCC as DAORelatorioTCC;
@@ -218,36 +218,36 @@ function listarErroTCC($ErroTCC,$idErroTCC)
 //CreateEvento
 function inserirEvento($Evento)
 {
-	$DAOEvento = new DAOEvento();
-	return $DAOEvento->create($Evento);
+	$DAOEventos = new DAOEventos();
+	return $DAOEventos->create($Evento);
 }
 
 //UpdateEvento
 function alterarEvento($Evento,$idEvento)
 {
-	$DAOEvento = new DAOEvento();
-	return $DAOEvento->update($Evento, $idEvento);
+	$DAOEventos = new DAOEventos();
+	return $DAOEventos->update($Evento, $idEvento);
 }
 
 //DeleteEvento
 function apagarEvento($idEvento)
 {
-	$DAOEvento = new DAOEvento();
-	return $DAOEvento->delete($idEvento);
+	$DAOEventos = new DAOEventos();
+	return $DAOEventos->delete($idEvento);
 }
 
 //FindEvento
 function buscarEvento($Evento,$idEvento)
 {
-	$DAOEvento = new DAOEvento();
-	return $DAOEvento->find($Evento, $idEvento);
+	$DAOEventos = new DAOEventos();
+	return $DAOEventos->find($Evento, $idEvento);
 }
 
 //ListEvento
 function listarEvento($Evento,$idEvento)
 {
-	$DAOEvento = new DAOEvento();
-	return $DAOEvento->list($Evento, $idEvento);
+	$DAOEventos = new DAOEventos();
+	return $DAOEventos->list($Evento, $idEvento);
 }
 
 //CreateReservas
@@ -575,6 +575,12 @@ function listarProfessor($Agendamento,$idProfessor)
 {
 	$DAOProfessor = new Professor();
 	return $DAOProfessor->list($Professor, $idProfessor);
+}
+
+function loginProfessor($login,$senha)
+{
+	$DAOProfessor = new DAOProfessor();
+	return $DAOProfessor->findBy($login, $senha);
 }
 
 

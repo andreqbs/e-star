@@ -102,6 +102,26 @@ class DAOProfessor implements IDAO{
         return $this->data;
     }
 
+    public function findBy($login, $senha){
+        $connection = new Connection();
+        $connection = $connection->openConnection();
+        $sql = "SELECT idProfessor, nome, matricula, login FROM Professor WHERE Login = '{$login}' and Senha = '{$senha}'";
+
+        echo "<br>".$sql."<br>";
+        
+        try {
+            $stmt = $connection->query($sql);
+            $this->data = $stmt->fetch();
+
+
+        }
+        catch(PDOException $e) {
+
+                echo "Error: " . $e->getMessage();
+        }
+        return $this->data;
+    }
+
     public function list()
     {
         $connection = new Connection();

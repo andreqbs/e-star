@@ -25,8 +25,7 @@
 
     
     <section class="content-header"><!-- cabeçalho de conteúdo (cabeçalho da página) -->
-      <br>
-      <br>
+      <form class="form-horizontal" id="formCadastroProfessor"><!-- form start -->
           <div class="box box-pessoais">
             <div class="box-header with-border">
               <div class="col-md-5"></div><h3 class="box-title">Cadastro de Professor</h3>
@@ -36,7 +35,7 @@
             
           </div>
             </div><!-- /.box-header -->           
-            <form class="form-horizontal"><!-- form start -->
+            
               <div class="box-body">
               <div class="row">
                 <div class="col-md-12">
@@ -46,11 +45,11 @@
                         <div class="form-group">
                           <label class="col-md-1 control-label">Nome:</label>
                           <div class="col-md-5">
-                            <input type="text" class="form-control" placeholder="Digite aqui seu nome">
+                            <input type="text" id="NomeProfessor" class="form-control" placeholder="Digite aqui seu nome">
                           </div>
                           <label class="col-md-1 control-label">Matrícula:</label>
                           <div class="col-md-2">
-                            <input type="text" id="matricula" class="form-control" placeholder="Digite sua matrícula">
+                            <input type="text" id="MatriculaProfessor" class="form-control" placeholder="Digite sua matrícula">
                           </div>
                         </div><!-- form group-->
                       </div> <!-- Fim Linha 01 -->
@@ -60,7 +59,7 @@
                         <div class="form-group">
                           <label class="col-md-1 control-label">E-mail:</label>
                           <div class="col-md-8">
-                            <input type="text" class="form-control" placeholder="Digite aqui seu e-mail">
+                            <input type="text" id="EmailProfessor" class="form-control" placeholder="Digite aqui seu e-mail">
                           </div>
                         </div>
                       </div> <!--Fim Linha 02 -->
@@ -70,11 +69,11 @@
                         <div class="form-group">
                           <label class="col-md-1 control-label">Login:</label>
                           <div class="col-md-4">
-                            <input type="text" class="form-control" placeholder="Defina seu login">
+                            <input type="text" id="LoginProfessor" class="form-control" placeholder="Defina seu login">
                           </div>
                           <label class="col-md-1 control-label">Senha:</label>
                           <div class="col-md-3">
-                            <input type="password" class="form-control" placeholder="Máximo 20 caracteres">
+                            <input type="password" id="SenhaProfessor" class="form-control" placeholder="Máximo 20 caracteres">
                           </div>
                         </div>
                       </div> <!--Fim Linha 02 -->
@@ -82,16 +81,14 @@
                    </div>   <!-- Colunas da linha(col-md-12) -->
                   </div>   <!-- Linha principal -->      
                 </div>    <!-- Box body -->
-               </form>
-              </div>  <!-- Box pessoais -->
-           <br>           
-              <div class="form-group">      
                 <div class="col-md-offset-10">
                   <button class="btn btn-default">Cancelar</button>
-                  <button class="btn btn-primary">Salvar</button>
-                </div>
-              </div><!-- form group  button-->
-        
+                  <button class="btn btn-primary" type="submit">Salvar</button>
+                </div>                
+               
+              </div>  <!-- Box pessoais -->
+           <br>           
+      </form>  
     </section><!-- Fim da seção -->
     
   </div><!-- Fim do conteúdo da página -->
@@ -106,10 +103,32 @@
 <script src="../../../Public/bower_components/AdminLTE/dist/js/app.min.js"></script>
 
 <script src="../../../Public/bower_components/jQuery-Mask-Plugin/dist/jquery.mask.js"></script> 
+
+<script src="../../../Js/ajaxFunctions.js"></script>
 <!-- Função para campo de entrada da data -->
 <script>$(document).ready(function(){
     $('#matricula').mask('000000000');   
 });
+</script>
+
+<script>
+  $('#formCadastroProfessor').on('submit', function(){
+                    var NomeProfessor = document.getElementById('NomeProfessor').value;
+                    var MatriculaProfessor = document.getElementById('MatriculaProfessor').value;
+                    var EmailProfessor = document.getElementById('EmailProfessor').value;
+                    var LoginProfessor = document.getElementById('LoginProfessor').value;
+                    var SenhaProfessor = document.getElementById('SenhaProfessor').value;
+
+                    var dataString = $("#formCadastroProfessor").serialize();
+                    dataString += '&NomeProfessor='+NomeProfessor+'&MatriculaProfessor='+MatriculaProfessor+'&EmailProfessor='+EmailProfessor+'&LoginProfessor='+LoginProfessor+'&SenhaProfessor='+SenhaProfessor;
+                    alert(dataString);
+
+                     ajaxPostRedirect(dataString,"../../../App/Backend/Professor/CadastrarProfessorAPI.php", "../../../App/Views/cadastro/cadastroprofessor.php");
+                     alert("Cadastrado");
+        
+        return false;
+    }); 
+
 </script>
 </body>
 </html>

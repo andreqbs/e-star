@@ -15,7 +15,7 @@ class DAOSalaAula implements IDAO{
     public function create($SalaAula){
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    			$sql = "call  ('{$SalaAula->getNomeSala()}', '{$SalaAula->getSetor()}', '{$SalaAula->getCapacidade()}', '{$SalaAula->getUnidade()}')"
+    			$sql = "call sp_inserirSala ('{$SalaAula->getSetor()}', '{$SalaAula->getNomeSala()}', '{$SalaAula->getCapacidade()}', '{$SalaAula->getUnidade()}')";
 		echo "<br>".$sql."<br>";
 
 		try {
@@ -35,7 +35,7 @@ class DAOSalaAula implements IDAO{
     {
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "call = ('{$SalaAula->getNomeSala()}','{$SalaAula->getSetor()}','{$SalaAula->getCapacidade()}','{$SalaAula->getUnidade()}')"
+    	$sql = "call sp_alterarSala('{$idSalaAula}','{$SalaAula->getNomeSala()}','{$SalaAula->getSetor()}','{$SalaAula->getCapacidade()}','{$SalaAula->getUnidade()}')";
 
 		echo "<br>".$sql."<br>";
 
@@ -55,7 +55,7 @@ class DAOSalaAula implements IDAO{
     public function delete($idSalaAula){
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "call = ({$idSalaAula->getidSalaAula()})";
+    	$sql = "call sp_deletarSala ({$idSalaAula})";
 
 		echo "<br>".$sql."<br>";
 
@@ -99,7 +99,7 @@ class DAOSalaAula implements IDAO{
     {
         $connection = new Connection();
         $connection = $connection->openConnection();
-        $sql = "SELECT * FROM SalaAula";
+        $sql = "SELECT * FROM Sala";
 
         echo "<br>".$sql."<br>";
 
@@ -115,6 +115,25 @@ class DAOSalaAula implements IDAO{
                 echo "Error: " . $e->getMessage();
         }
 
+        return $this->data;
+    }
+    public function listBy($type, $value)
+    {
+        $connection = new Connection();
+        $connection = $connection->openConnection();
+        $sql = "SELECT * FROM Sala WHERE ".$type." = ".$value;
+
+        echo "<br>".$sql."<br>";
+        try {
+            $stmt = $connection->query($sql);
+            $this->data = $stmt->fetch();
+
+
+        }
+        catch(PDOException $e) {
+
+                echo "Error: " . $e->getMessage();
+        }
         return $this->data;
     }
 }

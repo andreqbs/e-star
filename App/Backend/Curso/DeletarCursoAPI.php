@@ -9,7 +9,7 @@ use App\Model\Curso as Curso;
 use App\DAO\DAOCurso as DAOCurso;
 use App\Controllers\mainController as mainController;
 
-require_once dirname(__FILE__).'/../../Lib/Core/Loader.php';
+require_once dirname(__FILE__).'/../../../Lib/Core/Loader.php';
 
 $IdCurso = "1 "; //$_POST['']
 

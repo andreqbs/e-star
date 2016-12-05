@@ -28,6 +28,7 @@
 
     
     <section class="content-header"><!-- cabeçalho de conteúdo (cabeçalho da página) -->
+      <form class="form-horizontal" id="formCadastroDuvidasCoord"> <!-- form start -->
           <div class="box box-pessoais"> 
             <div class="box-header with-border">
               <div class="col-md-5"></div><h3 class="box-title">Agendamento de dúvidas</h3>
@@ -37,7 +38,7 @@
               </div>
             </div> <!-- /.box-header -->
             
-            <form class="form-horizontal"> <!-- form start -->
+            
               <div class="box-body">
 
                 <div class="col-md-3"></div> <!-- Inicio Linha 02 -->
@@ -45,7 +46,7 @@
                     <div class="form-group">
                       <label class="col-md-1 control-label">Atendimento:</label>
                       <div class="col-md-3">
-                        <select class="form-control">
+                        <select class="form-control" id="TipoAtendimentoCoord">
                           <option selected>Selecione o tipo atendimento</option> 
                           <option>Professor orientador</option> <!-- Vai listar os orientadores cadastrados -->
                           <option>Equipe pedagógica</option>  
@@ -59,7 +60,7 @@
                     <div class="form-group">
                       <label class="col-md-1 control-label">Data:</label>
                       <div class="col-md-3">
-                        <input type="text" id="data" class="form-control" placeholder="dd/mm/aaaa">
+                        <input id="DataAgendamentoDuvidasCoord" type="text" id="data" class="form-control" placeholder="dd/mm/aaaa">
                       </div>
                     </div>
                   </div> <!-- Fim Linha 03 -->
@@ -75,17 +76,17 @@
                   </div> <!-- Fim Linha 04 -->
 
                 </div> <!-- Fim Box body -->
-              </form>
+              
             </div> <!-- Fim Box pessoais -->
              
            <br/>           
           <div class="form-group">      
                   <div class="col-md-offset-10">
-                    <button class="btn btn-default">Cancelar</button>
-                    <button class="btn btn-primary">Salvar</button>
+                    <button class="btn btn-default" type="reset">Cancelar</button>
+                    <button class="btn btn-primary" type="submit">Salvar</button>
                   </div>
           </div><!-- form group  button-->
-        
+      </form>
     </section><!-- Fim da seção -->
     
   </div><!-- Fim do conteúdo da página -->
