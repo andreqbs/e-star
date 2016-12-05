@@ -71,7 +71,7 @@
 
                             </div> 
 
-                           <input id="Search-field" class=form-control aria-label="Text input with segmented button dropdown">
+                           <input id="RelatorioTCC" class=form-control aria-label="Text input with segmented button dropdown">
 
                         </div> 
                       </div>
@@ -114,8 +114,7 @@
               <td>31/04/2017</td>
               <td>
                   <a href="#" class="btn btn-success btn-xs" data-toggle="modal" data-target="#Relatório"> Visualizar </a>
-                  <a href="#" class="btn btn-warning btn-xs"><i class="label label-warning"></i> Editar </a>
-
+                  
                   <a href="#" class="btn btn-danger btn-xs" > Excluir </a>
               </td>
             </tr><!-- Fim da Linha01  -->
@@ -131,8 +130,7 @@
               <td>22/09/2010</td>
               <td>
                   <a href="#" class="btn btn-success btn-xs" data-toggle="modal" data-target="#Relatório"> Visualizar </a>
-                  <a href="#" class="btn btn-warning btn-xs"><i class="label label-warning"></i> Editar </a>
-
+                  
                   <a href="#" class="btn btn-danger btn-xs" > Excluir </a>
                   
               </td>
@@ -377,7 +375,7 @@
                     </button>
 
                     <button class="btn btn-default pull-right" type="submit" >
-                    <i class="fa fa-download"></i> Gerar PDF
+                    <i class="fa fa-download"></i> Editar
                     </button>
                   </div>
 

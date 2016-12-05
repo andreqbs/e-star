@@ -73,7 +73,7 @@
 
                             </div> 
 
-                           <input id="Search-field" class=form-control aria-label="Text input with segmented button dropdown">
+                           <input id="DefesaTCC" class=form-control aria-label="Text input with segmented button dropdown">
 
                         </div> 
                       </div>
@@ -122,8 +122,7 @@
               <td>B202</td>
               <td>
                   <a href="#" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModalBuscaDefTCC"> Visualizar </a>
-                  <a href="#" class="btn btn-warning btn-xs"><i class="label label-warning"></i> Editar </a>
-
+                  
                   <a href="#" class="btn btn-danger btn-xs" > Excluir </a>
               </td>
             </tr>
@@ -141,8 +140,7 @@
               <td>C102</td>
               <td>
                   <a href="#" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModalBuscaDefTCC"> Visualizar </a>
-                  <a href="#" class="btn btn-warning btn-xs"><i class="label label-warning"></i> Editar </a>
-
+                 
                   <a href="#" class="btn btn-danger btn-xs" > Excluir </a>
                   
               </td>
@@ -235,9 +233,18 @@
                                 
                                           </div> </div>
 
-                                           <div class="modal-footer">
                                           
-                                        </div>  <!--Fim da Modal Vizualisar TCC-->
+          
+
+        
+
+                                          <div class="modal-footer">
+
+                                            <button class="btn btn-default pull-right" type="submit" >
+                                            <i class="fa fa-download"></i> Editar
+                                            </button>
+                                          
+                                          </div>  <!--Fim da Modal Vizualisar TCC-->
 
 
 

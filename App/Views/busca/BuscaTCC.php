@@ -73,7 +73,7 @@
 
                           </div> 
 
-                         <input class=form-control aria-label="Text input with segmented button dropdown">
+                         <input id="TCC" class=form-control aria-label="Text input with segmented button dropdown">
 
                       </div> 
                     </div>
@@ -120,8 +120,7 @@
             <td>22/09/2019</td>
             <td>
                 <a href="#" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModalBuscaTCC"> Visualizar </a>
-                <a href="#" class="btn btn-warning btn-xs"><i class="label label-warning"></i> Editar </a>
-
+                
                 <a href="#" class="btn btn-danger btn-xs" > Excluir </a>
             </td>
           </tr>
@@ -138,8 +137,7 @@
             <td>22/09/2019</td> ModalEditarTCC
             <td>
                 <a href="#" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModalBuscaTCC"> Visualizar </a>
-                <a href="#" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#ModalEditarTCC"> Editar </a>
-
+                
                 <a href="#" class="btn btn-danger btn-xs" > Excluir </a>
                 
             </td>

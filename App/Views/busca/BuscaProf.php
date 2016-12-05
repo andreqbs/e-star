@@ -72,7 +72,7 @@
 
                             </div> 
 
-                           <input id="Search-field" class=form-control aria-label="Text input with segmented button dropdown">
+                           <input id="Professor" class=form-control aria-label="Text input with segmented button dropdown">
 
                         </div> 
                       </div>
