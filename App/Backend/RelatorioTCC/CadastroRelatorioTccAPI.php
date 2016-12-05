@@ -8,7 +8,7 @@ use App\Controllers\mainController as mainController;
 date_default_timezone_set('America/Bahia');
 require_once dirname(__FILE__).'/../../../Lib/Core/Loader.php';
 
- $TipoRelatorio = $_POST['1'];
+ $TipoRelatorio = '1';//$_POST['1'];
 	
  $TituloTcc = 'projeto';//$_POST['TituloTcc'];
 
@@ -40,7 +40,7 @@ require_once dirname(__FILE__).'/../../../Lib/Core/Loader.php';
 
  $NotaTotal = $_POST['NotaTotal'];
 
- $idTCCFK = $_POST['2'];
+ $idTCCFK = '3';//$_POST['1'];
  
  // TituloTcc NomeAluno MatriculaAluno ApresentacaoComentario NotaApresentacao FundamentacaoComentario NotaFundamentacao DesenvolvimentoComentario NotaDesenvolvimento ResultadosComentario NotaResultados  NotaTotal
 
