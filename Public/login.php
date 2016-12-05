@@ -31,13 +31,13 @@
   </div>
   <!-- /.login-logo -->
   
-  <div class="form login-box-body animated fadeInUp">
+  <div class="login-box-body formulario animated fadeInUp">
 
 
     
 
 
-    <form class="login-form" id="formLoginUsuario" data-toggle="validator">
+    <form class="" id="formLoginUsuario" data-toggle="validator">
 
       <p class="login-box-msg">Login</p>
 
@@ -46,7 +46,7 @@
       </div>
 
       <div class="form-group has-feedback">
-        <input id="senhaLogin" type="password" class="form-control"  placeholder="senha" required="true" data-minlength="6"  data-error="senha tem que ter no minimo 6 caracteres!">
+        <input id="senhaLogin" type="password" class="form-control"  placeholder="senha" required="true" data-minlength="8" data-error="senha tem que ter no minimo 8 caracteres!">
         <small class="help-block with-errors"></small>
       </div>
 
@@ -60,7 +60,7 @@
 
       <div class="row">
         <div class="col-xs-12">
-          <button type="submit" class="btn btn-info btn-block btn-flat"><h4>ENTRAR</h4></button>
+          <button type="submit" class="btn btn-info btn-block btn-flat"><h5>ENTRAR</h4></button>
           <br>
           <p class="abrir">Já está registrado?  <a href="#">Entre aqui</a></p>
         </div>
@@ -71,7 +71,7 @@
 
 
 
-    <form class="register-form" id="formCadastroUsuario" data-toggle="validator">
+    <form class="" id="formCadastroUsuario" data-toggle="validator">
       <p class="login-box-msg">Cadastro</p>
       
       <div class="form-group has-feedback">
@@ -109,7 +109,7 @@
       </div>
       
       <div class="form-group has-feedback">
-        <input id="senha"   type="password" class="form-control"  placeholder="senha" required="true" data-minlength="6" data-error="senha tem que ter no minimo 6 caracteres!">
+        <input id="senha"   type="password" class="form-control"  placeholder="senha" required="true" data-minlength="8" data-error="senha tem que ter no minimo 8 caracteres!">
         <small class="help-block with-errors"></small>
       </div>
      
@@ -120,7 +120,7 @@
 
       <div class="row">
         <div class="col-xs-12">
-          <button type="submit" class="btn btn-info btn-block btn-flat"><h4>CRIAR</h4></button>
+          <button type="submit" class="btn btn-info btn-block btn-flat"><h5>CRIAR</h4></button>
           <br>
           <p class="abrir">Não está registrado? <a href="#">Crie uma conta</a></p>
         </div>
@@ -147,11 +147,7 @@
 
 <script src="bower_components/jQuery-Mask-Plugin/dist/jquery.mask.js"></script> 
 
-<script src="../Js/login.js"></script>
-
-<script src="../Js/ajaxFunctions.js"></script>
-
- 
+<script src="../Js/ajaxFunctions.js"></script> 
 <!-- Função para campo de entrada da data -->
 <script>$(document).ready(function(){
     $('#matricula').mask('000000000');   
