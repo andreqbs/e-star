@@ -63,7 +63,7 @@
                           </div>
                           <div class="row">
                                         <div class="col-md-8">
-                                        <label>Postura / Comentário:</label>
+                                        <label>Postura pessoal / Comentário:</label>
                                          <textarea id="PosturaComentario" class="form-control" style="resize: none"  placeholder="Enter ..."></textarea>
                                         </div>
                                         <div class="col-md-2">
@@ -73,7 +73,7 @@
                          </div>
                           <div class="row"> 
                                         <div class="col-md-8">
-                                        <label>Comunicação / Comentário:</label>
+                                        <label>Fluência comunicativa / Comentário:</label>
                                          <textarea id="ComunicacaoComentario" class="form-control" style="resize: none"  placeholder="Enter ..."></textarea>
                                         </div>
                                         <div class="col-md-2">

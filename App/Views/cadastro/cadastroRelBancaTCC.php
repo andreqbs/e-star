@@ -4,7 +4,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Relatório TCC</title>
+  <title>Relatório Banca TCC</title>
 
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
@@ -36,7 +36,7 @@
 
             <div class="box-header with-border">
               
-              <div class="col-md-5"></div><h3 class="box-title">Relatório do TCC</h3>
+              <div class="col-md-5"></div><h3 class="box-title">Relatório Banca TCC</h3>
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
@@ -55,11 +55,11 @@
                           <div class="row"> 
                                       <div class="col-md-8">
                                         <label>Curso: </label>
-                                        <input id="MatriculaAluno" type="text" placeholder="Curso" class="form-control" disabled="">
+                                        <input id="NomeCurso" type="text"  class="form-control" placeholder="Nome do curso" disabled="">
                                       </div>
                                       <div class="col-md-2">
                                         <label>Série: </label>
-                                        <input id="MatriculaAluno" type="text"  class="form-control" disabled="">
+                                        <input id="SerieAluno" type="text"  class="form-control" disabled="">
                                       </div>
                           </div>
                           <div class="row"> 
@@ -67,7 +67,7 @@
                                         <label class="control-label">Orientador:</label>
                                           <input type="text" id="NomeOrientador" placeholder="Nome do professor orientador" disabled="" class="form-control">
                                         </div>
-                          </div> 
+                          </div>   
                           <div class="row"> 
                                       <div class="col-md-8">
                                         <label>Aluno(a): </label>
@@ -81,6 +81,22 @@
                                         <label>Matrícula: </label>
                                         <input id="MatriculaAluno" type="text"  class="form-control" disabled="">
                                       </div>
+                          </div>
+                          <div class="row"> 
+                                        <div class="col-md-10">
+                                        <label class="control-label">Avaliador:</label>
+                                          <input type="text" id="NomeAvaliador" placeholder="Nome do avaliador" disabled="" class="form-control">
+                                        </div>
+                          </div>
+                          <div class="row"> 
+                                        <div class="col-md-8">
+                                        <label class="control-label">Tipo de avaliação:</label>
+                                          <select class="form-control">
+                                            <option>Selecione o que deseja avaliar</option>
+                                            <option>Trabalho</option>
+                                            <option>Apresentação e Defesa</option>
+                                          </select>
+                                        </div>
                           </div>
                           <div class="row">
                                       <div class="col-md-8">
@@ -158,50 +174,8 @@
 
 <!-- Função para campo de entrada da data -->
 <script>$(document).ready(function(){
-    $('#matricula').mask('000000000');   
+    $('#MatriculaAluno').mask('000000000 ');   
 });
-</script>
-
-<?php session_start() ?>
-<script>
-  $('#formCadastroRelatorioTcc').on('submit', function(){
-     // e.preventDefault();  //prevent form from submitting
-                    var TituloTcc = document.getElementById('TituloTcc').value;
-                    var NomeAluno = document.getElementById('NomeAluno').value;
-                    var MatriculaAluno = document.getElementById('MatriculaAluno').value;
-                    var ApresentacaoComentario = document.getElementById('ApresentacaoComentario').value;
-                    var NotaApresentacao = document.getElementById('NotaApresentacao').value;
-                    var FundamentacaoComentario = document.getElementById('FundamentacaoComentario').value;
-                    var NotaFundamentacao = document.getElementById('NotaFundamentacao').value;
-                    var DesenvolvimentoComentario = document.getElementById('DesenvolvimentoComentario').value;
-                    var NotaDesenvolvimento = document.getElementById('NotaDesenvolvimento').value;
-                    var ResultadosComentario = document.getElementById('ResultadosComentario').value;
-                    var NotaResultados = document.getElementById('NotaResultados').value;
-                    var NotaTotal = document.getElementById('NotaTotal').value;
-
-                    var dataString = $("#formCadastroRelatorioTcc").serialize();
-                    dataString += '&TituloTcc='+TituloTcc+'&NomeAluno='+NomeAluno+'&MatriculaAluno='+MatriculaAluno+'&ApresentacaoComentario='+ApresentacaoComentario+'&NotaApresentacao='+NotaApresentacao+'&FundamentacaoComentario='+FundamentacaoComentario+'&NotaFundamentacao='+NotaFundamentacao+'&DesenvolvimentoComentario='+DesenvolvimentoComentario+'&NotaDesenvolvimento='+NotaDesenvolvimento+'&ResultadosComentario='+ResultadosComentario+'&NotaResultados='+NotaResultados+'&NotaTotal='+NotaTotal;
-                    alert(dataString);
-                   
-                    var minhaSessionP = '<?php echo $_SESSION['idProfessor']; ?>';
-
-                    var minhaSessionA = '<?php echo $_SESSION['idAluno']; ?>';
-
-                    // alert("aluno");
-                    // alert(minhaSessionA);
-                    // alert("Professor");
-                    // alert(minhaSessionP);
-                    if(minhaSessionP > 0){
-                     alert("ProfessorRedi");                   
-                     ajaxPostRedirect(dataString,"../../../App/Backend/RelatorioTCC/CadastroRelatorioTccAPI.php","../../../App/Views/usuario/principalProfessor.php");
-                    }
-                    else if(minhaSessionA > 0){
-                     alert("AlunoRedi");                     
-                     ajaxPostRedirect(dataString,"../../../App/Backend/RelatorioTCC/CadastroRelatorioTccAPI.php","../../../App/Views/usuario/principalAluno.php");
-                    }                    
-                     
-        return false;
-    }); 
 </script>
 
 </body>

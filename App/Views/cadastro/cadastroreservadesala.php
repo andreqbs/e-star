@@ -68,7 +68,7 @@
                     <div class="form-group">
                       <label class="col-md-1 control-label">Professor:</label>
                       <div class="col-md-3">
-                        <input id="NomeProfessor" type="text" class="form-control" placeholder="Professor que deseja reservar a sala">
+                        <input id="NomeProfessor" type="text" class="form-control" placeholder="Professor que deseja reservar a sala" disabled="">
                       </div>
                     </div>
                   </div>

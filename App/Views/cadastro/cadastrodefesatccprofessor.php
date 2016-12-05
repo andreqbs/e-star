@@ -78,24 +78,40 @@
                       </div>
                 </div>
 
-                <div class="form-group">              
+                <div class="form-group" id=divProfessor> 
+                          
                       <div class="col-md-12 col-md-offset-2">
                         <label class="col-md-1 control-label">Professor:</label>
                         <div class="col-md-7">
-                          <input id="NomeProfessor1" type="text" class="form-control" placeholder="Professor avaliador 1">
+                          <input id="NomeProfessor1" type="text" class="form-control" placeholder="Professor avaliador">
                         </div>
                       </div>
+                      
                 </div>
-
                 <div class="form-group">
-                      <div class="col-md-12 col-md-offset-2">
-                        <label class="col-md-1 control-label">Professor:</label>
-                        <div class="col-md-7">
-                          <input id="NomeProfessor2" type="text" class="form-control" placeholder="Professor avaliador 2">
+                  <div id="origem">
+                           <i onclick="duplicarCampos();" class="fa fa-plus" ></i>  
+                           <i onclick="removerCampos(this);" class="fa fa-minus" ></i> 
                         </div>
-                      </div>
-                </div>    
-
+                        <div id="destino">
+                        </div>
+                </div>
+                      
+                  <script>
+                   function duplicarCampos(){
+                    var clone = document.getElementById('divProfessor').cloneNode(true);
+                    var destino = document.getElementById('destino');
+                    destino.appendChild (clone);
+                    var camposClonados = clone.getElementsByTagName('input');
+                    for(i=0; i<camposClonados.length;i++){
+                      camposClonados[i].value = '';
+                    }
+                  }
+                  function removerCampos(id){
+                    var node1 = document.getElementById('destino');
+                    node1.removeChild(node1.childNodes[0]);
+                  }
+                  </script>
                 <div class="form-group">                   
                       <div class="col-md-12 col-md-offset-2">
                         <label class="col-md-1 control-label">Data:</label>
@@ -111,7 +127,7 @@
                         <input type="text" id="NomeSala" class="form-control" placeholder="Reserva de sala">
                         </div>
                       </div>
-                    </div> 
+                </div> 
 
                    </div> <!--Fim colunas linha principal -->
                   </div> <!-- Fim linha principal -->       
