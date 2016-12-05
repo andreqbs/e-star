@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Cadastrar Dúvidas - Coordenador</title>
+  <title>Cadastrar Dúvidas - Professor</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
@@ -44,12 +44,9 @@
                 <div class="col-md-3"></div> <!-- Inicio Linha 02 -->
                   <div class="row"> <!-- Inicio Linha 02 -->
                     <div class="form-group">
-                      <label class="col-md-1 control-label">Atendimento:</label>
+                      <label class="col-md-1 control-label">Professor:</label>
                       <div class="col-md-3">
-                        <select class="form-control" id="TipoAtendimentoCoord">
-                          <option selected>Selecione o tipo atendimento</option> 
-                          <option>Listar equipe pedagógica</option> <!-- Vai listar os membros da equipe cadastrados -->
-                        </select>
+                        <input class="form-control" type="text" id="NomeProfessor" placeholder="Nome do professor" disabled="">
                       </div>
                     </div>
                   </div>  <!-- Fim Linha 02 -->
