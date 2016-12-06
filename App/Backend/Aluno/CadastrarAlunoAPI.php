@@ -12,34 +12,35 @@ use App\Controllers\mainController as mainController;
 require_once dirname(__FILE__).'/../../../Lib/Core/Loader.php';
 
 
-// $NomeAluno;
+$NomeAluno;
 
-// $MatriculaAluno;
+$MatriculaAluno;
 
-// $EmailAluno;
+$EmailAluno;
 
-// $LoginAluno;
+$LoginAluno;
 
-// $SenhaAluno;
+$SenhaAluno;
 
-// $SenhaAlunoConfirmacao;
+$SenhaAlunoConfirmacao;
 
-// $idCursoFK;
+$idCursoFK;
 
+if($SenhaAluno == $SenhaAlunoConfirmacao)
+{
+	$Aluno = new Aluno($NomeAluno, $MatriculaAluno, $EmailAluno, $LoginAluno, $SenhaAluno;, $idCursoFK);
 
-//$Aluno = new Aluno($NomeAluno, $MatriculaAluno, $EmailAluno, $LoginAluno, $SenhaAluno;, $idCursoFK);
-$Aluno = new Aluno("eu", "123456", "eu@tu.com", "eu", "123", "2");
+	$Controller = new mainController();
+	$Result = $Controller->cadastrarAluno($Aluno);
 
-$Controller = new mainController();
-$Result = $Controller->cadastrarAluno($Aluno);
+	echo $Result);
 
-//echo($Result);
-
-if ($Result){
-	echo '<script>alert("Usuario Criado")</script>';
 }
-else 
-	echo '<script> alert(" Não Cadastrado ") </script>  ';
+
+
+
+
+
 
 
 

@@ -7,19 +7,19 @@ session_start();
 
 use App\Models\Aluno as Aluno;
 use App\DAO\DAOAluno as DAOAluno;
-require_once dirname(__FILE__).'/../Model/Aluno.php';
-require_once dirname(__FILE__).'/../DAO/DAOAluno.php';
+use App\Controllers\mainController as mainController;
 
-//INSERT
-//$meuAluno = new Aluno("TalkingHand", "Luva Foda", "1", "Fazer uma luva foda!!", "Pq eh massa!!!", "1", "1");
+require_once dirname(__FILE__).'/../../../Lib/Core/Loader.php';
 
 
-$searchfield = $_POST['searchfield'];
-$type = $_POST['type'];
-
-$meuDAOAluno = new DAOAluno();
-$Result =$meuDAOAluno->listBy($type, $searchfield);
+$idAluno $_POST[];
 
 
 
+
+$Control = new mainController();
+$Result = $Control->find($idAluno);
+
+
+echo 
 
