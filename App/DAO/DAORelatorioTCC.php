@@ -15,10 +15,13 @@ class DAORelatorioTCC implements IDAO{
     public function create($RelatorioTCC){
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "INSERT INTO RelatorioTCC (Apresentacao, Fundamentacao, Desenvolvimento, ModeloResultado, ApresentacaoComentario, FundamentacaoComentario, DesenvolvimentoComentario, ModeloResultadoComentario, NotaTotal, TipoRelatorio, idTCCFK) 
-    			VALUES ('{$RelatorioTCC->getApresentacao()}', '{$RelatorioTCC->getFundamentacao()}', '{$RelatorioTCC->getDesenvolvimento()}', '{$RelatorioTCC->getModeloResultado()}', 
-    			'{$RelatorioTCC->getApresentacaoComentario()}', '{$RelatorioTCC->getFundamentacaoComentario()}', '{$RelatorioTCC->DesenvolvimentoComentario()}','{$RelatorioTCC->ModeloResultadoComentario()}','{$RelatorioTCC->NotaTotal()}','{$RelatorioTCC->TipoRelatorio()}','{$RelatorioTCC->idTCCFK()}' ); ";
-		echo "<br>".$sql."<br>";
+    	$sql = "call sp_inserirRelatorio('{$RelatorioTCC->getNotaApresentacao()}','{$RelatorioTCC->getDatasystem()}','{$RelatorioTCC->getNotaFundamentacao()}','{$RelatorioTCC->getNotaDesenvolvimento()}','{$RelatorioTCC->getNotaResultados()}','{$RelatorioTCC->getNotaTotal()}','{$RelatorioTCC->getTipoRela()}','{$RelatorioTCC->getApresentacaoComentario()}','{$RelatorioTCC->getFundamentacaoComentario()}','{$RelatorioTCC->getDesenvolvimentoComentario()}','{$RelatorioTCC->getResultadosComentario()}','{$RelatorioTCC->getidTCCFK()}')";
+		
+        echo "<br>".$sql."<br>";
+
+ // CREATE PROCEDURE `sp_inserirRelatorio`(apresentacaoNota FLOAT, dataH DATETIME, fundamentacaoNota FLOAT, desenvolvimentoNota FLOAT, resultadosNota FLOAT, notaFinal FLOAT, 
+ //  TipoRelatorio varchar(50), apresentacaoComentario varchar(250), fundamentacaoComentario varchar(250), desenvolvimentoComentario varchar(250), 
+ //  resultadosComentario varchar(250), idTCCFK integer(11))
 
 		try {
             $stmt = $connection->prepare($sql);
@@ -37,10 +40,10 @@ class DAORelatorioTCC implements IDAO{
     {
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "UPDATE RelatorioTCC SET Apresentacao = '{$RelatorioTCC->getApresentacao()}', Fundamentacao = '{$RelatorioTCC->getFundamentacao()}', 
-    			Desenvolvimento = '{$RelatorioTCC->getDesenvolvimento()}', ModeloResultado = '{$RelatorioTCC->getModeloResultado()}', 
-    			ApresentacaoComentario = '{$RelatorioTCC->getApresentacaoComentario()}', FundamentacaoComentario = '{$RelatorioTCC->getFundamentacaoComentario()}', FundamentacaoComentario = '{$RelatorioTCC->getFundamentacaoComentario()}', DesenvolvimentoComentario = '{$RelatorioTCC->getDesenvolvimentoComentario()}', ModeloResultadoComentario = '{$RelatorioTCC->getModeloResultadoComentario()}', NotaTotal = '{$RelatorioTCC->getNotaTotal()}', TipoRelatorio = '{$RelatorioTCC->getTipoRelatorio()}', idTCCFK = '{$RelatorioTCC->getidTCCFK()}',
-    			 WHERE idRelatorioTCC = $idRelatorioTCC";
+    	$$sql = "call sp_alterarRelatorio ('{$idRelatorioTCC}','{$RelatorioTCC->getDatasystem()}','{$RelatorioTCC->getNotaApresentacao()}','{$RelatorioTCC->getNotaFundamentacao()}','{$RelatorioTCC->getNotaDesenvolvimento()}','{$RelatorioTCC->getNotaResultados()}','{$RelatorioTCC->getNotaTotal()}','{$RelatorioTCC->getTipoRela()}','{$RelatorioTCC->getApresentacaoComentario()}','{$RelatorioTCC->getFundamentacaoComentario()}','{$RelatorioTCC->getDesenvolvimentoComentario()}','{$RelatorioTCC->getResultadosComentario()}','{$RelatorioTCC->getidTCCFK()}')";
+// CREATE PROCEDURE `sp_alterarRelatorio`(idRelatorio integer(11), dataH DATETIME, apresentacaoNota FLOAT, fundamentacaoNota FLOAT, desenvolvimentoNota FLOAT, resultadosNota FLOAT, notaFinal FLOAT, 
+//   TipoRelatorio varchar(50), apresentacaoComentario varchar(250), fundamentacaoComentario varchar(250), desenvolvimentoComentario varchar(250), 
+//   resultadosComentario varchar(250), idTCCFK integer(11))
 
 		echo "<br>".$sql."<br>";
 
@@ -60,8 +63,8 @@ class DAORelatorioTCC implements IDAO{
     public function delete($idRelatorioTCC){
     	$connection = new Connection();
     	$connection = $connection->openConnection();
-    	$sql = "DELETE FROM RelatorioTCC WHERE idRelatorioTCC = $idRelatorioTCC";
-    			
+    	$sql = " call sp_deletarRelatorio`('{$idRelatorioTCC}')";
+		
 		echo "<br>".$sql."<br>";
 
 		try {
@@ -104,7 +107,7 @@ class DAORelatorioTCC implements IDAO{
     {
         $connection = new Connection();
         $connection = $connection->openConnection();
-        $sql = "SELECT * FROM RelatorioTCC";
+        $sql = "call sp_listarRelatorio()";
                 
         echo "<br>".$sql."<br>";
 

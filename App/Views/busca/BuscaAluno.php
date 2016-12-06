@@ -312,22 +312,17 @@
 var type;
 $(".dropdown-menu li a").click(function(e){
     type = $(this).text();
-
     $(this).parents('.input-group').find('.dropdown-toggle').html(type+' <span class="caret"></span>');       
 });
-
   $('#search-form').on('submit', function(){
                     var Searchfield = document.getElementById('Search-field').value;
-
                     var dataString = $("#search-form").serialize();
                     dataString += '&Searchfield='+Searchfield+'&type='+type;
                     alert(dataString);
-
                     ajaxPostRedirect(dataString,"BuscaAlunoAPI.php");
         
         return false;
     }); 
-
 </script>
 
 </body>

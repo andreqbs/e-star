@@ -51,6 +51,16 @@
                     </div>
                 </div> <!-- Fim Linha 01 -->
 
+                <div class="col-md-3"></div>  
+                  <div class="row"> <!-- Inicio Linha 01 -->
+                    <div class="form-group">
+                      <label class="col-md-1 control-label">Orientador:</label>
+                      <div class="col-md-3">
+                        <input id="NomeAluno" type="text" class="form-control" placeholder="Nome do professor orientador" disabled="">
+                      </div>
+                    </div>
+                </div> <!-- Fim Linha 01 -->
+
               <div class="col-md-3"></div>
                 <div class="row"> <!-- Inicio Linha 02 -->
                   <div class="form-group">

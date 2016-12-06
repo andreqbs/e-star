@@ -122,7 +122,7 @@
               <td>B202</td>
               <td>
                   <a href="#" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModalBuscaDefTCC"> Visualizar </a>
-                  <a href="#" class="btn btn-warning btn-xs"><i class="label label-warning"></i> Editar </a>
+                  <a href="#" class="btn btn-warning btn-xs" class="label label-warning"> Editar </a>
 
                   <a href="#" class="btn btn-danger btn-xs" > Excluir </a>
               </td>
@@ -176,68 +176,72 @@
          
          
                                    
-                                       <div class="box box-body"><!--Linha 01-->
+               <div class="box box-body"><!--Linha 01-->
 
-                                                                           
-                                          <div class="col-xs-12 form-group">
+                                                   
+                  <div class="col-xs-12 form-group">
 
-                                            <label class="col-xs control-label">TÍTULO:</label>
+                    <label class="col-xs control-label">TÍTULO:</label>
 
-                                            <input class="form-control" type="text" disabled="" placeholder="NOIADOS">
-                                
-                                          </div>
+                    <input class="form-control" type="text" disabled="" placeholder="NOIADOS">
+        
+                  </div>
 
-                                           
-                                          <div class="col-xs-5 form-group">
+                   
+                  <div class="col-xs-5 form-group">
 
-                                            <label class="col-xs control-label">ORIENTADOR:</label>
+                    <label class="col-xs control-label">ORIENTADOR:</label>
 
-                                            <input class="form-control" type="text" disabled="" placeholder="Andre Quitiliano">
-                                
-                                          </div>                                   
-                                          
-                                           <div class="col-xs-3 form-group">
+                    <input class="form-control" type="text" disabled="" placeholder="Andre Quitiliano">
+        
+                  </div>                                   
+                  
+                   <div class="col-xs-3 form-group">
 
-                                            <label class="col-xs control-label">DATA:</label>
+                    <label class="col-xs control-label">DATA:</label>
 
-                                            <input class="form-control" type="text" disabled="" placeholder="10-21-1993">
-                                
-                                          </div>  
-                                          <div class="col-xs-4 form-group">
+                    <input class="form-control" type="text" disabled="" placeholder="10-21-1993">
+        
+                  </div>  
+                  <div class="col-xs-4 form-group">
 
-                                            <label class="col-xs control-label">SALA:</label>
+                    <label class="col-xs control-label">SALA:</label>
 
-                                            <input class="form-control" type="text" disabled="" placeholder="B12">
-                                
-                                          </div>   
-                                        
-                                          <div class="col-xs-6 form-group">
+                    <input class="form-control" type="text" disabled="" placeholder="B12">
+        
+                  </div>   
+                
+                  <div class="col-xs-6 form-group">
 
-                                            <label class="col-xs control-label">ALUNO 1:</label>
+                    <label class="col-xs control-label">ALUNO 1:</label>
 
-                                            <input class="form-control" type="text" disabled="" placeholder="Jefnoia">
-                                
-                                          </div> 
+                    <input class="form-control" type="text" disabled="" placeholder="Jefnoia">
+        
+                  </div> 
 
-                                            <div class="col-xs-6 form-group">
+                    <div class="col-xs-6 form-group">
 
-                                            <label class="col-xs control-label">ALUNO 2:</label>
+                    <label class="col-xs control-label">ALUNO 2:</label>
 
-                                            <input class="form-control" type="text" disabled="" placeholder="Noiado">
-                                
-                                          </div> 
+                    <input class="form-control" type="text" disabled="" placeholder="Noiado">
+        
+                  </div> 
 
-                                            <div class="col-xs-12 form-group">
+                    <div class="col-xs-12 form-group">
 
-                                            <label class="col-xs control-label">LINHA DE PESQUISA:</label>
+                    <label class="col-xs control-label">LINHA DE PESQUISA:</label>
 
-                                            <input class="form-control" type="text" disabled="" placeholder="Sabor da maconha">
-                                
-                                          </div> </div>
+                    <input class="form-control" type="text" disabled="" placeholder="Sabor da maconha">
+        
+                  </div> </div>
 
-                                           <div class="modal-footer">
-                                          
-                                        </div>  <!--Fim da Modal Vizualisar TCC-->
+                   <div class="modal-footer">
+                  
+    </div>  <!--Fim da Modal Vizualisar TCC-->
+        
+        </div>
+      </div>
+    </div>
 
 
 
