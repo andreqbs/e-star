@@ -115,7 +115,7 @@ class DAOAluno implements IDAO{
         $connection = $connection->openConnection();
         $sql = "SELECT * FROM Aluno";
 
-        echo "<br>".$sql."<br>";
+        
         try {
             $stmt = $connection->query($sql);
             $this->data = $stmt->fetch();
@@ -134,7 +134,7 @@ class DAOAluno implements IDAO{
         $connection = $connection->openConnection();
         $sql = "SELECT * FROM Aluno WHERE ".$type." = ".$value;
 
-        echo "<br>".$sql."<br>";
+        
         try {
             $stmt = $connection->query($sql);
             $this->data = $stmt->fetch();

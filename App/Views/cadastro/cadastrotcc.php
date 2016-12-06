@@ -44,7 +44,7 @@
                     <div class="col-md-7">
                     <label class="control-label">Curso:</label>
                       <select id="NomeCurso" class="form-control select1">
-                        <option selected>Selecione um curso</option>
+                        <option selected>Selecione uma linha de pesquisa</option>
                         <option>Arquitetura e
                         <option>Engenharia Civil</option>
                         <option>Engenharia da Computação</option>
@@ -56,8 +56,10 @@
                     <label class="control-label">Série:</label>
                       <select id="NumeroSerie" class="form-control select1">
                         <option selected>Selecione sua série</option>
-                        <option>9</option>
-                        <option>10</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
                       </select>
                     </div>
                 </div> <!-- Fim Linha 01-->
@@ -78,7 +80,7 @@
                 <div class="col-md-1"></div>   
                     <div class="col-md-7">
                     <label class="control-label">Aluno(a):</label>
-                      <input type="text" class="form-control" placeholder="Nome do Aluno(a)">
+                      <input id="NomeAluno2" type="text" class="form-control" placeholder="Nome do Aluno(a)">
                     </div>
                     <div class="col-md-2">
                     <label class="control-label">Matrícula:</label>
@@ -117,15 +119,15 @@
                 <div class="col-md-1"></div>
                     <div class="col-md-9">
                       <label class="control-label">Pesquisa:</label>
-                      <select id="NomePesquisa" class="form-control select1">
+                      <select id="idPesquisa" class="form-control select1">
                         <option selected>Selecione uma linha de pesquisa</option>
-                        <option>Automação e Controle</option>
-                        <option>Computação de Alto Desempenho</option>
-                        <option>Inteligência Computacional</option>
-                        <option>Metaheurística</option>
-                        <option>Robótica</option>
-                        <option>Sistemas Embarcados</option>
-                        <option>Visão Computacional</option>
+                        <option value="1">Automação e Controle</option>
+                        <option value="7">Computação de Alto Desempenho</option>
+                        <option value="6">Inteligência Computacional</option>
+                        <option value="5">Metaheurística</option>
+                        <option value="4">Robótica</option>
+                        <option value="3">Sistemas Embarcados</option>
+                        <option value="2">Visão Computacional</option>
                       </select>
                     </div>
                 </div> <!-- Fim Linha 04 -->
@@ -158,14 +160,14 @@
                 <div class="col-md-1"></div> 
                     <div class="col-md-9">
                       <label class="control-label">Justificativas:</label>
-                      <textarea class="form-control" style="resize: none" placeholder="Escreva suas justificativas"></textarea>
+                      <textarea id="justificativasTCC" class="form-control" style="resize: none" placeholder="Escreva suas justificativas"></textarea>
                       </div>
                   </div> <!-- Fim Linha 06 -->
 
                 </div> <!-- Fim do Box body -->
               </div> <!-- box tcc -->
 
-                <div class="box box-cronograma">
+                <div class="box box-cronograma" style="display:none">
                 <div class="box-header with-border">
                   <div class="col-md-5"></div><h3 class="box-title">Cronograma</h3>
                   <div class="box-tools pull-right">
@@ -276,7 +278,7 @@
   </div><!-- Fim do conteúdo da página -->
 </div><!--Fim do Conteudo-->
 
-
+<script src="../../../Js/ajaxFunctions.js"></script>
 
 <script src="../../../Public/bower_components/AdminLTE/plugins/jQuery/jquery-2.2.3.min.js"></script>
 
@@ -291,6 +293,30 @@
     $('#MatriculaAluno2').mask('000000000');
     $('#MatriculaOrientador').mask('000000000');   
 });
+</script>
+
+<script>
+  $('#formCadastroTcc').on('submit', function(){
+                    var MatriculaAluno1 = document.getElementById('MatriculaAluno1').value;
+                    var MatriculaAluno2 = document.getElementById('MatriculaAluno2').value;
+                    var MatriculaOrientador = document.getElementById('MatriculaOrientador').value;
+                    var idPesquisa = document.getElementById('idPesquisa').value;
+                    var TituloTCC = document.getElementById('TituloTCC').value;
+                    var ResumoTcc = document.getElementById('ResumoTcc').value;
+                    var ObjetivosTcc = document.getElementById('ObjetivosTcc').value;
+                    var justificativasTCC = document.getElementById('justificativasTCC').value;
+
+
+                    var dataString = $("#formCadastroTcc").serialize();
+                    dataString += '&MatriculaAluno1='+MatriculaAluno1+'&MatriculaAluno2='+MatriculaAluno2+'&MatriculaOrientador='+MatriculaOrientador+'&TituloTCC='+TituloTCC+'&ResumoTcc='+ResumoTcc+'&ObjetivosTcc='+ObjetivosTcc+'&justificativasTCC='+justificativasTCC+'&idPesquisa='+idPesquisa;
+                    //alert(dataString);
+                    ajaxPostWithResponse(dataString,"../../../App/Backend/TCC/CadastrarTCCAPI.php","TCC cadastrado","TCC não cadastrado",0);
+                    
+                     
+        
+        return false;
+    }); 
+
 </script>
 </body>
 </html>

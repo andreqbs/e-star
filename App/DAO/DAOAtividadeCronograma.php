@@ -17,7 +17,7 @@ class DAOAtividadeCronograma implements IDAO{
     	$connection = new Connection();
     	$connection = $connection->openConnection();
     	$sql = "INSERT INTO idAtividadeCronograma (NomeAtividade, idCronogramaFK,idTCCFK) 
-    			VALUES ('{$LinhaPesquisa->getNomeAtividade()}', '{$LinhaPesquisa->getidTCCFK()}','{$LinhaPesquisa->getidTCCFK()}'getidCronogramaFK); ";
+    			VALUES ('{$AtividadeCronograma->getNomeAtividade()}', '{$AtividadeCronograma->getidTCCFK()}','{$AtividadeCronograma->getidTCCFK()}'getidCronogramaFK); ";
 		
 		echo "<br>".$sql."<br>";
 

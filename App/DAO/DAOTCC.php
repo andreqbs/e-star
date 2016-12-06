@@ -62,7 +62,7 @@ class DAOTCC implements IDAO{
         $sql = "sp_deletarTCC({$idTcc})";
     	
     			
-		echo "<br>".$sql."<br>";
+		
 
 		try {
             $stmt = $connection->prepare($sql);
@@ -83,7 +83,7 @@ class DAOTCC implements IDAO{
     	$connection = $connection->openConnection();
     	$sql = "SELECT * FROM TCC WHERE idTCC = $idTcc";
     			
-		echo "<br>".$sql."<br>";
+		
 
     	try {
 
@@ -106,7 +106,7 @@ class DAOTCC implements IDAO{
         $connection = $connection->openConnection();
         $sql = "call sp_listarTCC()";
                 
-        echo "<br>".$sql."<br>";
+        
 
         try {
 
@@ -128,7 +128,7 @@ class DAOTCC implements IDAO{
         $connection = $connection->openConnection();
         $sql = "SELECT * FROM Aluno WHERE ".$type." = ".$value;
                 
-        echo "<br>".$sql."<br>";
+        
 
         try {
 
