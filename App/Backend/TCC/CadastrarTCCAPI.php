@@ -16,39 +16,41 @@ require_once dirname(__FILE__).'/../../../Lib/Core/Loader.php';
 
 
 
-//$Titulo = $_POST['nomeTCC'];
+$Titulo = $_POST['TituloTCC'];
 
-//$Resumo = $_POST['nomeTCC'];
+$Resumo = $_POST['ResumoTcc'];
 
-//$Status = $_POST['nomeTCC'];
+$Status = 1;
 
-//$Objetivos = $_POST['nomeTCC'];
+$Objetivos = $_POST['ObjetivosTcc'];
 
-//$Justificativas = $_POST['nomeTCC'];
+$Justificativas = $_POST['justificativasTCC'];
 
-//$TCCTipo = $_POST['nomeTCC'];
+$TCCTipo = 1;
 
-//$LinhaPesquisaFK = $_POST['nomeTCC'];
+$LinhaPesquisaFK = $_POST['idPesquisa'];
 
-$Titulo = "talking";
+$matriculaProfessor = $_POST['MatriculaOrientador'];
 
-$Resumo = "luva foda";
+$matriculaAluno1 = $_POST['MatriculaAluno1'];
 
-$Status = "1";
+$matriculaAluno2 = $_POST['MatriculaAluno2'];
 
-$Objetivos = "fazer uma luva foda";
+$ControlAluno = new mainController();
 
-$Justificativas = "pq eh foda";
+$ControlProf = new mainController();
 
-$TCCTipo = "1";
+$aluno1 = $ControlAluno->listarAlunoPor("matricula", $matriculaAluno1);
 
-$LinhaPesquisaFK = "1";
+$aluno2 = $ControlAluno->listarAlunoPor("matricula", $matriculaAluno2);
 
-$idProfessorFK = "1";
+$prof = $ControlProf->listarProfPor("matricula", $matriculaProfessor);
 
-$idAlunoFK1 = "36";
+$idAlunoFK1 = $aluno1["idAluno"];
 
-$idAlunoFK2 = "37";
+$idAlunoFK2 = $aluno2["idAluno"];
+
+$idProfessorFK = $prof["idProfessor"];
 
 
 
@@ -58,14 +60,9 @@ $TCC = new TCC($Titulo, $Resumo, $Status, $Objetivos, $Justificativas, $TCCTipo,
 $Control = new mainController();
 $TCC = $Control->cadastrarTCC($TCC);
 
-if ($TCC){
-	echo '<script>alert("TCC Criado")</script>';
-}
-else {
-	echo '<script> alert(" TCC Não Criado ") </script>  ';
-}
-	
 
+	
+echo ($TCC);
 
 
 
