@@ -1,0 +1,5 @@
+host = "localhost"
+name = "estartho_bdunp"
+user = "root"
+pass = "qwer!123"
+type = "mysql"
