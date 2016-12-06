@@ -2,7 +2,11 @@
 session_start();
 
 if(!$_SESSION['idAluno']){
-  echo "não entre";
+  
+  header("HTTP/1.1 301 Moved Permanently");
+
+  header("location:  ../../../Public/login.php");
+
 } else {
 
 
@@ -18,7 +22,7 @@ if(!$_SESSION['idAluno']){
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-  <link rel="stylesheet" href="estart/css/style.css">
+  
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="../../../Public/bower_components/AdminLTE/bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
@@ -64,7 +68,7 @@ if(!$_SESSION['idAluno']){
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="../../../Imagens/Start.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Administrador</span>
+              <span class="hidden-xs"><?php echo $_SESSION['nome']; ?></span>
             </a>
 
             <!-- Inicio do dropdown usuario -->
@@ -73,7 +77,7 @@ if(!$_SESSION['idAluno']){
               <li class="user-header">
                 <img src="../../../Imagens/Start.jpg" class="img-circle" alt="User Image">
                 <p>
-                  Administrador
+                  <?php echo $_SESSION['nome']; ?>
                 </p>
               </li><!-- Fim da imagem do usuario -->
 
@@ -119,15 +123,15 @@ if(!$_SESSION['idAluno']){
           </a>
           <ul class="treeview-menu">
             
-            <li><a onclick="carregar('../pages/Acompanhar.php')" href="#"><i class="fa fa-eye"></i>Acompanhar</a></li>
-            <li><a onclick="carregar('../busca/BuscaProf.php')" href="#"><i class="fa fa-search"></i>Buscar</a></li>
+            <li><a href="#" onclick="carregar('../pages/Acompanhar.php')" ><i class="fa fa-eye"></i>Acompanhar</a></li>
+            <li><a href="#" onclick="carregar('../busca/BuscaProf.php')" ><i class="fa fa-search"></i>Buscar</a></li>
             
 
           </ul>
         </li><!--Fim da aba ALUNO-->
 
         <li class="treeview"><!--Inicio da aba PROFESSOR-->
-          <a onclick="carregar('../busca/BuscaProf.php')" href="#">
+          <a href="#" onclick="carregar('../busca/BuscaProf.php')">
             <i class="fa fa-user"></i> <span>PROFESSOR</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -138,7 +142,7 @@ if(!$_SESSION['idAluno']){
 
 
         <li class="treeview"><!--Inicio da aba TCC-->
-          <a onclick="carregar('../busca/BuscaTCC.php')" href="#">
+          <a href="#" onclick="carregar('../cadastro/cadastrotcc.php')">
             <i class="fa fa-graduation-cap"></i> <span>TCC</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -148,7 +152,7 @@ if(!$_SESSION['idAluno']){
         </li><!--Fim da aba TCC-->
 
         <li class="treeview"><!--Inicio da aba Eventos-->
-          <a onclick="carregar('../busca/BuscaEventos.php')" href="#">
+          <a href="#"onclick="carregar('../busca/BuscaEventos.php')">
             <i class="fa fa-calendar"></i> <span>Eventos</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -164,16 +168,16 @@ if(!$_SESSION['idAluno']){
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a onclick="carregar('../cadastro/cadastrodefesatccaluno.php')" href="#"><i class="fa fa-search"></i>Cadastrar Aluno</a></li>
+            <li><a href="#" onclick="carregar('../cadastro/cadastrodefesatccaluno.php')"><i class="fa fa-search"></i>Cadastrar Aluno</a></li>
             
-            <li><a onclick="carregar('../busca/BuscaDefTCC.php')" href="#"><i class="fa fa-search"></i>Buscar</a></li>
+            <li><a href="#" onclick="carregar('../busca/BuscaDefTCC.php')"><i class="fa fa-search"></i>Buscar</a></li>
             
 
           </ul>
         </li><!--Fim da aba Defesa de TCC-->
 
         <li class="treeview"><!--Inicio da aba Relatórios de TCC-->
-          <a onclick="carregar('../busca/BuscaRelatTCC.php')" href="#">
+          <a href="#" onclick="carregar('../busca/BuscaRelatTCC.php')">
             <i class="fa fa-files-o"></i> <span>Relatórios de TCC</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>

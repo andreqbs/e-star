@@ -5,21 +5,70 @@ error_reporting(E_ALL);
 session_start();
 
 
-use App\Models\TCC as TCC;
+use App\Model\TCC as TCC;
 use App\DAO\DAOTCC as DAOTCC;
-require_once dirname(__FILE__).'/../Model/TCC.php';
-require_once dirname(__FILE__).'/../DAO/DAOTCC.php';
+use App\Controllers\mainController as mainController;
 
-//INSERT
-//$meuTCC = new TCC("TalkingHand", "Luva Foda", "1", "Fazer uma luva foda!!", "Pq eh massa!!!", "1", "1");
+require_once dirname(__FILE__).'/../../../Lib/Core/Loader.php';
 
 
 
-$searchfield = $_POST['searchfield'];
-$type = $_POST['type'];
 
-$meuDAOTCC = new DAOTCC();
-$Result =$meuDAOTCC->listBy($type, $searchfield);
+
+
+
+
+
+
+
+
+function is_ajax() 
+	{
+	return isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest';
+	}
+
+if (is_ajax()) 
+	{
+	if (isset($_GET["filter"]) && !empty($_GET["filter"])) 
+		{ 
+			$filter = $_GET["filter"];
+			switch($filter) 
+			{ 
+				case "alltcc": allTCC(); break;
+				case "tccfindby": TCCBy(); break;
+				
+			}
+		}
+	}
+	
+	
+	
+	
+	function allTCC()
+	{
+	
+	$Controller = new mainController();
+	$Result = $Controller->listarTCC();
+
+	echo json_encode($Result);
+	}
+
+	function TCCBy()
+	{
+	$idTCC = 1;
+	$Controller = new mainController();
+	$Result = $Controller->buscarTCC($idTCC);
+
+	echo json_encode($Result);
+	}
+
+	
+           	allTCC();
+           	TCCBy();   
+
+
+
+
 
 
 

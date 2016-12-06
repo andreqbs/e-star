@@ -5,21 +5,21 @@ error_reporting(E_ALL);
 session_start();
 
 
-use App\Models\Aluno as Aluno;
-use App\DAO\DAOAluno as DAOAluno;
+use App\Model\TCC as TCC;
+use App\DAO\DAOTCC as DAOTCC;
 use App\Controllers\mainController as mainController;
 
 require_once dirname(__FILE__).'/../../../Lib/Core/Loader.php';
 
-
-$idAluno $_POST[];
-
+$idTCC = $_POST[];
 
 
+$Controller = new mainController();
+$Result = $Controller->apagarTCC($idTCC);
 
-$Control = new mainController();
-$Result = $Control->find($idAluno);
+echo($Result);
 
 
-echo 
+
+
 

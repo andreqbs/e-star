@@ -1,10 +1,10 @@
 	
 
-	function ajaxPostRedirect(sendString,postURL,redirectURL){
+function ajaxPostRedirect(sendString,postURL,redirectURL){
 
  
     $.ajax({
-        type: "POST",
+                    type: "POST",
                     url: postURL,
                     data: sendString,
                     cache: false,
@@ -19,6 +19,128 @@
 
    
 }
+
+function ajaxPost(sendString,postURL)
+          {
+            var ret = 0;
+            var debug = 0;
+             $.ajax({
+                type: "POST",                                      
+                url: postURL,                  
+                data: sendString,                  
+                dataType: 'json',
+                cache: false,         
+                success: function(data)    
+                {
+                  ret = data;
+                },
+                   error: function(xhr, ajaxOptions, thrownError){ 
+                        if (debug == 1){
+                          alert(xhr.responseText);
+                        }
+                } 
+            });
+
+             return ret;
+          }
+
+function ajaxPostSync(sendString,postURL)
+          {
+            var ret = 0;
+            var debug = 0;
+             $.ajax({
+                type: "POST",                                      
+                url: postURL,                  
+                data: sendString,                  
+                dataType: 'json',
+                cache: false,         
+                success: function(data)    
+                {
+                  ret = data;
+                },
+                   error: function(xhr, ajaxOptions, thrownError){ 
+                        if (debug == 1){
+                          alert(xhr.responseText);
+                        }
+                } 
+            });
+
+             return ret;
+          }
+
+
+function ajaxPostAsync(sendString,postURL)
+          {
+            var ret = 0;
+            var debug = 0;
+             $.ajax({
+                type: "POST",                                      
+                url: postURL,                  
+                data: sendString,                  
+                dataType: 'json',
+                cache: false,         
+                async: false,
+                success: function(data)    
+                {
+                  ret = data;
+                },
+                   error: function(xhr, ajaxOptions, thrownError){ 
+                        if (debug == 1){
+                          alert(xhr.responseText);
+                        }
+                } 
+            });
+
+             return ret;
+          }
+
+function ajaxPostWithResponse(sendString,postURL,confirm,notConfirm,debug)
+          {
+             $.ajax({
+                type: "POST",                                      
+                url: postURL,                  
+                data: sendString,                  
+                dataType: 'json',
+                cache: false,         
+                success: function(data)    
+                {
+                  if(data == true)
+                  {
+                    alert(confirm);
+                  } 
+                },
+                   error: function(xhr, ajaxOptions, thrownError){ 
+                        if (debug == 1){
+                          alert(xhr.responseText);
+                        } else {
+                          alert(notConfirm);
+                        }
+                } 
+            });
+
+             
+          }
+
+
+
+function RequestWithResponse(sendString,postURL,confirm,notConfirm)
+{
+
+  var add = ajaxPostAsync(sendString,postURL);
+
+      if(add == 1)
+      {
+
+        alert(confirm);
+
+      } else {
+
+        alert(notConfirm);
+
+      }
+
+}
+
 
 function makeComboBox(select,url,filter,optionvalue,option)
           {

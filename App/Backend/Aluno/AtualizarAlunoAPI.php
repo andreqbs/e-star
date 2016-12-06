@@ -2,8 +2,6 @@
 ini_set('display_errors', 'On');
 error_reporting(E_ALL);
 
-session_start();
-
 
 use App\Model\Aluno as Aluno;
 use App\DAO\DAOAluno as DAOAluno;
@@ -11,27 +9,28 @@ use App\Controllers\mainController as mainController;
 
 require_once dirname(__FILE__).'/../../../Lib/Core/Loader.php';
 
+$idAluno = $_POST[];
 
-// $NomeAluno;
+$NomeAluno = $_POST[];
 
-// $MatriculaAluno;
+$MatriculaAluno = $_POST[];
 
-// $EmailAluno;
+$EmailAluno = $_POST[];
 
-// $LoginAluno;
+$LoginAluno = $_POST[];
 
-// $SenhaAluno;
+$SenhaAluno = $_POST[];
 
-// $SenhaAlunoConfirmacao;
+$SenhaAlunoConfirmacao = $_POST[];
 
-// $idCursoFK;
+$idCursoFK = $_POST[];
 
 
-//$Aluno = new Aluno($NomeAluno, $MatriculaAluno, $EmailAluno, $LoginAluno, $SenhaAluno;, $idCursoFK);
-$Aluno = new Aluno("tu", "54321", "noia@tu.com", "me", "123", "2");
+$Aluno = new Aluno($NomeAluno, $MatriculaAluno, $EmailAluno, $LoginAluno, $SenhaAluno;, $idCursoFK);
+
 
 $Controller = new mainController();
-$Result = $Controller->alterarAluno($Aluno, 13);
+$Result = $Controller->alterarAluno($Aluno, $idAluno);
 
 //echo($Result);
 
