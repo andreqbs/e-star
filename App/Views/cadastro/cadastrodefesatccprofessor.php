@@ -39,65 +39,55 @@
             <!-- form start -->
             
               <div class="box-body">
-              <div class="row">
-                <div class="col-md-12"> <!-- Linha principal -->
 
-                <div class="form-group">  
-                      <div class="col-md-12 col-md-offset-2">
-                        <label class="col-md-1 control-label">Título:</label>
-                        <div class="col-md-7">
-                          <input id="TituloTcc" type="text" class="form-control" placeholder="Título do TCC" disabled="">
+                <div class="row">  
+                        <div class="col-md-6">
+                        <label class="control-label">Título:</label>
+                        <input id="TituloTcc" type="text" class="form-control" placeholder="Título do TCC" disabled="">
                         </div>
-                      </div>
+                      
                 </div>
 
-                <div class="form-group">               
-                      <div class="col-md-12 col-md-offset-2">                
-                        <label class="col-md-1 control-label">Aluno(a):</label>
-                        <div class="col-md-7">
-                          <input id="NomeAluno1" type="text" class="form-control" placeholder="Nome do Aluno(a)" disabled="">
+                <div class="row">               
+                        <div class="col-md-6">             
+                        <label class="control-label">Aluno(a):</label>
+                        <input id="NomeAluno1" type="text" class="form-control" placeholder="Nome do Aluno(a)" disabled="">
                         </div>
-                      </div>
+                      
                 </div>
 
-                <div class="form-group">               
-                      <div class="col-md-12 col-md-offset-2">
-                        <label class="col-md-1 control-label">Aluno(a):</label>
-                        <div class="col-md-7">
-                          <input id="NomeAluno2" type="text" class="form-control" placeholder="Nome do Aluno(a)" disabled="">
+                <div class="row">               
+                        <div class="col-md-6">
+                        <label class="control-label">Aluno(a):</label>
+                        <input id="NomeAluno2" type="text" class="form-control" placeholder="Nome do Aluno(a)" disabled="">
                         </div>
-                      </div>
+                      
                 </div>      
 
-                <div class="form-group">              
-                      <div class="col-md-12 col-md-offset-2">
-                        <label class="col-md-1 control-label">Orientador:</label>
-                        <div class="col-md-7">
-                          <input id="NomeOrientador" type="text" class="form-control" placeholder="Nome do orientador" disabled="">
+                <div class="row">              
+                        <div class="col-md-6">
+                        <label class="control-label">Orientador:</label>
+                        <input id="NomeOrientador" type="text" class="form-control" placeholder="Nome do orientador" disabled="">
                         </div>
-                      </div>
-                </div>
-
-                <div class="form-group" id=divProfessor> 
-                          
-                      <div class="col-md-12 col-md-offset-2">
-                        <label class="col-md-1 control-label">Professor:</label>
-                        <div class="col-md-7">
-                          <input id="NomeProfessor1" type="text" class="form-control" placeholder="Professor avaliador">
+                      
+                </div>                     
+                  
+                <div class="row">                   
+                        <div class="col-md-2">
+                        <label class="control-label">Data:</label>
+                        <input type="text" id="data" class="form-control" placeholder="dd/mm/aaaa">
                         </div>
-                      </div>
+                        <div class="col-md-2">
+                        <label class="control-label">Horário:</label>
+                        <input type="text" id="hora" class="form-control" placeholder="--:--">
+                        </div>
+                        <div class="col-md-2">
+                        <label class="control-label">Sala:</label>
+                        <input type="text" id="NomeSala" class="form-control" placeholder="Reserva de sala">
+                        </div>
                       
                 </div>
-                <div class="form-group">
-                  <div id="origem">
-                           <i onclick="duplicarCampos();" class="fa fa-plus" ></i>  
-                           <i onclick="removerCampos(this);" class="fa fa-minus" ></i> 
-                        </div>
-                        <div id="destino">
-                        </div>
-                </div>
-                      
-                  <script>
+                <script>
                    function duplicarCampos(){
                     var clone = document.getElementById('divProfessor').cloneNode(true);
                     var destino = document.getElementById('destino');
@@ -112,25 +102,22 @@
                     node1.removeChild(node1.childNodes[0]);
                   }
                   </script>
-                <div class="form-group">                   
-                      <div class="col-md-12 col-md-offset-2">
-                        <label class="col-md-1 control-label">Data:</label>
-                        <div class="col-md-2">
-                        <input type="text" id="data" class="form-control" placeholder="dd/mm/aaaa">
+                <div class="row" id=divProfessor> 
+                          
+                        <div class="col-md-6">
+                        <label class="control-label">Professor:</label>
+                        <input id="NomeProfessor1" type="text" class="form-control" placeholder="Professor avaliador">
                         </div>
-                        <label class="col-md-1 control-label">Horário:</label>
-                        <div class="col-md-1">
-                        <input type="text" id="hora" class="form-control" placeholder="--:--">
-                        </div>
-                        <label class="col-md-1 control-label">Sala:</label>
-                        <div class="col-md-2">
-                        <input type="text" id="NomeSala" class="form-control" placeholder="Reserva de sala">
-                        </div>
-                      </div>
-                </div> 
+                </div>
+                <div id="destino"></div>
+                <div class="row">        
+                        <div class="col-md-offset-6" style="">
+                          <a class="btn btn-default" onclick="duplicarCampos();"><i class="fa fa-plus"></i></a>
+                          <a id="botaoremover" class="btn btn-default" onclick="removerCampos(this);"><i class="fa fa-minus"></i></a>
+                        </div>  
+                </div>  
 
-                   </div> <!--Fim colunas linha principal -->
-                  </div> <!-- Fim linha principal -->       
+                  
                 </div> <!-- Box body -->
               
              </div> <!-- Box pessoais -->  
