@@ -52,17 +52,17 @@ function apagarTCC($idTcc)
 }
 
 //FindTCC
-function buscarTCC($Tcc,$idTcc)
+function buscarTCC($idTcc)
 {
 	$DAOTCC = new DAOTCC();
-	return $DAOTCC->find($Tcc, $idTcc);
+	return $DAOTCC->find($idTcc);
 }
 
 //ListTCC
-function listarTCC($Tcc,$idTcc)
+function listarTCC()
 {
 	$DAOTCC = new DAOTCC();
-	return $DAOTCC->list($Tcc, $idTcc);
+	return $DAOTCC->list();
 }
 
 //ListTCC
@@ -357,8 +357,14 @@ function loginAluno($login,$senha)
 //ListAluno
 function listarAluno($Aluno,$idAluno)
 {
-	$DAOAluno = new DAOTCC();
+	$DAOAluno = new DAOAluno();
 	return $DAOAluno->list($Aluno, $idAluno);
+}
+
+function listarAlunoPor($Type,$Value)
+{
+	$DAOAluno = new DAOAluno();
+	return $DAOAluno->listBy($Type, $Value);
 }
 
 //CreateAtividade
@@ -583,6 +589,11 @@ function loginProfessor($login,$senha)
 	return $DAOProfessor->findBy($login, $senha);
 }
 
+function listarProfPor($Type,$Value)
+{
+	$DAOProfessor = new DAOProfessor();
+	return $DAOProfessor->listBy($Type, $Value);
+}
 
 //CreateDefesa
 function cadastrarDefesa($Defesa)
